@@ -89,7 +89,7 @@ if($page=='step1' || $page=='step2' || $page=='inspiringgroup'){}
 elseif($page=='booking'  )
 {
 }
-elseif($page=='home' || $page=='blog')
+elseif($page=='home' || $page=='blog' || $page=='blog_cate')
 {
 	include "pages/header-new-design.php";
 	//echo '1111';
@@ -148,6 +148,9 @@ switch($page)
 	case"block_single":include "pages/page_blog_single.php";break;
 	
 	case"inspiringgroup":include "inspiringgroup/index.php";break;
+	//------------ Add New New Design ------
+	case"blog_cate":include "pages/page_blog_category.php";break;
+	//------------ Add New New Design ------
 }
 
     if($page!='thanks' && $page!='yacht_thanks')

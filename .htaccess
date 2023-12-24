@@ -99,6 +99,10 @@ RewriteRule ^(villa-promotions)(.*)$ /index.php?page=villa-promotions
 RewriteRule ^(yacht)(.*)$ /index.php?page=yacht
 RewriteRule ^(inspiringgroup)(.*)$ /index.php?page=inspiringgroup
 
+#-------- Add New New Design ------
+RewriteRule ^lifestyle-category-([^-]*)\.html$ /?page=blog_cate&cate=$1 [L]
+#-------- Add New New Design ------
+
 
 #RewriteRule ^(thanks)(.*)$ /index.php?page=thanks
 
