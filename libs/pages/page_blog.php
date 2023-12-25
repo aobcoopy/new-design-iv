@@ -14,11 +14,12 @@ pristine luxury A private beach villa is the true definition</div>
         <div class="col-12 nopad">
         	
             
-            
+            <?php /*?><pre><?php print_r($ar_lf_hlotm);?></pre><?php */?>
             
             <div class="lf_carousel owl-carousel owl-theme">
             <?php
 			$c=0;
+			
 			foreach($ar_lf_hlotm as $hl_of_tm)
 			{
 				echo '<div class="item hlotm_sl_box" data-hash="'.$c.'">';
@@ -28,7 +29,7 @@ pristine luxury A private beach villa is the true definition</div>
 							echo '<div class="hlotm_tt">'.$hl_of_tm['name'].'</div>';
 							echo '<div class="hlotm_author_box">';
 								echo '<div class="hlotm_author">'.$hl_of_tm['author'].'</div>';
-								echo '<div class="hlotm_cate"><a href="/blog" class="ls_sltopbut">Lifestyle</a><a href="#" class="ls_sltopbut">'.$lf_slide['category'].'</a></div>';
+								echo '<div class="hlotm_cate"><a href="/blog" class="ls_sltopbut">Lifestyle</a><a  href="lifestyle-category-'.$hl_of_tm['slug'].'.html" target="_blank" class="ls_sltopbut">'.$hl_of_tm['category'].'</a></div>';
 							echo '</div>';
 							echo '<div class="hlotm_des">'.$hl_of_tm['brief'].'</div>';
 							echo '<div class="hlotm_share">';
@@ -204,7 +205,7 @@ while($line = $dbc->Fetch($cate))
     
 <div class="container-fluid <?php echo $lf_cate_box.' '.$bg;?>">
 	<div class="row justify-content-center">
-    	<div class="col-12 col-lg-10">
+    	<div class="col-12 col-lg-12 col-xl-11 col-xxl-10">
         	<!---------------------------------------------  WEB ------------------------------------------------------------------->
         	<div class="ls_category web992">
             	<div class="row">
@@ -214,7 +215,7 @@ while($line = $dbc->Fetch($cate))
 						{
 							?>
 							<!--content------------------------------------------------>
-							<div class="col-6">
+							<div class="col-6 col-lg-5 col-xxl-6">
 								<?php
 								foreach($ar_blog_1 as $blog_1)
 								{
@@ -238,7 +239,7 @@ while($line = $dbc->Fetch($cate))
 								}
 								?>
 							</div>
-							<div class="col-6">
+							<div class="col-6 col-lg-7 col-xxl-6">
 								<div class="row justify-content-center">
 									<div class="col-11">
 								
@@ -255,7 +256,7 @@ while($line = $dbc->Fetch($cate))
 													if($q<4)
 													{
 												?>
-												<div class="col-6 ">
+												<div class="col-6 <?php echo ($q>=2)?'d-none d-xxl-block':'';?>">
 													<div class="lsarti_ins_box">
 														<img data-src="<?php echo imagePath($b_all['photo_mail']);?>" width="100%" class="ls_arti_photo lazy" alt="">
 														<div class="lsarti_tt"><?php echo $b_all['name'];?></div>
@@ -278,7 +279,7 @@ while($line = $dbc->Fetch($cate))
 												
 											</div><!--row-->
 											
-											<button class="rma">read more all</button>
+											<a href="lifestyle-category-<?php echo $line['slug'];?>.html"><button class="rma">read more all</button></a>
 									</div><!--col-11-->
 								</div><!--row-->
 							</div><!--col-6-->
@@ -309,7 +310,7 @@ while($line = $dbc->Fetch($cate))
 													if($w<4)
 													{
 												?>
-												<div class="col-6 ">
+												<div class="col-6 <?php echo ($w==2)?'d-none d-xl-block':'';?>">
 													<div class="lsarti_ins_box">
 														<img data-src="<?php echo imagePath($b_all['photo_mail']);?>" width="100%" class="ls_arti_photo lazy" alt="">
 														<div class="lsarti_tt"><?php echo $b_all['name'];?></div>
@@ -332,7 +333,7 @@ while($line = $dbc->Fetch($cate))
 												
 											</div><!--row-->
 											
-											<button class="rma">read more all</button>
+											<a href="lifestyle-category-<?php echo $line['slug'];?>.html"><button class="rma">read more all</button></a>
 									</div><!--col-11-->
 								</div><!--row-->
 							</div><!--col-6-->

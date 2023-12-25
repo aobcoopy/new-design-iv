@@ -19,10 +19,11 @@ if(isset($_REQUEST['cate']) && $_REQUEST['cate']!='')
 		$photo_hl_1 = '/'.json_decode($row['photo_hl_1'],true);
 		array_push($ar_photo,imagePath($photo));
 		array_push($ar_tt,$row['brief']);
+		$urll = "/blog/" . strtolower(str_replace(" ", "-", $row['name']) ) . ".html";
 		
-		$data_cate = $dbc->GetRecord("blog_category","*","id = '".$row['category']."'");
 		if($row['heightlight']==1)
 		{
+			$data_cate = $dbc->GetRecord("blog_category","*","id = '".$row['category']."'");
 			$ar_lf[] = array(
 				'photo' => $photo,
 				'name' => string_len($row['name'],30),
@@ -31,11 +32,13 @@ if(isset($_REQUEST['cate']) && $_REQUEST['cate']!='')
 				'snippet_2' =>  string_len(base64_decode($row['snippet_2'],true),50),
 				'author' => dateType($row['day']).' | by '.$row['byname'],
 				'category' => $data_cate['name'],
-				'slug' => $data_cate['slug']
+				'slug' => $data_cate['slug'],
+				'link_post' => $urll
 			);
 		}
 		if($row['hl_of_tm']==1)
 		{
+			$data_cate = $dbc->GetRecord("blog_category","*","id = '".$row['category']."'");
 			$ar_lf_hlotm[] = array(
 				'photo' => $photo_hl_1,
 				'name' => $row['name'],
@@ -44,7 +47,8 @@ if(isset($_REQUEST['cate']) && $_REQUEST['cate']!='')
 				'snippet_2' =>  string_len(base64_decode($row['snippet_2'],true),50),
 				'author' => dateType($row['day']).' | by '.$row['byname'],
 				'category' => $data_cate['name'],
-				'slug' => $data_cate['slug']
+				'slug' => $data_cate['slug'],
+				'link_post' => $urll
 			);
 		}
 		$a++;
@@ -80,7 +84,7 @@ if(isset($_REQUEST['cate']) && $_REQUEST['cate']!='')
 							echo '<div  class="box_caro_text_2">'.$lf_slide['name'].'</div>';
 							echo '<div  class="box_caro_text_3">'.$lf_slide['snippet_2'].'</div>';
 							echo '<div  class="box_caro_text_4">'.$lf_slide['brief'].'</div>';
-							echo '<a href="#"><button class="box_caro_rmbut">read more </button></a>';
+							echo '<a href="'.$lf_slide['link_post'].'"><button class="box_caro_rmbut">read more </button></a>';
 							echo '<div  class="box_caro_text_author">'.$lf_slide['author'].'</div>';
 							echo '<div  class="box_caro_text_cate"><a href="/blog" class="ls_sltopbut">Lifestyle</a><a href="lifestyle-category-'.$lf_slide['slug'].'.html" target="_blank" class="ls_sltopbut">'.$lf_slide['category'].'</a></div>';
 							echo '<div  class="box_caro_share">';

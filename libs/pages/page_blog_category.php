@@ -6,8 +6,7 @@
 	<div class="row justify-content-center">
     	<div class="col-9 col-md-7">
         	<div class="hl_tt text-center"><?php echo $d_cate['name'];?> experiences</div>
-            <div class="hl_des text-center">A private beach villa is the true definition of an island escape done right. Our collection of Koh Samui villas offers
-pristine luxury A private beach villa is the true definition</div>
+            <div class="hl_des text-center"><?php echo base64_decode($d_cate['detail'],true);?></div>
         </div>
     </div>
 <br><br><br>

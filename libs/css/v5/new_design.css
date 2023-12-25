@@ -424,6 +424,8 @@ label.optin, span.optin {
  margin-top:-9px;
  padding-top:150px;
  padding-bottom:150px;
+
+
  border-bottom-right-radius: 250px;
 }
 
@@ -1834,5 +1836,19 @@ select.ip2 {
 	left: 50%;
 	transform: translateX(-50%);
 	padding: 0px 50px;
+}
+.lf_cate_box_2
+{
+ margin-top:200px;
+}
+.ch_name
+{
+ font-family:ny !important;
+ text-transform:uppercase;
+ text-align:center;
+ font-size:30px;
+ line-height:1.5;
+ margin-top:40px;
+ letter-spacing:5px;
 }
 /************************** lift style ****************************/
