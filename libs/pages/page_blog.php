@@ -22,11 +22,15 @@ pristine luxury A private beach villa is the true definition</div>
 			
 			foreach($ar_lf_hlotm as $hl_of_tm)
 			{
+				
 				echo '<div class="item hlotm_sl_box" data-hash="'.$c.'">';
+					echo '<a href="'.$hl_of_tm['link_post'].'">';
 					echo '<img data-src="'.imagePath($hl_of_tm['photo']).'" class=" lazy" alt="">';
+					echo '</a>';
+					
 					echo '<div class="lf_hlotm_box">';
 						echo '<div class="lf_hlotm_box_2">';
-							echo '<div class="hlotm_tt">'.$hl_of_tm['name'].'</div>';
+							echo '<div class="hlotm_tt"><a href="'.$hl_of_tm['link_post'].'" class="tblue">'.$hl_of_tm['name'].'</a></div>';
 							echo '<div class="hlotm_author_box">';
 								echo '<div class="hlotm_author">'.$hl_of_tm['author'].'</div>';
 								echo '<div class="hlotm_cate"><a href="/blog" class="ls_sltopbut">Lifestyle</a><a  href="lifestyle-category-'.$hl_of_tm['slug'].'.html" target="_blank" class="ls_sltopbut">'.$hl_of_tm['category'].'</a></div>';
@@ -37,10 +41,12 @@ pristine luxury A private beach villa is the true definition</div>
 								echo '<a href="" class="hlotm_ico_share"><img src="../../upload/new_design/lifestyle/img-arc-twister-small.png" width="40" alt=""></a>';
 								echo '<a href="" class="hlotm_ico_share"><img src="../../upload/new_design/lifestyle/img-arc-ig-small.png" width="40" alt=""></a>';
 							echo '</div>';
-							echo '<div class="hlotm_readmore">READ MORE...</div>';
+							echo '<div class="hlotm_readmore"><a href="'.$hl_of_tm['link_post'].'" class="tblue">READ MORE...</a></div>';
 						echo '</div>';
 					echo '</div>';
+				
 				echo '</div>';
+				
 				$c++;
 			}
 			?>
@@ -221,9 +227,11 @@ while($line = $dbc->Fetch($cate))
 								{
 								?>
 								<div class="lsarti_l_box">
-									<img data-src="<?php echo imagePath($blog_1['img_photo_high']);?>" width="100%" class="ls_left_box lazy" alt="">
+									<a href="<?php echo $blog_1['link'];?>" target="_blank" class="tblue">
+                                    <img data-src="<?php echo imagePath($blog_1['img_photo_high']);?>" width="100%" class="ls_left_box lazy" alt="">
+                                    </a>
 									<div class="lsarti_left_box">
-										<div class="ls_l_box_tt"><?php echo $blog_1['name'];?></div>
+										<div class="ls_l_box_tt"><a href="<?php echo $blog_1['link'];?>" target="_blank" class="tw"><?php echo $blog_1['name'];?></a></div>
 										<div class="ls_l_box_author"><?php echo $blog_1['author'];?></div>
 										<div class="ls_l_box_cate"><a href="/blog" class="ls_sltopbut">Lifestyle</a><a href="#" class="ls_sltopbut"><?php echo $blog_1['cate_name'];?></a></div>
 										<div class="ls_l_box_des"><?php echo $blog_1['des'];?></div>
@@ -232,7 +240,7 @@ while($line = $dbc->Fetch($cate))
 											<a href="" class="lsarti_icon xx"><img src="../../upload/new_design/lifestyle/img-arc-twister-small2.png" alt=""></a>
 											<a href="" class="lsarti_icon"><img src="../../upload/new_design/lifestyle/img-arc-ig-small.png" alt=""></a>
 										</div>
-										<a href="<?php echo $blog_1['link'];?>" target="_blank" ><div class="ls_l_box_readmore" style="color:#fff">read more...</div></a>
+										<a href="<?php echo $blog_1['link'];?>" target="_blank" class="tblue"><div class="ls_l_box_readmore" style="color:#fff">read more...</div></a>
 									</div>
 								</div>
 								<?php 
@@ -258,8 +266,10 @@ while($line = $dbc->Fetch($cate))
 												?>
 												<div class="col-6 <?php echo ($q>=2)?'d-none d-xxl-block':'';?>">
 													<div class="lsarti_ins_box">
-														<img data-src="<?php echo imagePath($b_all['photo_mail']);?>" width="100%" class="ls_arti_photo lazy" alt="">
-														<div class="lsarti_tt"><?php echo $b_all['name'];?></div>
+														<a href="<?php echo $b_all['link'];?>" target="_blank" class="tblue">
+                                                        <img data-src="<?php echo imagePath($b_all['photo_mail']);?>" width="100%" class="ls_arti_photo lazy" alt="">
+                                                        </a>
+														<div class="lsarti_tt"><a href="<?php echo $b_all['link'];?>" target="_blank" class="tblue"><?php echo $b_all['name'];?></a></div>
 														<div class="lsarti_author"><?php echo $b_all['author'];?></div>
 														<div class="lsarti_cate"><a href="/blog" class="ls_sltopbut">Lifestyle</a><a href="#" class="ls_sltopbut"><?php echo $b_all['cate_name'];?></a></div>
 														<div class="lsarti_des"><?php echo $b_all['des'];?></div>
@@ -312,8 +322,10 @@ while($line = $dbc->Fetch($cate))
 												?>
 												<div class="col-6 <?php echo ($w==2)?'d-none d-xl-block':'';?>">
 													<div class="lsarti_ins_box">
-														<img data-src="<?php echo imagePath($b_all['photo_mail']);?>" width="100%" class="ls_arti_photo lazy" alt="">
-														<div class="lsarti_tt"><?php echo $b_all['name'];?></div>
+														<a href="<?php echo $b_all['link'];?>" target="_blank" class="tblue">
+                                                        <img data-src="<?php echo imagePath($b_all['photo_mail']);?>" width="100%" class="ls_arti_photo lazy" alt="">
+                                                        </a>
+														<div class="lsarti_tt"><a href="<?php echo $b_all['link'];?>" target="_blank" class="tblue"><?php echo $b_all['name'];?></a></div>
 														<div class="lsarti_author"><?php echo $b_all['author'];?></div>
 														<div class="lsarti_cate"><a href="/blog" class="ls_sltopbut">Lifestyle</a><a href="#" class="ls_sltopbut"><?php echo $b_all['cate_name'];?></a></div>
 														<div class="lsarti_des"><?php echo $b_all['des'];?></div>
@@ -343,9 +355,11 @@ while($line = $dbc->Fetch($cate))
 								{
 								?>
 								<div class="lsarti_l_box">
-									<img data-src="<?php echo imagePath($blog_1['img_photo_high']);?>" width="100%" class="ls_left_box lazy" alt="">
+									<a href="<?php echo $blog_1['link'];?>" target="_blank" class="tblue">
+                                    <img data-src="<?php echo imagePath($blog_1['img_photo_high']);?>" width="100%" class="ls_left_box lazy" alt="">
+                                    </a>
 									<div class="lsarti_left_box">
-										<div class="ls_l_box_tt"><?php echo $blog_1['name'];?></div>
+										<div class="ls_l_box_tt"><a href="<?php echo $blog_1['link'];?>" target="_blank" class="tw"><?php echo $blog_1['name'];?></a></div>
 										<div class="ls_l_box_author"><?php echo $blog_1['author'];?></div>
 										<div class="ls_l_box_cate"><a href="/blog" class="ls_sltopbut">Lifestyle</a><a href="#" class="ls_sltopbut"><?php echo $blog_1['cate_name'];?></a></div>
 										<div class="ls_l_box_des"><?php echo $blog_1['des'];?></div>

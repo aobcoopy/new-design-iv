@@ -756,6 +756,7 @@
 
 
 
+
 	    font-size: 14px;
 	    line-height: 1.2;
 	    max-height: 160px;
@@ -1494,6 +1495,7 @@
     {
         margin-right: 0px;
         font-size:13px;
+
         letter-spacing:0px;
         /* margin-left: 0px; */
         padding-left: 0px;
@@ -2588,6 +2590,10 @@
 
 @media screen and (max-width:992px)
 {
+	.blog-title-area h1 
+	{
+	    font-size: 34px !important;
+	}
 	.ch_name
 	{
 		font-size:14px;

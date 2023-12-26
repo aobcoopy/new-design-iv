@@ -706,6 +706,7 @@ div.tab button:hover {
     font-family: Comic Sans MS;
     font-size: 140px;
 
+
     padding: 0 0 1.7rem;
     margin: 0;
     line-height: 1;
@@ -764,6 +765,7 @@ div.tab button:hover {
     float: none;
     font-size: 12px;
     display: inline-block;
+    font-weight: bold;
 }
 
 .page-link {
@@ -927,6 +929,7 @@ div.tab button:hover {
     padding: 0;
     color: #a3a5a8;
     margin: 0;
+    border-bottom: 0px;
 }
 
 .blog-title-area.text-center .breadcrumb {
@@ -944,7 +947,7 @@ div.tab button:hover {
 .blog-title-area .breadcrumb-item + .breadcrumb-item::before,
 .blog-title-area .blog-meta small,
 .blog-title-area a {
-    color: #a3a5a8;
+    color: #183251;
 }
 
 .blog-title-area span {
@@ -958,6 +961,13 @@ div.tab button:hover {
     border-radius: 3px;
 }
 
+.blog-title-area h1 {
+    font-size: 41px;
+    line-height: 50px;
+    margin-bottom: 7px;
+    margin-top: 0;
+    overflow-wrap: break-word;
+}
 .blog-title-area h3 {
     font-size: 41px;
     line-height: 50px;
@@ -1129,7 +1139,7 @@ div.tab button:hover {
 }
 
 .blog-meta small:after {
-    content: "/";
+    content: "|";
     padding-left: 1rem;
 }
 

@@ -7,6 +7,14 @@ src: url('../../fonts/new_fonts/NewYork.otf');
 font-family: "sr";
 src: url('../../fonts/new_fonts/seravek-light.ttf');
 }
+.tblue
+{
+	color:#183251;
+}
+.tw
+{
+	color:#fff !important;
+}
 
 .in_box_search
 {
@@ -1759,7 +1767,7 @@ select.ip2 {
 }
 .ls_l_box_readmore  
 {
- color:#000 ;
+ color: #183251;
 }
 .xx
 {
@@ -1850,5 +1858,22 @@ select.ip2 {
  line-height:1.5;
  margin-top:40px;
  letter-spacing:5px;
+}
+.breadcrumb>li+li:before 
+{
+    padding: 0 5px;
+    color: #183251 !important;
+    content: ">\00a0" !important;
+    font-weight: bold;
+}
+.ls_recent
+{
+ background:#183251;
+ padding:10px 5px 8px 10px;
+ color:#fff;
+ text-transform:uppercase;
+ font-size:18px;
+ font-weight:bold;
+ margin-bottom:20px;
 }
 /************************** lift style ****************************/

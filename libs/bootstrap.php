@@ -89,7 +89,7 @@ if($page=='step1' || $page=='step2' || $page=='inspiringgroup'){}
 elseif($page=='booking'  )
 {
 }
-elseif($page=='home' || $page=='blog' || $page=='blog_cate')
+elseif($page=='home' || $page=='blog' || $page=='blog_cate'|| $page=='blogdetail')
 {
 	include "pages/header-new-design.php";
 	//echo '1111';

@@ -38,22 +38,23 @@
 ## ENABLE GZIP COMPRESSION ##
 
 <IfModule mod_expires.c>
-  ExpiresActive On
-  ExpiresDefault "access plus 7 days"
-  ExpiresByType image/x-icon "access plus 7 days"
-  ExpiresByType image/jpeg "access plus 7 days"
-  ExpiresByType image/jpg "access plus 7 days"
-  ExpiresByType image/png "access plus 7 days"
-  ExpiresByType image/gif "access plus 7 days"
-  ExpiresByType application/x-shockwave-flash "access plus 7 days"
-  ExpiresByType text/css "access plus 7 days"
-  ExpiresByType text/javascript "access plus 7 days "
-  ExpiresByType text/x-javascript "access plus 7 days "
-  ExpiresByType application/x-javascript "access plus 7 days"
-  ExpiresByType application/xhtml+xml "access plus 7 days"
+  ExpiresActive Off
+  ExpiresDefault "access plus 0 days"
+  ExpiresByType image/x-icon "access plus 0 days"
+  ExpiresByType image/jpeg "access plus 0 days"
+  ExpiresByType image/jpg "access plus 0 days"
+  ExpiresByType image/png "access plus 0 days"
+  ExpiresByType image/gif "access plus 0 days"
+  ExpiresByType application/x-shockwave-flash "access plus 0 days"
+  ExpiresByType text/css "access plus 0 days"
+  ExpiresByType text/javascript "access plus 0 days "
+  ExpiresByType text/x-javascript "access plus 0 days "
+  ExpiresByType application/x-javascript "access plus 0 days"
+  ExpiresByType application/xhtml+xml "access plus 0 days"
   
   #WEEK
-  Header set Cache-Control "max-age=7776000"
+  #Header set Cache-Control "max-age=7776000"
+  Header set Cache-Control "max-age=0000000"
 
   Header append Cache-Control "public"
 </IfModule>
@@ -74,8 +75,8 @@ ErrorDocument 403 https://www.inspiringvillas.com
 ErrorDocument 404 /libs/pages/404.php
 #ErrorDocument 410 /libs/pages/410.php
 
-#RewriteCond %{HTTP_HOST} ^[^.]+\.[^.]+$
-#RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [L,R=301]
+RewriteCond %{HTTP_HOST} ^[^.]+\.[^.]+$
+RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [L,R=301]
 
 #RewriteCond %{HTTPS} off
 #RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
@@ -86,7 +87,7 @@ RewriteRule ^(home)(.*)$ /index.php?page=home
 
 RewriteRule ^(our-service)(.*)$ /index.php?page=service
 RewriteRule ^(for-rent)(.*)$ /index.php?page=forrent
-#RewriteRule ^blog(.*)$ /index.php?page=blog
+#RewriteRule ^blog(.*)$ /index.php?page=blog 
 RewriteRule ^blog$ /index.php?page=blog [L]
 RewriteRule ^(faq)(.*)$ /index.php?page=faq
 RewriteRule ^(contact)(.*)$ /index.php?page=contact
@@ -121,9 +122,9 @@ RewriteRule ^testpage2\.html$ /index.php?page=testpage2 [L]
 RewriteRule ^testpage3\.html$ /index.php?page=testpage3 [L]
 
 #RewriteRule ^Lifestyle-([^-]*)\.html$ /?page=blogdetail&id=$1 [L]
-RewriteRule ^Lifestyle-6\.html$ /blog/a-quick-guide-to-thai-islands.html [L,R=301]
-RewriteRule ^Lifestyle-4\.html$ /blog/phuket-vegetarian-festival.html [L,R=301]
-RewriteRule ^Lifestyle-7\.html$ /blog/the-10-best-phuket-luxury-villas.html [L,R=301]
+#RewriteRule ^Lifestyle-6\.html$ /blog/a-quick-guide-to-thai-islands.html [L,R=301]
+#RewriteRule ^Lifestyle-4\.html$ /blog/phuket-vegetarian-festival.html [L,R=301]
+#RewriteRule ^Lifestyle-7\.html$ /blog/the-10-best-phuket-luxury-villas.html [L,R=301]
 
 RewriteRule ^vill\.html$ /?page=villas [L]
 RewriteRule ^villaform-([^-]*)\.html$ /?page=villaform&id=$1 [L]
@@ -164,7 +165,7 @@ RewriteRule ^search-forrent$ / [L,R=301]
 RewriteRule ^(collections)(.*)$ / [L,R=301]
 RewriteRule ^(villa-collections)(.*)$ /index.php [L]
 
-RewriteRule ^/blog/top-10-phuket-luxury-villas\.html$ /blog/the-10-best-phuket-luxury-villas.html [L,R=301]
+#RewriteRule ^/blog/top-10-phuket-luxury-villas\.html$ /blog/the-10-best-phuket-luxury-villas.html [L,R=301]
 
 RewriteRule ^(.*)\.html$ /index.php [L]
 
@@ -181,7 +182,7 @@ Redirect 301 /upload/map/ok/ https://www.inspiringvillas.com/
 Redirect 301 /upload/email/ https://www.inspiringvillas.com/
 Redirect 301 /upload/bedroom_photo/ https://www.inspiringvillas.com/
 Redirect 301 /upload/property/mobile/ https://www.inspiringvillas.com/
-Redirect 301 /upload/ckeditor/ https://www.inspiringvillas.com/
+#Redirect 301 /upload/ckeditor/ https://www.inspiringvillas.com/
 
 
 
