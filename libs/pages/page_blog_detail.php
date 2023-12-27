@@ -49,14 +49,24 @@ $blod_dt = 1;?>
                                 <small>by <?php echo $blogs['byname'];?></small>
                                 <!--<small><a href="#" title=""><i class="fa fa-eye"></i> 2344</a></small>-->
                             </div><!-- end meta -->
+                            
+                            <div class="share_box top20">
+                            	<button class="s_share face_b" onClick="onShare('<?php echo 'https://www.inspiringvillas.com'.$_SERVER['REQUEST_URI'];?>','<?php echo $blogs['name'];?>','<?php echo string_len_2b($brie,300);?>','<?php echo imagePath($photo_share);?>');"><img src="../../upload/new_design/lifestyle/img-arc-facebook.png" alt=""> Share on Facebook</button>
+                                <button class="s_share x" onclick="popUp=window.open('https://twitter.com/share?text=<?php echo string_len_2b($blogs['name'],100).'-'.string_len_2b(base64_decode($blogs['brief'],true),200);?>&hashtags=inspiringvillas&original_referer=<?php echo $urll;?>&data-url=<?php echo $urll;?>&via=inspiringvillas', 'popupwindow', 'scrollbars=yes,width=800,height=400');popUp.focus();return false"><img src="../../upload/new_design/lifestyle/img-arc-twister.png" alt="">Tweet on X</button>
+                                <button class="s_share ig"><img src="../../upload/new_design/lifestyle/img-arc-ig.png" alt=""> Share on IG</button>
+                                
+                            	<!--<img src="../../upload/new_design/img-arc-facebook-box.png" alt="" onClick="onShare('<?php echo 'https://www.inspiringvillas.com'.$_SERVER['REQUEST_URI'];?>','<?php echo $blogs['name'];?>','<?php echo string_len_2b($brie,300);?>','<?php echo imagePath($photo_share);?>');">
+                                <img src="../../upload/new_design/img-arc-twister-box.png" alt="" onclick="popUp=window.open('https://twitter.com/share?text=<?php echo string_len_2b($blogs['name'],100).'-'.string_len_2b(base64_decode($blogs['brief'],true),200);?>&hashtags=inspiringvillas&original_referer=<?php echo $urll;?>&data-url=<?php echo $urll;?>&via=inspiringvillas', 'popupwindow', 'scrollbars=yes,width=800,height=400');popUp.focus();return false">
+                                <img src="../../upload/new_design/img-arc-ig-box.png" alt="">-->
+                            </div>
 
-                            <div class="post-sharing">
+                           <?php /*?> <div class="post-sharing">
                                 <ul class="list-inline">
-                                    <li onClick="onShare('<?php echo 'https://www.inspiringvillas.com'.$_SERVER['REQUEST_URI'];?>','<?php echo $blogs['name'];?>','<?php echo string_len_2b($brie,300);?>','<?php echo imagePath($photo_share);?>');"><a href="#" class="fb-button btn btn-primary"><i class="fa fa-facebook"></i> <span class="down-mobile">Share on Facebook</span></a></li>
+                                    <li onClick="onShare('<?php echo 'https://www.inspiringvillas.com'.$_SERVER['REQUEST_URI'];?>','<?php echo $blogs['name'];?>','<?php echo string_len_2b($brie,300);?>','<?php echo imagePath($photo_share);?>');"></li>
                                     <li onclick="popUp=window.open('https://twitter.com/share?text=<?php echo string_len_2b($blogs['name'],100).'-'.string_len_2b(base64_decode($blogs['brief'],true),200);?>&hashtags=inspiringvillas&original_referer=<?php echo $urll;?>&data-url=<?php echo $urll;?>&via=inspiringvillas', 'popupwindow', 'scrollbars=yes,width=800,height=400');popUp.focus();return false"><a href="#" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i> <span class="down-mobile">Tweet on Twitter</span></a></li>
                                     <!--<li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-google-plus"></i></a></li>-->
                                 </ul>
-                            </div><!-- end post-sharing -->
+                            </div><!-- end post-sharing --><?php */?>
                         </div><!-- end title -->
 
                         <div class="single-post-media">
@@ -67,7 +77,7 @@ $blod_dt = 1;?>
                             <?php echo base64_decode($blogs['detail'],true);?>
                         </div><!-- end content -->
 
-                        <div class="blog-title-area">
+                       <?php /*?> <div class="blog-title-area">
 
                             <div class="post-sharing">
                                 <ul class="list-inline">
@@ -76,7 +86,36 @@ $blod_dt = 1;?>
                                     <!--<li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-google-plus"></i></a></li>-->
                                 </ul>
                             </div><!-- end post-sharing -->
-                        </div><!-- end title -->
+                        </div><!-- end title --><?php */?>
+                        
+                        
+                        
+                        
+                        <div class="blog-meta big-meta">
+                            <small><?php echo dateType2($blogs['day']);?></small>
+                            <small>by <?php echo $blogs['byname'];?></small>
+                            <!--<small><a href="#" title=""><i class="fa fa-eye"></i> 2344</a></small>-->
+                        </div><!-- end meta -->
+                        
+                        <div class="box_caro_text_cate top10">
+                            <a href="/blog" class="ls_sltopbut tw">Lifestyle</a>
+                            <?php 
+                            $qcate = $dbc->Query("select * from blog_category where status > 0 order by  sort asc");
+                            while($re = $dbc->Fetch($qcate))
+                            {
+                                echo '<a href="/lifestyle-category-'.$re['slug'].'.html" target="_blank" class="ls_sltopbut tw">'.$re['name'].'</a>';
+                            }
+                            ?>
+                            
+                        </div>
+                            
+                        <div class="share_box top20">
+                            <button class="s_share face_b" onClick="onShare('<?php echo 'https://www.inspiringvillas.com'.$_SERVER['REQUEST_URI'];?>','<?php echo $blogs['name'];?>','<?php echo string_len_2b($brie,300);?>','<?php echo imagePath($photo_share);?>');"><img src="../../upload/new_design/lifestyle/img-arc-facebook.png" alt=""> Share on Facebook</button>
+                            <button class="s_share x" onclick="popUp=window.open('https://twitter.com/share?text=<?php echo string_len_2b($blogs['name'],100).'-'.string_len_2b(base64_decode($blogs['brief'],true),200);?>&hashtags=inspiringvillas&original_referer=<?php echo $urll;?>&data-url=<?php echo $urll;?>&via=inspiringvillas', 'popupwindow', 'scrollbars=yes,width=800,height=400');popUp.focus();return false"><img src="../../upload/new_design/lifestyle/img-arc-twister.png" alt="">Tweet on X</button>
+                            <button class="s_share ig"><img src="../../upload/new_design/lifestyle/img-arc-ig.png" alt=""> Share on IG</button>
+                        </div>
+                            
+                            
 
 
                        <!-- <hr class="invis1">
@@ -145,13 +184,14 @@ $blod_dt = 1;?>
                             $data_cate = $dbc->GetRecord("blog_category","*","id = '".$line['category']."'");
                             $author = dateType($line['day']).' | by '.$line['byname'];
                             $urll = "/blog/" . strtolower(str_replace(" ", "-", $line['name']) ) . ".html";
+							$cate_link = '/lifestyle-category-'.$data_cate['slug'].'.html';
                             ?>
                             <div class="col-12">
                                 <div class="lsarti_ins_box">
                                     <a href="<?php echo $urll;?>" target="_blank"><img data-src="<?php echo imagePath($photo);?>" width="100%" class="ls_arti_photo lazy" alt=""></a>
-                                    <div class="lsarti_tt"><?php echo $line['name'];?></div>
+                                    <div class="lsarti_tt"><a href="<?php echo $urll;?>" target="_blank" class="tblue"><?php echo $line['name'];?></a></div>
                                     <div class="lsarti_author"><?php echo $author;?></div>
-                                    <div class="lsarti_cate"><a href="/blog" class="ls_sltopbut">Lifestyle</a><a href="#" class="ls_sltopbut"><?php echo $data_cate['name'];?></a></div>
+                                    <div class="lsarti_cate"><a href="/blog" class="ls_sltopbut">Lifestyle</a><a href="<?php echo $cate_link;?>" class="ls_sltopbut"><?php echo $data_cate['name'];?></a></div>
                                     <div class="lsarti_des"><?php echo string_len(base64_decode($line['brief'],true),120);?></div>
                                     <div class="lsarti_share">
                                         <a href="" class="lsarti_icon"><img src="../../upload/new_design/lifestyle/img-arc-facebook-small.png" alt=""></a>
@@ -174,8 +214,9 @@ $blod_dt = 1;?>
     </div><!-- end container -->
 </section>
 
-
+<div class="col-12" style="margin-top:-100px;">
 <?php include "libs/pages/section_our_yachting.php";?>
+</div>
 <?php include "libs/pages/section_blog_other_choose.php";?>
 <?php //include "libs/pages/section_life_style.php";?>
 
@@ -207,6 +248,13 @@ $blod_dt = 1;?>
     letter-spacing: 2px;
 	color:#18325;
 	font-size:14px;
+}
+@media screen and (max-width: 768px)
+{
+	.box_searching 
+	{   
+		padding-bottom: 330px;   
+	}
 }
 </style>
 <!--<script defer src="libs/js/blog/js/jquery.min.js"></script>

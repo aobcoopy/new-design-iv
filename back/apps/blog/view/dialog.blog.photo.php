@@ -72,7 +72,7 @@
                     <div role="tabpanel" class="tab-pane active" id="Information_e">
                     	<div class="col-md-12">
                         	
-                            <div class="form-group col-md-4 ">
+                            <div class="form-group col-md-3 ">
                             	<h2>Main Photo</h2>
                                 <div class="col-sm-12">
                                     <button type="button" class="btn btn-primary" onClick="fn.app.blog.blog.choose_photo_popup('butUploadPhoto_photo_main');">Upload</button>
@@ -101,7 +101,7 @@
                             
                           
                             
-                            <div class="form-group col-md-4 ">
+                            <div class="form-group col-md-3 ">
                             <h2>Highlight of The Month Photo</h2>
                             <!--<img src="../../../../upload/blog_thump.jpg" width="100%" alt="">-->
                                 <div class="col-sm-12">
@@ -128,7 +128,7 @@
                                 </div>
                             </div>
                             
-                            <div class="form-group col-md-4 ">
+                            <div class="form-group col-md-3 ">
                             	<h2>High Photo</h2>
                                 <div class="col-sm-12">
                                     <button type="button" class="btn btn-primary" onClick="fn.app.blog.blog.choose_photo_popup('butUploadPhoto_photo_hl_2');">Upload</button>
@@ -161,12 +161,13 @@
                                    
                                    
                                                         
-                            <div class="form-group col-md-3 hidden">
+                            <div class="form-group col-md-3 ">
+                            	<h2>Homepage Photo</h2>
                                 <div class="col-sm-12">
                                     <button type="button" class="btn btn-primary" onClick="fn.app.blog.blog.choose_photo_popup('butUploadPhoto_photo_hl_3');">Upload</button>
                                     <button type="button" class="btn btn-danger" <?php echo ($path_photo_hl_3!='')?'':'disabled';?> onClick="fn.app.blog.blog.remove_multi_photo('<?php echo $path_photo_hl_3;?>',this,'img_photo_hl_3','<?php echo $_REQUEST['id'];?>');"><i class="fa fa-remove"></i></button>
                                     <!--<button type="submit" class="btn btn-primary pull-right">Save</button>-->
-                                    <font color="#ff0000">  800 x 598 px</font>
+                                    <font color="#ff0000">  488 x 496 px</font>
                                     
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input validate hidden" id="butUploadPhoto_photo_hl_3" name="butUploadPhoto_photo_hl_3" placeholder="img" onchange="fn.app.blog.blog.showImgPopup(this);">

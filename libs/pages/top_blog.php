@@ -56,7 +56,7 @@ if(isset($_REQUEST['cate']) && $_REQUEST['cate']!='')
 	?>
 <div class="cov_slide2 web767">
 
-    <div id="top_lift_style" class="carousel slide" data-bs-ride="carousel">
+    <div id="top_lift_style" class="carousel slide " data-bs-ride="carousel">
     <div class="lf_left_blue"></div>
         <div class="carousel-indicators lf">
             <?php
@@ -117,7 +117,7 @@ if(isset($_REQUEST['cate']) && $_REQUEST['cate']!='')
 
 <div class="cov_mob_slide2 mob767">
 
-    <div id="mob_top_lift_style" class="carousel slide" data-bs-ride="carousel">
+    <div id="mob_top_lift_style" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-indicators lf_mob">
             <?php
             $b=0;

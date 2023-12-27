@@ -48,12 +48,12 @@ if($tt_blog>0)
 			'author' => $author,
 			'des' => $des,
 			'cate_name' => $cate_name['name'],
-			'link' => $urll
+			'link' => $urll,
+			'cate_link' => '/lifestyle-category-'.$cate_name['slug'].'.html'
 		);
 		
 	}
 ?>
-
 			<!---------------------------------------------  WEB ------------------------------------------------------------------->
             
             
@@ -67,10 +67,12 @@ if($tt_blog>0)
                                 ?>
                                 <div class="col-12 col-md-6 col-lg-4 ">
                                     <div class="lsarti_ins_box">
+                                        <a href="<?php echo $b_all['link'];?>" target="_blank">
                                         <img data-src="<?php echo imagePath($b_all['photo_mail']);?>" width="100%" class="ls_arti_photo lazy" alt="">
-                                        <div class="lsarti_tt"><?php echo $b_all['name'];?></div>
+                                        </a>
+                                        <div class="lsarti_tt"><a href="<?php echo $b_all['link'];?>" target="_blank" class="tblue"><?php echo $b_all['name'];?></a></div>
                                         <div class="lsarti_author"><?php echo $b_all['author'];?></div>
-                                        <div class="lsarti_cate"><a href="/blog" class="ls_sltopbut">Lifestyle</a><a href="#" class="ls_sltopbut"><?php echo $b_all['cate_name'];?></a></div>
+                                        <div class="lsarti_cate"><a href="/blog" class="ls_sltopbut">Lifestyle</a><a href="<?php echo $b_all['cate_link'];?>" class="ls_sltopbut"><?php echo $b_all['cate_name'];?></a></div>
                                         <div class="lsarti_des"><?php echo $b_all['des'];?></div>
                                         <div class="lsarti_share">
                                             <a href="" class="lsarti_icon"><img src="../../upload/new_design/lifestyle/img-arc-facebook-small.png" alt=""></a>
@@ -89,27 +91,10 @@ if($tt_blog>0)
                         <!--<button class="rma">read more all</button>-->
                 </div><!--col-11-->
             </div><!--row-->
-                                
-                                
  <?php
 }
 ?>
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
             <!---------------------------------------------  WEB ------------------------------------------------------------------->
-       
-       
         </div>
     </div>
 </div>

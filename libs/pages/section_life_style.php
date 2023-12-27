@@ -12,7 +12,28 @@
     <div class="row justify-content-center">
     	<div class="col-12 col-md-10">
         	<div class="row">
+            <?php
+			$sql_blog = $dbc->Query("select * from blogs where status > 0 and heightlight > 0 order by sort asc limit 0,3");
+			while($res = $dbc->Fetch($sql_blog))
+			{
+				$photo = imagePath('/'.json_decode($res['photo_hl_3'],true));
+				$urll = "/blog/" . strtolower(str_replace(" ", "-", $res['name']) ) . ".html";
+				?>
                 <div class="col-12 col-sm-6 col-lg-4 nopad575">
+                	<div class="col-12 lf_inside">
+                        <div class="col-12">
+                            <a href="<?php echo $urll;?>"><img data-src="<?php echo $photo;?>" class="lf_ing lazy" alt=""></a>
+                        </div>
+                        <div class="col-12 lf_inside_box">
+                            <div class="lf_tt_box"><?php echo $res['name'];?></div>
+                            <div class="lf_des_box"><?php echo string_len(base64_decode($res['brief'],true),110);?><span class="lf_more"><a href="<?php echo $urll;?>" class="lf_more">more</a></span></div>
+                        </div>
+                    </div>
+                </div>
+				<?php
+			}
+			?>
+                <!--<div class="col-12 col-sm-6 col-lg-4 nopad575">
                 	<div class="col-12 lf_inside">
                         <div class="col-12">
                             <img data-src="../../upload/new_design/img-lifestyle-img.png" class="lf_ing lazy" alt="">
@@ -44,10 +65,10 @@
                             <div class="lf_des_box">When it comes to running a successful vacation rental villa, one of the most crucial factors for long-term ...<span class="lf_more">more</span></div>
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
             
-            <a href=""><button class="lf_but">read more</button></a>
+            <a href="/blog"><button class="lf_but">read more</button></a>
         </div>
     </div>
 <!--    <img src="../../upload/new_design/img-lifestyle-Logo.png" class="lf_photo" alt="">-->

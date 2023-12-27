@@ -179,7 +179,8 @@ while($line = $dbc->Fetch($cate))
 				'author' => $author,
 				'des' => $des,
 				'cate_name' => $cate_name['name'],
-				'link' => $urll
+				'link' => $urll,
+				'cate_link' => '/lifestyle-category-'.$cate_name['slug'].'.html'
 			);
 		}
 		else
@@ -193,7 +194,8 @@ while($line = $dbc->Fetch($cate))
 				'author' => $author,
 				'des' => $des,
 				'cate_name' => $cate_name['name'],
-				'link' => $urll
+				'link' => $urll,
+				'cate_link' => '/lifestyle-category-'.$cate_name['slug'].'.html'
 			);
 		}
 		$y++;
@@ -233,7 +235,7 @@ while($line = $dbc->Fetch($cate))
 									<div class="lsarti_left_box">
 										<div class="ls_l_box_tt"><a href="<?php echo $blog_1['link'];?>" target="_blank" class="tw"><?php echo $blog_1['name'];?></a></div>
 										<div class="ls_l_box_author"><?php echo $blog_1['author'];?></div>
-										<div class="ls_l_box_cate"><a href="/blog" class="ls_sltopbut">Lifestyle</a><a href="#" class="ls_sltopbut"><?php echo $blog_1['cate_name'];?></a></div>
+										<div class="ls_l_box_cate"><a href="/blog" class="ls_sltopbut">Lifestyle</a><a href="<?php echo $blog_1['cate_link'];?>" class="ls_sltopbut"><?php echo $blog_1['cate_name'];?></a></div>
 										<div class="ls_l_box_des"><?php echo $blog_1['des'];?></div>
 										<div class="ls_l_box_share">
 											<a href="" class="lsarti_icon"><img src="../../upload/new_design/lifestyle/img-arc-facebook-small.png" alt=""></a>
@@ -271,7 +273,7 @@ while($line = $dbc->Fetch($cate))
                                                         </a>
 														<div class="lsarti_tt"><a href="<?php echo $b_all['link'];?>" target="_blank" class="tblue"><?php echo $b_all['name'];?></a></div>
 														<div class="lsarti_author"><?php echo $b_all['author'];?></div>
-														<div class="lsarti_cate"><a href="/blog" class="ls_sltopbut">Lifestyle</a><a href="#" class="ls_sltopbut"><?php echo $b_all['cate_name'];?></a></div>
+														<div class="lsarti_cate"><a href="/blog" class="ls_sltopbut">Lifestyle</a><a href="<?php echo $b_all['cate_link'];?>" class="ls_sltopbut"><?php echo $b_all['cate_name'];?></a></div>
 														<div class="lsarti_des"><?php echo $b_all['des'];?></div>
 														<div class="lsarti_share">
 															<a href="" class="lsarti_icon"><img src="../../upload/new_design/lifestyle/img-arc-facebook-small.png" alt=""></a>
@@ -327,7 +329,7 @@ while($line = $dbc->Fetch($cate))
                                                         </a>
 														<div class="lsarti_tt"><a href="<?php echo $b_all['link'];?>" target="_blank" class="tblue"><?php echo $b_all['name'];?></a></div>
 														<div class="lsarti_author"><?php echo $b_all['author'];?></div>
-														<div class="lsarti_cate"><a href="/blog" class="ls_sltopbut">Lifestyle</a><a href="#" class="ls_sltopbut"><?php echo $b_all['cate_name'];?></a></div>
+														<div class="lsarti_cate"><a href="/blog" class="ls_sltopbut">Lifestyle</a><a href="<?php echo $b_all['cate_link'];?>" class="ls_sltopbut"><?php echo $b_all['cate_name'];?></a></div>
 														<div class="lsarti_des"><?php echo $b_all['des'];?></div>
 														<div class="lsarti_share">
 															<a href="" class="lsarti_icon"><img src="../../upload/new_design/lifestyle/img-arc-facebook-small.png" alt=""></a>
@@ -361,7 +363,7 @@ while($line = $dbc->Fetch($cate))
 									<div class="lsarti_left_box">
 										<div class="ls_l_box_tt"><a href="<?php echo $blog_1['link'];?>" target="_blank" class="tw"><?php echo $blog_1['name'];?></a></div>
 										<div class="ls_l_box_author"><?php echo $blog_1['author'];?></div>
-										<div class="ls_l_box_cate"><a href="/blog" class="ls_sltopbut">Lifestyle</a><a href="#" class="ls_sltopbut"><?php echo $blog_1['cate_name'];?></a></div>
+										<div class="ls_l_box_cate"><a href="/blog" class="ls_sltopbut">Lifestyle</a><a href="<?php echo $blog_1['cate_link'];?>" class="ls_sltopbut"><?php echo $blog_1['cate_name'];?></a></div>
 										<div class="ls_l_box_des"><?php echo $blog_1['des'];?></div>
 										<div class="ls_l_box_share">
 											<a href="" class="lsarti_icon"><img src="../../upload/new_design/lifestyle/img-arc-facebook-small.png" alt=""></a>
@@ -405,7 +407,7 @@ while($line = $dbc->Fetch($cate))
 									<div class="lsarti_left_box">
 										<div class="ls_l_box_tt"><?php echo $blog_1['name'];?></div>
 										<div class="ls_l_box_author"><?php echo $blog_1['author'];?></div>
-										<div class="ls_l_box_cate"><a href="/blog" class="ls_sltopbut">Lifestyle</a><a href="#" class="ls_sltopbut"><?php echo $blog_1['cate_name'];?></a></div>
+										<div class="ls_l_box_cate"><a href="/blog" class="ls_sltopbut">Lifestyle</a><a href="<?php echo $blog_1['cate_link'];?>" class="ls_sltopbut"><?php echo $blog_1['cate_name'];?></a></div>
 										<div class="ls_l_box_des"><?php echo $blog_1['des'];?></div>
 										<div class="ls_l_box_share">
 											<a href="" class="lsarti_icon"><img src="../../upload/new_design/lifestyle/img-arc-facebook-small.png" alt=""></a>
@@ -438,7 +440,7 @@ while($line = $dbc->Fetch($cate))
 														<img data-src="<?php echo imagePath($b_all['photo_mail']);?>" width="100%" class="ls_arti_photo lazy" alt="">
 														<div class="lsarti_tt"><?php echo $b_all['name'];?></div>
 														<div class="lsarti_author"><?php echo $b_all['author'];?></div>
-														<div class="lsarti_cate"><a href="/blog" class="ls_sltopbut">Lifestyle</a><a href="#" class="ls_sltopbut"><?php echo $b_all['cate_name'];?></a></div>
+														<div class="lsarti_cate"><a href="/blog" class="ls_sltopbut">Lifestyle</a><a href="<?php echo $b_all['cate_link'];?>" class="ls_sltopbut"><?php echo $b_all['cate_name'];?></a></div>
 														<div class="lsarti_des"><?php echo $b_all['des'];?></div>
 														<div class="lsarti_share">
 															<a href="" class="lsarti_icon"><img src="../../upload/new_design/lifestyle/img-arc-facebook-small.png" alt=""></a>
@@ -456,7 +458,7 @@ while($line = $dbc->Fetch($cate))
 												
 											</div><!--row-->
 											
-											<button class="rma">read more all</button>
+											<a href="/lifestyle-category-<?php echo $line['slug'];?>.html" target="_blank" class="tblue"><button class="rma">read more all</button></a>
 									</div><!--col-11-->
 								</div><!--row-->
 							</div><!--col-6-->
