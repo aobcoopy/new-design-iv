@@ -78,7 +78,9 @@
         <link href="<?php echo $url_link;?>libs/css/v5/a_style.css?v=00001" rel="stylesheet"> 
         <link href="<?php echo $url_link;?>libs/css/v5/new_design.css" rel="stylesheet"> 
         <link href="<?php echo $url_link;?>libs/css/v5/new_design_responsive.css" rel="stylesheet"> 
+        <link href="<?php echo $url_link;?>libs/css/v5/animate.min.css" rel="stylesheet"> 
         <script src="<?php echo $url_link;?>libs/js/jquery-3.5.1.min.js"></script>
+		<script src="<?php echo $url_link;?>libs/js/v5/animation.js"></script>
         <!--<script src="<?php echo $url_link;?>libs/js/jquery-3.1.1.min.js"></script>--> 
 <?php }?>
 </head>

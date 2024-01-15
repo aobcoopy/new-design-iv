@@ -86,7 +86,7 @@ if(isset($_COOKIE['iv_usip']))
 else
 {
 	?>
-    <div class="pdpa_area text-center">
+    <div class="pdpa_area text-center animate__animated animate__fadeInUp animate__fast">
         <div class="papd_text">This site uses cookies in order to improve your browsing experience. GDPR
         <!--and to provide content tailored specifically to your interests. By continuing to browse our site you agree to our use of cookies, <a href="/privacy">Data Privacy Policy</a> and <a href="/terms">Terms & Conditions</a>. -->
         <br>

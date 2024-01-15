@@ -15,6 +15,34 @@ src: url('../../fonts/new_fonts/seravek-light.ttf');
 {
 	color:#fff !important;
 }
+.hid
+{
+	display:none;
+}
+.carousel-control-next, .carousel-control-prev 
+{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    background: 0 0;
+    border: 0;
+    opacity: .5;
+    transition: opacity .15s ease;
+    /* margin-top: -200px; */
+    z-index: 210;
+    top: 50%;
+    transform: translateY(-70%);
+}
+
+
 
 .in_box_search
 {
@@ -432,8 +460,6 @@ label.optin, span.optin {
  margin-top:-9px;
  padding-top:150px;
  padding-bottom:150px;
-
-
  border-bottom-right-radius: 250px;
 }
 
@@ -570,7 +596,7 @@ label.optin, span.optin {
 .category_box
 {
  margin-bottom:-350px;
- margin-top:150px;
+ margin-top: 110px;
 }
 
 
@@ -595,7 +621,7 @@ label.optin, span.optin {
 .str_line
 {
  width:400px;
- margin-bottom: 70px;
+ margin-bottom: 100px;
 }
 .str_bg_1
 {
@@ -732,7 +758,7 @@ label.optin, span.optin {
  background-size: cover;
  padding: 205px 20px;
  margin-top: -5px;
- min-height:1100px;
+ /* min-height:1100px; */
  position: relative;
  z-index: 100;
 }
@@ -983,11 +1009,12 @@ label.optin, span.optin {
  padding:15px 25px 13px 25px;
  letter-spacing:3px;
  font-weight:bold;
- margin-top: 70px;
+ margin-top: 20px;
  position:relative;
  left:50%;
  transform:translateX(-50%);
  /* margin-bottom: -340px; */
+ color: #000;
 }
 .owl_box
 {
@@ -1058,7 +1085,7 @@ select.ip2 {
 }
 .con_but
 {
- background:#F7941D;
+ background: #F7941D !important;
  color:#fff;
  padding:10px 45px !important;
  letter-spacing:5px;
@@ -1160,6 +1187,8 @@ select.ip2 {
  font-weight:bold;
  padding:10px 35px;
  border-radius: 0px;
+ border: 1px solid #e79424;
+ background: #e79424 !important;
 }
 .owl-next
 {
@@ -1846,7 +1875,7 @@ select.ip2 {
 }
 .box_caro_text_inside
 {
-	width: 40%;
+	width: 48%;
 	position: relative;
 	left: 50%;
 	transform: translateX(-50%);

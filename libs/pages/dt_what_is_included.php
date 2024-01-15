@@ -66,7 +66,7 @@ if($room['wiic']==1 )
 						echo '<ul class="bedr wicc">';
 					foreach($what_ic1 as $wic1)
 					{
-						echo '<li class="fo15"><img data-src="../../files/check.png" width="20" class="chk lazy"> '.$wic1.'</li>';
+						echo '<li class="fo15"><img data-src="../../files/check.png" width="20" class="chk lazy"> '.str_replace("#","'",$wic1).'</li>';
 					}
 						echo '</ul>';
 					echo '</div>';
@@ -80,7 +80,7 @@ if($room['wiic']==1 )
 						echo '<ul class="bedr wicc">';
 					foreach($what_ic6 as $wic6)
 					{
-						echo '<li class="fo15"><img data-src="../../files/check.png" width="20" class="chk lazy"> '.$wic6.'</li>';
+						echo '<li class="fo15"><img data-src="../../files/check.png" width="20" class="chk lazy"> '.str_replace("#","'",$wic6).'</li>';
 					}
 						echo '</ul>';
 					echo '</div>';
@@ -93,7 +93,7 @@ if($room['wiic']==1 )
 						echo '<ul class="bedr wicc">';
 					foreach($what_ic7 as $wic7)
 					{
-						echo '<li class="fo15"><img data-src="../../files/check.png" width="20" class="chk lazy"> '.$wic7.'</li>';
+						echo '<li class="fo15"><img data-src="../../files/check.png" width="20" class="chk lazy"> '.str_replace("#","'",$wic7).'</li>';
 					}
 						echo '</ul>';
 					echo '</div>';
@@ -106,7 +106,7 @@ if($room['wiic']==1 )
 						echo '<ul class="bedr wicc">';
 					foreach($what_ic2 as $wic2)
 					{
-						echo '<li class="fo15"><img data-src="../../files/check.png" width="20" class="chk lazy"> '.$wic2.'</li>';
+						echo '<li class="fo15"><img data-src="../../files/check.png" width="20" class="chk lazy"> '.str_replace("#","'",$wic2).'</li>';
 					}
 						echo '</ul>';
 					echo '</div>';
@@ -120,7 +120,7 @@ if($room['wiic']==1 )
 						echo '<ul class="bedr wicc">';
 					foreach($what_ic3 as $wic3)
 					{
-						echo '<li class="fo15"><img data-src="../../files/check.png" width="20" class="chk lazy"> '.$wic3.'</li>';
+						echo '<li class="fo15"><img data-src="../../files/check.png" width="20" class="chk lazy"> '.str_replace("#","'",$wic3).'</li>';
 					}
 						echo '</ul>';
 					echo '</div>';
@@ -134,7 +134,7 @@ if($room['wiic']==1 )
 						echo '<ul class="bedr wicc">';
 					foreach($what_ic4 as $wic4)
 					{
-						echo '<li class="fo15"><img data-src="../../files/check.png" width="20" class="chk lazy"> '.$wic4.'</li>';
+						echo '<li class="fo15"><img data-src="../../files/check.png" width="20" class="chk lazy"> '.str_replace("#","'",$wic4).'</li>';
 					}
 						echo '</ul>';
 					echo '</div>';
@@ -148,7 +148,7 @@ if($room['wiic']==1 )
 						echo '<ul class="bedr wicc">';
 					foreach($what_ic5 as $wic5)
 					{
-						echo '<li class="fo15"><img data-src="../../files/check.png" width="20" class="chk lazy"> '.$wic5.'</li>';
+						echo '<li class="fo15"><img data-src="../../files/check.png" width="20" class="chk lazy"> '.str_replace("#","'",$wic5).'</li>';
 					}
 						echo '</ul>';
 					echo '</div>';

@@ -1,6 +1,6 @@
 <?php /*?><script src="<?php echo $url_link;?>libs/js/jquery-3.1.1.min.js"></script><?php */?>
 
-<div class="container-fluid box_searching">
+<div class="container-fluid box_searching animate__animated animate__fadeInUp animate__fast">
 	<div class="row justify-content-center">
     	<div class="col-12 col-md-11 row in_box_search">
             <div class="col-12 col-md-3">

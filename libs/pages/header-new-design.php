@@ -25,7 +25,7 @@ $pa = $_REQUEST['page'];
 
 <div class="top_bg_gradient"></div>
 
-<div class="container-fluid nav_home ">
+<div class="container-fluid nav_home animate__animated animate__fadeInDown animate__fast">
 	<div class="row  justify-content-center">
     	<div class="row py-5-">
             <div class="col-4 col-md-2 col-lg-3 col-xxl-4 t_t1-"><a href="/"><img src="../../upload/new_design/img-top-Logo.png" width="140" alt="" class="logoiv"></a></div>

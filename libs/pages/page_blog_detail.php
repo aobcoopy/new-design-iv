@@ -70,10 +70,10 @@ $blod_dt = 1;?>
                         </div><!-- end title -->
 
                         <div class="single-post-media">
-                            <img src="<?php echo $photo;?>" alt="" class="img-fluid">
+                            <img src="<?php echo $photo1;?>" alt="" class="img-fluid">
                         </div><!-- end media -->
 
-                        <div class="blog-content">  
+                        <div class="blog-content">
                             <?php echo base64_decode($blogs['detail'],true);?>
                         </div><!-- end content -->
 

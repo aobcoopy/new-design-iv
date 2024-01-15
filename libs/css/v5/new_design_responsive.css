@@ -1,8 +1,71 @@
 /****************************************/@media screen and (min-width:1627px)/****************************************/
 {
+	.contact_box 
+	{
+	    padding: 100px 12px 200px 0px;
+	    background-position-y: bottom;
+	    margin-top: 15px;
+	}
+	.fl_tt 
+	{
+	    margin-top: 150px;
+	    margin-bottom: 80px;
+	    letter-spacing: 15px;
+	}
+	.lifestyle_box 
+	{
+	    padding-top: 0px;
+	}
+	.lf_tt 
+	{
+	    padding: 130px 50px 20px 50px;
+	    line-height: 2;
+	}
+	.yacht_des 
+	{
+	    font-size: 18px;
+	    margin-bottom: 80px;
+	    /* padding: 0px 410px; */
+	}
+	.yacht_tt 
+	{
+	    padding: 120px 50px 50px 50px;
+	    line-height: 2;
+	    margin-top: 0px;
+	}
+	.our_box 
+	{
+	    padding: 70px 20px 70px 20px;
+	    margin-top: 100px;
+	}
+	.our_box_1 
+	{
+	    margin-bottom: 160px;
+	}
+	.hwr_box 
+	{
+	    background-image: url('../../../upload/new_design/who_we_are/img-who-we-are-bg.png');
+	    background-repeat: no-repeat;
+	    background-position: 50% 50%;
+	    background-size: cover;
+	    padding: 65px 20px 115px 20px;
+	    margin-top: -5px;
+	    /* min-height: 1100px; */
+	    position: relative;
+	    z-index: 100;
+	}
+	.about_box 
+	{
+	    background-image: url('../../../upload/new_design/img-about-us-bg.png');
+	    background-repeat: no-repeat;
+	    background-position: 57% 50%;
+	    background-size: contain;
+	    padding: 152px 20px 102px 20px;
+	    margin-top: 105px;
+	}
 	.story_box
 	{
-		margin-top: 205px;
+		margin-top: 105px;
 	}
 	.box_searching
 	{
@@ -67,6 +130,75 @@
 
 /****************************************/@media screen and (min-width:1200px) and (max-width:1627px)/****************************************/
 {
+	.contact_box 
+	{
+	    padding: 100px 12px 200px 0px;
+	    background-position-y: bottom;
+	    margin-top: 15px;
+	}
+	.fl_tt 
+	{
+	    margin-top: 150px;
+	    margin-bottom: 80px;
+	    letter-spacing: 15px;
+	}
+	.lf_but 
+	{
+	    padding: 15px 25px 13px 25px;
+	    letter-spacing: 3px;
+	    margin-top: 0px;
+	}
+	.lifestyle_box 
+	{
+	    padding-top: 0px;
+	}
+	.lf_tt 
+	{
+	    padding: 100px 50px 20px 50px;
+	    line-height: 2;
+	}
+	.yacht_des 
+	{
+	    font-size: 18px;
+	    margin-bottom: 80px;
+	    /* padding: 0px 410px; */
+	}
+	.yacht_tt 
+	{
+	    padding: 120px 50px 50px 50px;
+	    line-height: 2;
+	    margin-top: 0px;
+	}
+	.our_box 
+	{
+	    padding: 70px 20px 70px 20px;
+	    margin-top: 100px;
+	}
+	.our_box_1 
+	{
+	    margin-bottom: 160px;
+	}
+	.hwr_box 
+	{
+	    background-image: url('../../../upload/new_design/who_we_are/img-who-we-are-bg.png');
+	    background-repeat: no-repeat;
+	    background-position: 50% 50%;
+	    background-size: cover;
+	    padding: 65px 20px 115px 20px;
+	    margin-top: -5px;
+	    /* min-height: 1100px; */
+	    position: relative;
+	    z-index: 100;
+	}
+	.about_box 
+	{
+	    background-image: url('../../../upload/new_design/img-about-us-bg.png');
+	    background-repeat: no-repeat;
+	    background-position: 57% 50%;
+	    background-size: contain;
+	    padding: 152px 20px 102px 20px;
+	    margin-top: 105px;
+	}
 	/********  lifestyle  ********/
 	.hl_tt 
 	{
@@ -91,9 +223,14 @@
 	 letter-spacing:5px;
 	}
 	/********  lifestyle  ********/
+	.category_box 
+	{
+	    margin-bottom: -350px;
+	    margin-top: 60px;
+	}
 	.story_box
 	{
-		margin-top: 190px;
+		margin-top: 50px;
 	}
 	.yacht_in_des 
 	{
@@ -141,6 +278,7 @@
 	    height: 490px;
 	    padding-top: 300px;
 	    background: linear-gradient(to bottom,  rgba(42,59,79,0) 0%,rgba(31,54,80,1) 56%,rgba(24,50,81,1) 100%);
+	    padding-bottom: 210px;
 	}
 	.our_tt 
 	{
@@ -247,6 +385,91 @@
 
 /****************************************/@media screen and (min-width:1098px) and (max-width:1200px)/****************************************/
 {
+	.contact_box 
+	{
+	    padding: 100px 12px 200px 0px;
+	    background-position-y: bottom;
+	    margin-top: 15px;
+	}
+	.fl_tt 
+	{
+	    margin-top: 150px;
+	    margin-bottom: 80px;
+	    letter-spacing: 15px;
+	}
+	.lf_but 
+	{
+	    padding: 15px 25px 13px 25px;
+	    letter-spacing: 3px;
+	    margin-top: 0px;
+	}
+	.lifestyle_box 
+	{
+	    padding-top: 0px;
+	}
+	.lf_tt 
+	{
+	    padding: 100px 50px 20px 50px;
+	    line-height: 2;
+	}
+	.yacht_des 
+	{
+	    font-size: 18px;
+	    margin-bottom: 80px;
+	    /* padding: 0px 410px; */
+	}
+	.yacht_tt 
+	{
+	    padding: 120px 50px 50px 50px;
+	    line-height: 2;
+	    margin-top: 0px;
+	}
+	.our_box 
+	{
+	    padding: 70px 20px 70px 20px;
+	    margin-top: 100px;
+	}
+	.our_box_1 
+	{
+	    margin-bottom: 160px;
+	}
+	.hwr_box 
+	{
+	    background-image: url('../../../upload/new_design/who_we_are/img-who-we-are-bg.png');
+	    background-repeat: no-repeat;
+	    background-position: 50% 50%;
+	    background-size: cover;
+	    padding: 65px 20px 115px 20px;
+	    margin-top: -5px;
+	    /* min-height: 1100px; */
+	    position: relative;
+	    z-index: 100;
+	}
+	.about_box 
+	{
+	    background-image: url('../../../upload/new_design/img-about-us-bg.png');
+	    background-repeat: no-repeat;
+	    background-position: 57% 50%;
+	    background-size: contain;
+	    padding: 152px 20px 102px 20px;
+	    margin-top: 105px;
+	}
+	.box_searching
+	{
+	    /* background: #183251bd; */
+	    margin-top: -490px;
+	    position: relative;
+	    padding-bottom: 50px;
+	    height: 490px;
+	    padding-top: 300px;
+	    background: linear-gradient(to bottom,  rgba(42,59,79,0) 0%,rgba(31,54,80,1) 56%,rgba(24,50,81,1) 100%);
+	    padding-bottom: 210px;
+	}
+	.category_box 
+	{
+	    margin-bottom: -350px;
+	    margin-top: 60px;
+	}
 	/********  lifestyle  ********/
 	.hl_tt 
 	{
@@ -278,7 +501,7 @@
 	/********  lifestyle  ********/
 	.story_box
 	{
-		margin-top: 190px;
+		margin-top: 20px;
 	}
 	.yacht_in_des 
 	{
@@ -462,6 +685,86 @@
 
 /****************************************/@media screen and (min-width:850px) and (max-width:1098px)/****************************************/
 {
+	.contact_box 
+	{
+	    padding: 100px 12px 200px 0px;
+	    background-position-y: bottom;
+	    margin-top: 15px;
+	}
+	.fl_tt 
+	{
+	    margin-top: 150px;
+	    margin-bottom: 80px;
+	    letter-spacing: 15px;
+	}
+	.lf_but 
+	{
+	    padding: 15px 25px 13px 25px;
+	    letter-spacing: 3px;
+	    margin-top: 0px;
+	}
+	.lifestyle_box 
+	{
+	    padding-top: 0px;
+	}
+	.lf_tt 
+	{
+	    padding: 100px 50px 20px 50px;
+	    line-height: 2;
+	}
+	.yacht_des 
+	{
+	    font-size: 18px;
+	    margin-bottom: 80px;
+	    /* padding: 0px 410px; */
+	}
+	.yacht_tt 
+	{
+	    padding: 120px 50px 50px 50px;
+	    line-height: 2;
+	    margin-top: 0px;
+	}
+	.our_box 
+	{
+	    padding: 70px 20px 70px 20px;
+	    margin-top: 100px;
+	}
+	.our_box_1 
+	{
+	    margin-bottom: 160px;
+	}
+	.hwr_box 
+	{
+	    background-image: url('../../../upload/new_design/who_we_are/img-who-we-are-bg.png');
+	    background-repeat: no-repeat;
+	    background-position: 50% 50%;
+	    background-size: cover;
+	    padding: 65px 20px 115px 20px;
+	    margin-top: -5px;
+	    /* min-height: 1100px; */
+	    position: relative;
+	    z-index: 100;
+	}
+	.about_box 
+	{
+	    background-image: url('../../../upload/new_design/img-about-us-bg.png');
+	    background-repeat: no-repeat;
+	    background-position: 57% 50%;
+	    background-size: contain;
+	    padding: 152px 20px 102px 20px;
+	    margin-top: 105px;
+	}
+	.box_searching
+	{
+	    /* background: #183251bd; */
+	    margin-top: -490px;
+	    position: relative;
+	    padding-bottom: 50px;
+	    height: 490px;
+	    padding-top: 300px;
+	    background: linear-gradient(to bottom,  rgba(42,59,79,0) 0%,rgba(31,54,80,1) 56%,rgba(24,50,81,1) 100%);
+	    padding-bottom: 180px;
+	}
 	/********  lifestyle  ********/
 	.box_m_tt
 	{
@@ -516,7 +819,7 @@
 	/********  lifestyle  ********/
 	.story_box
 	{
-		margin-top: 125px;
+		margin-top: -45px;
 	}
 	.str_title
 	{
@@ -687,7 +990,7 @@
 	.category_box
 	{
 	 margin-bottom: -310px;
-	 margin-top:150px;
+	 margin-top: 20px;
 	}
 	.det_slide
 	{
@@ -766,6 +1069,80 @@
 
 /****************************************/@media screen and (min-width:768px) and (max-width:850px)/****************************************/
 {
+	.contact_box 
+	{
+	    padding: 100px 12px 200px 0px;
+	    background-position-y: bottom;
+	    margin-top: 15px;
+	}
+	.fl_tt 
+	{
+	    margin-top: 150px;
+	    margin-bottom: 80px;
+	    letter-spacing: 15px;
+	}
+	.lifestyle_box 
+	{
+	    padding-top: 0px;
+	}
+	.lf_tt 
+	{
+	    padding: 100px 50px 20px 50px;
+	    line-height: 2;
+	}
+	.yacht_des 
+	{
+	    font-size: 18px;
+	    margin-bottom: 80px;
+	    /* padding: 0px 410px; */
+	}
+	.yacht_tt 
+	{
+	    padding: 120px 50px 50px 50px;
+	    line-height: 2;
+	    margin-top: 0px;
+	}
+	.our_box 
+	{
+	    padding: 70px 20px 70px 20px;
+	    margin-top: 100px;
+	}
+	.our_box_1 
+	{
+	    margin-bottom: 160px;
+	}
+	.hwr_box 
+	{
+	    background-image: url('../../../upload/new_design/who_we_are/img-who-we-are-bg.png');
+	    background-repeat: no-repeat;
+	    background-position: 50% 50%;
+	    background-size: cover;
+	    padding: 65px 20px 115px 20px;
+	    margin-top: -5px;
+	    /* min-height: 1100px; */
+	    position: relative;
+	    z-index: 100;
+	}
+	.about_box 
+	{
+	    background-image: url('../../../upload/new_design/img-about-us-bg.png');
+	    background-repeat: no-repeat;
+	    background-position: 57% 50%;
+	    background-size: contain;
+	    padding: 152px 20px 102px 20px;
+	    margin-top: 105px;
+	}
+	.box_searching
+	{
+	    /* background: #183251bd; */
+	    /* margin-top: -450px; */
+	    /* position: relative; */
+	    /* padding-bottom: 50px; */
+	    /* height: 490px; */
+	    /* padding-top: 300px; */
+	    /* background: linear-gradient(to bottom,  rgba(42,59,79,0) 0%,rgba(31,54,80,1) 56%,rgba(24,50,81,1) 100%); */
+	    padding-bottom: 180px;
+	}
 	/********  lifestyle  ********/
 	.box_m_tt
 	{
@@ -896,6 +1273,7 @@
 	.lf_but
 	{
 		padding:10px 25px 8px 25px;
+		margin-top: 20px;
 	}
 	.yacht_but
 	{
@@ -1114,6 +1492,15 @@
 
 /****************************************/@media screen and (min-width: 590px) and (max-width: 768px)/****************************************/
 {
+	.lifestyle_box 
+	{
+	    padding-top: 0px;
+	}
+	.lf_tt 
+	{
+	    padding: 100px 50px 20px 50px;
+	    line-height: 2;
+	}
 	/********  lifestyle  ********/
 	.box_m_tt
 	{
@@ -1130,7 +1517,7 @@
 	}
 	.lf_mob [data-bs-target]
 	{
-		margin-top: -530px;
+		margin-top: -205px;
 		/* top: 50%; */
 		/* transform: translateY(-83%); */
 		width: 10px;
@@ -1156,6 +1543,7 @@
 	.box_caro_share 
 	{
 	    margin-top: 10px;
+	    display: inline-block;
 	}
 	.box_caro_text_4 
 	{
@@ -1213,7 +1601,7 @@
 	}
 	.contact_box 
 	{
-	    padding: 100px 12px 90px 0px;
+	    padding: 10px 12px 90px 0px;
 	    background-position-y: bottom;
 	    margin-top: 45px;
 	    background-size: 570px;
@@ -1303,7 +1691,7 @@
 	.yacht_des 
 	{
 	    font-size: 16px;
-	    margin-bottom: 150px;
+	    margin-bottom: 70px;
 	    /* padding: 0px 410px; */
 	}
 	.yacht_tt 
@@ -1541,7 +1929,7 @@
 	.lf_but
 	{
 		padding:10px 25px 8px 25px;
-		margin-top: 20px;
+		/* margin-top: 20px; */
 	}
 	.footer_box 
 	{
@@ -1612,6 +2000,19 @@
 }
 /****************************************/@media screen and (max-width: 590px)/****************************************/
 {
+	.ls_sltopbut
+	{
+		font-size:12px;
+	}
+	.lifestyle_box 
+	{
+	    padding-top: 0px;
+	}
+	.lf_tt 
+	{
+	    padding: 100px 50px 20px 50px;
+	    line-height: 2;
+	}
 	/********  lifestyle  ********/
 	.box_m_tt
 	{
@@ -1628,11 +2029,12 @@
 	}
 	.lf_mob [data-bs-target]
 	{
-		margin-top: -550px;
-		/* top: 50%; */
-		/* transform: translateY(-83%); */
+		margin-top: -260px;
+		top: 50%;
+		transform: translateY(-90%);
 		width: 10px;
 		height: 10px;
+		/* position: absolute; */
 	}
 	.lf [data-bs-target] 
 	{
@@ -1644,17 +2046,18 @@
 	    text-transform: uppercase;
 	    letter-spacing: 3px;
 	    border: none;
-	    padding: 10px 20px 10px 20px;
+	    padding: 7px 15px 5px 15px;
 	    margin-bottom: 5px;
 	    left: 50%;
 	    position: relative;
 	    transform: translateX(-50%);
-	    margin-top: 20px;
+	    margin-top: 10px;
 	}
 	.box_caro_share 
 	{
 	    margin-top: 10px;
 	    margin-bottom: -10px;
+	    /* display: inline-block; */
 	}
 	.icon_share > img 
 	{
@@ -1665,6 +2068,9 @@
 	{
 	    font-size: 16px;
 	    margin-bottom: 10px;
+	    height: 37px;
+	    /* background: red; */
+	    overflow-y: auto;
 	}
 	.box_caro_text 
 	{
@@ -1672,39 +2078,45 @@
 	    background: #ff0000b0;
 	    z-index: 1220;
 	    top: 50%;
-	    transform: translate(-50%, 0%);
-	    padding: 10px 280px 330px 280px;
+	    transform: translate(-50%, -3%);
+	    padding: 10px 280px 30px 280px;
 	    margin-left: 0px;
-	    height: auto;
+	    height: 550px;
 	    width: 100%;
 	    color: #fff;
 	    line-height: 1.0;
 	    text-align:center;
 	    left:50%;
-	    margin-top: -53px;
+	    /* margin-top: -13px; */
 	    background: linear-gradient(to bottom,  rgba(42,59,79,0) 0%,rgba(31,54,80,1) 57%,rgba(24,50,81,1) 100%);
+	    /* bottom: 0px; */
 	}
 	.box_caro_text_1, .box_caro_text_3 
 	{
 	    font-size: 14px;
 	    margin-bottom: 10px;
+	    height: 15px;
+	    /* background: red; */
 	}
 	.box_caro_text_2
 	{
-	 font-size:30px;
+	 font-size: 25px;
 	 letter-spacing:3px;
 	 margin-bottom: 10px;
-	 height: 62px;
+	 height: 50px;
 	 overflow: auto;
+	 /* background: red; */
 	}
 	.box_caro_text_4,.box_caro_text_author
 	{
 		font-size:12px;
 		margin-bottom:5px;
+		/* height: 30px; */
+		/* background: red; */
 	}
 	.box_caro_text_cate
 	{
-		margin-top:15px;
+		margin-top: 10px;
 		font-size: 13px;
 	}
 	/********  lifestyle  ********/
@@ -1840,7 +2252,7 @@
 	.lf_but
 	{
 		padding:10px 25px 8px 25px;
-		margin-top: 20px;
+		margin-top: -10px;
 	}
 	.lf_des_box
 	{
@@ -1900,7 +2312,7 @@
 	.yacht_des 
 	{
 	    font-size: 16px;
-	    margin-bottom: 150px;
+	    margin-bottom: 60px;
 	    /* padding: 0px 410px; */
 	}
 	.yacht_tt 
@@ -2842,7 +3254,7 @@
 	    font-family: ny !important;
 	    line-height: 1.2;
 	    letter-spacing: 10px;
-	    margin-top: 70px;
+	    margin-top: -20px;
 	}
 	.ls_cate_tt_2 
 	{

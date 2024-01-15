@@ -4,7 +4,7 @@ $sqlblogs = $dbc->Query("select * from blogs where id='".$_REQUEST['id']."'");
 $blogs = $dbc->Fetch($sqlblogs);
 $cate = $dbc->GetRecord("blog_category","*","id='".$blogs['category']."'");
 $photo_share = json_decode($blogs['photo_main'],true);
-//$photo = imagePath('/'.json_decode($blogs['photo_main'],true));
+$photo1 = imagePath('/'.json_decode($blogs['photo_main'],true));
 $urll = "/blog/" . strtolower(str_replace(" ", "-", $blogs['name']) ) . ".html";
 
 

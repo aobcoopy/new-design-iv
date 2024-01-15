@@ -140,18 +140,18 @@ if(isset($_REQUEST['cate']) && $_REQUEST['cate']!='')
                     echo '<img  src="'.imagePath($lf_slide['photo']).'" class="d-block w-100" alt="inspiringvillas cover">';// 
                     echo '<div  class="box_caro_text">';
 						echo '<div  class="box_caro_text_inside">';
-							echo '<div  class="box_caro_text_1">'.$lf_slide['snippet_1'].'</div>';
+							//echo '<div  class="box_caro_text_1">'.$lf_slide['snippet_1'].'</div>';
 							echo '<div  class="box_caro_text_2">'.$lf_slide['name'].'</div>';
 							echo '<div  class="box_caro_text_3">'.$lf_slide['snippet_2'].'</div>';
 							echo '<div  class="box_caro_text_4">'.$lf_slide['brief'].'</div>';
 							
 							echo '<div  class="box_caro_text_author">'.$lf_slide['author'].'</div>';
 							echo '<div  class="box_caro_text_cate"><a href="/blog" class="ls_sltopbut">Lifestyle</a><a href="lifestyle-category-'.$lf_slide['slug'].'.html" target="_blank" class="ls_sltopbut">'.$lf_slide['category'].'</a></div>';
-							echo '<div  class="box_caro_share">';
+							/*echo '<div  class="box_caro_share">';
 								echo '<a href="" class="icon_share"><img src="../../upload/new_design/lifestyle/img-arc-facebook.png"  alt=""></a>';
 								echo '<a href="" class="icon_share"><img src="../../upload/new_design/lifestyle/img-arc-twister.png"  alt=""></a>';
 								echo '<a href="" class="icon_share"><img src="../../upload/new_design/lifestyle/img-arc-ig.png"   alt=""></a>';
-							echo '</div>';
+							echo '</div>';*/
 							echo '<a href="#"><button class="box_caro_rmbut">read more </button></a>';
 						echo '</div>';
 					echo '</div>';

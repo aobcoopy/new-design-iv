@@ -6,7 +6,7 @@
 
 
                             
-<div class="cov_slide web767">
+<div class="cov_slide web767 animate__animated animate__fadeIn animate__faster">
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
   	<?php
@@ -109,12 +109,12 @@ function cleartime(func)
 	<div class="row justify-content-center">
     
     	<div class="col-10 col-md-12 col-lg-12 col-xl-10 row justify-content-center">
-            <div class="col-12 col-md-6 col-xl-6 ex_boxes t_t1-">
+            <div class="col-12 col-md-6 col-xl-6 ex_boxes t_t1- animate__animated hid" >
                 <div class="ex_title">Explore</div>
                 <div class="ex_det">luxury villa thailand.<br>private luxury villas for rent</div>
             </div>
             <div class="col-12 col-md-6 col-xl-6 t_t2-">
-                <div class="row justify-content-center">
+                <div class="row justify-content-center r1 animate__animated animate__delay-05s hid">
                     <div class="col-12 col-md-3 "><img  data-src="../../upload/new_design/img-top-bg-icon.png" class="ex_icon lazy" alt=""></div>
                     <div class="col-12 col-md-9  box_ex_det">
                         <div class="exr_title">DISCOVER LUXURY VILLAS</div>
@@ -125,7 +125,7 @@ function cleartime(func)
     offers a complete range of luxury villas to choose from.</div>
                     </div>
                 </div>
-                <div class="row justify-content-center">
+                <div class="row justify-content-center r2 animate__animated animate__delay-1s hid">
                     <div class="col-12 col-md-3 "><img data-src="../../upload/new_design/img-top-bg-icon2.png" class="ex_icon lazy" alt=""></div>
                     <div class="col-12 col-md-9  box_ex_det">
                         <div class="exr_title">A HANDPICKED COLLECTION</div>
@@ -136,7 +136,7 @@ function cleartime(func)
     offers a complete range of luxury villas to choose from.</div>
                     </div>
                 </div>
-                <div class="row justify-content-center">
+                <div class="row justify-content-center r3 animate__animated animate__delay-105s hid">
                     <div class="col-12 col-md-3 "><img data-src="../../upload/new_design/img-top-bg-icon3.png" class="ex_icon lazy" alt=""></div>
                     <div class="col-12 col-md-9  box_ex_det">
                         <div class="exr_title">PERSONALISED SERVICE</div>
@@ -165,7 +165,25 @@ function cleartime(func)
 					$pho = json_decode($r_cate['photo'],true);
 					if($zz<=1){$cal="top10 cab";}else{$cal="top10 cab";}
 					$zz++;
-					echo '<div class="col-12 col-sm-6 col-lg-3 '.$cal.'">';
+					$delay='';
+					if($zz==1)
+					{
+						$delay = "animate__delay-05s animate__faster";
+					}
+					elseif($zz==2)
+					{
+						$delay = "animate__delay-1s animate__faster";
+					}
+					elseif($zz==3)
+					{
+						$delay = "animate__delay-105s animate__faster";
+					}
+					elseif($zz==4)
+					{
+						$delay = "animate__delay-2s animate__faster";
+					}
+					
+					echo '<div class="col-12 col-sm-6 col-lg-3 '.$cal.' animate__animated hid ca-'.$zz.' '. $delay.'">';
 					if($r_cate['id']==4)
 					{
 						$ht_links = "/search-rent/thailand/all-beach/all-price.html?room=all-bedrooms&cate=seaview-villas&sort=all-sort";
@@ -324,14 +342,14 @@ function cleartime(func)
 	<img data-src="../../upload/new_design/Story/img-story-sec-bg-logo1.png" class="str_bg_1 lazy" alt="">
 	<div class="row justify-content-center">
     	<div class="col-12 col-md-10 text-center">
-        	<div class="str_title text-center">story</div>
-            <div class="str_det text-center">villa in thailand</div>
-            <img data-src="../../upload/new_design/Story/line.png" class="str_line  lazy" alt="">
+        	<div class="str_title text-center animate__animated animate__delay-05s hid">story</div>
+            <div class="str_det text-center animate__animated animate__delay-1s hid">villa in thailand</div>
+            <img data-src="../../upload/new_design/Story/line.png" class="str_line  lazy animate__animated animate__delay-1s hid" alt="">
             
-            <div class="row stroy_inside">
-            	<div class="col-12 col-md-6 nopad"><img data-src="../../upload/new_design/Story/img-story-sec-img1.png" class="w-100 lazy" alt=""></div>
+            <div class="row stroy_inside s1">
+            	<div class="col-12 col-md-6 nopad "><img data-src="../../upload/new_design/Story/img-story-sec-img1.png" class="w-100 lazy sp1 animate__animated animate__delay-05s hid" alt=""></div>
                 <div class="col-12 col-md-6 nopad ">
-                	<div class="str_box_des">
+                	<div class="str_box_des sd1 animate__animated animate__delay-1s hid">
                         <img data-src="../../upload/new_design/Story/img-story-sec-text-icon.png" class="db6_top lazy" alt="">
                             <div class="str_in_tt">FIND YOUR IDEAL BEACH VILLA IN THAILAND TODAY</div>
                             <div class="str_in_det">Finding the right luxury villa for rent in Thailand
@@ -344,10 +362,10 @@ function cleartime(func)
                 </div>
             </div>
             
-            <div class="row stroy_inside">
-            	<div class="mob col-12 col-md-6 nopad"><img data-src="../../upload/new_design/Story/img-story-sec-img2.png" class="w-100 lazy" alt=""></div>
+            <div class="row stroy_inside s2">
+            	<div class="mob col-12 col-md-6 nopad"><img data-src="../../upload/new_design/Story/img-story-sec-img2.png" class="w-100 lazy " alt=""></div>
                 <div class="col-12 col-md-6 nopad">
-                	<div class="str_box_des">
+                	<div class="str_box_des sd2 animate__animated animate__delay-1s hid">
                         <img data-src="../../upload/new_design/Story/img-story-sec-text-icon.png" class="db6_top lazy" alt="">
                             <div class="str_in_tt">THE ULTIMATE THAILAND BEACH VILLA WITH A PRIVATE POOL</div>
                             <div class="str_in_det">If a luxury pool villa in Thailand is on your list,
@@ -360,13 +378,13 @@ function cleartime(func)
                         <img data-src="../../upload/new_design/Story/img-story-sec-text-icon2.png" class="db6_bot lazy" alt="">
                     </div>
                 </div>
-                <div class="web col-12 col-md-6 nopad"><img data-src="../../upload/new_design/Story/img-story-sec-img2.png" class="w-100 lazy" alt=""></div>
+                <div class="web col-12 col-md-6 nopad"><img data-src="../../upload/new_design/Story/img-story-sec-img2.png" class="w-100 lazy sp2 animate__animated animate__delay-05s hid" alt=""></div>
             </div>
             
-            <div class="row stroy_inside">
-            	<div class="col-12 col-md-6 nopad"><img data-src="../../upload/new_design/Story/img-story-sec-img3.png" class="w-100 lazy" alt=""></div>
+            <div class="row stroy_inside s3">
+            	<div class="col-12 col-md-6 nopad"><img data-src="../../upload/new_design/Story/img-story-sec-img3.png" class="w-100 lazy sp3 animate__animated animate__delay-05s hid" alt=""></div>
                 <div class="col-12 col-md-6 nopad">
-                	<div class="str_box_des">
+                	<div class="str_box_des sd3 animate__animated animate__delay-1s hid">
                         <img data-src="../../upload/new_design/Story/img-story-sec-text-icon.png" class="db6_top lazy" alt="">
                             <div class="str_in_tt">FIND THE PERFECT BEACH VILLA IN PHUKET, THAILAND</div>
                             <div class="str_in_det">The ideal beach villa for rent awaits you in the
@@ -382,10 +400,10 @@ function cleartime(func)
                 </div>
             </div>
             
-            <div class="row stroy_inside">
+            <div class="row stroy_inside s4">
             	<div class="mob col-12 col-md-6 nopad"><img data-src="../../upload/new_design/Story/img-story-sec-img4.png" class="w-100 lazy" alt=""></div>
                 <div class="col-12 col-md-6 nopad">
-                	<div class="str_box_des">
+                	<div class="str_box_des sd4 animate__animated animate__delay-1s hid">
                         <img data-src="../../upload/new_design/Story/img-story-sec-text-icon.png" class="db6_top lazy" alt="">
                             <div class="str_in_tt">KOH PHANGAN LUXURY VACATION RENTALS IN THAILAND</div>
                             <div class="str_in_det">If the blissful calm shores of an island paradise
@@ -399,7 +417,7 @@ function cleartime(func)
                         <img data-src="../../upload/new_design/Story/img-story-sec-text-icon2.png" class="db6_bot lazy" alt="">
                     </div>
                 </div>
-                <div class="web col-12 col-md-6 nopad"><img data-src="../../upload/new_design/Story/img-story-sec-img4.png" class="w-100 lazy" alt=""></div>
+                <div class="web col-12 col-md-6 nopad"><img data-src="../../upload/new_design/Story/img-story-sec-img4.png" class="w-100 lazy sp4 animate__animated animate__delay-05s hid" alt=""></div>
             </div>
             
             
@@ -416,7 +434,7 @@ function cleartime(func)
         </div>
     </div>
     
-    <img data-src="../../upload/new_design/Story/img-story-sec-bg-logo2.png" class="str_bg_2 lazy" alt="">
+    <img data-src="../../upload/new_design/Story/img-story-sec-bg-logo2.png" class="str_bg_2 lazy sd4 animate__animated animate__delay-05s hid" alt="">
 </div>
 
 
