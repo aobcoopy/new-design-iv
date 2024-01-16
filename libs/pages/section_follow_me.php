@@ -1,12 +1,12 @@
 <div class="container-fluid follow_box">
 	<div class="row justify-content-center text-center">
-    	<div class="fl_tt">follow <span class="italic">me</span> on ig</div>
+    	<div class="fl_tt animate__delay-05s hid animate__fast">follow <span class="italic">me</span> on ig</div>
     </div>
 </div>
 
 
 
-<div class="embed_ig"></div>
+<div class="embed_ig animate__delay-05s hid animate__fast"></div>
 <div class="row justify-content-center text-center">
 
 <div class="text-center loaddeddd" style="display:none;">
@@ -40,6 +40,8 @@ $(window).scroll(function ()
 				success: function(res){
 					$(".embed_ig").html(res);
 					$(".loaddeddd").hide();
+					$(".embed_ig").removeClass('hid');
+					$(".embed_ig").addClass('bounce-top');
 				}
 			});
 		}

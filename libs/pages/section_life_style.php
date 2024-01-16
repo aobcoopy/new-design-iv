@@ -1,10 +1,10 @@
 <div class="container-fluid lifestyle_box_1">
 	<div class="row justify-content-center text-center">
     	<div class="col-12 col-md-10">
-            <div class="lf_tt">inspiring life style</div>
+            <div class="lf_tt animate__delay-05s hid animate__fast">inspiring life style</div>
         </div>
         <div class="col-12 col-md-7">
-            <div class="lf_des">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet</div>
+            <div class="lf_des animate__delay-05s hid animate__fast">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet</div>
         </div>
     </div>
 </div>
@@ -13,13 +13,14 @@
     	<div class="col-12 col-md-10">
         	<div class="row">
             <?php
+			$s=5;
 			$sql_blog = $dbc->Query("select * from blogs where status > 0 and heightlight > 0 order by sort asc limit 0,3");
 			while($res = $dbc->Fetch($sql_blog))
 			{
 				$photo = imagePath('/'.json_decode($res['photo_hl_3'],true));
 				$urll = "/blog/" . strtolower(str_replace(" ", "-", $res['name']) ) . ".html";
 				?>
-                <div class="col-12 col-sm-6 col-lg-4 nopad575">
+                <div class="col-12 col-sm-6 col-lg-4 nopad575 lstB animate__delay-0<?php echo $s;?>s hid animate__fast">
                 	<div class="col-12 lf_inside">
                         <div class="col-12">
                             <a href="<?php echo $urll;?>"><img data-src="<?php echo $photo;?>" class="lf_ing lazy" alt=""></a>
@@ -31,6 +32,7 @@
                     </div>
                 </div>
 				<?php
+				$s++;
 			}
 			?>
                 <!--<div class="col-12 col-sm-6 col-lg-4 nopad575">
@@ -68,7 +70,7 @@
                 </div>-->
             </div>
             
-            <a href="/blog"><button class="lf_but">read more</button></a>
+            <a href="/blog" class="rmb animate__delay-05s hid animate__fast"><button class="lf_but">read more</button></a>
         </div>
     </div>
 <!--    <img src="../../upload/new_design/img-lifestyle-Logo.png" class="lf_photo" alt="">-->

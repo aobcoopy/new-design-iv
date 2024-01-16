@@ -125,7 +125,7 @@ function cleartime(func)
     offers a complete range of luxury villas to choose from.</div>
                     </div>
                 </div>
-                <div class="row justify-content-center r2 animate__animated animate__delay-1s hid">
+                <div class="row justify-content-center r2 animate__animated animate__delay-06s hid">
                     <div class="col-12 col-md-3 "><img data-src="../../upload/new_design/img-top-bg-icon2.png" class="ex_icon lazy" alt=""></div>
                     <div class="col-12 col-md-9  box_ex_det">
                         <div class="exr_title">A HANDPICKED COLLECTION</div>
@@ -136,7 +136,7 @@ function cleartime(func)
     offers a complete range of luxury villas to choose from.</div>
                     </div>
                 </div>
-                <div class="row justify-content-center r3 animate__animated animate__delay-105s hid">
+                <div class="row justify-content-center r3 animate__animated animate__delay-07s hid">
                     <div class="col-12 col-md-3 "><img data-src="../../upload/new_design/img-top-bg-icon3.png" class="ex_icon lazy" alt=""></div>
                     <div class="col-12 col-md-9  box_ex_det">
                         <div class="exr_title">PERSONALISED SERVICE</div>
@@ -168,19 +168,19 @@ function cleartime(func)
 					$delay='';
 					if($zz==1)
 					{
-						$delay = "animate__delay-05s animate__faster";
+						$delay = "animate__delay-05s animate__fast";
 					}
 					elseif($zz==2)
 					{
-						$delay = "animate__delay-1s animate__faster";
+						$delay = "animate__delay-06s animate__fast";
 					}
 					elseif($zz==3)
 					{
-						$delay = "animate__delay-105s animate__faster";
+						$delay = "animate__delay-07s animate__fast";
 					}
 					elseif($zz==4)
 					{
-						$delay = "animate__delay-2s animate__faster";
+						$delay = "animate__delay-08s animate__fast";
 					}
 					
 					echo '<div class="col-12 col-sm-6 col-lg-3 '.$cal.' animate__animated hid ca-'.$zz.' '. $delay.'">';
@@ -342,14 +342,14 @@ function cleartime(func)
 	<img data-src="../../upload/new_design/Story/img-story-sec-bg-logo1.png" class="str_bg_1 lazy" alt="">
 	<div class="row justify-content-center">
     	<div class="col-12 col-md-10 text-center">
-        	<div class="str_title text-center animate__animated animate__delay-05s hid">story</div>
-            <div class="str_det text-center animate__animated animate__delay-1s hid">villa in thailand</div>
-            <img data-src="../../upload/new_design/Story/line.png" class="str_line  lazy animate__animated animate__delay-1s hid" alt="">
+        	<div class="str_title text-center animate__animated animate__delay-05s hid animate__fast">story</div>
+            <div class="str_det text-center animate__animated animate__delay-1s hid animate__fast">villa in thailand</div>
+            <img data-src="../../upload/new_design/Story/line.png" class="str_line  lazy animate__animated animate__delay-1s hid animate__fast" alt="">
             
             <div class="row stroy_inside s1">
-            	<div class="col-12 col-md-6 nopad "><img data-src="../../upload/new_design/Story/img-story-sec-img1.png" class="w-100 lazy sp1 animate__animated animate__delay-05s hid" alt=""></div>
+            	<div class="col-12 col-md-6 nopad "><img data-src="../../upload/new_design/Story/img-story-sec-img1.png" class="w-100 lazy stp1 animate__animated animate__delay-05s hid animate__fast" alt=""></div>
                 <div class="col-12 col-md-6 nopad ">
-                	<div class="str_box_des sd1 animate__animated animate__delay-1s hid">
+                	<div class="str_box_des std1 animate__animated animate__delay-05s hid animate__fast">
                         <img data-src="../../upload/new_design/Story/img-story-sec-text-icon.png" class="db6_top lazy" alt="">
                             <div class="str_in_tt">FIND YOUR IDEAL BEACH VILLA IN THAILAND TODAY</div>
                             <div class="str_in_det">Finding the right luxury villa for rent in Thailand
@@ -365,7 +365,7 @@ function cleartime(func)
             <div class="row stroy_inside s2">
             	<div class="mob col-12 col-md-6 nopad"><img data-src="../../upload/new_design/Story/img-story-sec-img2.png" class="w-100 lazy " alt=""></div>
                 <div class="col-12 col-md-6 nopad">
-                	<div class="str_box_des sd2 animate__animated animate__delay-1s hid">
+                	<div class="str_box_des std2 animate__animated animate__delay-05s hid animate__fast">
                         <img data-src="../../upload/new_design/Story/img-story-sec-text-icon.png" class="db6_top lazy" alt="">
                             <div class="str_in_tt">THE ULTIMATE THAILAND BEACH VILLA WITH A PRIVATE POOL</div>
                             <div class="str_in_det">If a luxury pool villa in Thailand is on your list,
@@ -378,13 +378,13 @@ function cleartime(func)
                         <img data-src="../../upload/new_design/Story/img-story-sec-text-icon2.png" class="db6_bot lazy" alt="">
                     </div>
                 </div>
-                <div class="web col-12 col-md-6 nopad"><img data-src="../../upload/new_design/Story/img-story-sec-img2.png" class="w-100 lazy sp2 animate__animated animate__delay-05s hid" alt=""></div>
+                <div class="web col-12 col-md-6 nopad"><img data-src="../../upload/new_design/Story/img-story-sec-img2.png" class="w-100 lazy stp2 animate__animated animate__delay-05s hid animate__fast" alt=""></div>
             </div>
             
             <div class="row stroy_inside s3">
-            	<div class="col-12 col-md-6 nopad"><img data-src="../../upload/new_design/Story/img-story-sec-img3.png" class="w-100 lazy sp3 animate__animated animate__delay-05s hid" alt=""></div>
+            	<div class="col-12 col-md-6 nopad"><img data-src="../../upload/new_design/Story/img-story-sec-img3.png" class="w-100 lazy stp3 animate__animated animate__delay-05s hid animate__fast" alt=""></div>
                 <div class="col-12 col-md-6 nopad">
-                	<div class="str_box_des sd3 animate__animated animate__delay-1s hid">
+                	<div class="str_box_des std3 animate__animated animate__delay-05s hid animate__fast">
                         <img data-src="../../upload/new_design/Story/img-story-sec-text-icon.png" class="db6_top lazy" alt="">
                             <div class="str_in_tt">FIND THE PERFECT BEACH VILLA IN PHUKET, THAILAND</div>
                             <div class="str_in_det">The ideal beach villa for rent awaits you in the
@@ -403,7 +403,7 @@ function cleartime(func)
             <div class="row stroy_inside s4">
             	<div class="mob col-12 col-md-6 nopad"><img data-src="../../upload/new_design/Story/img-story-sec-img4.png" class="w-100 lazy" alt=""></div>
                 <div class="col-12 col-md-6 nopad">
-                	<div class="str_box_des sd4 animate__animated animate__delay-1s hid">
+                	<div class="str_box_des std4 animate__animated animate__delay-05s hid animate__fast">
                         <img data-src="../../upload/new_design/Story/img-story-sec-text-icon.png" class="db6_top lazy" alt="">
                             <div class="str_in_tt">KOH PHANGAN LUXURY VACATION RENTALS IN THAILAND</div>
                             <div class="str_in_det">If the blissful calm shores of an island paradise
@@ -417,7 +417,7 @@ function cleartime(func)
                         <img data-src="../../upload/new_design/Story/img-story-sec-text-icon2.png" class="db6_bot lazy" alt="">
                     </div>
                 </div>
-                <div class="web col-12 col-md-6 nopad"><img data-src="../../upload/new_design/Story/img-story-sec-img4.png" class="w-100 lazy sp4 animate__animated animate__delay-05s hid" alt=""></div>
+                <div class="web col-12 col-md-6 nopad"><img data-src="../../upload/new_design/Story/img-story-sec-img4.png" class="w-100 lazy stp4 animate__animated animate__delay-05s hid animate__fast" alt=""></div>
             </div>
             
             
@@ -425,48 +425,48 @@ function cleartime(func)
         </div>
     </div>
     
-    <div class="row justify-content-center text-center">
-    	<div class="ql_tt">quick links</div>
+    <div class="row sql justify-content-center text-center">
+    	<div class="ql_tt animate__animated animate__delay-05s hid animate__fast">quick links</div>
         <div class="ql_but_box">
-        	<a href=""><button class="ql_but">puhket villas</button></a>
-            <a href=""><button class="ql_but">Koh samui villas</button></a>
-            <a href=""><button class="ql_but">koh pha ngan villas</button></a>
+        	<a href=""><button class="ql_but animate__animated animate__delay-05s hid animate__fast">puhket villas</button></a>
+            <a href=""><button class="ql_but animate__animated animate__delay-06s hid animate__fast">Koh samui villas</button></a>
+            <a href=""><button class="ql_but animate__animated animate__delay-07s hid animate__fast">koh pha ngan villas</button></a>
         </div>
     </div>
     
-    <img data-src="../../upload/new_design/Story/img-story-sec-bg-logo2.png" class="str_bg_2 lazy sd4 animate__animated animate__delay-05s hid" alt="">
+    <img data-src="../../upload/new_design/Story/img-story-sec-bg-logo2.png" class="str_bg_2 lazy sd4 animate__animated animate__delay-1s hid" alt="">
 </div>
 
 
 
 
-<div class="container-fluid about_box">
+<div class="container-fluid about_box animate__animated animate__delay-05s hid animate__fast">
 	<div class="row justify-content-center text-center">
     	<div class="col-12 col-md-10">
-        	<div class="abb_tt">about us</div>
-            <div class="abb_des">Inspiring Villas offers a unique and sensational villa holiday experience in the finest hand-picked
+        	<div class="abb_tt abt1 animate__animated animate__delay-07s hid animate__fast">about us</div>
+            <div class="abb_des abt2 animate__animated animate__delay-09s hid animate__fast">Inspiring Villas offers a unique and sensational villa holiday experience in the finest hand-picked
 luxury villas in Thailand , the holiday of a lifetime, receiving full 24/7 care from our professional
 team inside and outside the villa.</div>
-			<a href=""><button class="abb_but">More</button></a>
+			<a href="" class="abb animate__animated animate__delay-1s hid animate__fast"><button class="abb_but ">More</button></a>
         </div>
     </div>
 </div>
 
-
-<div class="container-fluid hwr_box">
+<div class="tshwr"></div>
+<div class="container-fluid hwr_box animate__animated animate__delay-05s hid animate__fast">
 	<div class="row justify-content-center text-center">
     	<div class="col-12 col-md-9">
-        	<div class="abb_tt top_hwr_tt">who<br class="mob"> we are</div>
-            <div class="abb_des top_hwr_des">Inspiring Villas offers a unique and sensational villa holiday experience in the finest hand-picked
+        	<div class="abb_tt top_hwr_tt animate__animated animate__delay-06s hid animate__fast">who<br class="mob"> we are</div>
+            <div class="abb_des top_hwr_des animate__animated animate__delay-07s hid animate__fast">Inspiring Villas offers a unique and sensational villa holiday experience in the finest hand-picked
 luxury villas in Thailand , the holiday of a lifetime, receiving full 24/7 care from our professional
 team inside and outside the villa.</div>
 			
         </div>
         <div class="col-12 col-md-10 row">
             <div class="col-12 col-md-4">
-                <div class="hwr_icon"><img data-src="../../upload/new_design/who_we_are/img-who-we-are-icon.png" class="hwricon lazy" alt=""></div>
-                <div class="hwr_tt">LUXURY VILLA RENTALS</div>
-                <div class="hwr_des">Our selection of Thailand villas for rent offer
+                <div class="hwr_icon hwp1 animate__animated animate__delay-07s hid animate__fast"><img data-src="../../upload/new_design/who_we_are/img-who-we-are-icon.png" class="hwricon  lazy " alt=""></div>
+                <div class="hwr_tt hwt1 animate__animated animate__delay-07s hid animate__fast">LUXURY VILLA RENTALS</div>
+                <div class="hwr_des hwd1 animate__animated animate__delay-07s hid animate__fast">Our selection of Thailand villas for rent offer
     a unique villa holiday experience. We offer the
     best villas in the most incredible locations.
     Guests enjoy exclusivity and privacy, complete
@@ -474,9 +474,9 @@ team inside and outside the villa.</div>
     private chef and incredible facilities.</div>
             </div>
             <div class="col-12 col-md-4">
-                <div class="hwr_icon"><img data-src="../../upload/new_design/who_we_are/img-who-we-are-icon2.png" class="hwricon lazy" alt=""></div>
-                <div class="hwr_tt">BE INSPIRED</div>
-                <div class="hwr_des">There is trul y something f or ever yone. Our s taff
+                <div class="hwr_icon hwp2 animate__animated animate__delay-08s hid animate__fast"><img data-src="../../upload/new_design/who_we_are/img-who-we-are-icon2.png" class="hwricon lazy " alt=""></div>
+                <div class="hwr_tt hwt2 animate__animated animate__delay-08s hid animate__fast">BE INSPIRED</div>
+                <div class="hwr_des hwd2 animate__animated animate__delay-08s hid animate__fast">There is trul y something f or ever yone. Our s taff
     can find the perf ect holiday villa match f or you,
     helping you to discover the location and villa
     that best suits your needs. We will show you
@@ -484,9 +484,9 @@ team inside and outside the villa.</div>
     and villa are perfect for your next vacation.</div>
             </div>
             <div class="col-12 col-md-4">
-                <div class="hwr_icon"><img data-src="../../upload/new_design/who_we_are/img-who-we-are-icon3.png" class="hwricon lazy" alt=""></div>
-                <div class="hwr_tt">WHY CHOOSE US</div>
-                <div class="hwr_des">Inspiring Villas selects only the fines t luxury
+                <div class="hwr_icon hwp3 animate__animated animate__delay-09s hid animate__fast"><img data-src="../../upload/new_design/who_we_are/img-who-we-are-icon3.png" class="hwricon lazy " alt=""></div>
+                <div class="hwr_tt hwt3 animate__animated animate__delay-09s hid animate__fast">WHY CHOOSE US</div>
+                <div class="hwr_des hwd3 animate__animated animate__delay-09s hid animate__fast">Inspiring Villas selects only the fines t luxury
     villas in Thailand to be featured in our collection.
     Our experienced team carefully inspects every
     villa before check in, and provides full concierge
@@ -506,24 +506,24 @@ team inside and outside the villa.</div>
         	<!--<div class="col-1"></div>-->
             <div class="col-12 col-md-7 our_bl">
             	<div class="our_ins_box">
-                    <div class="our_tt our_tl">our</div>
-                    <div class="our_tt our_tr">services</div>
-                    <div class="to our_sub_tt">luxury villas</div>
+                    <div class="our_tt our_tl animate__animated animate__delay-05s hid animate__fast">our</div>
+                    <div class="our_tt our_tr animate__animated animate__delay-06s hid animate__fast">services</div>
+                    <div class="to our_sub_tt animate__animated animate__delay-07s hid animate__fast">luxury villas</div>
                 </div>
-                <img data-src="../../upload/new_design/our_service/img-our-service-icon.png" class="our_line lazy" alt="">
+                <img data-src="../../upload/new_design/our_service/img-our-service-icon.png" class="our_line lazy animate__animated animate__delay-07s hid animate__fast" alt="">
             </div>
             <div class="col-12 col-md-5 ourbr">
             	<div class="row justify-content-center text-center">
                     <div class="col-12 col-sm-8 t_t2-">
-                        <div class="row top20">
+                        <div class="row top20 ob1 animate__animated animate__delay-06s hid animate__fast">
                             <div class="col-3 ourinboximg"><img data-src="../../upload/new_design/our_service/img-our-service-icon2.png" class="w-100 our_icon lazy" alt=""></div>
                             <div class="col ourinbox_text">concierge services</div>
                         </div>
-                        <div class="row top20">
+                        <div class="row top20 ob2 animate__animated animate__delay-07s hid animate__fast">
                             <div class="col-3 ourinboximg"><img data-src="../../upload/new_design/our_service/img-our-service-icon3.png" class="w-100 our_icon lazy" alt=""></div>
                             <div class="col ourinbox_text">asset management</div>
                         </div>
-                        <div class="row top20">
+                        <div class="row top20 ob3 animate__animated animate__delay-08s hid animate__fast">
                             <div class="col-3 ourinboximg"><img data-src="../../upload/new_design/our_service/img-our-service-icon4.png" class="w-100 our_icon lazy" alt=""></div>
                             <div class="col ourinbox_text">margketing management</div>
                         </div>
@@ -535,11 +535,11 @@ team inside and outside the villa.</div>
     
     <div class="row justify-content-center text-center our_box_2">
     	<div class="col-12">
-        	<div class="our_tt our_box_2_tt">our <span class="to">sunstanable</span><br><span class="to">villa</span> concept</div>
-            <div class="our_box_2_des">Inspiring Villas offers a unique and sensational villa holiday experience in the finest hand-picked<br class="web">
+        	<div class="our_tt our_box_2_tt animate__animated animate__delay-05s hid animate__fast">our <span class="to">sunstanable</span><br><span class="to">villa</span> concept</div>
+            <div class="our_box_2_des animate__animated animate__delay-08s hid animate__fast">Inspiring Villas offers a unique and sensational villa holiday experience in the finest hand-picked<br class="web">
 luxury villas in Thailand , the holiday of a lifetime, receiving full 24/7 care from our professional<br class="web">
 team inside and outside the villa.</div>
-            <a href=""><button class="abb_but">read More</button></a>
+            <a href="" class="orb animate__animated animate__delay-1s hid animate__fast"><button class="abb_but ">read More</button></a>
         </div>
     </div>
     
@@ -547,7 +547,7 @@ team inside and outside the villa.</div>
 </div>
 
 
-<img data-src="../../upload/new_design/our_service/img-our-stanable-bg.png" class="our_bg lazy" alt="">
+<img data-src="../../upload/new_design/our_service/img-our-stanable-bg.png" class="our_bg lazy animate__animated animate__delay-1s hid animate__fast" alt="">
 
 
 
@@ -559,7 +559,9 @@ team inside and outside the villa.</div>
 
 <?php include "libs/pages/section_contact_us_footer.php";?>
 
-
+<div class="ove col-12">
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
 
 <?php //include "libs/pages/embed_ig_photo_new_design.php";?>
 
