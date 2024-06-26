@@ -80,7 +80,7 @@ $(document).ready(function(e) {
                 </div>
                 <div class="col-12 col-lg-10 ccc2">
                     <div class="mg-bn-forms mg2 pding992" >
-                        
+                        <?php echo '>>'.$_REQUEST['des'].'<<<';?>
                             <div class="row">
                                 <div class="col-md-3 col-12 "> 
                                         <select id="cbbDestination" name="cbbDestination" onChange="load_subdestination(this);" class="cbbdes2 cs-select cs-skin-elastic cbbo">

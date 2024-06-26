@@ -83,7 +83,8 @@
 		'ipadd' => $_SERVER['REMOTE_ADDR'].'-'.get_client_ip(),
 		'data' => json_encode($arr_cookie),
 		'#created' => 'NOW()',
-		'link' => $_REQUEST['actual_link']
+		'link' => $_REQUEST['actual_link'],
+		'agreement' => $_REQUEST['agreement']
 	);
 	
 	$dbc->Insert("cookies",$data);

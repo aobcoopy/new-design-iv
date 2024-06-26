@@ -144,18 +144,19 @@ if($show_phuket == '')
 			  else
 			  {
 				  ?>
-                  <h2 class=" mb f30"><strong><?php /* ?><a class="tg cdf" ><?php */?>Discover Luxury Villas in Phuket<?php /*?></a><?php */?></strong></h2>
+                  <h2 class=" mb f30"><strong><?php /* ?><a class="tg cdf" ><?php */?>Discover Luxury Phuket holiday villas for rent in Thailand<?php /*?></a><?php */?></strong></h2>
 				  <p class="col-md-12 nopad top41 f18 pnone">
-                  	Phuket villa rental offers an incredible holiday experience. With the privacy of having your own space, you can truly relax and enjoy your time in one of Thailand's most popular holiday destinations. All Phuket villa rentals come with the added convenience of a team of staff which includes a villa manager who will act as your concierge for the duration of your stay, a private chef to make you the most sumptuous meals and a housekeeping staff that will keep your luxury villa in Phuket spotless the entire time.
+                  	Phuket villas for rent offers an incredible holiday experience. With the privacy of having your own space, you can truly relax and enjoy your time in one of Thailand's most popular holiday destinations. All Phuket villa rentals come with the added convenience of a team of staff which includes a villa manager who will act as your concierge for the duration of your stay, a private chef to make you the most sumptuous meals and a housekeeping staff that will keep your luxury villa in Phuket spotless the entire time.
 <br><br>
-Each Phuket villa rental you will find with Inspiring Villas has been handpicked for its incredible facilities and design. You will commonly find a dedicated games room or cinema in our luxury Phuket villas, along with added bonuses like fitness centres, steam rooms and infinity pools with the most incredible views. 
+Each Phuket holiday villas for rent you will find with Inspiring Villas has been handpicked for its incredible facilities and design. You will commonly find a dedicated games room or cinema in our luxury Phuket villas, along with added bonuses like fitness centres, steam rooms and infinity pools with the most incredible views. 
                     <!--Phuket Luxury Villas make a great holiday option. Offering you your own private villa holiday space, private pool, staff, chef and all modern facilities like your own fitness, cinema and games rooms, as well as spa, steam and sauna rooms.-->
                 </p>
                 
                 <div class="col-md-12 nopad top41">
                 <h2 class=" mb f30 "><strong>Rent the best villas in Phuket</strong></h2>
+                <div class="col-xs-6 top20 nopad"><img src="<?php echo $url_link;?>/upload/slide/768/Phuket-holiday-villas-for-rent.webp" width="100%" alt="Phuket holiday villas for rent"></div>
 				  <p class="col-md-12 nopad top41 f18 pnone">
-                  	No matter what sized group you are travelling with or what kind of vacation you are looking for, our expert team can help match you with the ideal rental villas in Phuket. With property sizes ranging from two to more than ten bedrooms, we can easily accommodate groups of every size in our Phuket luxury villas in the right location to provide all you desire for your next Thailand holiday. 
+                  	No matter what sized group you are travelling with or what kind of holiday you are looking for, our expert team can help match you with the ideal rental villas in Phuket. With property sizes ranging from two to more than ten bedrooms, we can easily accommodate groups of every size in our Phuket luxury villas in the right location to provide all you desire for your next Thailand holiday. 
 <br><br>
 If a Phuket pool villa has been on your bucket list for a while, there is no better way to ensure that you rent the perfect property than by working with the expert team at Inspiring Villas. With little time or effort required from you, you will be sipping a cocktail in front of an infinity pool overlooking the sparkling Andaman Sea in no time at all. Contact us today to discover how you can rent a villa in Phuket that will be nothing short of extraordinary.   
 
@@ -278,7 +279,7 @@ So just change the collections selection at the top of this page or scroll down 
 			  {
 				  ?>
 				  <div class="col-md-12 nopad top41">
-                    <h4 class=" mb f22 top"><strong>How does villa rental work in Phuket</strong></h4>
+                    <div class=" mb f22 top"><strong>How does villa rental work in Phuket</strong></div>
                         <p class="col-md-12 nopad top21 f18 pnone">
                             There are a large range of villas for rent. Even if a villa is large with eight bedrooms they will offer you to use less bedrooms and pay less per night. So you can often rent a larger villa with staff and all its amenities but only use a few bedrooms and pay much less per night.
             Prices vary between seasons and are highest over the peak season of Christmas and New year in Thailand.
@@ -423,7 +424,7 @@ So all you have to do is choose the number of bedrooms you need below and you wi
            
             
             <p class="col-md-12 nopad top41 pnone">
-                There are also Phuket Villas to suit all groups for your next villa vacation.
+                There are also Phuket Villas to suit all groups for your next villa holiday.
             </p>
             <?php 
 			if($_REQUEST['cate']!=6)
@@ -453,7 +454,7 @@ There are many large beautiful properties that can be the wedding villa for your
 				<div class="col-md-12 nopad top41-">
 				<?php /*?><h4 class=" mb f22 top"><strong><a class="tg cdf" >Luxury Villas Phuket Cost </a></strong></h4><?php */?>
 					<p class="col-md-12 nopad top21 f18 pnone">
-						As the Villa marketing company with the widest choice of luxury villas in Phuket we have analysed our <?php echo $last_year;?> data.<br>
+						As the Villa marketing company with the widest choice of Luxury Phuket holiday villas for rent in Thailand we have analysed our <?php echo $last_year;?> data.<br>
 
                         This has enabled us to release this up-to-date survey of the average cost of renting a villa in Phuket to give a guide for <?php echo $this_year;?>.<br>
                         
@@ -960,7 +961,7 @@ Sleeps 22 guests.
                 <?php /*?>Well right here is where you can find them. We represent all the best villas and they come with every amenity you can imagine.
 Whether you want a playground with a bowling alley and putting green or you are looking for a private luxury retreat we have it all.
 Just get ready to have the best time on your next holiday.<?php */?>
-				Well right here is where you can find them. We represent all the best villas in Phuket and they come with every amenity you can imagine. Whether you want a playground villa with a bowling alley and putting green or you are looking for a private luxury retreat we have it all. Just get ready to have the best time on your next villa vacation in Phuket.
+				Well right here is where you can find them. We represent all the best villas in Phuket and they come with every amenity you can imagine. Whether you want a playground villa with a bowling alley and putting green or you are looking for a private luxury retreat we have it all. Just get ready to have the best time on your next villa holiday in Phuket.
             </div>
         </div>
         
@@ -985,7 +986,7 @@ And by the way, they are incredible villas. So start searching for your next vac
         <h4 class=" mb f30 top"><strong><?php /* ?><a class="tg cdf" ><?php */?>How do I find the best villas in Phuket for our group requirements<?php /*?></a><?php */?></strong></h4> <?php /*?>How do I find the best luxury villas in Phuket for our group requirements<?php */?>
             <div class="col-md-12 nopad top21 f18">
             Just leave that to us.<br>
-Our concierge staff will be happy to learn about your preferences and group profile and provide a list of the very best luxury villas in Phuket.<br>
+Our concierge staff will be happy to learn about your preferences and group profile and provide a list of the very best Luxury Phuket holiday villas for rent in Thailand.<br>
 This will save you lots of time and research as we will only present the villas for rent that suit and are available.
 
             </div>
@@ -1007,7 +1008,7 @@ This will save you lots of time and research as we will only present the villas 
 				$f_villas = "Villas";
 			}
 		?>
-			 <h2 class=" mb f30 top"><strong><?php /*?><a class="tg cdf" ><?php */?>Where are the Best Villas in Phuket?<?php /*?></a><?php */?></strong></h2> <?php /*?>Popular Luxury Villa locations Phuket<?php */?>
+			 <h2 class=" mb f30 top"><strong><?php /*?><a class="tg cdf" ><?php */?>Where are the Best Luxury Phuket holiday villas for rent in Thailand?<?php /*?></a><?php */?></strong></h2> <?php /*?>Popular Luxury Villa locations Phuket<?php */?>
              
              <div class="col-md-12 nopad top21">
             <table class="table table-bordered table-striped ttb" width="629px" border="1" >
@@ -1085,7 +1086,7 @@ This will save you lots of time and research as we will only present the villas 
                 </tbody>
             </table>
             <div class="col-md-12 nopad  f18">
-                There are very popular beaches on the west coast with many beautiful luxury villas in Phuket.<br><br>
+                There are very popular beaches on the west coast with many beautiful Luxury Phuket holiday villas for rent in Thailand.<br><br>
             </div>
             </div>
 		 <?php
@@ -1284,5 +1285,9 @@ else
 .pnone
 {
 	margin-bottom:unset ;
+}
+.blu
+{
+	color:rgb(218, 165, 32) !important;
 }
 </style>

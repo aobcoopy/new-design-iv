@@ -123,11 +123,12 @@
 													
 							
 							
-							echo '<br>';
+							//echo '<br>';
 							
-							include "../pages/property_list_view.php";
+							//include "../pages/property_list_view.php";
+							include "../pages/page_property_list.php";
 													
-							echo '<br><br>';						
+							//echo '<br><br>';						
 							
 							$zz++;	
 							

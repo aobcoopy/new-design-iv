@@ -81,7 +81,7 @@ for($i=0;$i<6;$i++)
 
 
 
-<div class="owl-carousel web ig_carousel">
+<div class="owl-carousel web ig_carousel" >
 <?php 
 foreach($ig_array as $igp_web)
 {
@@ -122,10 +122,10 @@ echo '<div class="owl_box"> <a class="" href="https://www.instagram.com/p/'.$igp
 
 
 
-<link rel="stylesheet" href="libs/css/owl/owl.carousel.min.css">
-<link rel="stylesheet" href="libs/css/owl/owl.theme.default.min.css">
+<link rel="stylesheet" href="<?php echo $url_link;?>libs/css/owl/owl.carousel.min.css">
+<link rel="stylesheet" href="<?php echo $url_link;?>libs/css/owl/owl.theme.default.min.css">
 <!--<script src="jquery.min.js"></script>-->
-<script src="libs/js/owl/owl.carousel.min.js"></script>
+<script src="<?php echo $url_link;?>libs/js/owl/owl.carousel.min.js"></script>
 
 <script>
 $('.ig_carousel').owlCarousel({

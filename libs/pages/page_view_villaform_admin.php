@@ -702,7 +702,7 @@ function save_cus()
     
     <?php $a_comp =  json_decode($villa_form['complimentary'],true);?>
     <div class="col-md-12 nopad top15 <?php echo ($a_comp['display']=='on')?'':'hidden';?>"><br>
-        <div class="vf_title_sub vt_undl">Complimentary Food & Beverages</div>
+        <div class="vf_title_sub vt_undl">Please place an oder here.</div>
     </div>
     <div class="vf_title_sub <?php echo ($a_comp['display']=='on')?'':'hidden';?>">
     	<div class="col-md-12 nopad top20">	<?php $cfb =  $a_comp['complimentary']; echo ($cfb!='')?$cfb:'-';?></div>

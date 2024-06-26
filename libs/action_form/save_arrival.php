@@ -11,10 +11,16 @@
 	$dbc->Connect();
 	$os = new minerva($dbc);
 	
+	$arr_aptf = array();
+	foreach($_REQUEST['tx_air_transfer'] as $aptf)
+	{
+		array_push($arr_aptf,$aptf);
+	}
+	
 	$ar_data = array(
 		'check_in' => $_REQUEST['tx_air_check_in'],
 		'check_out' => $_REQUEST['tx_air_check_out'],
-		'transfer' => $_REQUEST['tx_air_transfer']
+		'transfer' => $arr_aptf
 	);
 	
 	$data = array(
@@ -23,7 +29,7 @@
 		//'#user' => $_SESSION['auth']['user_id']
 	);
 	
-	if($dbc->Update("villa_form",$data,"id = '".$_REQUEST['txtID']."' "))
+	if($dbc->Update("villa_form",$data,"id = '".$_REQUEST['txtID']."' "))//villa_form_mapping
 	{
 		echo json_encode(array(
 			'status' => true,

@@ -153,13 +153,14 @@ if($show_koh_samui == '')
 					else
 					{
 					?>
-                	 <h2 class=" mb f30"><strong><?php /*?><a class="tg cdf" ><?php */?>Discover Luxury Villas in Koh Samui<?php /*?></a><?php */?></strong></h2>
+                	 <h2 class=" mb f30"><strong><?php /*?><a class="tg cdf" ><?php */?>Discover Luxury Koh Samui Villas for rent<?php /*?></a><?php */?></strong></h2>
                     <?php
 					}
 					?>
+                    <div class="col-xs-4 top20 nopad"><img data-src="/upload/slide/768/Luxury-Koh-Samui-Villas-for-rent.webp" class="lazy" width="100%" alt="Luxury Koh Samui Villas for rent"></div>
                      <div class="col-md-12 nopad top41 f18">
                         <!-----15-06-66  Koh Samui is a beautiful tropical island in the southern Gulf of Thailand. Relaxed, laid back and small, everything is easy and convenient. The type of villa holiday you go to for a week’s break to refresh & recharge in luxury. -->
-                        Refresh and recharge by selecting one of our stunning Koh Samui villas for rent. A luxury villa in Koh Samui provides the opportunity for you to experience this beautiful tropical island at its best from a base that is steeped in style and designed specifically to help you unwind. From your private chef to the housekeeping team to your villa manager, a team of professionals is always on hand to ensure that your beach or pool villa in Koh Samui is everything you’ve dreamed of and more. 
+                        Refresh and recharge by selecting one of our stunning Luxury Koh Samui Villas for rent. A luxury villa in Koh Samui provides the opportunity for you to experience this beautiful tropical island at its best from a base that is steeped in style and designed specifically to help you unwind. From your private chef to the housekeeping team to your villa manager, a team of professionals is always on hand to ensure that your beach or pool villa in Koh Samui is everything you’ve dreamed of and more. 
 
         
                     </div>
@@ -310,7 +311,7 @@ There are all villa sizes to accommodate a small family up to an extended group.
                                 <div class="col-md-12 nopad top21 f18">
                                    When the words “villas” and “Koh Samui” are spoken, it conjures extravagant images of private infinity pools, lush tropical gardens, unspoilt beaches and more, and this is exactly what you should expect when you rent a villa in Koh Samui with Inspiring Villas. Each property is handpicked to deliver some of the most exceptional experiences that Thailand has to offer in a stylish and elegant setting. 
 <br><br>
-Each villa on our list comes with a team of staff and a few key elements that are designed to create a once-in-a-lifetime experience. Your villa in Samui will come with its own private pool and fitness area with a games and cinema room so that even on rainy days, you still have the opportunity to make the most of your time on the island. 
+Each villa on our list comes with a team of staff and a few key elements that are designed to create a once-in-a-lifetime experience. Your Luxury Koh Samui Villas for rent will come with its own private pool and fitness area with a games and cinema room so that even on rainy days, you still have the opportunity to make the most of your time on the island. 
                                 </div>
                             </div>
                             
@@ -374,7 +375,7 @@ All you need to do is pay for your groceries should you wish the chef to cook me
 					
 				?>
                 <div class="col-md-12 nopad top41">
-                <h4 class=" mb f30 top"><strong><?php /*?><a class="tg cdf" ><?php */?>Villa rentals Koh Samui<?php /*?></a><?php */?></strong></h4> <?php /*?>Luxury villa rentals Koh Samui<?php */?>
+                <h4 class=" mb f30 top"><strong><?php /*?><a class="tg cdf" ><?php */?>Luxury Koh Samui Villas for rent<?php /*?></a><?php */?></strong></h4> <?php /*?>Luxury villa rentals Koh Samui<?php */?>
                     <div class="col-md-12 nopad top21 f18">
                         There are a range of villas to rent in Koh Samui which are able to serve groups of different sizes<br><br>
                         
@@ -384,7 +385,7 @@ All you need to do is pay for your groceries should you wish the chef to cook me
                 <div class="col-md-12 nopad top41">
                 <h4 class=" mb f22 top"><strong><?php /*?><a class="tg cdf" ><?php */?>2,3,4 bedroom villas Koh Samui<?php /*?></a><?php */?></strong></h4>
                     <div class="col-md-12 nopad top21 f18">
-                        There is a great range of mid sized villas for your Koh Samui holiday in the <a class="blu" href="/search-rent/thailand-koh-samui/all-beach/all-price/1-4-bedrooms/all-collections/all-sort.html">2-4 bedroom villa range</a>.
+                        There is a great range of mid sized villa rentals for your Koh Samui holiday in the <a class="blu" href="/search-rent/thailand-koh-samui/all-beach/all-price/1-4-bedrooms/all-collections/all-sort.html">2-4 bedroom villa range</a>.
                     </div>
                 </div>
                 
@@ -805,7 +806,7 @@ The attention to detail & service is always great here. And you are on the best 
                            The easiest way is to let us find the choice for you.<br>
                             This way you don’t have to look endlessly but just rely on our dedicated concierge staff to present you the best villas available. <br>
                             All we need to know is your group profile, villa location preference, requests and your budget range.<br>
-                            We will provide a list of the best luxury villas that match and are available.<br><br>
+                            We will provide a list of the best luxury villa rentals that match and are available.<br><br>
                             
                             Once a decision is made we can secure the villa by placing it on hold for you to give you time to transfer a deposit.<br>
                             It’s that simple.<br>
@@ -815,7 +816,7 @@ The attention to detail & service is always great here. And you are on the best 
                             
                             They really are quite cool.<br>
                             The first thing to know is you can match the villa with exactly what you are looking for.<br>
-                            There are so many luxury villas available that you are sure to be able to find what you need.<br>
+                            There are so many luxury villa rentals available that you are sure to be able to find what you need.<br>
                             Whether that's lots of space and amenities for the kids.<br>
                             A private villa on it’s own beach.<br>
                             A villa with an emphasis on entertaining for a celebration.<br>
@@ -835,7 +836,7 @@ The attention to detail & service is always great here. And you are on the best 
                            Using our rental data we are publishing the average rental values of <?php echo $last_year;?>.<br>
                             Costs change based on the villa setting, facilities, time of year, group size, number of nights and any booking window opportunities.<br>
                             This serves as the most accurate guide to the current average luxury villa rental cost.<br>
-                            Koh Samui, although less popular than <a href="/search-rent/thailand-phuket/all-beach/all-price/all-bedrooms/all-collections/all-sort.html" class="blu">Phuket</a>, offers many more luxury villas to select from.<br>
+                            Koh Samui, although less popular than <a href="/search-rent/thailand-phuket/all-beach/all-price/all-bedrooms/all-collections/all-sort.html" class="blu">Phuket</a>, offers many more luxury villa rentals to select from.<br>
                             As a result it is more competitive in pricing over the year.<br>
                             With the weather and attractions making it less attractive as a year round destination price variance between high and low season can be great.<br>
                             The average cost of renting a villa in <?php echo $last_year;?> in Koh Samui was USD$190++ per room per night<br>

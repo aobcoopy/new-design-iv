@@ -41,7 +41,7 @@
 </div>
 
 
-<div class="slider mob767">
+<div class="slider mob767 animate__animated animate__fadeIn animate__faster">
 <?php 
 $a=0;
 foreach($ar_photo as $photos)
@@ -363,7 +363,7 @@ function cleartime(func)
             </div>
             
             <div class="row stroy_inside s2">
-            	<div class="mob col-12 col-md-6 nopad"><img data-src="../../upload/new_design/Story/img-story-sec-img2.png" class="w-100 lazy " alt=""></div>
+            	<div class="mob col-12 col-md-6 nopad"><img data-src="../../upload/new_design/Story/img-story-sec-img2.png" class="w-100 lazy stp2 animate__animated animate__delay-05s hid animate__fast" alt=""></div>
                 <div class="col-12 col-md-6 nopad">
                 	<div class="str_box_des std2 animate__animated animate__delay-05s hid animate__fast">
                         <img data-src="../../upload/new_design/Story/img-story-sec-text-icon.png" class="db6_top lazy" alt="">
@@ -401,7 +401,7 @@ function cleartime(func)
             </div>
             
             <div class="row stroy_inside s4">
-            	<div class="mob col-12 col-md-6 nopad"><img data-src="../../upload/new_design/Story/img-story-sec-img4.png" class="w-100 lazy" alt=""></div>
+            	<div class="mob col-12 col-md-6 nopad"><img data-src="../../upload/new_design/Story/img-story-sec-img4.png" class="w-100 lazy stp4 animate__animated animate__delay-05s hid animate__fast" alt=""></div>
                 <div class="col-12 col-md-6 nopad">
                 	<div class="str_box_des std4 animate__animated animate__delay-05s hid animate__fast">
                         <img data-src="../../upload/new_design/Story/img-story-sec-text-icon.png" class="db6_top lazy" alt="">
@@ -548,20 +548,19 @@ team inside and outside the villa.</div>
 
 
 <img data-src="../../upload/new_design/our_service/img-our-stanable-bg.png" class="our_bg lazy animate__animated animate__delay-1s hid animate__fast" alt="">
+<div class="col-12 bottom_our_sun"></div>
 
 
-
+<?php $paa = 'home';?>
 <?php include "libs/pages/section_our_yachting.php";?>
 
 <?php include "libs/pages/section_life_style.php";?>
 
 <?php include "libs/pages/section_follow_me.php";?>
 
-<?php include "libs/pages/section_contact_us_footer.php";?>
+<?php  include "libs/pages/section_contact_us_footer.php";?>
 
-<div class="ove col-12">
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-</div>
+
 
 <?php //include "libs/pages/embed_ig_photo_new_design.php";?>
 
@@ -673,5 +672,5 @@ $(document).ready(function(e) {
 <!--, #mega-sliders > div > .carousel-item -->
 
 <!-- This site is converting visitors into subscribers and customers with OptinMonster - https://optinmonster.com-->
-<script type="text/javascript" src="https://a.optmnstr.com/app/js/api.min.js" data-account="41772" data-user="36782" async></script>
+<!--<script type="text/javascript" src="https://a.optmnstr.com/app/js/api.min.js" data-account="41772" data-user="36782" async></script>-->
 <!-- / OptinMonster -->

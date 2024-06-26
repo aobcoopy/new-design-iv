@@ -660,7 +660,7 @@
 		var frle = front_text.length;
 		var back_text = alltext[1].split(" ");
 		var bkle = back_text.length;*/
-
+	
 		var final = text.split(" ");
 		var show = '';
 		var transfer = 0;
@@ -1188,6 +1188,7 @@
 			datas.photo.push({
 					photo : $(this).find("input[name=txt_photo]").val(),
 					name : $(this).find("input[name=txt_photo_name]").val(),
+					//posi : $(this).find("input[name=ne_position_xx]").val(),
 				});
 				//console.log(1);
 			/*if($(this).find('[name="bedroom_chk"]:checked').size() == 1)

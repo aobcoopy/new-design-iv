@@ -17,161 +17,130 @@ else
 	$ph__desc = $room['bedroom_description'];
 }
 
-if(count($slide)>0)
-{?>
-	<div class="col-md-12 mg-room-fecilities Reviews" >
-		<h6 class="mg-sec-left-title l15" style="margin-top: 25px;margin-bottom: 20px;">Bedroom Photos</h6>
-		<div class="row bggray1" style="--bs-gutter-x: -1px;">
-		   <div class="col-md-12 nopad">
-           	
-            	<?php
-				if($room['bedroom_description']!='')
-				{
-					?><div class="gob f16" style="line-height: 1.8 !important;    margin-top: -25px;"><?php echo $ph__desc;?></div><?php
-				}
-				?>
 
-			   <div class="col-md-12 nopad slidetop top211 " style="margin-top: 0px;margin-bottom: 10px;" >
-               
-               		<div class="col-md-12- row nopad" onClick="open_pop_bedroom_photo();">
-                    <?php
-					$a=0;
-					foreach($slide as $img)
-					{
-						if($base_status==1)
-						{
-							$ph__name_ = base64_decode($img['name'],true);
-						}
-						else
-						{
-							$ph__name_ = $img['name'];
-						}
-						if($a==0)
-						{
-							?>
-                            <div class="col-md-6 col-12 nopad">
-                                <?php echo '<img data-src="'.imagePath($img['img']).'" itemprop=" photo" width="100%" alt="'.$vi_name_1[0].$ph__name_.'" class="lazy pcover">';//?>
-                            </div>
-                    		<?php
-						}
-						elseif($a==1)
-						{
-							?>
-                            <div class="col-md-6 col-3 nopad">
-                                <?php echo '<img data-src="'.imagePath($img['img']).'" itemprop=" photo" width="100%" alt="'.$vi_name_1[0].$ph__name_.'" class="lazy pcover">';//?>
-                            </div>
-                    		<?php
-						}
-						elseif($a>4)
-						{
-						}
-						else
-						{
-							?>
-							<div class="col-md-4 col-3 nopad">
-								<?php echo '<img data-src="'.imagePath($img['img']).'" itemprop=" photo" width="100%" alt="'.$vi_name_1[0].$ph__name_.'" class="lazy pcover">';//?>
-                            </div>
-							<?php
-						}
-						$a++;
-					}
-					?>
-                    	<?php /*?><div class="col-md-6 col-sm-12 col-xs-12 nopad">
-                    		<?php echo '<img src="'.$slide[0]['img'].'" width="100%" alt="'.$vi_name_1[0].$img['name'].'" class="lazy pcover">';//;?>
-                    	</div>
-                        <div class="col-md-6 col-sm-3  col-xs-3 nopad">
-                    		<?php echo '<img src="'.$slide[1]['img'].'" width="100%" alt="'.$vi_name_1[0].$img['name'].'" class="lazy pcover">';//;?>
-                    	</div>
-                    	<div class="col-md-4 col-sm-3  col-xs-3 nopad">
-                    		<?php echo '<img src="'.$slide[2]['img'].'" width="100%" alt="'.$vi_name_1[0].$img['name'].'" class="lazy pcover">';//;?>
-                    	</div>
-                        <div class="col-md-4 col-sm-3  col-xs-3 nopad">
-                    		<?php echo '<img src="'.$slide[3]['img'].'" width="100%" alt="'.$vi_name_1[0].$img['name'].'" class="lazy pcover">';//;?>
-                    	</div>
-                        <div class="col-md-4 col-sm-3  col-xs-3 nopad">
-                    		<?php echo '<img src="'.$slide[4]['img'].'" width="100%" alt="'.$vi_name_1[0].$img['name'].'" class="lazy pcover">';//;?>
-                    	</div><?php */?>
-                    </div>
-                    
-					<?php /*?><div class="mg-gallery-container">
-						<div id="mega-slider-2" class="carousel slide " data-ride="carousel" onClick="open_pop_bedroom_photo();">
-							<!-- Indicators -->
-							<ol class="carousel-indicators">
-								<?php 
-							
-						   /* $aa=0;
-							foreach($slide as $img)
-							{
-								if($aa<=1)
-								{
-									$act = ($aa==0)?'active':'';
-									echo '<li data-target="#mega-slider-2" data-slide-to="'.$aa.'" class="'.$act.'"></li>';
-								}
-								$aa++;
-							}*-/
-							?>
-							</ol>
-					
-							<!-- Wrapper for slides -->
-							<div class="carousel-inner spho" role="listbox">
-							<div class="coverb"  onClick="open_pop_bedroom_photo();"><?php /*?>data-toggle="modal" data-target=".bs-example-modal-lgs"<?php *-/?>
-								<div class="tview1">SEE MORE PHOTOS</div>
-							</div>
-							<?php 
-							//$slide = json_decode($room['photo'],true);
-							
-							$a=0;
-							foreach($slide as $img)
-							{
-								$ac = ($a==0)?'active beactive':'';
-								if($a<=1)
-								{
-								//echo '<li data-toggle="modal" data-target=".bs-example-modal-lgs"><img src="'.$img['img'].'" alt="Partner Logo" width="100%">'.tag($room['tag']).'</li>';
-								echo '<div class="item '.$ac.' " >';
-									echo '<img itemprop="image" src="'.$img['img'].'" width="100%" alt="'.$vi_name_1[0].$img['name'].'">';//
-								echo '</div>';
-								}
-								$a++;
-							}
-							?>
-							</div>
-					
-							<?php /*?> Controls 
-							<a class="left carousel-control" href="#mega-slider-2" role="button" data-slide="prev">
-							</a>
-							<a class="right carousel-control" href="#mega-slider-2" role="button" data-slide="next">
-							</a><?php *-/?>
-						</div>
-				
-					</div><?php */?>
-				</div>
-		   
-		   </div>
-	   </div>
-   </div>
-	<?php
-}
 ?>
-<style>
-.tview1 {
-    color: rgb(240, 91, 70);
-    position: absolute;
-    z-index: 1;
-    bottom: 0;
-    margin-left: 15px;
-    margin-bottom: 15px;
-    opacity: 1;
-    transition: all 0.3s !important;
-}
-.coverb_2{width:100%;height:100%;background:rgba(0, 0, 0, 0.53);position:absolute;z-index:150;transition:all 0.3s !important;}
-.coverb_2{transition:all 0.3s !important;}
-.pcover
-{
-	border:1px solid #fff;
-	cursor:pointer;
-}
-.modal-content
-{
-	border: none;
-}
-</style>	
+
+<div class="row">
+    <div class="col-12">
+        <div class="box_headline_2">
+            <h3 class="">Bedroom Photo</h3>
+        </div>
+    </div>
+    
+    <div class="owl-carousel  bedroom_carousel" >
+    <?php 
+    if(count($slide)>0)
+    {
+        $i=0;
+        foreach($slide as $img)
+        {
+            $i++;
+            echo '<div class="owl_box-2 " onClick="open_pop_bedroom_photo();">';
+                // <a class="" href="https://www.instagram.com/p/'.$igp_web['link'].'" target="_blank"><img src="'.$igp_web['photo'].'" alt="" class="ig_photo"></a> </div>';
+                echo '<img src="'.imagePath($img['img']).'" itemprop=" photo" width="100%" alt="'.$vi_name_1[0].$ph__name_.'" class="lazy pcover">';
+                echo '<div class="covboxx rela">';
+                    echo '<div class="bedroom_name">'.$vi_name_1[0].' '.$i.'</div>';
+                    echo '<div class="bedroom_dt">'.string_len($ph__desc,50).'</div>';
+                    echo '<div class="tri tri_bedroom"></div>';
+                echo '</div>';
+            echo '</div>';
+        }
+    }
+    ?>
+    </div>
+</div>
+
+<?php /*?><div id="igp" class="carousel slide mob" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <?php 
+		$c=0;
+		foreach($slide as $img)
+		{
+			if($base_status==1)
+			{
+				$ph__name_ = base64_decode($img['name'],true);
+			}
+			else
+			{
+				$ph__name_ = $img['name'];
+			}
+						
+			$act = ($c==0)?'active':'';
+			
+			echo '<div class="carousel-item '.$act.'">';
+				echo '<a href="https://www.instagram.com/p/'.$igp['link'].' " target="_blank">';
+					echo '<img data-src="'.imagePath($img['img']).'" itemprop=" photo" class="d-block w-100 lazy" alt="'.$vi_name_1[0].$ph__name_.'">';
+				echo '</a>';
+			echo '</div>';
+			$c++;
+			
+			//echo 'https://www.instagram.com/p/'.$igp.'<br>';
+		}
+		?><?php echo '<img data-src="'.imagePath($img['img']).'" itemprop=" photo" width="100%" alt="'.$vi_name_1[0].$ph__name_.'" class="lazy pcover">';//?>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#igp" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#igp" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div><?php */?>
+
+<link rel="stylesheet" href="<?php echo $url_link;?>libs/css/owl/owl.carousel.min.css">
+<link rel="stylesheet" href="<?php echo $url_link;?>libs/css/owl/owl.theme.default.min.css">
+<!--<script src="jquery.min.js"></script>-->
+<script src="<?php echo $url_link;?>libs/js/owl/owl.carousel.min.js"></script>
+<script>
+$('.bedroom_carousel').owlCarousel({
+    loop:true,
+    margin:0,
+	lazyLoad: true,
+	nav:true,
+	navText: ["<img src='<?php echo $url_link;?>upload/new_design/v_details/left.png'>","<img src='<?php echo $url_link;?>upload/new_design/v_details/right.png'>"],
+    responsiveClass:true,
+    responsive:{
+        0:{
+            items:1,
+			margin:0,
+			nav:true
+        },
+        600:{
+            items:1,
+			margin:0,
+			nav:true
+        },
+        768:{
+            items:1,
+			margin:0,
+			nav:true
+        },
+		992:{
+            items:1,
+			margin:0,
+			nav:true
+        },
+        1000:{
+            items:2,
+			margin:10,
+			nav:true
+        },
+        1200:{
+            items:2,
+			margin:10,
+			nav:true
+        },
+        1300:{
+            items:3,
+			margin:10,
+			nav:true
+        }/*,
+        1500:{
+            items:3,
+			margin:10,
+			nav:true
+        }*/
+    }
+})
+</script>

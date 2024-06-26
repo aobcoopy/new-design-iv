@@ -371,7 +371,7 @@ foreach ($arrayDestinations_name_slug_id as $array_Name_Slug_id)
 				p+= '';
 				if(data[16]==1)
 				{
-					 p+= '<button type="button" class="btn btn-sm btn-danger btn-block">Price Table Not Showing</button>';
+					 p+= '<button type="button" class="btn btn-sm btn-danger btn-block">Price table not displayed</button>';
 				}
 				
 				

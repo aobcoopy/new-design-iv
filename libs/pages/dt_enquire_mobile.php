@@ -18,37 +18,43 @@
             <form id="form_contact_mobi" class="clearfix">
                 <input type="hidden" name="txtID" value="<?php echo $room['id'];?>"><br>
                  
-                <div class="row" style="padding: 0px 10px;">
-                    <div class="mg-contact-form-input col-sm-6 col-xs-6 nopad" >
+                <div class="row " style="padding: 0px 10px;">
+                    <div class="mg-contact-form-input col-sm-6 col-xs-6 nopad rela" >
                        <!-- <label for="full-name">Check In</label>-->
                         <!--<!--<input type="date" class="form-control ip iip" id="checkin_mo" name="checkin_mo" placeholder="Check In*" style="width:100%;">-->
-                        <input type="date" class="form-control ip iip input-min-width-95p" id="checkin_mo" name="checkin_mo" placeholder="Check In*" onClick="calendar_opt()" value="<?php echo $day;?>">
+                        <input type="date" class="form-control ip iip- input-min-width-95p bottom_only bg_w" id="checkin_mo" name="checkin_mo" placeholder="Check In*"  onBlur="set_checkout_date(this,'checkout_mo','checkin_mo','checkout_mo'),check_datein(this);" value="<?php echo $day;?>" min="<?php echo date("Y-m-d");?>"  style="background:none !important;"> <!--onClick="calendar_opt()"-->
                         <button type="button" class="buti cin" onClick="calendar_opt()"><i class="fa fa-calendar" aria-hidden="true"></i></button>
+                        <div class="tri_mini-"></div>
                     </div>
         
-                    <div class="mg-contact-form-input col-sm-6 col-xs-6 nopad" ><!-- -->
+                    <div class="mg-contact-form-input col-sm-6 col-xs-6 nopad rela" ><!-- -->
                        <!-- <label for="full-name">Check Out</label>-->
-                        <input type="date" class="form-control ip input-min-width-95p" id="checkout_mo" name="checkout_mo" placeholder="Check Out*" onChange="check_price_mobile();" onClick="calendar_opt();" value="<?php echo date("Y-m-d",$dayNext);?>">
+                        <input type="date" class="form-control ip input-min-width-95p bottom_only bg_w" id="checkout_mo" name="checkout_mo" placeholder="Check Out*" onBlur="check_date_mo('checkin_mo','checkout_mo');" onChange="check_price_mobile();"  value="<?php echo date("Y-m-d",$dayNext);?>" min="<?php echo date("Y-m-d");?>"><!--onClick="calendar_opt();"-->
+                        
                         <!--<input type="date" class="form-control ip" id="checkout_mo" name="checkout_mo" placeholder="Check Out*">-->
                         <button type="button" class="buti cout" onClick="calendar_opt()"><i class="fa fa-calendar" aria-hidden="true"></i></button>
+                        <div class="tri_mini-"></div>
                     </div>
+                    <span class="m_notis"></span>
                 </div>
                 
                 <div class="row" style="padding: 0px 10px;">
-                	<div class="mg-contact-form-input  col-xs-6 col-sm-6 nopad" > 
+                	<div class="mg-contact-form-input  col-xs-6 col-sm-6 nopad rela" > 
                         <!--<label for="full-name">Full Name</label>-->
-                        <input type="text" class="form-control ip" name="cbbGuest_mo" id="cbbGuest_mo" placeholder="No. Adults">
+                        <input type="text" class="form-control ip bottom_only bg_w" name="cbbGuest_mo" id="cbbGuest_mo" placeholder="No. Adults">
+                        <div class="tri_mini-"></div>
                     </div>
-                    <div class="mg-contact-form-input   col-xs-6  col-sm-6 nopad" ><!--col-md-6 nopad-->
+                    <div class="mg-contact-form-input   col-xs-6  col-sm-6 nopad rela" ><!--col-md-6 nopad-->
                         <!--<label for="full-name">Full Name</label>-->
-                        <input type="text" class="form-control ip" name="cbbChildren_mo" id="cbbChildren_mo" placeholder="No. Children (3-12 yrs)">
+                        <input type="text" class="form-control ip bottom_only bg_w" name="cbbChildren_mo" id="cbbChildren_mo" placeholder="No. Children (3-12 yrs)">
+                        <div class="tri_mini-"></div>
                     </div>
                 </div>
                     
                 
-                <div class="mg-contact-form-input col-xs-12 col-sm-12 nopad ipsc" >
+                <div class="mg-contact-form-input col-xs-12 col-sm-12 nopad ipsc rela" >
                     <!--<label for="full-name">Full Name</label>-->
-                    <select class="form-control ips" id="no_bed_mo" name="no_bed_mo"  placeholder="No. Bedroom*" onChange="check_price_mobile();" >
+                    <select class="form-control ips bottom_only bg_w" id="no_bed_mo" name="no_bed_mo"  placeholder="No. Bedroom*" onChange="check_price_mobile();" style="background:none !important;" >
                         <option value="0">No. Bedroom*</option>
                         <?php 
 						foreach($ar_bedroom as $nobed)
@@ -68,20 +74,23 @@
                         <option value="10">10</option>
                         <option value="10+">10+</option>-->
                     </select>
+                    <div class="tri_mini-"></div>
                 </div>
-                <div class="mg-contact-form-input">
+                <div class="mg-contact-form-input rela">
                     <!--<label for="full-name">Full Name</label>-->
-                    <input type="text" class="form-control ip" id="full_name_mo" name="full_name_mo" placeholder="Full Name*">
+                    <input type="text" class="form-control ip bottom_only bg_w" id="full_name_mo" name="full_name_mo" placeholder="Full Name*">
+                    <div class="tri_mini-"></div>
                 </div>
-                <div class="mg-contact-form-input">
+                <div class="mg-contact-form-input rela">
                     <!--<label for="email">E-mail</label>-->
-                    <input type="text" class="form-control ip" id="txemail_mo" name="txemail_mo" onKeyUp="lower_text(this)" placeholder="E-mail*">
+                    <input type="text" class="form-control ip bottom_only bg_w" id="txemail_mo" name="txemail_mo" onKeyUp="lower_text(this)" placeholder="E-mail*">
+                    <div class="tri_mini-"></div>
                 </div>
                 
                 <!--<div class="mg-contact-form-input">-->
                 <div class="row" style="padding: 0px 12px;">
-                	<div class="col-4 nopad">
-                        <select name="countryCode_en_d_mo" id="countryCode_en_d_mo" class="form-control ips" style="    margin-top: 1px;" >
+                	<div class="col-4 nopad rela">
+                        <select name="countryCode_en_d_mo" id="countryCode_en_d_mo" class="form-control ips  bottom_only bg_w" style="    margin-top: 1px; background:none !important;" >
                             <option data-countryCode="GB" value="44" Selected>UK (+44)</option>
                             <option data-countryCode="US" value="1">USA (+1)</option>
                             <optgroup label="Other countries">
@@ -301,17 +310,20 @@
                                 <option data-countryCode="ZW" value="263">Zimbabwe (+263)</option>
                             </optgroup>
                         </select>
+                        <div class="tri_mini-"></div>
                     </div>
-                    <div class="col-8 nopad txx_phone">
+                    <div class="col-8 nopad txx_phone rela">
                         <!--<label for="subject">Phone</label>-->
-                        <input type="text" class="form-control ip " id="txsubject_mo" name="txsubject_mo" placeholder="Phone - WhatsApp - it’s quicker!">
+                        <input type="text" class="form-control ip  bottom_only bg_w" id="txsubject_mo" name="txsubject_mo" placeholder="Phone - WhatsApp - it’s quicker!">
+                        <div class="tri_mini-"></div>
                     </div>
                     <!--<label for="subject">Phone</label>-->
                     <?php /*?><input type="text" class="form-control ip" id="txsubject_mo" name="txsubject_mo"  placeholder="Phone - WhatsApp - it’s quicker!"><?php */?>
                 </div>
-                <div class="mg-contact-form-input">
+                <div class="mg-contact-form-input rela">
                     <!--<label for="subject">Message</label>-->
-                    <textarea class="form-control ip" id="txmessage_mo" name="txmessage_mo" rows="3" placeholder="Message "></textarea>
+                    <textarea class="form-control ip  bottom_only bg_w" id="txmessage_mo" name="txmessage_mo" rows="3" placeholder="Message "></textarea>
+                    <div class="tri_mini-"></div>
                 </div>
                 
                 <div class="show_price_mob"></div>
@@ -324,7 +336,7 @@
                 <div class="g-recaptcha" data-sitekey="6LfbCgMoAAAAAJuvaQcWL7Jea8A_502Gsybir8y9" style="    text-align: center;
     left: 50%;
     position: relative;
-    transform: translateX(-39%);
+    transform: translateX(-50%);
     width: 370px;"></div>
             </form>
             <span class="textalert"></span>
@@ -338,7 +350,7 @@
 </div>
 </div><!--over mobi-->
 
-<button type="button" onClick="prop_contact_mobi()" class="btn btn-dark-main pull-right baa bba top10 btn_send_en_mob" >SENDTestMobile</button>
+<button type="button" onClick="prop_contact_mobi()" class="btn btn-dark-main pull-right baa bba top10 btn_send_en_mob" >SEND</button>
 
 <div class="butenq mobi">
 	<button class="btn_enq" onClick="show_question();">Ask Question</button>
@@ -413,6 +425,94 @@
 <input type="hidden" class="idx_2" value="0">
 <input type="hidden" class="idx_dis_2" value="0">
 <script language="JavaScript">
+function check_datein(me)
+{
+	var today = '<?php echo date("Y-m-d");?>';
+	var datein = $(me).val();
+	
+	var date_1 = today.split("-");
+	var date_2 = datein.split("-");
+	
+	if(date_2[1]<date_1[1])
+	{
+		setTimeout(function(){
+			$(me,'#checkout_mo').val(today);
+			$('#checkin_mo').css({'background':'#FFAFB1'});
+			$(".btn_send_en_mob").attr('disabled',true);
+			$(".m_notis").show();
+			$(".m_notis").text('Please check your checkin date!');
+		},1000);
+	}
+	else
+	{
+		if(date_2[2]<date_1[2])
+		{
+			setTimeout(function(){
+				$(me,'#checkout_mo').val(today);
+				$('#checkin_mo').css({'background':'#FFAFB1'});
+				$(".btn_send_en_mob").attr('disabled',true);
+				$(".m_notis").show();
+				$(".m_notis").text('Please check your checkin date!');
+			},1000);
+		}
+		else
+		{
+			setTimeout(function(){
+				$('#checkin_mo').css({'background':'#eee'});
+				$(".m_notis").hide();
+				$(".btn_send_en_mob").attr('disabled',false);
+			},1000);
+		}
+	}
+}
+
+
+function set_checkout_date(dates,inputt,start,end)
+{
+	var dates_1 = $(dates).val();
+	$('#'+inputt).val(dates_1);
+	check_date_mo(start,end);
+}
+
+function check_date_mo(start,end)
+{
+	setTimeout(function(){
+	var start_date = $('#'+start).val();
+	var end_date = $('#'+end).val();
+	
+	var date_s = start_date.split("-");
+	var date_e = end_date.split("-");
+	//alert(start_date);
+	//alert('Please check your checkout date!');
+	//alert(date_e[2]+'--'+date_s[2]);
+	if(date_e[2]<date_s[2])
+	{
+		if(date_e[1]>date_s[1])
+		{
+			$('#'+end).css({'background':'#eee'});
+			$(".m_notis").hide();
+			$(".btn_send_en_mob").attr('disabled',false);
+		}
+		else
+		{
+			//alert('noooooooooooo');
+			$('#'+end).val(start_date);
+			$('#'+end).css({'background':'#FFAFB1'});
+			$(".btn_send_en_mob").attr('disabled',true);
+			$(".m_notis").show();
+			$(".m_notis").text('Please check your checkout date!');
+		}
+	}
+	else
+	{
+		$('#'+end).css({'background':'#eee'});
+		$(".m_notis").hide();
+		$(".btn_send_en_mob").attr('disabled',false);
+		
+	}
+	//alert(end_date);	
+	},1000);
+}
 function check_price_mobile()
 {
 	setTimeout(function(){
@@ -853,23 +953,27 @@ $(document).ready(function(e) {
 		else
 		{
 			$('.butenq').fadeOut(30);
-			$("#top").css({"margin-bottom":"25px"});
+			//$("#top").css({"margin-bottom":"25px"});
 		}
     });
+	
     $(window).scroll(function(e) {
 		var win = $(window).width();
 		
-		if($(this).scrollTop() > $(".mg-footer-widget").offset().top-400)
+		if($(this).scrollTop() > $(".unique").offset().top-10)
 		{
 			if($(window).width()<976)
 			{
 				$('.butenq').fadeOut(300);
-				$("#top").css({"margin-bottom":"25px"});
+				//$("#top").css({"margin-bottom":"25px"});
+				//$(".box_whatsapp").css({"margin-bottom":"75px","margin-right":"22px"});
 			}
 			else
 			{
 				$('.butenq').fadeOut(300);
-				$("#top").css({"margin-bottom":"25px"});
+				//$("#top").css({"margin-bottom":"25px"});
+				//$(".box_whatsapp").css({"margin-bottom":"130px","margin-right":"22px"});
+				
 			}
 		}
 		else
@@ -878,11 +982,14 @@ $(document).ready(function(e) {
 			{
 				if($(window).width()<380)
 				{
-					$("#top").css({"margin-bottom":"85px"});
+					//$("#top").css({"margin-bottom":"85px"});
+					//$(".box_whatsapp").css({"margin-bottom":"24px","margin-right":"95px"});
 				}
 				else
 				{
-					$("#top").css({"margin-bottom":"75px"});
+					//$("#top").css({"margin-bottom":"80px"});
+					//$(".box_whatsapp").css({"margin-bottom":"130px","margin-right":"22px"});
+					
 				}
 				$('.butenq').fadeIn(300);
 				
@@ -890,7 +997,8 @@ $(document).ready(function(e) {
 			else
 			{
 				$('.butenq').fadeOut(300);
-				$("#top").css({"margin-bottom":"25px"});
+				//$("#top").css({"margin-bottom":"25px"});
+				//$(".box_whatsapp").css({"margin-bottom":"75px","margin-right":"22px"});
 			}
 		}
     });

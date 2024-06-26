@@ -50,7 +50,7 @@
     
     //$_SESSION['parDef'] = _COUNTRY_ID . "|$des|$beach|$room|$Collection";
     //echo $searchVariation;
-    
+    //echo $countryID.'---'. $des.'---'. $beach.'---'. $room.'---'. $Collection.'---'. $price.'---'. $Sort.'---'. $arrayUrlVariables.'---'. $actualBedrooms;
     echo URL_builder($countryID, $des, $beach, $room, $Collection, $price, $Sort, $arrayUrlVariables, $actualBedrooms);// . "&content=" . _COUNTRY_ID . "|$des|$beach|$room|$Collection|$Sort";
 	
 	/*$br = $dbc->GetRecord("bedroom","*","id= '".$_REQUEST['cbbRoom']."' status > 0 ");

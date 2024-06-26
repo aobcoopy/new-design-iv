@@ -129,7 +129,7 @@ $(window).scroll(function () {
 		$(ele3).addClass('animate__fadeIn');
 	}
 	//OUR SERVICES
-	var myPosition = $(".our_box").offset().top-300;
+	var myPosition = $(".our_box").offset().top-400;
 	var ele = $(".our_tl,.our_tr,.our_sub_tt,.our_line,.ob1,.ob2,.ob3");
 	var ele1 = $(".our_tl,.our_tr,.our_sub_tt");
 	var ele2 = $(".our_line");
@@ -143,10 +143,10 @@ $(window).scroll(function () {
 	}
 	
 	// OUR SUNSTANABLE VILLA CONCEPT
-	var myPosition = $(".our_box_2").offset().top-350;
+	var myPosition = $(".our_box_1").offset().top-250;
 	var ele = $(".our_box_2_tt,.our_box_2_des,.orb,.our_bg");
 	var ele1 = $(".our_box_2_des,.orb");
-	var ele2 = $(".our_bg");
+	var ele2 = '';//$(".our_bg");
 	var ele3 = $(".our_box_2_tt");
 	if ($(this).scrollTop() > myPosition) 
 	{
@@ -156,41 +156,22 @@ $(window).scroll(function () {
 		$(ele3).addClass('focus-in-contract');
 	}
 	
-	//OUR YACHTING AND EXCURSION COLLECTIONS
-	var myPosition = $(".yachthing_box").offset().top-300;
-	var ele = $(".yacht_tt,.yacht_des");
-	var ele1 = $(".yacht_tt");
-	var ele2 = $(".yacht_des");
+	var myPosition = $(".our_box_2").offset().top-250;
+	var ele = $(".our_bg");
+	//var ele1 = $(".our_box_2_des,.orb");
+	var ele2 = $(".our_bg");
+	//var ele3 = $(".our_box_2_tt");
 	if ($(this).scrollTop() > myPosition) 
 	{
 		$(ele).removeClass('hid');
-		$(ele1).addClass('focus-in-contract');
+		//$(ele1).addClass('animate__fadeInDown');
 		$(ele2).addClass('animate__fadeInUp');
+		//$(ele3).addClass('focus-in-contract');
 	}
 	
-	var myPosition = $(".ya1").offset().top-350;
-	var ele = $(".yal,.yar");
-	var ele1 = $(".yal");
-	var ele2 = $(".yar");
-	if ($(this).scrollTop() > myPosition) 
-	{
-		$(ele).removeClass('hid');
-		$(ele1).addClass('tilt-in-fwd-bl');
-		$(ele2).addClass('tilt-in-fwd-br');
-	}
 	
-	var myPosition = $(".ex1").offset().top-350;
-	var ele = $(".exl,.exr");
-	var ele1 = $(".exl");
-	var ele2 = $(".exr");
-	if ($(this).scrollTop() > myPosition) 
-	{
-		$(ele).removeClass('hid');
-		$(ele1).addClass('tilt-in-fwd-bl');
-		$(ele2).addClass('tilt-in-fwd-br');
-	}
 	//INSPIRING LIFE STYLE
-	var myPosition = $(".lifestyle_box_1").offset().top-350;
+	/*var myPosition = $(".lifestyle_box_1").offset().top-350;
 	var ele = $(".lf_tt,.lf_des,.lstB,.rmb");
 	var ele1 = $(".lf_tt");
 	var ele2 = $(".lf_des");
@@ -201,9 +182,9 @@ $(window).scroll(function () {
 		$(ele1).addClass('focus-in-contract');
 		$(ele2).addClass('text-focus-in ');
 		$(ele3).addClass('flip-in-hor-top');
-	}
+	}*/
 	//FOLLOW ME ON IG
-	var myPosition = $(".follow_box").offset().top-350;
+	/*var myPosition = $(".follow_box").offset().top-350;
 	var ele = $(".fl_tt");
 	var ele1 = $(".fl_tt");
 	if ($(this).scrollTop() > myPosition) 
@@ -221,9 +202,20 @@ $(window).scroll(function () {
 		$(ele).removeClass('hid');
 		$(ele1).addClass('focus-in-contract');
 		$(ele2).addClass('puff-in-center');
+		//$(".ove").hide();
+	}*/
+	//footer_box
+	/*var myPosition = $(".topf").offset().top-350;
+	var ele = $(".ffooootteerr");
+	var ele1 = $(".ffooootteerr");
+	//var ele2 = $(".ff1,.ff2,.ff3,.ff4,.ff5,.ff6");
+	if ($(this).scrollTop() > myPosition) 
+	{
+		$(ele).removeClass('hid');
+		$(ele1).addClass('focus-in-contract');
+		//$(ele2).addClass('puff-in-center');
 		$(".ove").hide();
-	}
-	
+	}*/
 	
 	
 });

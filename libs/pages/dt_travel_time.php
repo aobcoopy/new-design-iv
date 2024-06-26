@@ -5,11 +5,16 @@
     else
     {
         ?>
-        
-        <div class="col-md-12 mg-room-fecilities ">
-            <h3 class="mg-sec-left-title top20 l15">Travel Time</h3>
+        <div class="row">
+            <div class="col-12">
+                <div class="box_headline_2">
+                    <h3 class="">Travel Time</h3>
+                </div>
+            </div>
+            
             <div class="row">
-                <?php 
+            	<!--<div class="padding- row-">-->
+				<?php 
                     foreach(json_decode($room['address_map']) as $appl)
                     {
                         //$icon_app = $dbc->GetRecord("icons","*","id=".$appl);
@@ -38,8 +43,10 @@
                         
                     }
                 ?>
+                <!--</div>-->
             </div>
         </div>
+        
         <?php
     }
 	
@@ -64,5 +71,5 @@
 	echo '</pre>';*/
 	
 	
-	include "libs/pages/dt_map.php";
+	
 ?>

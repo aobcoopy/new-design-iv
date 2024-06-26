@@ -11,13 +11,19 @@
 	$dbc->Connect();
 	$os = new minerva($dbc);
 	
-	$data = array(
+	$ar_val = array(
 		'deposit' => $_REQUEST['tx_deposit'],
+		'damage_deposit' => $_REQUEST['tx_damage_deposit'],
+	);
+	
+	
+	$data = array(
+		'deposit' => json_encode($ar_val),
 		'#updated' => 'NOW()',
 		//'#user' => $_SESSION['auth']['user_id']
 	);
 	
-	if($dbc->Update("villa_form",$data,"id = '".$_REQUEST['txtID']."' "))
+	if($dbc->Update("villa_form",$data,"id = '".$_REQUEST['txtID']."' "))//villa_form_mapping
 	{
 		echo json_encode(array(
 			'status' => true,

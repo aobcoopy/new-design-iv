@@ -80,114 +80,122 @@ $room['popup'];
 <link rel="icon" href="<?php echo $url_link;?>favicon.icon" type="image/jpg" sizes="16x16">
 <?php /*?><script src="<?php echo $url_link;?>libs/js/jquery.min.js"></script><?php */?>
 <div class="paddtopup"></div>
-<span itemscope itemtype="https://schema.org/Accommodation http://schema.org/Product">
+<span itemscope itemtype=" http://schema.org/Product"><!--https://schema.org/Accommodation-->
 
-<!--Google data structure-->
-<meta itemprop="url" content="<?php echo $url_link.$url;?>">
-<meta itemprop="sku" content="villa<?php echo $_REQUEST['id'];?>">
-<meta itemprop="mpn" content="villa<?php echo $_REQUEST['id'];?>">
-<!--Google data structure-->
-
-
- <?php 
- include "libs/pages/search_detail.php";
- include "libs/pages/dt_head.php";
- if( checkDestinationStatus($room['destination']) == 1 && checkSubdestinationStatus($room['subdestination']) == 1 ) include "libs/pages/dt_popup.php";
- $m_link = "/search-rent/".head_destination($room['destination'])."/all-beach/all-price/all-bedrooms/all-collections/all-sort.html";
- function head_destination($option)
-{
-	switch($option)
-	{
-		case "38" :
-			return "thailand-phuket";//"phuket";
-		break;
-		case "39" :
-			return "thailand-koh-samui";//"koh-samui";
-		break;
-		case "100" :
-			return "indonesia-bali";//return "thailand-koh-samui";//"koh-samui";
-		break;
-		case "110" :
-			return "sri-lanka-sr";//return "thailand-koh-samui";//"koh-samui";
-		break;
-		default:
-			return "thailand";
-	}
-}
-//echo $m_link.'-----';
- ?>
-<style>
-.mg-single-room-price .mg-srp-inner>span{display:block;margin-top:3px;font-size:19px;font-weight:300;position:relative}
-</style>
-<script>
-$(document).ready(function(e) {
-	var m_link = '<?php echo $m_link;?>';
-    $(".aa_link").attr("href",m_link);
-});
-</script>
-
-
-
-<?php /*?><div class="mg-single-room-price">
-    <div itemprop="offers" itemscope itemtype="http://schema.org/Offer"  class="mg-srp-inner">
-        <font size="-1">From</font>
-        <br>
-        <span itemprop="price" content="<?php echo $room['price'];?>">
-        	<span itemprop="priceCurrency" content="USD">$</span><?php echo $room['price'];?>
-        </span>
-        <span>
-        	/Night
-        </span>
-    </div>
-</div><?php */?>
-
-<?php /*?><h5 style="font-size: 0px;"><?php echo $meta['title'];?></h5><?php */?>
-<?php include "libs/pages/google_reCAPTCHA.php";?>
-<div class="description" style="font-size: 0px;">Sleep up to <?php //echo base64_decode($meta['description'],true);?></div>
-<div class="mg-single-room martop" >
-    <div class="container">
-        <div class="row">
-        	<div class="col-12 n_bread" ><!--style="height:120px;"-->
-			<?php display_breadcrumbs($room['destination'], $room['subdestination'], 'all-bedrooms', 'all-collections', 'all-prices', 'price|asc', ''); ?>
-            </div>
-    		
-            <!--col-md-7-->
-			<div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 c7 enboxx mobtop"  data-spy="scroll" data-target=".newbar">
+    <!--Google data structure-->
+    <meta itemprop="url" content="<?php echo $url_link.$url;?>">
+    <meta itemprop="sku" content="villa<?php echo $_REQUEST['id'];?>">
+    <meta itemprop="mpn" content="villa<?php echo $_REQUEST['id'];?>">
+    <!--Google data structure-->
+    
+    
+     <?php 
+     //include "libs/pages/search_detail.php";
+     include "libs/pages/search_villa_detail.php";
+     include "libs/pages/dt_head.php";
+     
+     if( checkDestinationStatus($room['destination']) == 1 && checkSubdestinationStatus($room['subdestination']) == 1 ) include "libs/pages/dt_popup.php";
+     $m_link = "/search-rent/".head_destination($room['destination'])."/all-beach/all-price/all-bedrooms/all-collections/all-sort.html";
+     function head_destination($option)
+    {
+        switch($option)
+        {
+            case "38" :
+                return "thailand-phuket";//"phuket";
+            break;
+            case "39" :
+                return "thailand-koh-samui";//"koh-samui";
+            break;
+            case "100" :
+                return "indonesia-bali";//return "thailand-koh-samui";//"koh-samui";
+            break;
+            case "110" :
+                return "sri-lanka-sr";//return "thailand-koh-samui";//"koh-samui";
+            break;
+            default:
+                return "thailand";
+        }
+    }
+    //echo $m_link.'-----';
+     ?>
+    <style>
+    .mg-single-room-price .mg-srp-inner>span{display:block;margin-top:3px;font-size:19px;font-weight:300;position:relative}
+    </style>
+    <script>
+    $(document).ready(function(e) {
+        var m_link = '<?php echo $m_link;?>';
+        $(".aa_link").attr("href",m_link);
+    });
+    </script>
+    
+    
+    
+    <?php /*?><div class="mg-single-room-price">
+        <div itemprop="offers" itemscope itemtype="http://schema.org/Offer"  class="mg-srp-inner">
+            <font size="-1">From</font>
+            <br>
+            <span itemprop="price" content="<?php echo $room['price'];?>">
+                <span itemprop="priceCurrency" content="USD">$</span><?php echo $room['price'];?>
+            </span>
+            <span>
+                /Night
+            </span>
+        </div>
+    </div><?php */?>
+    
+    <?php /*?><h5 style="font-size: 0px;"><?php echo $meta['title'];?></h5><?php */?>
+    <?php include "libs/pages/google_reCAPTCHA.php";?>
+    <div class="description" style="font-size: 0px;">Sleep up to <?php //echo base64_decode($meta['description'],true);?></div>
+    <div class="mg-single-room martop" >
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+            <div class="col-12 col-md-12 col-lg-12  col-xl-11 col-xxl-10 row">
+            
+                <div class="col-12 n_bread" ><!--style="height:120px;"-->
+                <?php display_breadcrumbs($room['destination'], $room['subdestination'], 'all-bedrooms', 'all-collections', 'all-prices', 'price|asc', ''); ?>
+                </div>
                 
-                <?php 
-				
-				include "libs/pages/dt_overview_v1.php";
-				include "libs/pages/dt_heightlight.php";
-				include "libs/pages/dt_vdo.php";
-				include "libs/pages/dt_bedroom_configuration.php";
-				include "libs/pages/dt_bedroom_photo.php";
-				include "libs/pages/dt_question.php";
-				include "libs/pages/dt_travel_time.php";
-				include "libs/pages/dt_what_is_included.php";
-				include "libs/pages/dt_price_table.php";
-				include "libs/pages/dt_availability.php";//----06-11-63
-				include "libs/pages/dt_floor_plan.php";
-				include "libs/pages/dt_bedroom.php";
-				include "libs/pages/dt_facilities.php";
-                include "libs/pages/dt_review.php";
-				
-				include "libs/pages/dt_user_review.php";
-				//include "libs/pages/dt_why_book_with.php";
-				include 'libs/pages/dt_recently.php';
-				include 'libs/pages/dt_recently_mobile.php';
-                ?>
+                <!--col-md-7-->
+                <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 c7 enboxx mobtop"  data-spy="scroll" data-target=".newbar">
+                    
+                    <?php 
+						include "libs/pages/dt_overview_v1.php";
+						include "libs/pages/dt_vdo.php";
+						include "libs/pages/dt_heightlight.php";
+						include "libs/pages/dt_bedroom_photo.php";
+						include "libs/pages/dt_bedroom_configuration.php";
+						include "libs/pages/dt_bedroom.php";
+						include "libs/pages/dt_facilities.php";
+						include "libs/pages/dt_travel_time.php";
+						include "libs/pages/dt_question.php";
+						include "libs/pages/dt_map.php";
+						include "libs/pages/dt_what_is_included.php";
+						include "libs/pages/dt_price_table.php";
+						include "libs/pages/dt_availability.php";//----06-11-63
+						include "libs/pages/dt_floor_plan.php";
+						include "libs/pages/dt_review.php";
+						include "libs/pages/dt_user_review.php";
+                   
+				    //include "libs/pages/dt_why_book_with.php";
+                    //include 'libs/pages/dt_recently.php';
+                    //include 'libs/pages/dt_recently_mobile.php';
+                    ?>
+                </div>
+                <!--col-md-7-->
+                
+                <!--col-md-5-->
+                <div  class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 c5 ">
+                    <?php 
+                        include "libs/pages/dt_enquire.php";
+                        //include 'libs/pages/dt_villa_recommend.php';
+                    ?>                  
+                </div>
+                <!--col-md-5-->
+                
             </div>
-        	<!--col-md-7-->
-            
-            <!--col-md-5--><br>
-            <div  class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 c5 nopad">
-				<?php include "libs/pages/dt_enquire.php";?>                  
-            </div>
-            <!--col-md-5-->
-            
+        </div>
         </div>
     </div>
-</div>
 </span>
 <?php include "libs/pages/dt_enquire_mobile.php";?>  
 
@@ -195,7 +203,10 @@ $(document).ready(function(e) {
 	<?php include 'libs/pages/dt_recently.php';?>
 </div>	<?php */?>
 <?php 
-include "libs/pages/dt_footer.php";
+
+include "libs/pages/dt_explore_villa.php";
+include "libs/pages/dt_unique.php";
+//include "libs/pages/dt_footer.php";
 
 ?>
 
@@ -394,5 +405,14 @@ function onShare(idp,title,desc,image)
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 </script>     <?php */?> 
-
+<style>
+.micon,.micon-
+{
+	opacity:0.75;
+}
+ul.bedr > li,.villa_iname
+{
+	color:#808080;
+}
+</style>
 

@@ -79,20 +79,26 @@ p {
     </div>
 </div>
 
+<?php
+$destinations = $dbc->GetRecord("destinations","*","id = '".$_REQUEST['desti']."'");
+//echo '>>>'.$_REQUEST['desti'].'----'.$destinations['slug'];
+?>
 
 <script src="<?php echo $url_link;?>libs/js/jquery-3.1.1.min.js"></script>
 <script>
 var destin = '<?php echo $_REQUEST['desti'];?>';
 $(document).ready(function(e) {
     setTimeout(function(){
-		if(destin==39)
+		/*if(destin==39)
 		{
 			links = '<?php echo $url_link;?>/search-rent/thailand-koh-samui/all-beach/all-price/all-bedrooms/all-collections/all-sort.html';
 		}
 		else
 		{
 			links = '<?php echo $url_link;?>/search-rent/thailand-phuket/all-beach/all-price/all-bedrooms/all-collections/all-sort.html';
-		}
+		}*/
+		
+		var links = '<?php echo $url_link;?>search-rent/thailand-<?php echo $destinations['slug'];?>/all-beach/all-price/all-bedrooms/all-collections/all-sort.html';
 		window.location = links;
 		//history.go(-1);
 	},2000);

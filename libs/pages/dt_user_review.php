@@ -87,7 +87,36 @@ $(document).ready(function(e) {
 </script>
 
 
-<div  class="col-md-12 mg-room-fecilities " style="margin-top: 5px;">
+<div class="row top20 pos_my_reviews_2">
+    <div class="col-12">
+        <div class="box_headline_2">
+            <?php
+			if($xx<=0)
+			{
+				?><h3 class="text_cap-"><?php echo $vi_name[0];?> <?php //echo $nu_rate;?> Reviews</h3><?php
+			}
+			?>
+        </div>
+    </div>
+    <div class="row">
+    </div>
+</div>
+
+<?php
+if($xx<=0)
+{
+	?>
+<div  class="col-md-12 mg-room-fecilities pos_my_reviews Reviews my_review">
+    <div class="row bggray">
+    	<div class="cover_all_rv_box">
+        	No Review
+        </div>
+    </div>
+</div>
+<?php
+}?>
+
+<?php /*?><div  class="col-md-12 mg-room-fecilities " style="margin-top: 5px;">
 <?php
 if($xx<=0)
 {
@@ -95,7 +124,7 @@ if($xx<=0)
 }
 ?>
 
-</div>
+</div><?php */?>
 
 <?php /*session_start();
 $sess = session_id(); */

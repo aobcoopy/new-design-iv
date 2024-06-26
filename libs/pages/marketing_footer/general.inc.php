@@ -18,7 +18,7 @@ else
     <div class="container-fluid new_foot webss padtop50 <?php echo $f_foot_2; ?>">
 	<div class="container">   
 		<div class="col-md-12 nopad top41">
-			<div class=" mb f30 tg top text-center" style="line-height: 1.2;"><strong>Unique Experiences - Holiday Villa Rental</strong></div>
+			<div class=" mb f30 tg top text-center" style="line-height: 1.2;"><strong>Unique Experiences - Holiday Villas for rent</strong></div>
 		</div>  
 		<?php
 		/*if($destination=='39')
@@ -45,7 +45,7 @@ else
 					<?php /*?><h2 class=" mb f18 top text-center"><strong><a class="tg cdf" >Explore Thailand Luxury Villas</a></strong></h2><?php */?>
 					
 					<?php /*?><div class="col-md-12 nopad top41 text-center f18 blu"> <a href="/search-rent/thailand/all-beach/all-price/all-bedrooms/all-collections/all-sort.html">All Thailand Villas</a></div><?php */?>
-					<div class="col-md-12 nopad top41 text-center f18 blu"> <a href="/search-rent/thailand/all-beach/all-price/all-bedrooms/beachfront-villas/all-sort.html">Beach Villas Thailand</a></div>
+					<div class="col-md-12 nopad top41 text-center f18 blu"> <a href="/search-rent/thailand/all-beach/all-price/all-bedrooms/beachfront-villas/all-sort.html">Beachfront Villa Thailand</a></div>
                     
                     <div class="col-md-12 nopad top21_2 text-center f18 blu"> <a href="/search-rent/thailand/all-beach/all-price/all-bedrooms/larger-group-villas/all-sort.html">Thailand Large Group Villas</a></div>
                     <div class="col-md-12 nopad top21_2 text-center f18 blu"> <a href="/search-rent/thailand-phuket/all-beach/all-price/all-bedrooms/larger-group-villas/all-sort.html">Phuket Large Group Villas</a></div>
@@ -69,8 +69,8 @@ else
 	
 				<div class="col-md-4">
 					<?php /*?><h2 class=" mb f18 top text-center"><strong><a class="tg cdf" >Explore Koh Samui Villa Rentals</a></strong></h2><?php */?>
-					<div class="col-md-12 nopad top41 text-center f18 blu"> <a href="/search-rent/thailand-koh-samui/all-beach/all-price/all-bedrooms/all-collections/all-sort.html">Koh Samui Villas</a></div>
-					<div class="col-md-12 nopad top21_2 text-center f18 blu"> <a href="/search-rent/thailand-koh-samui/all-beach/all-price/all-bedrooms/beachfront-villas/all-sort.html">Koh Samui Beach Villas</a></div>
+					<div class="col-md-12 nopad top41 text-center f18 blu"> <a href="/search-rent/thailand-koh-samui/all-beach/all-price/all-bedrooms/all-collections/all-sort.html">Koh Samui Villas for rent</a></div>
+					<div class="col-md-12 nopad top21_2 text-center f18 blu"> <a href="/search-rent/thailand-koh-samui/all-beach/all-price/all-bedrooms/beachfront-villas/all-sort.html">Beachfront Villa Koh Samui</a></div>
                     
                     <div class="col-md-12 nopad top21_2 text-center f18 blu"> <a href="/search-rent/thailand-koh-samui/all-beach/all-price/1-4-bedrooms/all-collections/all-sort.html">Koh Samui 2,3,4 Bedroom Villas</a></div>
                     <div class="col-md-12 nopad top21_2 text-center f18 blu"> <a href="/search-rent/thailand-koh-samui/all-beach/all-price/5-7-bedrooms/all-collections/all-sort.html">Koh Samui 5,6,7 Bedroom Villas</a></div>
@@ -105,7 +105,7 @@ else
 						$f_link = '<a href="/search-rent/thailand-phuket/all-beach/all-price/all-bedrooms/all-collections/all-sort.html">Luxury Villas Phuket</a>';
 					}*/
 					?>
-					<div class="col-md-12 nopad top41 text-center f18 blu"> <a href="/search-rent/thailand-phuket/all-beach/all-price/all-bedrooms/all-collections/all-sort.html">Phuket Villas</a></div>
+					<div class="col-md-12 nopad top41 text-center f18 blu"> <a href="/search-rent/thailand-phuket/all-beach/all-price/all-bedrooms/all-collections/all-sort.html">Phuket Luxury Villas</a></div>
 					
 					
 					<?php /*?><div class="col-md-12 nopad top21_2 text-center f18 blu"> <a href="/search-rent/thailand-phuket/all-beach/all-price/all-bedrooms/seaview-villas/all-sort.html">Phuket Seaview Villas</a>
@@ -114,7 +114,7 @@ else
 					</div><?php */?>
 					<?php /*?><div class="col-md-12 nopad top21_2 text-center f18 blu"> <a href="/search-rent/thailand-phuket/all-beach/all-price/all-bedrooms/larger-group-villas/all-sort.html">Phuket Villas for large groups</a>
 					</div><?php */?>
-					<div class="col-md-12 nopad top21_2 text-center f18 blu"> <a href="/search-rent/thailand-phuket/all-beach/all-price/all-bedrooms/beachfront-villas/all-sort.html">Phuket Luxury Beachfront Villas</a></div>
+					<div class="col-md-12 nopad top21_2 text-center f18 blu"> <a href="/search-rent/thailand-phuket/all-beach/all-price/all-bedrooms/beachfront-villas/all-sort.html">Beachfront Villa Phuket</a></div>
                     
                     <div class="col-md-12 nopad top21_2 text-center f18 blu"> <a href="/search-rent/thailand-phuket/all-beach/all-price/1-4-bedrooms/all-collections/all-sort.html">Phuket 2,3,4 Bedroom Villas</a></div>
                     <div class="col-md-12 nopad top21_2 text-center f18 blu"> <a href="/search-rent/thailand-phuket/all-beach/all-price/5-7-bedrooms/all-collections/all-sort.html">Phuket 5,6,7 Bedroom Villas</a></div>

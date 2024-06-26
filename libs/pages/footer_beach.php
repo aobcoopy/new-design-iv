@@ -986,7 +986,7 @@ Three bedrooms including a loft that has two double beds so accommodates 3 coupl
         </div>
         
         <div itemscope itemtype="http://schema.org/Product" class="col-md-12 nopad top41">
-        	<h2 class=" mb f22 top tg"><strong><a class="tg cdf" >3. </a><a class="blu" href="/luxury-villas/villa-baan-amandeha/ao-yon-bay-phuket-thailand.html"><span itemprop="name">Villa Baan Amandeha </span></a></strong></h2>
+        	<h2 class=" mb f22 top tg"><strong><a class="tg cdf" >3. </a><a class="blu" href="#"><span itemprop="name">Villa Baan Amandeha </span></a></strong></h2><!--/luxury-villas/villa-baan-amandeha/ao-yon-bay-phuket-thailand.html-->
             <div  class="col-md-12 nopad top21 f18">
                 This huge beachfront villa is made for a large group to spend time together.<br>
 Right on the beach with a sunken outdoor lounge area beside the pool, outdoor bar, jacuzzi, sauna and steam room.<br>

@@ -1,19 +1,15 @@
-<button class="but_ques hidden-sms hidden-xss top30 text-lefts" onClick="show_question();" style="margin-bottom: 0px;">
-<?php /*?>Contact one of our villa experts for more details<?php */?>
+<button class="btn__question" onClick="show_question();">Contact one of our villa experts for more details</button>
+<button class="btn__question" onClick="show_question();">Ask A Question here</button>
+
+<!--<button class="but_ques hidden-sms hidden-xss top30 text-lefts" onClick="show_question();" style="margin-bottom: 0px;">
 <ul class="inbut">
 	<li class="fo15">Contact one of our villa experts for more details</li>
     <li class="lin">|</li>
     <li class="fo15">ASK A QUESTION HERE</li>
 </ul>
-	<?php /*?><br><a class="but_aq">ASK A QUESTION</a><?php */?>
-</button>
+</button>-->
 
-<?php /*?><div class="col-md-12 nopad">
-    <div class="but_ques btn_q2 hidden-sms hidden-xss top30 text-left" onClick="show_question();">
-    Contact one of our villa experts for more details
-        <br><button class="but_aq">ASK A QUESTION</button>
-    </div>
-</div><?php */?>
+
 
 
 <?php
@@ -89,18 +85,20 @@ select#countryCode_ques {
         	<form id="form_sendblog">
             <input type="hidden" class="form-control" id="q_tx_id" name="q_tx_id" value="<?php echo $room['id'];?>">
             <input type="hidden" class="form-control" id="q_tx_name" name="q_tx_name" value="<?php echo $room['name'];?>">
-            <div class="mg-contact-form-input ql">
+            <div class="mg-contact-form-input ql rela">
                <label for="full-name">Full Name*</label>
-                <input type="text" class="form-control q_form tx_1" id="q_full_name" name="q_full_name" placeholder="Full Name">
+                <input type="text" class="form-control q_form tx_1 bottom_only bg_w" id="q_full_name" name="q_full_name" placeholder="Full Name">
+                <div class="tri_mini"></div>
             </div>
-            <div class="mg-contact-form-input ql top0">
+            <div class="mg-contact-form-input ql top0 rela">
                 <label for="email">E-mail*</label>
-                <input type="email" class="form-control q_form" id="q_txemail_p" name="q_txemail_p" placeholder="E-mail">
+                <input type="email" class="form-control q_form bottom_only bg_w" id="q_txemail_p" name="q_txemail_p" placeholder="E-mail">
+                <div class="tri_mini"></div>
             </div>
-            <div class="mg-contact-form-input ql top0">
+            <div class="mg-contact-form-input ql top0 rela">
                 <label for="subject">Phone</label>
                 <div class="co-4">
-                    <select name="countryCode_ques" id="countryCode_ques" class="form-control ips-" >
+                    <select name="countryCode_ques" id="countryCode_ques" class="form-control ips- bottom_only bg_w" >
                         <option data-countryCode="GB" value="44" Selected>UK (+44)</option>
                         <option data-countryCode="US" value="1">USA (+1)</option>
                         <optgroup label="Other countries">
@@ -320,19 +318,22 @@ select#countryCode_ques {
                             <option data-countryCode="ZW" value="263">Zimbabwe (+263)</option>
                         </optgroup>
                     </select>
+                    <div class="tri_mini"></div>
                 </div>  
-                <div class="co-8">
-                	<input type="text" class="form-control q_form" id="q_phone" name="q_phone" placeholder="Phone">
+                <div class="co-8 rela">
+                	<input type="text" class="form-control q_form bottom_only bg_w" id="q_phone" name="q_phone" placeholder="Phone">
+                    <div class="tri_mini"></div>
                 </div>
             </div>
-            <div class="mg-contact-form-input ql top0">
+            <div class="mg-contact-form-input ql top0 rela">
                 <label for="subject">Message</label>
-                <textarea class="form-control q_form" id="q_txmessage" name="q_txmessage" rows="4" placeholder="Message"></textarea>
+                <textarea class="form-control q_form bottom_only bg_w" id="q_txmessage" name="q_txmessage" rows="4" placeholder="Message"></textarea>
+                <div class="tri_mini"></div>
             </div>
             <div class="g-recaptcha" data-sitekey="6LfbCgMoAAAAAJuvaQcWL7Jea8A_502Gsybir8y9" style="    text-align: center;
     left: 50%;
     position: relative;
-    transform: translateX(-41%);
+    transform: translateX(-50%);
     width: 370px;"></div>
             </form>
             <div id="ajaxLoader3" style="display: none;"><img src="<?php echo $url_link;?>libs/images/AjaxLoader.gif" style="width: 32px; height: 32px; display: block; margin: 0 auto;"></div>

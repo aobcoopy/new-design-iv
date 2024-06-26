@@ -99,6 +99,9 @@ RewriteRule ^(favorite)(.*)$ /index.php?page=favorite
 RewriteRule ^(villa-promotions)(.*)$ /index.php?page=villa-promotions
 RewriteRule ^(yacht)(.*)$ /index.php?page=yacht
 RewriteRule ^(inspiringgroup)(.*)$ /index.php?page=inspiringgroup
+RewriteRule ^(phuket-destination)(.*)$ /index.php?page=phuket_destination
+RewriteRule ^(koh-samui-destination)(.*)$ /index.php?page=koh_samui_destination
+RewriteRule ^(request-form)(.*)$ /index.php?page=request-form
 
 #-------- Add New New Design ------
 RewriteRule ^lifestyle-category-([^-]*)\.html$ /?page=blog_cate&cate=$1 [L]
@@ -139,7 +142,7 @@ RewriteRule ^email-detail-([^-]*)-([^-]*)-([^-]*)\.html$ /?page=email_detail&id=
 
 RewriteRule ^(test_blog)(.*)$ /index.php?page=test_blog
 
-RewriteRule ^villaform-([^-]*)-([^-]*-[^-]*)\.html$ /?page=villaform&idv=$1&id=$2 [L]
+#RewriteRule ^villaform-([^-]*)-([^-]*-[^-]*)\.html$ /?page=villaform&idv=$1&id=$2 [L]
 RewriteRule ^view-villaform-([^-]*)-([^-]*-[^-]*)\.html$ /?page=viewvillaform&idv=$1&id=$2 [L]
 RewriteRule ^villaformadmin-([^-]*)-([^-]*)\.html$ /?page=villaform-admin&idv=$1&id=$2 [L]
 RewriteRule ^villaform-customer-([^-]*)-([^-]*-[^-]*)\.html$ /?page=villaform-customer&idv=$1&id=$2 [L]
@@ -155,6 +158,17 @@ RewriteRule ^search-yacht_([^*]*)_([^*]*)_([^*]*)_([^*]*)_([^*]*)_([^*]*)\.html$
 RewriteRule ^thank-you/([^/]*)\.html$ /index.php?page=yacht_thanks&desti=$1 [L]
 RewriteRule ^recently-yacht(.*)$ /index.php?page=yacht_recently
 RewriteRule ^block-single(.*)$ /index.php?page=block_single
+
+
+
+RewriteRule ^luxury-villas-in-thailand\.html$ /index.php?page=hubpage [L] 
+RewriteRule ^phuket-vacation-rentals\.html$ /index.php?page=phuket-vacation [L] 
+RewriteRule ^koh-samui-vacation-rentals\.html$ /index.php?page=koh-samui-vacation [L] 
+RewriteRule ^beachfront-pool-villas-in-thailand\.html$ /index.php?page=beachfront-pool-villas-in-thailand [L] 
+RewriteRule ^The-Best-Pool-Villas-in-Thailand\.html$ /index.php?page=The-Best-Pool-Villas-in-Thailand [L] 
+RewriteRule ^Luxury-Beach-Villas-in-Thailand\.html$ /index.php?page=Luxury-Beach-Villas-in-Thailand [L] 
+RewriteRule ^family-villa-Koh-Samui\.html$ /index.php?page=family-villa-Koh-Samui [L] 
+RewriteRule ^Best-Luxury-Villas-in-Thailand\.html$ /index.php?page=Best-Luxury-Villas-in-Thailand [L] 
 
 #------301----------------------------------------------------------------------------------------------------  
 RewriteRule ^vill/$ / [L,R=301]
@@ -184,6 +198,8 @@ Redirect 301 /upload/bedroom_photo/ https://www.inspiringvillas.com/
 Redirect 301 /upload/property/mobile/ https://www.inspiringvillas.com/
 #Redirect 301 /upload/ckeditor/ https://www.inspiringvillas.com/
 
+Redirect 301 /luxury-villas/himmapana-villa-3/kamala-phuket-thailand.html https://www.inspiringvillas.com/
+Redirect 301 /luxury-villas/villa-soraya/surin-phuket-thailand.html https://www.inspiringvillas.com/
 
 
 

@@ -492,7 +492,7 @@ else
 					<div class="ttsub text-center"></div>
 					<i class="fa fa-play-circle" onClick="popu('<?php echo $_REQUEST['des'];?>')"></i>
 					<div class="imggs">
-						<img class="lazy" data-src="<?php echo $url_link;?>upload/<?php echo $img_vdo;?>.jpg" width="100%" class="vdo_cov">
+						<img class="lazy" data-src="<?php echo $url_link;?>upload/<?php echo $img_vdo;?>.jpg" alt="<?php echo $img_vdo;?>" width="100%" class="vdo_cov">
 					</div>
 				</div>
 			</div>
@@ -505,7 +505,7 @@ else
 					<div class="ttsub text-center"></div>
 					<i class="fa fa-play-circle" onClick="popu('<?php echo $_REQUEST['des'];?>')"></i>
 					<div class="imggs">
-						<img class="lazy" data-src="<?php echo $url_link;?>upload/<?php echo $img_vdo;?>2.jpg" width="100%" class="vdo_cov">
+						<img class="lazy" data-src="<?php echo $url_link;?>upload/<?php echo $img_vdo;?>2.jpg" alt="<?php echo $img_vdo;?>" width="100%" class="vdo_cov">
 					</div>
 				</div>
 			</div>
@@ -739,7 +739,9 @@ else
     include "footer_all_collection.php";
     include "footer_koh_samui.php"; 
     include "footer_phuket.php";  
+	include "footer_koh_phangan.php";  
     include "footer_beach_v_1.php"; 
+	include "footer_krabi.php";  
     
     include "marketing_footer/config.inc.php"; 
 

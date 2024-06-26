@@ -66,10 +66,35 @@ function check_data_date($date)
 	$has_pri_rec_status = 0;
     if($dbc->HasRecord("pricing","property=".$_REQUEST['id']))
     {
+		
         $pri = $price_data;//$dbc->GetRecord("pricing","*","property=".$_REQUEST['id']);
+
+		//if($pri['updated']>='2020-11-30')
+//		{
+//			$datass = json_decode(base64_decode($pri['val']),true);
+//		}
+//		else
+//		{
+//			$datass = json_decode($pri['val'],true);
+//		}
+//		
+//		print_r($datass);
+//		$no_price_rec = 0;
+//		if($datass!='')
+//		{
+//			$no_price_rec = 1;
+//		}
+//		else
+//		{
+//			$no_price_rec = 0;
+//		}
 		
 		$has_pri_rec_status = 1;
     }
+	else
+	{
+		$has_pri_rec_status = 0;
+	}
         ?>
 </div>
 
@@ -110,8 +135,16 @@ function check_data_date($date)
 		print_r ($opt);
 		echo '</pre>';*/
 ?>
-<div class="table-responsives top20">
-    <div id="rental_rate" class="col-md-12  mg-room-fecilities rental_rate" style="margin-top: 8px;"> <h4 class="mg-sec-left-title l15"><?php echo $vi_name[0];?> Rental  Rate</h4></div>
+
+<div class="row">
+    <div class="col-12">
+        <div id="rental_rate" class="box_headline_2 rental_rate">
+            <h3 class=""><?php echo $vi_name[0];?> Rental  Rate</h3><?php //echo '---'.$no_price_rec;?>
+        </div>
+    </div>
+</div>
+<div class="table-responsives ">
+    <!--<div  class="col-md-12  mg-room-fecilities rental_rate" style="margin-top: 8px;"> <h4 class="mg-sec-left-title l15"><?php echo $vi_name[0];?> Rental  Rate</h4></div>-->
 
 	
 <?php
@@ -120,7 +153,7 @@ function check_data_date($date)
 	{
 		echo '* This villa has no fixed seasonal price range, however we can assist you on pricing on each enquiryby request *<br><br>';
 		?>
-	<!--<table id="tb" class="tb table table-bordered table-striped fo15" width="100%" border="1">
+	<!--<table id="tb" class="tb table table-bordered table-striped fo15-" width="100%" border="1">
     <tbody>
         <tr>
             <th>This villa has no fixed seasonal price range, however we can assist you on pricing on each enquiryby request</th>
@@ -144,7 +177,7 @@ function check_data_date($date)
 			if($ii==0)
 			{
 				 $va = $op;
-				 echo '<button class="tabbut acct fo15" onClick="show_price('.$op.',this)">'.$op.' Bedroom</button>';//<option value="'.$op.'" class="first">'.$op.' Bedroom</option>
+				 echo '<button class="tabbut  tabbut_2 acct fo15" onClick="show_price('.$op.',this)">'.$op.' Bedroom</button>';//<option value="'.$op.'" class="first">'.$op.' Bedroom</option>
 			}
 			else
 			{
@@ -160,7 +193,7 @@ function check_data_date($date)
 				{
 					$op_name = $op.' Bedrooms';
 				}
-				 echo '<button class="tabbut fo15" onClick="show_price('.$op.',this)">'.$op_name.'</button>';//<option value="'.$op.'">'.$op.' Bedroom</option>
+				 echo '<button class="tabbut tabbut_2 fo15" onClick="show_price('.$op.',this)">'.$op_name.'</button>';//<option value="'.$op.'">'.$op.' Bedroom</option>
 			}
 		   $ii++;
 		}
@@ -192,8 +225,8 @@ function check_data_date($date)
 		<?php //echo 'ราคาที่เลือก '.$exc_oritext.' ----ราคาที่มีปุ่มให้แปลง '.$exc_rate;?>
 
 	
-
-		<table id="tb" class="tb table table-bordered table-striped fo15" width="100%" border="1">
+		<div class="table-responsive top50">
+		<table id="tb" class="tb table_new table table-bordered table-striped- fo15" width="100%" border="1">
 			<thead>
 				<tr>
 					<th>Period Dates</th>
@@ -235,7 +268,7 @@ function check_data_date($date)
 						if(check_data_date($valu['date1'])>=$this_day)
 						{
 							echo '<tr>';
-								echo '<td  class="fo15">';
+								echo '<td  class="fo15-">';
 									echo $valu['date1'];
 								echo '</td>';
 								echo '<td class="text-center weeb fo15">'.$valu['night'].'</td>';
@@ -252,7 +285,9 @@ function check_data_date($date)
 										$thb_rate = $valu['val'.$i]/$thb_p['value'];
 										$th_price = '<span class="usd exc">'.number_format($thb_rate,2).'</span>';
 
-										echo '<td class="t'.$i.' tbp text-center fo15">';echo ($valu['val'.$i]!='')?$n_price.$us_price.$th_price:' 0 ';echo ' </td>';
+										echo '<td class="t'.$i.' tbp text-center fo15">';
+										echo ($valu['val'.$i]!='')?$n_price.$us_price.$th_price:' 0 ';
+										echo ' </td>';
 										//echo '<td class="t'.$i.' tbp text-center fo15">';echo ($valu['val'.$i]!='')?number_format($valu['val'.$i]).'++':' 0 ';echo ' </td>';
 									}
 									elseif(strchr($valu['val'.$i],"+"))
@@ -291,10 +326,10 @@ function check_data_date($date)
 						if($valu['date2']>=$this_day)
 						{
 							echo '<tr>';
-								echo '<td  class="fo15">';
+								echo '<td  class="fo15-">';
 									echo months($valu['date1']).' - '.months($valu['date2']);
 								echo '</td>';
-								echo '<td class="text-center weeb fo15">'.$valu['night'].'</td>';
+								echo '<td class="text-center weeb fo15-">'.$valu['night'].'</td>';
 								for($i=1;$i<=28;$i++)
 								{
 									if(strchr($valu['val'.$i],"++"))
@@ -308,7 +343,7 @@ function check_data_date($date)
 										$thb_rate = $valu['val'.$i]/$thb_p['value'];
 										$th_price = '<span class="usd exc">'.number_format($thb_rate,2).'</span>';
 
-										echo '<td class="t'.$i.' tbp text-center fo15">';echo ($valu['val'.$i]!='')?$n_price.$us_price.$th_price:' 0 ';echo ' </td>';
+										echo '<td class="t'.$i.' tbp text-center fo15-">';echo ($valu['val'.$i]!='')?$n_price.$us_price.$th_price:' 0 ';echo ' </td>';
 										//echo '<td class="t'.$i.' tbp text-center fo15">';echo ($valu['val'.$i]!='')?number_format($valu['val'.$i]).'++':' 0 ';echo ' </td>';
 									}
 									elseif(strchr($valu['val'.$i],"+"))
@@ -322,8 +357,8 @@ function check_data_date($date)
 										$thb_rate = $valu['val'.$i]/$thb_p['value'];
 										$th_price = '<span class="usd exc">'.number_format($thb_rate,2).'</span>';
 
-										echo '<td class="t'.$i.' tbp text-center fo15">';echo ($valu['val'.$i]!='')?$n_price.$us_price.$th_price:' 0 ';echo ' </td>';
-										//echo '<td class="t'.$i.' tbp text-center fo15">';echo ($valu['val'.$i]!='')?number_format($valu['val'.$i]).'+':' 0 ';echo ' </td>';
+										echo '<td class="t'.$i.' tbp text-center fo15-">';echo ($valu['val'.$i]!='')?$n_price.$us_price.$th_price:' 0 ';echo ' </td>';
+										//echo '<td class="t'.$i.' tbp text-center fo15-">';echo ($valu['val'.$i]!='')?number_format($valu['val'.$i]).'+':' 0 ';echo ' </td>';
 									}
 									else
 									{
@@ -336,7 +371,7 @@ function check_data_date($date)
 										$thb_rate = $valu['val'.$i]/$thb_p['value'];
 										$th_price = '<span class="usd exc">'.number_format($thb_rate,2).'</span>';
 
-										echo '<td class="t'.$i.' tbp text-center fo15">';echo ($valu['val'.$i]!='')?$n_price.$us_price.$th_price:' 0 ';echo ' </td>';
+										echo '<td class="t'.$i.' tbp text-center fo15-">';echo ($valu['val'.$i]!='')?$n_price.$us_price.$th_price:' 0 ';echo ' </td>';
 									}
 								}
 							echo '</tr>';
@@ -344,11 +379,13 @@ function check_data_date($date)
 					}
 				}
 			}
+			
 
 			?>
+            
 			</tbody>
 		</table>
-		
+		</div>
 
 
 <?php
@@ -620,11 +657,19 @@ $pri['pro_exp_10']>=$Da_today && $pri['pro_exp_10']!='0000-00-00' && $pri['pro_e
 /*{*/
 	if($show_pro==true)
 	{
-    echo '<div class="col-md-12 mg-room-fecilities ">';
-        echo '<h2 class="mg-sec-left-title l15">Promotion</h2>';
-        echo '<div class="row bgblu">';
-           echo '<div class="col-md-12 ">';
-                echo '<ul class="bedr ">';
+		echo '<div class="row">';
+			echo '<div class="col-12">';
+				echo '<div class="box_headline_2">';
+					echo '<h3 class="text_cap">Promotion</h3>';
+				echo '</div>';
+			echo '</div>';
+		echo '</div>';
+		
+		
+		echo '<div class="row ">';
+		echo '<div class="col-12 ">';
+			echo '<div class="col-12 pad10 bgblue">';
+				echo '<ul class="bedr ">';
 					//----1
                     if($pri['p_discount']!='' && $pri['p_night']!='' && $pri['p_from']!='' && $pri['p_to']!='')
                     {
@@ -633,7 +678,7 @@ $pri['pro_exp_10']>=$Da_today && $pri['pro_exp_10']!='0000-00-00' && $pri['pro_e
 						{
 							
 							$pro = '';
-							$pro.= '<li class="fo15"><img src="../../files/check.png" width="20" class="chks"> ';
+							$pro.= '<li class="fo15 tw"><img data-src="'.$url_link.'upload/new_design/v_details/checkw.png" width="20" class="chks lazy"> ';
 							$pro.= 'Receive '.$pri['p_discount'].'% discount for min '.$pri['p_night'].' nights booking for travel period between '.months($pri['p_from']).' to '.months($pri['p_to']);
 							$pro.= '.';
 							$ReMark = ($pri['pro_rm_1']!='')?' <span class="txprorm">('.$pri['pro_rm_1'].')</span>':'';
@@ -649,7 +694,7 @@ $pri['pro_exp_10']>=$Da_today && $pri['pro_exp_10']!='0000-00-00' && $pri['pro_e
 						if($exp_dates>=$Da_today && $exp_dates!='0000-00-00' && $exp_dates!='')
 						{
 							$pro = '';
-							$pro.= '<li class="fo15"><img src="../../files/check.png" width="20" class="chks"> ';
+							$pro.= '<li class="fo15 tw"><img data-src="'.$url_link.'upload/new_design/v_details/checkw.png" width="20" class="chks lazy"> ';
 							$pro.= 'Receive '.$pri['p_discount_1'].'% discount for min '.$pri['p_night_1'].' nights booking for travel period between '.months($pri['p_from_1']).' to '.months($pri['p_to_1']);
 							$pro.= '.';
 							$ReMark = ($pri['pro_rm_2']!='')?' <span class="txprorm">('.$pri['pro_rm_2'].')</span>':'';
@@ -665,7 +710,7 @@ $pri['pro_exp_10']>=$Da_today && $pri['pro_exp_10']!='0000-00-00' && $pri['pro_e
 						if($exp_dates>=$Da_today && $exp_dates!='0000-00-00' && $exp_dates!='')
 						{
 							$pro = '';
-							$pro.= '<li class="fo15"><img src="../../files/check.png" width="20" class="chks"> ';
+							$pro.= '<li class="fo15 tw"><img data-src="'.$url_link.'upload/new_design/v_details/checkw.png" width="20" class="chks lazy"> ';
 							$pro.= 'Receive '.$pri['p_discount_2'].'% discount for min '.$pri['p_night_2'].' nights booking for travel period between '.months($pri['p_from_2']).' to '.months($pri['p_to_2']);
 							$pro.= '.';
 							$ReMark = ($pri['pro_rm_3']!='')?' <span class="txprorm">('.$pri['pro_rm_3'].')</span>':'';
@@ -681,7 +726,7 @@ $pri['pro_exp_10']>=$Da_today && $pri['pro_exp_10']!='0000-00-00' && $pri['pro_e
 						if($exp_dates>=$Da_today && $exp_dates!='0000-00-00' && $exp_dates!='')
 						{
 							$pro = '';
-							$pro.= '<li class="fo15"><img src="../../files/check.png" width="20" class="chks"> ';
+							$pro.= '<li class="fo15 tw"><img data-src="'.$url_link.'upload/new_design/v_details/checkw.png" width="20" class="chks lazy"> ';
 							$pro.= 'Receive '.$pri['pr_discount'].'% discount, and FREE r/t transfer, for travel period between '.months($pri['pr_from']).' to '.months($pri['pr_to']);
 							$pro.= '.';
 							$ReMark = ($pri['pro_rm_4']!='')?' <span class="txprorm">('.$pri['pro_rm_4'].')</span>':'';
@@ -697,7 +742,7 @@ $pri['pro_exp_10']>=$Da_today && $pri['pro_exp_10']!='0000-00-00' && $pri['pro_e
 						if($exp_dates>=$Da_today && $exp_dates!='0000-00-00' && $exp_dates!='')
 						{
 							$pro = '';
-							$pro.= '<li class="fo15"><img src="../../files/check.png" width="20" class="chks"> ';
+							$pro.= '<li class="fo15 tw"><img data-src="'.$url_link.'upload/new_design/v_details/checkw.png" width="20" class="chks lazy"> ';
 							$pro.= 'Stay/book '.$pri['ps_book'].' nights and pay '.$pri['ps_pay'].' nights. This promotion applies to '.$pri['ps_applicetion'].' villa occupancy booking, staying period by '.months($pri['ps_from']).' to '.months($pri['ps_to']);
 							$pro.= '.';
 
@@ -714,7 +759,7 @@ $pri['pro_exp_10']>=$Da_today && $pri['pro_exp_10']!='0000-00-00' && $pri['pro_e
 						if($exp_dates>=$Da_today && $exp_dates!='0000-00-00' && $exp_dates!='')
 						{
 							$pro = '';
-							$pro.= '<li class="fo15"><img src="../../files/check.png" width="20" class="chks"> ';
+							$pro.= '<li class="fo15 tw"><img data-src="'.$url_link.'upload/new_design/v_details/checkw.png" width="20" class="chks lazy"> ';
 							$pro.= 'Stay/book '.$stay['ps_book_4'].' nights and pay '.$stay['ps_pay_4'].' nights. This promotion applies to '.$stay['ps_applicetion_4'].' villa occupancy booking, staying period by '.months($stay['ps_from_4_1']).' to '.months($stay['ps_to_4_1']);
 							$pro.= '.';
 							$ReMark = ($pri['pro_rm_6']!='')?' <span class="txprorm">('.$pri['pro_rm_6'].')</span>':'';
@@ -722,7 +767,7 @@ $pri['pro_exp_10']>=$Da_today && $pri['pro_exp_10']!='0000-00-00' && $pri['pro_e
 							$pro.= '</li>';
 							echo $pro;
 							
-							/*echo '<li class="fo15"><img src="../../files/check.png" width="20" class="chks">  Stay/book '.$stay['ps_book_4'].' nights and pay '.$stay['ps_pay_4'].' nights. This promotion is applicable to '.$stay['ps_applicetion_4'].' villa occupancy booking travelling between '.months($stay['ps_from_4_1']).' to '.months($stay['ps_to_4_1']);
+							/*echo '<li class="fo15 tw"><img data-src="'.$url_link.'upload/new_design/v_details/checkw.png" width="20" class="chks lazy">  Stay/book '.$stay['ps_book_4'].' nights and pay '.$stay['ps_pay_4'].' nights. This promotion is applicable to '.$stay['ps_applicetion_4'].' villa occupancy booking travelling between '.months($stay['ps_from_4_1']).' to '.months($stay['ps_to_4_1']);
 							if($stay['ps_from_4_2'] && $stay['ps_to_4_2'])
 							{
 								echo  ' and '.months($stay['ps_from_4_2']).' to '.months($stay['ps_to_4_2']);
@@ -738,7 +783,7 @@ $pri['pro_exp_10']>=$Da_today && $pri['pro_exp_10']!='0000-00-00' && $pri['pro_e
 						if($exp_dates>=$Da_today && $exp_dates!='0000-00-00' && $exp_dates!='')
 						{
 							$pro = '';
-							$pro.= '<li class="fo15"><img src="../../files/check.png" width="20" class="chks"> ';
+							$pro.= '<li class="fo15 tw"><img data-src="'.$url_link.'upload/new_design/v_details/checkw.png" width="20" class="chks lazy"> ';
 							$pro.= 'Stay/book '.$stay['ps_book_5'].' nights and pay '.$stay['ps_pay_5'].' nights. This promotion applies to '.$stay['ps_applicetion_5'].' villa occupancy booking, staying period by '.months($stay['ps_from_5_1']).' to '.months($stay['ps_to_5_1']);
 							$pro.= '.';
 							$ReMark = ($pri['pro_rm_7']!='')?' <span class="txprorm">('.$pri['pro_rm_7'].')</span>':'';
@@ -746,7 +791,7 @@ $pri['pro_exp_10']>=$Da_today && $pri['pro_exp_10']!='0000-00-00' && $pri['pro_e
 							$pro.= '</li>';
 							echo $pro;
 							
-							/*echo '<li class="fo15"><img src="../../files/check.png" width="20" class="chks">  Stay/book '.$stay['ps_book_5'].' nights and pay '.$stay['ps_pay_5'].' nights. This promotion is applicable to '.$stay['ps_applicetion_5'].' villa occupancy booking travelling between '.months($stay['ps_from_5_1']).' to '.months($stay['ps_to_5_1']);
+							/*echo '<li class="fo15 tw"><img data-src="'.$url_link.'upload/new_design/v_details/checkw.png" width="20" class="chks lazy">  Stay/book '.$stay['ps_book_5'].' nights and pay '.$stay['ps_pay_5'].' nights. This promotion is applicable to '.$stay['ps_applicetion_5'].' villa occupancy booking travelling between '.months($stay['ps_from_5_1']).' to '.months($stay['ps_to_5_1']);
 							if($stay['ps_from_5_2'] && $stay['ps_to_5_2'])
 							{
 								echo  ' and '.months($stay['ps_from_5_2']).' to '.months($stay['ps_to_5_2']);
@@ -762,7 +807,7 @@ $pri['pro_exp_10']>=$Da_today && $pri['pro_exp_10']!='0000-00-00' && $pri['pro_e
 						if($exp_dates>=$Da_today && $exp_dates!='0000-00-00' && $exp_dates!='')
 						{
 							$pro = '';
-							$pro.= '<li class="fo15"><img src="../../files/check.png" width="20" class="chks"> ';
+							$pro.= '<li class="fo15 tw"><img data-src="'.$url_link.'upload/new_design/v_details/checkw.png" width="20" class="chks lazy"> ';
 							$pro.= 'Stay/book '.$stay['ps_book_6'].' nights and pay for '.$stay['ps_pay_6'].' nights. This promotion applies to '.$stay['ps_applicetion_6'].' villa occupancy booking, staying period no later than '.months($stay['ps_from_6_1']).' (This excludes holiday and weekend)';// to '.months($stay['ps_to_6_1']).'
 							$pro.= '.';
 							$ReMark = ($pri['pro_rm_8']!='')?' <span class="txprorm">('.$pri['pro_rm_8'].')</span>':'';
@@ -771,7 +816,7 @@ $pri['pro_exp_10']>=$Da_today && $pri['pro_exp_10']!='0000-00-00' && $pri['pro_e
 							echo $pro;
 							
 
-							/*echo '<li class="fo15"><img src="../../files/check.png" width="20" class="chks">  Stay/book '.$stay['ps_book_6'].' nights and pay '.$stay['ps_pay_6'].' nights. This promotion is applicable to '.$stay['ps_applicetion_6'].' villa occupancy booking travelling between '.months($stay['ps_from_6_1']).' to '.months($stay['ps_to_6_1']);
+							/*echo '<li class="fo15 tw"><img data-src="'.$url_link.'upload/new_design/v_details/checkw.png" width="20" class="chks lazy">  Stay/book '.$stay['ps_book_6'].' nights and pay '.$stay['ps_pay_6'].' nights. This promotion is applicable to '.$stay['ps_applicetion_6'].' villa occupancy booking travelling between '.months($stay['ps_from_6_1']).' to '.months($stay['ps_to_6_1']);
 							if($stay['ps_from_6_2'] && $stay['ps_to_6_2'])
 							{
 								echo  ' and '.months($stay['ps_from_6_2']).' to '.months($stay['ps_to_6_2']);
@@ -787,7 +832,7 @@ $pri['pro_exp_10']>=$Da_today && $pri['pro_exp_10']!='0000-00-00' && $pri['pro_e
 						if($exp_dates>=$Da_today && $exp_dates!='0000-00-00' && $exp_dates!='')
 						{
 							$pro = '';
-							$pro.= '<li class="fo15"><img src="../../files/check.png" width="20" class="chks"> ';
+							$pro.= '<li class="fo15 tw"><img data-src="'.$url_link.'upload/new_design/v_details/checkw.png" width="20" class="chks lazy"> ';
 							$pro.= 'Stay/book '.$stay['ps_book_7'].' nights and pay for '.$stay['ps_pay_7'].' nights. This promotion applies to '.$stay['ps_applicetion_7'].' villa occupancy booking, staying period no later than '.months($stay['ps_from_7_1']).' (This excludes holiday and weekend)';// to '.months($stay['ps_to_6_1']).'
 							$pro.= '.';
 							$ReMark = ($pri['pro_rm_9']!='')?' <span class="txprorm">('.$pri['pro_rm_9'].')</span>':'';
@@ -795,7 +840,7 @@ $pri['pro_exp_10']>=$Da_today && $pri['pro_exp_10']!='0000-00-00' && $pri['pro_e
 							$pro.= '</li>';
 							echo $pro;
 							
-							/*echo '<li class="fo15"><img src="../../files/check.png" width="20" class="chks">  Stay/book '.$stay['ps_book_7'].' nights and pay '.$stay['ps_pay_7'].' nights. This promotion is applicable to '.$stay['ps_applicetion_7'].' villa occupancy booking travelling between '.months($stay['ps_from_7_1']).' to '.months($stay['ps_to_7_1']);
+							/*echo '<li class="fo15 tw"><img data-src="'.$url_link.'upload/new_design/v_details/checkw.png" width="20" class="chks lazy">  Stay/book '.$stay['ps_book_7'].' nights and pay '.$stay['ps_pay_7'].' nights. This promotion is applicable to '.$stay['ps_applicetion_7'].' villa occupancy booking travelling between '.months($stay['ps_from_7_1']).' to '.months($stay['ps_to_7_1']);
 							if($stay['ps_from_7_2'] && $stay['ps_to_7_2'])
 							{
 								echo  ' and '.months($stay['ps_from_7_2']).' to '.months($stay['ps_to_7_2']);
@@ -811,7 +856,7 @@ $pri['pro_exp_10']>=$Da_today && $pri['pro_exp_10']!='0000-00-00' && $pri['pro_e
 						if($exp_dates>=$Da_today && $exp_dates!='0000-00-00' && $exp_dates!='')
 						{
 							$pro = '';
-							$pro.= '<li class="fo15"><img src="../../files/check.png" width="20" class="chks"> ';
+							$pro.= '<li class="fo15 tw"><img data-src="'.$url_link.'upload/new_design/v_details/checkw.png" width="20" class="chks lazy"> ';
 							$pro.= 'Stay/book '.$stay['stay_10_1'].' nights and pay for '.$stay['stay_10_2'].' nights. This promotion applies to '.$stay['stay_10_3'].' villa occupancy booking, staying period no later than '.months($stay['stay_10_4']).' (This excludes holiday and weekend)';// to '.months($stay['ps_to_6_1']).'
 							$pro.= '.';
 							$ReMark = ($pri['pro_rm_10']!='')?' <span class="txprorm">('.$pri['pro_rm_10'].')</span>':'';
@@ -828,7 +873,7 @@ $pri['pro_exp_10']>=$Da_today && $pri['pro_exp_10']!='0000-00-00' && $pri['pro_e
 						if($exp_dates>=$Da_today && $exp_dates!='0000-00-00' && $exp_dates!='')
 						{
 							$pro = '';
-							$pro.= '<li class="fo15"><img src="../../files/check.png" width="20" class="chks"> ';
+							$pro.= '<li class="fo15 tw"><img data-src="'.$url_link.'upload/new_design/v_details/checkw.png" width="20" class="chks lazy"> ';
 							$pro.= 'Stay/book '.$stay['stay_11_1'].' nights and pay '.$stay['stay_11_2'].' nights. This promotion applies to '.$stay['stay_11_3'].' bedroom occupancy booking, staying period by '.months($stay['stay_11_4']).'. Book by '.months($stay['stay_11_5']);// to '.months($stay['ps_to_6_1']).'
 							$pro.= '.';
 							$ReMark = ($pri['pro_rm_11']!='')?' <span class="txprorm">('.$pri['pro_rm_11'].')</span>':'';
@@ -845,7 +890,7 @@ $pri['pro_exp_10']>=$Da_today && $pri['pro_exp_10']!='0000-00-00' && $pri['pro_e
 						if($exp_dates>=$Da_today && $exp_dates!='0000-00-00' && $exp_dates!='')
 						{
 							$pro = '';
-							$pro.= '<li class="fo15"><img src="../../files/check.png" width="20" class="chks"> ';
+							$pro.= '<li class="fo15 tw"><img data-src="'.$url_link.'upload/new_design/v_details/checkw.png" width="20" class="chks lazy"> ';
 							$pro.= 'Stay/book '.$stay['stay_12_1'].' nights and pay '.$stay['stay_12_2'].' nights. This promotion applies to '.$stay['stay_12_3'].' bedroom occupancy booking, staying period by '.months($stay['stay_12_4']).'. Book by '.months($stay['stay_12_5']);// to '.months($stay['ps_to_6_1']).'
 							$pro.= '.';
 							$ReMark = ($pri['pro_rm_12']!='')?' <span class="txprorm">('.$pri['pro_rm_12'].')</span>':'';
@@ -862,7 +907,7 @@ $pri['pro_exp_10']>=$Da_today && $pri['pro_exp_10']!='0000-00-00' && $pri['pro_e
 						if($exp_dates>=$Da_today && $exp_dates!='0000-00-00' && $exp_dates!='')
 						{
 							$pro = '';
-							$pro.= '<li class="fo15"><img src="../../files/check.png" width="20" class="chks"> ';
+							$pro.= '<li class="fo15 tw"><img data-src="'.$url_link.'upload/new_design/v_details/checkw.png" width="20" class="chks lazy"> ';
 							$pro.= 'Stay/book '.$stay['stay_13_1'].' nights and pay '.$stay['stay_13_2'].' nights. This promotion applies to '.$stay['stay_13_3'].' bedroom occupancy booking, staying period by '.months($stay['stay_13_4']).'. Book by '.months($stay['stay_13_5']);// to '.months($stay['ps_to_6_1']).'
 							$pro.= '.';
 							$ReMark = ($pri['pro_rm_13']!='')?' <span class="txprorm">('.$pri['pro_rm_13'].')</span>':'';
@@ -879,7 +924,7 @@ $pri['pro_exp_10']>=$Da_today && $pri['pro_exp_10']!='0000-00-00' && $pri['pro_e
 						if($exp_dates>=$Da_today && $exp_dates!='0000-00-00' && $exp_dates!='')
 						{
 							$pro = '';
-							$pro.= '<li class="fo15"><img src="../../files/check.png" width="20" class="chks"> ';
+							$pro.= '<li class="fo15 tw"><img data-src="'.$url_link.'upload/new_design/v_details/checkw.png" width="20" class="chks lazy"> ';
 							$pro.= 'Special offer FREE '.$pri['psp_offer'].' for staying period by '.months($pri['psp_fron']).'. Book by '.months($pri['psp_to']);// to '.months($stay['ps_to_6_1']).'
 							$pro.= '.';
 							$ReMark = ($pri['pro_rm_14']!='')?' <span class="txprorm">('.$pri['pro_rm_14'].')</span>':'';
@@ -887,7 +932,7 @@ $pri['pro_exp_10']>=$Da_today && $pri['pro_exp_10']!='0000-00-00' && $pri['pro_e
 							$pro.= '</li>';
 							echo $pro;
 							
-                       // echo '<li class="fo15"><img src="../../files/check.png" width="20" class="chks"> Special offer FREE '.$pri['psp_offer'].' for booking stay between '.months($pri['psp_fron']).' to '.months($pri['psp_to']).'.</li>';
+                       // echo '<li class="fo15 tw"><img data-src="'.$url_link.'upload/new_design/v_details/checkw.png" width="20" class="chks lazy"> Special offer FREE '.$pri['psp_offer'].' for booking stay between '.months($pri['psp_fron']).' to '.months($pri['psp_to']).'.</li>';
 						}
                     }
 										
@@ -898,7 +943,7 @@ $pri['pro_exp_10']>=$Da_today && $pri['pro_exp_10']!='0000-00-00' && $pri['pro_e
 						if($exp_dates>=$Da_today && $exp_dates!='0000-00-00' && $exp_dates!='')
 						{
 							$pro = '';
-							$pro.= '<li class="fo15"><img src="../../files/check.png" width="20" class="chks"> ';
+							$pro.= '<li class="fo15 tw"><img data-src="'.$url_link.'upload/new_design/v_details/checkw.png" width="20" class="chks lazy"> ';
 							$pro.= 'Receive '.$pri['pr_discount_15'].'% discount, for travel period between '.months($pri['pr_from_15']).' to '.months($pri['pr_to_15']);
 							$pro.= '.';
 							$ReMark = ($pri['pro_rm_15']!='')?' <span class="txprorm">('.$pri['pro_rm_15'].')</span>':'';
@@ -915,7 +960,7 @@ $pri['pro_exp_10']>=$Da_today && $pri['pro_exp_10']!='0000-00-00' && $pri['pro_e
 						if($exp_dates>=$Da_today && $exp_dates!='0000-00-00' && $exp_dates!='')
 						{
 							$pro = '';
-							$pro.= '<li class="fo16"><img src="../../files/check.png" width="20" class="chks"> ';
+							$pro.= '<li class="fo16"><img data-src="'.$url_link.'upload/new_design/v_details/checkw.png" width="20" class="chks lazy"> ';
 							$pro.= 'Receive '.$pri['pr_discount_16'].'% discount, for travel period between '.months($pri['pr_from_16']).' to '.months($pri['pr_to_16']);
 							$pro.= '.';
 							$ReMark = ($pri['pro_rm_16']!='')?' <span class="txprorm">('.$pri['pro_rm_16'].')</span>':'';
@@ -927,9 +972,12 @@ $pri['pro_exp_10']>=$Da_today && $pri['pro_exp_10']!='0000-00-00' && $pri['pro_e
 					
                     echo '</ul>';
                     echo ' <span class="tremark">Remark:Availability and conditions apply, please inquire with reservation. Promotion is only valid to new reservation after the start of the promotion. Not valid with any other discount and promotions combined.</span>';
-            echo '</div>';
-        echo '</div>';
-    echo '</div><br><br>';
+				
+			echo '</div>';
+		echo '</div>';
+		echo '</div>';
+		
+    
 	}
 /*}*/
 //-- promotion
@@ -1000,66 +1048,76 @@ if(($dis['early_5']!='' && $dis['early_date_5']!='') && ($dis['dis_exp_9']=='' |
  {*/
 	if($show_dis==true)
 	{
-     echo '<div class="col-md-12 top20 mg-room-fecilities ">';
-        echo '<h2 class="mg-sec-left-title l15">Discount</h2>';
-        echo '<div class="row bggold ">';
-           echo '<div class="col-md-12 ">';
-                 echo '<ul  class="bedr">';
+		echo '<div class="row">';
+			echo '<div class="col-12">';
+				echo '<div class="box_headline_2">';
+					echo '<h3 class="text_cap">Discount</h3>';
+				echo '</div>';
+			echo '</div>';
+		echo '</div>';
+		
+		
+		echo '<div class="row ">';
+		echo '<div class="col-12 ">';
+			echo '<div class="col-12 pad10 bggold_2">';
+				echo '<ul  class="bedr">';
                 if(($pri['early_percent']!='' && $pri['early_day']!='') && ($dis['dis_exp_1']>=$Da_today || $dis['dis_exp_1']=='0000-00-00' || $dis['dis_exp_1']==''))// 
                 {
-                    echo '<li class="fo15"><img src="../../files/check.png" width="20" class="chk"> Early bird enjoys '.$pri['early_percent'].'% discount when booking '.$pri['early_day'].' days in advance.</li>';
+                    echo '<li class="fo15 tw"><img data-src="'.$url_link.'upload/new_design/v_details/checkw.png" width="20" class="chks lazy"> Early bird enjoys '.$pri['early_percent'].'% discount when booking '.$pri['early_day'].' days in advance.</li>';
                 }
                     
                 if(($pri['last_percent']!='' && $pri['last_date']!='') && ($dis['dis_exp_2']>=$Da_today || $dis['dis_exp_2']=='0000-00-00' || $dis['dis_exp_2']==''))// 
                 {
-                    echo '<li class="fo15"><img src="../../files/check.png" width="20" class="chk"> Last minute bookings enjoy '.$pri['last_percent'].'% discount when checking in before '.$pri['last_date'].' days</li>';//months($pri['last_date'])
+                    echo '<li class="fo15 tw"><img data-src="'.$url_link.'upload/new_design/v_details/checkw.png" width="20" class="chks lazy"> Last minute bookings enjoy '.$pri['last_percent'].'% discount when checking in before '.$pri['last_date'].' days</li>';//months($pri['last_date'])
                 }
 				
 				if($dis_dat==true)
 				{
 					if(($dis['early_1']!='' && $dis['early_2']!='') && ($dis['dis_exp_3']>=$Da_today || $dis['dis_exp_3']=='0000-00-00' || $dis['dis_exp_3']==''))// 
 					{
-						echo '<li class="fo15"><img src="../../files/check.png" width="20" class="chk"> Early bird enjoys '.$dis['early_1'].'% discount when booking '.$dis['early_2'].' days in advance.</li>';
+						echo '<li class="fo15 tw"><img data-src="'.$url_link.'upload/new_design/v_details/checkw.png" width="20" class="chks lazy"> Early bird enjoys '.$dis['early_1'].'% discount when booking '.$dis['early_2'].' days in advance.</li>';
 					}
 					
 					if(($dis['last_1']!='' && $dis['last_2']!='') && ($dis['dis_exp_4']>=$Da_today || $dis['dis_exp_4']=='0000-00-00' || $dis['dis_exp_4']==''))// 
 					{
-						echo '<li class="fo15"><img src="../../files/check.png" width="20" class="chk"> Last minute bookings enjoy '.$dis['last_1'].'% discount when checking in before '.$dis['last_2'].' days.</li>';
+						echo '<li class="fo15 tw"><img data-src="'.$url_link.'upload/new_design/v_details/checkw.png" width="20" class="chks lazy"> Last minute bookings enjoy '.$dis['last_1'].'% discount when checking in before '.$dis['last_2'].' days.</li>';
 					}
 					
 					if(($dis['long_1']!='' && $dis['long_2']!='') && ($dis['dis_exp_5']>=$Da_today || $dis['dis_exp_5']=='0000-00-00' || $dis['dis_exp_5']==''))// 
 					{
-						echo '<li class="fo15"><img src="../../files/check.png" width="20" class="chk"> Receive  '.$dis['long_1'].'%  if villa is booked for over '.$dis['long_2'].' Days.</li>';
+						echo '<li class="fo15 tw"><img data-src="'.$url_link.'upload/new_design/v_details/checkw.png" width="20" class="chks lazy"> Receive  '.$dis['long_1'].'%  if villa is booked for over '.$dis['long_2'].' Days.</li>';
 					}
 					
 					if(($dis['long_3']!='' && $dis['long_4']!='') && ($dis['dis_exp_6']>=$Da_today || $dis['dis_exp_6']=='0000-00-00' || $dis['dis_exp_6']==''))// 
 					{
-						echo '<li class="fo15"><img src="../../files/check.png" width="20" class="chk"> Receive  '.$dis['long_3'].'%  if villa is booked for over '.$dis['long_4'].' Days.</li>';
+						echo '<li class="fo15 tw"><img data-src="'.$url_link.'upload/new_design/v_details/checkw.png" width="20" class="chks lazy"> Receive  '.$dis['long_3'].'%  if villa is booked for over '.$dis['long_4'].' Days.</li>';
 					}
 					
 					//------new-------------
 					if(($dis['early_3']!='' && $dis['early_date_3']!='') && ($dis['dis_exp_7']>=$Da_today || $dis['dis_exp_7']=='0000-00-00' || $dis['dis_exp_7']==''))// 
 					{
-						echo '<li class="fo15"><img src="../../files/check.png" width="20" class="chk"> Early bird enjoys '.$dis['early_3'].'% discount when booking '.$dis['early_date_3'].' days in advance.</li>';
+						echo '<li class="fo15 tw"><img data-src="'.$url_link.'upload/new_design/v_details/checkw.png" width="20" class="chks lazy"> Early bird enjoys '.$dis['early_3'].'% discount when booking '.$dis['early_date_3'].' days in advance.</li>';
 					}
 					
 					if(($dis['early_4']!='' && $dis['early_date_4']!='') && ($dis['dis_exp_8']>=$Da_today || $dis['dis_exp_8']=='0000-00-00' || $dis['dis_exp_8']==''))//
 					{
-						echo '<li class="fo15"><img src="../../files/check.png" width="20" class="chk"> Early bird enjoys '.$dis['early_4'].'% discount when booking '.$dis['early_date_4'].' days in advance.</li>';
+						echo '<li class="fo15 tw"><img data-src="'.$url_link.'upload/new_design/v_details/checkw.png" width="20" class="chks lazy"> Early bird enjoys '.$dis['early_4'].'% discount when booking '.$dis['early_date_4'].' days in advance.</li>';
 					}
 					
 					if(($dis['early_5']!='' && $dis['early_date_5']!='') && ($dis['dis_exp_9']>=$Da_today || $dis['dis_exp_9']=='0000-00-00' || $dis['dis_exp_9']==''))//
 					{
-						echo '<li class="fo15"><img src="../../files/check.png" width="20" class="chk"> Early bird enjoys '.$dis['early_5'].'% discount when booking '.$dis['early_date_5'].' days in advance.</li>';
+						echo '<li class="fo15 tw"><img data-src="'.$url_link.'upload/new_design/v_details/checkw.png" width="20" class="chks lazy"> Early bird enjoys '.$dis['early_5'].'% discount when booking '.$dis['early_date_5'].' days in advance.</li>';
 					}
 					//------new-------------
 					
                 }    
 				
                 echo '</ul>';
-            echo '</div>';
-        echo '</div>';
-    echo '</div>';
+			echo '</div>';
+		echo '</div>';
+		echo '</div>';
+		
+			
 	 }
  /*}*/
  //-- discount
@@ -1131,6 +1189,17 @@ $(document).ready(function(e) {
 		//alert(vals);
     });
 	show_price_first('<?php echo $va;?>',this);
+	
+	var r=0;
+	$(".table_new tbody tr").each(function(index, element) {
+		r++;
+	});
+	if(r<=0)
+	{
+		var x = '<tr><td colspan="3" class="text-center">No Price</td></tr>';
+		$(".table_new tbody").append(x);
+		$(".exchange").hide();
+	}
 });
 
 function show_price_first(vals,me)
@@ -1147,6 +1216,7 @@ function show_price(vals,me)
 	$(".tbp").hide();
 	$(".t"+vals).show();
 }
+
 </script>
 <style>
 .txprorm
@@ -1170,14 +1240,7 @@ function show_price(vals,me)
 	z-index: 10;
     position: relative;
 }
-.cov_room_but
-{
-	background:none;
-	width:90%;
-	margin-bottom:-35px;
-	position:relative;
-	z-index:1
-}
+
 .tabbut {
     width:111px;
 }

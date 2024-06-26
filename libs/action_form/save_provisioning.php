@@ -11,9 +11,19 @@
 	$dbc->Connect();
 	$os = new minerva($dbc);
 	
+	$wl = array();
+	foreach($_REQUEST['chk_wine'] as $chk_wine)
+	{
+		array_push($wl,$chk_wine);
+	}
+	
 	$ar_data = array(
 		'provisioning' => $_REQUEST['tx_Provisioning'],
 		'wine' => $_REQUEST['tx_Wine'],
+		'file_path' => $_REQUEST['tx_file_path'],
+		'filename' => $_REQUEST['tx_file_name'],
+		'wine_list' => $wl,
+		'wine_list_link' => $_REQUEST['tx_Wine_link']
 	);
 	$data = array(
 		'provisioning' => json_encode($ar_data),
@@ -21,7 +31,7 @@
 		//'#user' => $_SESSION['auth']['user_id']
 	);
 	
-	if($dbc->Update("villa_form",$data,"id = '".$_REQUEST['txtID']."' "))
+	if($dbc->Update("villa_form",$data,"id = '".$_REQUEST['txtID']."' "))//villa_form_mapping
 	{
 		echo json_encode(array(
 			'status' => true,

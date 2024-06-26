@@ -36,7 +36,7 @@
 		//'#user' => $_SESSION['auth']['user_id']
 	);
 	
-	if($dbc->Update("villa_form",$data,"id = '".$_REQUEST['txtID']."' "))
+	if($dbc->Update("villa_form_mapping",$data,"id = '".$_REQUEST['txtID']."' "))
 	{
 		echo json_encode(array(
 			'status' => true,

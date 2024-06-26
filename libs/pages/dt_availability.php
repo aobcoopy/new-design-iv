@@ -25,7 +25,7 @@
   
  ?>
 <!--<script type="text/javascript" src="https://www.availabilitycalendar.com/embed-js/CztEKOywH5ypU4ZBn9s8/en-0-0-1-1-0-0-0-0-0-0-0-1-0/?css=<?php echo $path;?>"></script>
---> <link href="ggcld.css" rel="stylesheet" type="text/css">
+--> <link href="<?php echo  $url_link;?>libs/pages/ggcld.css" rel="stylesheet" type="text/css">
  
  
  

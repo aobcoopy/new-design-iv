@@ -17,7 +17,7 @@
 		//'#user' => $_SESSION['auth']['user_id']
 	);
 	
-	if($dbc->Update("villa_form",$data,"id = '".$_REQUEST['txtID']."' "))
+	if($dbc->Update("villa_form",$data,"id = '".$_REQUEST['txtID']."' "))//villa_form_mapping
 	{
 		echo json_encode(array(
 			'status' => true,

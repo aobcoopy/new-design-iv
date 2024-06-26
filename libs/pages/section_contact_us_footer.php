@@ -1,24 +1,31 @@
 <?php include "libs/pages/google_reCAPTCHA.php";?>
+<?php
+$hid = '';
+if($paa=='home')
+{
+	$hid = 'hid';
+}
+?>
 <div class="col-12 cc"></div>
-<div class="container-fluid contact_box animate__delay-05s hid animate__fast">
+<div class="container-fluid contact_box animate__delay-05s <?php echo $hid;?> animate__fast">
 	<div class="row justify-content-center">
     	<div class="col-9">
         	<div class="col-12 col-md-8 col-lg-5">
             
-            		<div class="con_tt animate__delay-05s hid animate__fast">contact us</div>
+            		<div class="con_tt animate__delay-05s <?php echo $hid;?> animate__fast">contact us</div>
             
                     <form id="contactus" class="clearfix ">
                         
-                        <div class="mg-contact-form-input ff1 animate__delay-05s hid animate__fast">
+                        <div class="mg-contact-form-input ff1 animate__delay-05s <?php echo $hid;?> animate__fast">
                             <!--<label for="full-name">Full Name <span class="cred">*</span></label>-->
                             <input type="text" class="form-control ip2" id="full-name" name="full-name" placeholder="Full name">
                         </div>
                         
-                        <div class="mg-contact-form-input ff2 animate__delay-06s hid animate__fast">
+                        <div class="mg-contact-form-input ff2 animate__delay-06s <?php echo $hid;?> animate__fast">
                             <!--<label for="email">E-mail <span class="cred">*</span></label>-->
                             <input type="text" class="form-control ip2 emailsc2" id="email2" name="email" onKeyUp="lower_text(this)" placeholder="Email">
                         </div>
-                        <div class="mg-contact-form-input ff3 animate__delay-07s hid animate__fast">
+                        <div class="mg-contact-form-input ff3 animate__delay-07s <?php echo $hid;?> animate__fast">
                             <div class="col-xs-12 col-sm-12 col-md-12 nopad">
                             <!--<label for="subject">Phone - for WhatsApp - it’s quicker! <!--<span class="cred">*</span>--+></label>-->
                             </div>
@@ -253,12 +260,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="mg-contact-form-input ff4 animate__delay-08s hid animate__fast">
+                        <div class="mg-contact-form-input ff4 animate__delay-08s <?php echo $hid;?> animate__fast">
                             <!--<label for="subject">Message  - Where, What are you looking for?--><?php /*?><span class="cred">(optional)</span><?php */?><!--</label>-->
                             <textarea class="form-control ip2" id="message" name="message" rows="5" placeholder="Message"></textarea>
                         </div>
-                        <div class="g-recaptcha ff5 animate__delay-09s hid animate__fast" data-sitekey="6LfbCgMoAAAAAJuvaQcWL7Jea8A_502Gsybir8y9"></div>
-                        <input type="button" onClick="send_contact()" class="btn con_but ff6 animate__delay-1s hid animate__fast" value="SEND" style="padding: 10px 0px 10px 0px;">
+                        <div class="g-recaptcha ff5 animate__delay-09s <?php echo $hid;?> animate__fast" data-sitekey="6LfbCgMoAAAAAJuvaQcWL7Jea8A_502Gsybir8y9"></div>
+                        <input type="button" onClick="send_contact()" class="btn con_but ff6 animate__delay-1s <?php echo $hid;?> animate__fast" value="SEND" style="padding: 10px 0px 10px 0px;">
                     </form>
             		<span class="textalert"></span>
                     

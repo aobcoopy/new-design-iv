@@ -3,8 +3,16 @@
 	if($bed!='')
 	{
 	?>
-	<div class="col-md-12 mg-room-fecilities bedrooms" style="margin-top: 0px;">
-    	<?php 
+    <div class="row">
+        <div class="col-12">
+            <div class="box_headline">
+                <h3 class="">Bedroom Configuration</h3>
+            </div>
+        </div>
+        
+        <div class="col-12 ">
+        	<div class="padding">
+        	<?php 
 			$butt =  json_decode($room['plan'],true);
 			if($butt==''){}
 			else
@@ -15,34 +23,22 @@
 				</button><?php */?>
 				<?php
 			}
-		?>
-		<h5 class="mg-sec-left-title top20 l15">Bedroom Configuration</h5>
-		<?php 
-			$butt =  json_decode($room['plan'],true);
-			if($butt==''){}
-			else
-			{
-				?>
-				<?php /*?><button class="fplan pull-right" data-toggle="modal" data-target="#myModal_floor" onClick="vire_floor('<?php echo json_decode($room['plan'],true);?>')">
-					<div class="inb f18t">View Floor Plan</div>
-				</button><?php */?>
-				<?php
-			}
-		?>
-		<div class="row bggray">
-		   <div class="col-md-12 ">
-				 <ul class="bedr">
-				  <?PHP
-						foreach($bed as $val)
-						{
-							echo '<li  class="fo15"><strong>'.$val['title'].'</strong> - '.$val['detail'].'</li>';
-						}
-				  ?>
-				  </ul>
-			</div>
-		</div>
-	</div>
-	<?PHP
+			?>
+        	<ul class="bedr">
+			<?php
+                foreach($bed as $val)
+                {
+                    echo '<li  class="fo15"><strong>'.$val['title'].'</strong> - '.$val['detail'].'</li>';
+                }
+            ?>
+            </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+	
+	<?php
 	  }
 ?>
 <script>

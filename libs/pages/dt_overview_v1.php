@@ -88,7 +88,7 @@
 ?>
 
 <br class="d-block d-lg-none">
-<h1 itemprop="name" class="f20 f188 hidden- mobtop0  myhone h1lh myHone-" ><?php echo $first_name;?></h1>
+<h1 itemprop="name" class="villa_detail_h1 f20" ><?php echo $first_name;?></h1>
 <!--<span itemprop="description"  class="minitext t5b24 hidden-xs1 f14"><?php echo $bex[0]?>,</span>
 
 <span  itemprop="description"  class="minitext t5b24 hidden-xs1 f14">
@@ -105,19 +105,24 @@
     <span itemprop="description"  class="minitext t5b24 hidden-xs1 f16 tb">
 		<?php //echo $bex[0]<br>?>
         <?php
-        if($room['adults']!=0)
-		{
-			echo '<i class="fa fa-users"></i> '.$room['adults'].' Guests &nbsp;&nbsp;';
-		}
+		$vl_destination = explode("-",$vi_name[1]);
+		echo '<i class="fa fa-map-marker"></i> '.str_replace(" Beach, ",", ",$vl_destination[1]).' &nbsp;&nbsp;&nbsp;&nbsp;';
+		
+       
 		
 		if($room['bedroom_range']!=0)
 		{
-			echo '<i class="fa fa-bed"></i> '.$room['bedroom_range'].' &nbsp;';
+			echo '<i class="fa fa-bed"></i> '.$room['bedroom_range'].' &nbsp;&nbsp;&nbsp;';
 		}
 		
 		if($room['bathroom']!=0)
 		{
-			echo '<i class="fa fa-bath"></i> '.$room['bathroom'].' Bathrooms';
+			echo '<i class="fa fa-bath"></i> '.$room['bathroom'].' Bathrooms &nbsp;&nbsp;&nbsp;&nbsp;';
+		}
+		
+		 if($room['adults']!=0)
+		{
+			echo '<i class="fa fa-users"></i> '.$room['adults'].' Guests &nbsp;&nbsp;';
 		}
 		?>
 		
@@ -125,13 +130,13 @@
         
     </span><br>
     <div class="aa" style="width: 100%;height: 12px;"></div>
-    <a class="blu" onClick="goto_price_table();">Price Range  $<?php echo number_format($p_min);?> - $<?php echo number_format($p_max);?> <span class="hidden-xs hidden-sm">/ season</span></a>
+    <a class="t_orange" onClick="goto_price_table();">Price Range  $<?php echo number_format($p_min);?> - $<?php echo number_format($p_max);?> <span class="hidden-xs hidden-sm">/ season</span></a>
     <div class="aa" style="width: 100%;height: 12px;"></div>
     <?php
     if($nu_rate>0)
 	{
 		?>
-        <a class="blu " onClick="goto_review();"><?php echo $nu_rate;?> Reviews</a>
+        <a class="t_orange " onClick="goto_review();"><?php echo $nu_rate;?> Reviews</a>
         <?php
 	}
 	?>
@@ -310,17 +315,7 @@ function destination_gb_name($option)
 	}
 }
 ?>
-<style>
-.read_more_box > p, .read_more_box > p > span , .read_more_box > p > span > span
-{
-	font-size:16px !important;
-	line-height: 1.8 !important;
-}
-.f017
-{
-	font-size:17px !important;
-}
-</style>
+
 
 <div class="col-sm-12 col-md-12 nopad details" style="margin-bottom:-25px; margin-top:17px;">
     <div class="mg-single-room-txt dett det_2">
@@ -373,6 +368,10 @@ function see_more_detail()
 function goto_review()
 {
 	var testDiv = document.getElementById("pos_my_reviews");
+	var re_top = testDiv.offsetTop+330;
+		window.scrollTo(0, re_top);
+		
+	/*var testDiv_2 = $(".pos_my_reviews_2").offset().top;
 	if($(window).width()<976)
 	{
 		var re_top = testDiv.offsetTop+210;
@@ -395,9 +394,9 @@ function goto_review()
 	}
 	else
 	{
-		var re_top = testDiv.offsetTop+400;
+		var re_top = testDiv.offsetTop+310;
 		window.scrollTo(0, re_top);
-	}
+	}*/
 	setTimeout(function(){
 		setTimeout(function(){
 			$(".pos_my_reviews").css({"background": "#ffb0b0"});
@@ -444,7 +443,7 @@ function goto_price_table()
 	}
 	else
 	{
-		var rental_top = rental.offsetTop+400;
+		var rental_top = rental.offsetTop-100;
 		window.scrollTo(0, rental_top);
 	}
 	
@@ -507,5 +506,16 @@ function goto_recent()
 .recent,.pos_my_reviews,.rental_rate
 {
 	transition:all 1s;
+}
+
+.read_more_box > p, .read_more_box > p > span , .read_more_box > p > span > span
+{
+	font-size:16px !important;
+	line-height: 1.8 !important;
+	color:#808080;
+}
+.f017
+{
+	font-size:17px !important;
 }
 </style>

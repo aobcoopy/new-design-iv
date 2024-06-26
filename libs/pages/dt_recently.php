@@ -132,7 +132,7 @@ elseif($total_villa==1)
     {
 		$v_name = explode("|",$recdat['name']);
 		$v_photo = json_decode($recdat['photo'],true);
-		echo '<div class="col-sm-4 col-md-4">';
+		echo '<div class="col-12">';
         	echo '<a href="/'.$recdat['ht_link'].'.html">';
 					echo '<img src="'.imageP($v_photo[0]['img']).'" width="100%">';
 					echo '<div class="carousel-caption2 pad10 tb">';

@@ -1,11 +1,12 @@
 <?php session_start();?>
 <br><br><br><br><br>
-<div class="container">
+<div class="container-fluid top50">
 	<div class="row">
 		<div class="inside_data_recently"></div>
         
     </div>
 </div>
+<br><br><br><br>
 <script>
 $(document).ready(function(e) {
 	$.ajax({

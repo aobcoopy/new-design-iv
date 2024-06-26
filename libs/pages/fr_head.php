@@ -1,8 +1,8 @@
 <?php /*ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);*/
-?>
-<div class="mg-page-titles motop"><!--parallax-->
+?><!--parallax-->
+<?php /*?><div class="mg-page-titles motop">
 <?php 
 if(isset($_REQUEST['cate']))
 {
@@ -46,7 +46,7 @@ else
 	<?php
 }
 ?>
-</div>
+</div><?php */?>
 <?php
 function tag($id)
 {

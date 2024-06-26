@@ -20,7 +20,8 @@
 			$ph_name = base64_encode($img['name']);
 			$phos_data = array(
 				'img' => $img['photo'],
-				'name' => $ph_name
+				'name' => $ph_name,
+				//'posi' => $img['posi']
 			);
 			
 			//echo str_replace("\_", "'",$ph_name)."<br>";

@@ -1,8 +1,11 @@
-<div class="col-md-12 mg-room-fecilities ">
-    <h3 class="mg-sec-left-title top20 l15">Facilities</h3>
-    <div class="row bggray">
-        <div class="col-md-12- row nopad">
-            <?php 
+<div class="row">
+	<div class="col-12">
+        <div class="box_headline">
+            <h3 class="">Facilities</h3>
+        </div>
+    </div>
+    <div class="row">
+    	<?php 
             $c=0;
             foreach(json_decode($room['appliances']) as $appl)
             {
@@ -14,7 +17,8 @@
 				$ex_name = explode("_",$ex1[1]);
 				$svg = explode(".",$ex_name[1]);
                // print_r(S3_BUCKET_URL);
-                echo '<div class="col-xs-6 col-md-4">';
+                echo '<div class="col-xs-6 col-lg-4 col-xl-3">';
+					echo '<div class="padding">';
                     echo '<ul class="bedr">';
                         //echo '<li><img data-src="'.json_decode($icon_app['icon'],true).'" class="micon lazy" alt="'.$icon_app['name'].'"> '.$icon_app['name'].'  </li>';
 						$ar_new = array('2001','2003','2002','2005','2008','2007','2006');
@@ -41,14 +45,15 @@
 						
 						//echo '<li  class="fo15"><image  data-src="' . S3_BUCKET_URL . '/upload/icons/'.$svg[0].'.svg" alt="'.$icon_app['name'].'"  class="micon lazy" style="width: 34px !important;height: 32px;margin-left: -5px;" /> '.$icon_app['name'].'</li>';
                     echo '</ul>';
+					echo '</div>';
                 echo '</div>';
                 $c++;
                 if(($c%3)==0)
                 {
-                    echo '</div><div class="col-md-12- row nopad">';
+                    //echo '</div><div class="col-md-12- row nopad">';
                 }
             }
             ?>
-        </div>
     </div>
-</div>
+    
+</div>    

@@ -57,6 +57,53 @@ if($ppa=='home' || !isset($ppa))
 	$title_tag = "Inspiring Villas - The Leading Luxury Villa Rentals Agency in Thailand";//"Thailand Villas - Luxury Holiday Rentals";//"Luxury Villa Holidays & Private Villa Rentals ";//"Thailand Villas | Unique Luxury Vacations";//"Thailand Villas | Private Vacation Rentals".$iv;//"Thailand Villas Luxury Rentals Phuket & Koh Samui ";//"Luxury Villa Rentals in Phuket & Koh Samui,Thailand";
 	$meta_description = string_len_meta("Thailand Luxury Villa Rentals with beach access, sea views and stunning facilities, fully-staffed & private chef. Book Your Villa Holiday Today with Inspiring Villas.",152);//"Luxury Private Villa Rentals with full service staff and chef, in Thailand, Asia & Beyond. Book Your Villa Holiday Today with Inspiring Villas";//"Luxury Private Pool Villa Rentals with full service staff and chef, in Phuket & Koh Samui,Thailand. Book Your Villa Holiday Today with Inspiring Villas";
 }
+elseif($ppa=='hubpage')
+{
+	$title_tag = "Luxury Villas in Thailand";
+	$meta_description = "Our exclusive collection of private luxury villas in Thailand is perfect for global travelers seeking the best possible experiences in Thailand.";
+}
+elseif($ppa=='phuket-vacation')
+{
+	$title_tag = "Phuket Vacation Rentals";
+	$meta_description = "Phuket vacation rental with Inspiring Villas exclusive luxury villa collection of vacation rentals in Phuket.";
+}
+elseif($ppa=='koh-samui-vacation')
+{
+	$title_tag = "Koh Samui Vacation Rentals";
+	$meta_description = "Koh Samui Vacation Rentals: Your Gateway to Tropical Luxury in Koh Samui";
+}
+elseif($ppa=='beachfront-pool-villas-in-thailand')
+{
+	$title_tag = "Luxury Beachfront Pool Villas in Thailand";
+	$meta_description = "The pinnacle of luxury can be found at our exclusive collections of beachfront pool villas across Thailand.";
+}
+elseif($ppa=='The-Best-Pool-Villas-in-Thailand')
+{
+	$title_tag = "The Best Pool Villas in Thailand";
+	$meta_description = "Luxury travel the best pool villas in Thailand goes beyond accommodations, elevated by the overall experience of your trip.";
+}
+elseif($ppa=='Luxury-Beach-Villas-in-Thailand')
+{
+	$title_tag = "Luxury Beach Villas in Thailand";
+	$meta_description = "Thailand’s beach villas and luxury living go hand in hand.";
+}
+elseif($ppa=='family-villa-phuket')
+{
+	$title_tag = "Family Villas in Phuket";
+	$meta_description = "The Best Phuket Villas for Family Villas in Phuket Thailand Holiday";
+}
+elseif($ppa=='family-villa-Koh-Samui')
+{
+	$title_tag = "Family Villas in Koh Samui";
+	$meta_description = "The Best Koh Samui Villas for Family Villas in Koh Samui Thailand Vacations";
+}
+elseif($ppa=='Best-Luxury-Villas-in-Thailand')
+{
+	$title_tag = "Best Luxury Villas in Thailand";
+	$meta_description = "Unveiling Thailand's The Best Luxury Villas";
+}
+
+
 elseif($ppa=='villas')
 {
 	$title_tag = "Seaview & Beachfront Luxury Villas for Rent in Phuket & Koh Samui";

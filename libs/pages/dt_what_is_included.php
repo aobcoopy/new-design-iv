@@ -55,109 +55,113 @@ if($room['wiic']==1 )
 	if($wc==1)
 	{
 ?>
-	<div class="col-md-12 mg-room-fecilities " style="margin-top: 1px; margin-bottom: 3px;">
-		<h3 class="mg-sec-left-title l15 top20">What is included</h3>
-		<div class="row bggray">
-			<div class="col-md-12 nopad">
-				<?php 
-				if(count($what_ic1)!='0')
+<div class="row">
+    <div class="col-12">
+        <div class="box_headline_2">
+            <h3 class="text_cap">What is included</h3>
+        </div>
+    </div>
+    <div class="row">
+    	<?php 
+			if(count($what_ic1)!='0')
+			{
+				echo '<div class="col-xs-12 col-md-12">';
+					echo '<ul class="bedr wicc">';
+				foreach($what_ic1 as $wic1)
 				{
-					echo '<div class="col-xs-12 col-md-12">';
-						echo '<ul class="bedr wicc">';
-					foreach($what_ic1 as $wic1)
-					{
-						echo '<li class="fo15"><img data-src="../../files/check.png" width="20" class="chk lazy"> '.str_replace("#","'",$wic1).'</li>';
-					}
-						echo '</ul>';
-					echo '</div>';
+					echo '<li class="fo15"><img data-src="'.$url_link.'upload/new_design/v_details/dot.png" width="20" class="chk lazy"> '.str_replace("#","'",$wic1).'</li>';
 				}
-				
-				
-				if(count($what_ic6)!='0')
+					echo '</ul>';
+				echo '</div>';
+			}
+			
+			
+			if(count($what_ic6)!='0')
+			{
+				echo '<div class="col-xs-12 col-md-12">';
+					echo '<div class="w_title">Available at extra charge</div>';
+					echo '<ul class="bedr wicc">';
+				foreach($what_ic6 as $wic6)
 				{
-					echo '<div class="col-xs-12 col-md-12">';
-						echo '<div class="w_title">Available at extra charge</div>';
-						echo '<ul class="bedr wicc">';
-					foreach($what_ic6 as $wic6)
-					{
-						echo '<li class="fo15"><img data-src="../../files/check.png" width="20" class="chk lazy"> '.str_replace("#","'",$wic6).'</li>';
-					}
-						echo '</ul>';
-					echo '</div>';
+					echo '<li class="fo15"><img data-src="'.$url_link.'upload/new_design/v_details/dot.png" width="20" class="chk lazy"> '.str_replace("#","'",$wic6).'</li>';
 				}
-				
-				if(count($what_ic7)!='0')
+					echo '</ul>';
+				echo '</div>';
+			}
+			
+			if(count($what_ic7)!='0')
+			{
+				echo '<div class="col-xs-12 col-md-12">';
+					echo '<div class="w_title">House rules</div>';
+					echo '<ul class="bedr wicc">';
+				foreach($what_ic7 as $wic7)
 				{
-					echo '<div class="col-xs-12 col-md-12">';
-						echo '<div class="w_title">House rules</div>';
-						echo '<ul class="bedr wicc">';
-					foreach($what_ic7 as $wic7)
-					{
-						echo '<li class="fo15"><img data-src="../../files/check.png" width="20" class="chk lazy"> '.str_replace("#","'",$wic7).'</li>';
-					}
-						echo '</ul>';
-					echo '</div>';
-				}	
-				
-				if(count($what_ic2)!='0')
-				{
-					echo '<div class="col-xs-12 col-md-12">';
-						echo '<div class="w_title">Complimentary airport transfer</div>';
-						echo '<ul class="bedr wicc">';
-					foreach($what_ic2 as $wic2)
-					{
-						echo '<li class="fo15"><img data-src="../../files/check.png" width="20" class="chk lazy"> '.str_replace("#","'",$wic2).'</li>';
-					}
-						echo '</ul>';
-					echo '</div>';
+					echo '<li class="fo15"><img data-src="'.$url_link.'upload/new_design/v_details/dot.png" width="20" class="chk lazy"> '.str_replace("#","'",$wic7).'</li>';
 				}
-					
-				
-				if(count($what_ic3)!='0')
+					echo '</ul>';
+				echo '</div>';
+			}	
+			
+			if(count($what_ic2)!='0')
+			{
+				echo '<div class="col-xs-12 col-md-12">';
+					echo '<div class="w_title">Complimentary airport transfer</div>';
+					echo '<ul class="bedr wicc">';
+				foreach($what_ic2 as $wic2)
 				{
-					echo '<div class="col-xs-12 col-md-12">';
-						echo '<div class="w_title">Staff service inclusion</div>';
-						echo '<ul class="bedr wicc">';
-					foreach($what_ic3 as $wic3)
-					{
-						echo '<li class="fo15"><img data-src="../../files/check.png" width="20" class="chk lazy"> '.str_replace("#","'",$wic3).'</li>';
-					}
-						echo '</ul>';
-					echo '</div>';
+					echo '<li class="fo15"><img data-src="'.$url_link.'upload/new_design/v_details/dot.png" width="20" class="chk lazy"> '.str_replace("#","'",$wic2).'</li>';
 				}
+					echo '</ul>';
+				echo '</div>';
+			}
 				
-				
-				if(count($what_ic4)!='0')
+			
+			if(count($what_ic3)!='0')
+			{
+				echo '<div class="col-xs-12 col-md-12">';
+					echo '<div class="w_title">Staff service inclusion</div>';
+					echo '<ul class="bedr wicc">';
+				foreach($what_ic3 as $wic3)
 				{
-					echo '<div class="col-xs-12 col-md-12">';
-						echo '<div class="w_title">Extra Charge</div>';
-						echo '<ul class="bedr wicc">';
-					foreach($what_ic4 as $wic4)
-					{
-						echo '<li class="fo15"><img data-src="../../files/check.png" width="20" class="chk lazy"> '.str_replace("#","'",$wic4).'</li>';
-					}
-						echo '</ul>';
-					echo '</div>';
+					echo '<li class="fo15"><img data-src="'.$url_link.'upload/new_design/v_details/dot.png" width="20" class="chk lazy"> '.str_replace("#","'",$wic3).'</li>';
 				}
-				
-				
-				if(count($what_ic5)!='0')
+					echo '</ul>';
+				echo '</div>';
+			}
+			
+			
+			if(count($what_ic4)!='0')
+			{
+				echo '<div class="col-xs-12 col-md-12">';
+					echo '<div class="w_title">Extra Charge</div>';
+					echo '<ul class="bedr wicc">';
+				foreach($what_ic4 as $wic4)
 				{
-					echo '<div class="col-xs-12 col-md-12">';
-						echo '<div class="w_title">Special Note</div>';
-						echo '<ul class="bedr wicc">';
-					foreach($what_ic5 as $wic5)
-					{
-						echo '<li class="fo15"><img data-src="../../files/check.png" width="20" class="chk lazy"> '.str_replace("#","'",$wic5).'</li>';
-					}
-						echo '</ul>';
-					echo '</div>';
+					echo '<li class="fo15"><img data-src="'.$url_link.'upload/new_design/v_details/dot.png" width="20" class="chk lazy"> '.str_replace("#","'",$wic4).'</li>';
 				}
-			   
-				?>
-			</div>
-		</div>
-	</div>
+					echo '</ul>';
+				echo '</div>';
+			}
+			
+			
+			if(count($what_ic5)!='0')
+			{
+				echo '<div class="col-xs-12 col-md-12">';
+					echo '<div class="w_title">Special Note</div>';
+					echo '<ul class="bedr wicc">';
+				foreach($what_ic5 as $wic5)
+				{
+					echo '<li class="fo15"><img data-src="'.$url_link.'upload/new_design/v_details/dot.png" width="20" class="chk lazy"> '.str_replace("#","'",$wic5).'</li>';
+				}
+					echo '</ul>';
+				echo '</div>';
+			}
+		   
+			?>
+    </div>
+</div>
+
+
 	<?php
 	}
 }
@@ -167,18 +171,23 @@ else
 	if(count(json_decode($room['what_ic']))!='0')
 	{
 	?>
-	<div class="col-md-12 mg-room-fecilities " style="margin-top: 1px; margin-bottom: 3px;">
-		<h3 class="mg-sec-left-title l15 top20">What is included</h3>
-		<div class="row bggray">
-			<div class="col-md-12 nopad">
-				<?php 
+    <div class="row">
+        <div class="col-12">
+            <div class="box_headline_2">
+                <h3 class="text_cap">What is included</h3>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+    	<?php 
 				if(count($cate1)!='0')
 				{
 					echo '<div class="col-xs-12 col-md-12">';
 						echo '<ul class="bedr wicc">';
 					foreach($cate1 as $wh_1)
 					{
-						echo '<li class="fo15"><img data-src="../../files/check.png" width="20" class="chk lazy"> '.$wh_1.'</li>';
+						echo '<li class="fo15"><img data-src="'.$url_link.'upload/new_design/v_details/dot.png" width="20" class="chk lazy"> '.$wh_1.'</li>';
 					}
 						echo '</ul>';
 					echo '</div>';
@@ -191,7 +200,7 @@ else
 						echo '<ul class="bedr wicc">';
 					foreach($cate2 as $wh_2)
 					{
-						echo '<li class="fo15"><img data-src="../../files/check.png" width="20" class="chk lazy"> '.$wh_2.'</li>';
+						echo '<li class="fo15"><img data-src="'.$url_link.'upload/new_design/v_details/dot.png" width="20" class="chk lazy"> '.$wh_2.'</li>';
 					}
 						echo '</ul>';
 					echo '</div>';
@@ -204,7 +213,7 @@ else
 						echo '<ul class="bedr wicc">';
 					foreach($cate3 as $wh_3)
 					{
-						echo '<li class="fo15"><img data-src="../../files/check.png" width="20" class="chk lazy"> '.$wh_3.'</li>';
+						echo '<li class="fo15"><img data-src="'.$url_link.'upload/new_design/v_details/dot.png" width="20" class="chk lazy"> '.$wh_3.'</li>';
 					}
 						echo '</ul>';
 					echo '</div>';
@@ -217,7 +226,7 @@ else
 						echo '<ul class="bedr wicc">';
 					foreach($cate4 as $wh_4)
 					{
-						echo '<li class="fo15"><img data-src="../../files/check.png" width="20" class="chk lazy"> '.$wh_4.'</li>';
+						echo '<li class="fo15"><img data-src="'.$url_link.'upload/new_design/v_details/dot.png" width="20" class="chk lazy"> '.$wh_4.'</li>';
 					}
 						echo '</ul>';
 					echo '</div>';
@@ -230,16 +239,15 @@ else
 						echo '<ul class="bedr wicc">';
 					foreach($cate5 as $wh_5)
 					{
-						echo '<li class="fo15"><img data-src="../../files/check.png" width="20" class="chk lazy"> '.$wh_5.'</li>';
+						echo '<li class="fo15"><img data-src="'.$url_link.'upload/new_design/v_details/dot.png" width="20" class="chk lazy"> '.$wh_5.'</li>';
 					}
 						echo '</ul>';
 					echo '</div>';
 				}
 			   
 				?>
-			</div>
-		</div>
-	</div>
+    </div>
+
 	<?php
 	}
 }

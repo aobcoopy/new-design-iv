@@ -48,7 +48,34 @@
     <meta itemprop="url" content="<?php echo $url_link.$url;?>">
     <!--Google data structure-->
     
-    <title><?php echo $title_tag." - InspiringVillas.com";?></title>    
+    <?php 
+	if(($ppa=='home' || !isset($ppa)) || $title_tag == "Koh Samui Beachfront Villa - Luxury Villas for rent in Koh Samui" || $title_tag == "Phuket beachfront villa - Luxury villas for rent in Phuket Thailand") 
+	{
+        echo '<title>'.$title_tag.'</title>';
+    } 
+	else 
+	{ 
+		$array_link = ['/search-rent/thailand-phuket/all-beach/all-price/8-10-bedrooms/all-collections/all-sort.html',
+		'/search-rent/thailand-phuket/all-beach/all-price/all-bedrooms/larger-group-villas/all-sort.html',
+		'/search-rent/thailand-phuket/all-beach/all-price/all-bedrooms/all-collections/all-sort.html',
+		'/search-rent/thailand-koh-samui/all-beach/all-price/all-bedrooms/all-collections/all-sort.html',
+		'/search-rent/thailand-phuket/kamala-beach/all-price/all-bedrooms/all-collections/all-sort.html',
+		'/search-rent/thailand-phuket/surin-beach/all-price/all-bedrooms/all-collections/all-sort.html',
+		'/search-rent/thailand-koh-samui/bophut-beach/all-price/all-bedrooms/all-collections/all-sort.html',
+		'/search-rent/thailand-phang-nga/all-beach/all-price/all-bedrooms/all-collections/all-sort.html',
+		'/search-rent/thailand-phuket/nai-harn/all-price/all-bedrooms/all-collections/all-sort.html'];
+		if(in_array($_SERVER['REQUEST_URI'],$array_link))
+		{
+			echo '<title>'.$title_tag.'</title>';
+		}
+		else
+		{
+			echo '<title>'.$title_tag.' - InspiringVillas.com</title>';
+		}
+    } ?>
+
+    
+    <!--<title><?php echo $title_tag." - InspiringVillas.com";?></title>    -->
 
     <link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
     <link rel="apple-touch-icon" href="icon.jpg">
@@ -73,14 +100,44 @@
     <?php /*?><link rel="preload" href="<?php echo $url_link;?>libs/css/datepicker.css" rel="stylesheet"><?php */?>
     <?php
         }
+		
+		if($page =='villaform' || $page =='viewvillaform' || $page =='villaform-admin' || $page =='villaform-customer' || $page =='view-villaform-admin' || $page =='product-lists')
+		{
+			echo '<link href="'.$url_link.'libs/css/v5/style.css?v=00046" rel="stylesheet"> ';
+		}
+		else
+		{
         ?>
         <link href="<?php echo $url_link;?>libs/css/v5/style.css?v=00046" rel="stylesheet"> 
         <link href="<?php echo $url_link;?>libs/css/v5/a_style.css?v=00001" rel="stylesheet"> 
         <link href="<?php echo $url_link;?>libs/css/v5/new_design.css" rel="stylesheet"> 
         <link href="<?php echo $url_link;?>libs/css/v5/new_design_responsive.css" rel="stylesheet"> 
         <link href="<?php echo $url_link;?>libs/css/v5/animate.min.css" rel="stylesheet"> 
+        <?php }?>
         <script src="<?php echo $url_link;?>libs/js/jquery-3.5.1.min.js"></script>
-		<script src="<?php echo $url_link;?>libs/js/v5/animation.js"></script>
+		
+		<?php 
+		if($page=='home')
+		{
+			echo '<script src="'.$url_link.'libs/js/v5/animation.js"></script>';
+			echo '<script src="'.$url_link.'libs/js/v5/animation_main.js"></script>';
+		}
+		elseif($page=='forrent' || $page=='propertydetail')
+		{
+		}
+		elseif($page =='villaform' || $page =='viewvillaform' || $page =='villaform-admin' || $page =='villaform-customer' || $page =='view-villaform-admin' || $page =='product-lists')
+		{
+			echo '<link href="'.$url_link.'libs/css/v5/villa_form.css" rel="stylesheet"> ';
+			echo '<link href="'.$url_link.'libs/css/v5/villa_form_responsive.css" rel="stylesheet"> ';
+		}
+		elseif($page == 'phuket_destination' || $page == 'koh_samui_destination' || $page == 'blog')
+		{
+		}
+		else
+		{
+			//echo '<script src="'.$url_link.'libs/js/v5/animation_main.js"></script>';
+		}
+		?>
         <!--<script src="<?php echo $url_link;?>libs/js/jquery-3.1.1.min.js"></script>--> 
 <?php }?>
 </head>
@@ -88,13 +145,20 @@
 <?php //$page=isset($_REQUEST['page'])?$_REQUEST['page']:'home';
 
 if($page=='step1' || $page=='step2' || $page=='inspiringgroup'){}
-elseif($page=='booking'  )
+elseif($page=='booking'  ||  $page=='villaform-admin' || $page =='villaform-customer' || $page =='view-villaform-admin' || $page =='product-lists' )
 {
 }
-elseif($page=='home' || $page=='blog' || $page=='blog_cate'|| $page=='blogdetail')
+elseif($page=='home' || $page=='blog' || $page=='blog_cate'|| $page=='blogdetail' || $page == 'phuket_destination' || $page == 'koh_samui_destination')
 {
 	include "pages/header-new-design.php";
 	//echo '1111';
+}
+elseif( $page=='forrent')
+{	
+}
+elseif($page == 'recently' || $page == 'contact' || $page == 'privacy' || $page == 'terms' || $page == 'about' || $page == 'service' || $page == 'request-form' )//
+{
+	include "pages/search_main.php";
 }
 else
 {
@@ -153,36 +217,32 @@ switch($page)
 	//------------ Add New New Design ------
 	case"blog_cate":include "pages/page_blog_category.php";break;
 	//------------ Add New New Design ------
+	
+	//------------ Add New  ------
+	case"hubpage":include "pages/page_hubpage.php";break;
+	case"phuket-vacation":include "pages/page_phuket_vacation.php";break;
+	case"koh-samui-vacation":include "pages/page_koh_samui_vacation.php";break;
+	case"beachfront-pool-villas-in-thailand":include "pages/page_beachfront_pool_villa_in_thailand.php";break;
+	case"The-Best-Pool-Villas-in-Thailand":include "pages/page_The_Best_Pool_Villas_in_Thailand.php";break;
+	case"Luxury-Beach-Villas-in-Thailand":include "pages/page_Luxury_Beach_Villas_in_Thailand.php";break;
+	case"family-villa-phuket":include "pages/page_family_villa_phuket.php";break;
+	case"family-villa-Koh-Samui":include "pages/page_family_villa_koh_samui.php";break;
+	case"Best-Luxury-Villas-in-Thailand":include "pages/page_Best_Luxury_villa_in_Thailand.php";break;
+	case"phuket_destination":include "pages/page_phuket_destination.php";break;
+	case"koh_samui_destination":include "pages/page_koh_samui_destination.php";break;
+	case"request-form":include "pages/page_request_form.php";break;
+	//------------ Add New  ------
 }
 
-    if($page!='thanks' && $page!='yacht_thanks')
-    {
-        if($page=='step1' || $page=='step2')
-        {}
-        elseif($page=='testpage' || $page=='testpage2' || $page=='testpage3')
-        {
-        }
-        elseif($page=='booking' || $page =='inspiringgroup')
-        {
-        }
-        elseif($page =='thank-you-question')
-        {
-        }
-        elseif($page =='thank-you-contact')
-        {
-        }
-		elseif($page =='villaform' || $page =='viewvillaform' || $page =='villaform-admin' || $page =='villaform-customer' || $page =='view-villaform-admin' || $page =='product-lists')
-        {
-        }
-		elseif($page=='email_detail'){}
-        else
-        {
-			include "pages/new_design_footer.php";
-		}
-    }
-    
-    //if($page!='propertydetail'){include "pages/popup.php";}
-    
+	$array_page = [
+		'thanks','yacht_thanks','step1','step2','testpage','testpage2','testpage3','booking','inspiringgroup','thank-you-question','thank-you-contact','villaform','viewvillaform','villaform-admin','villaform-customer',
+		'view-villaform-admin','product-lists','email_detail'
+	];
+	if(!in_array($page,$array_page))
+	{
+		include "pages/new_design_footer.php";
+	}
+	
 ?> 
 <?php 
 if($page !='inspiringgroup')
@@ -198,6 +258,13 @@ if($page !='inspiringgroup')
     {
         ?><script defer src="<?php echo $url_link;?>libs/js/jquery.parallax-1.1.3.js"></script><?php
     }
+	
+	if($page=='villaform-admin')
+	{
+		?>
+		<script type="text/javascript" src="<?php echo $url_link;?>libs/ckeditor/ckeditor.js"></script>
+        <script type="text/javascript" src="libs/ckeditor/adapters/jquery.js"></script>		<?php
+	}
     ?>
     
     <?php

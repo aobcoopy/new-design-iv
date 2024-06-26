@@ -1,6 +1,6 @@
 <?php 
-$cover = $dbc->GetRecord("cover","*","page='contact' AND status > 0");
-$photo_cover = json_decode($cover['photo'],true);
+/*$cover = $dbc->GetRecord("cover","*","page='contact' AND status > 0");
+$photo_cover = json_decode($cover['photo'],true);*/
 ?>
 
 
@@ -19,19 +19,7 @@ $photo_cover = json_decode($cover['photo'],true);
   gtag('event', 'conversion', {'send_to': 'AW-853694063/pTzVCKj4ingQ76yJlwM'});
 </script>
 
-<div class="mg-page-titles top682"><!--parallax-->
-    <div class="container-fluid nopad">
-    <img class="lazy web" data-src="<?php echo imageP($photo_cover);?>" alt="inspiringvillas cover" width="100%" class="motop">
-       <?php /*?><img class="lazy web" data-src="<?php echo imagePath($photo_cover);?>" alt="inspiringvillas cover" width="100%" class="motop"><?php */?>
-        <div class="row">
-            <!--<div class="col-md-12">
-                <h2>Contact Us</h2>
-                <p>Cogitavisse erant puerilis utrum efficiantur adhuc expeteretur.</p>
-            </div>-->
-        </div>
-        <br class="mob"><br class="mob"><br class="mob">
-    </div>
-</div>
+
 <script>
 //เรียกใช้งาน
 var hash = window.location.hash;
@@ -53,88 +41,47 @@ else
 </script>
 <!--<div class="mg-page-title mobi"></div>-->
 <?php include "libs/pages/google_remarketing.php";?>
-<div class="web"><?php include "libs/pages/search.php";?></div>
 
 
-		<div class="mg-page">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-                    
-                    <div class="col-md-12 nopad conbox">
-                    	<center><h1 class=" contitle hidden-xs1">Contact Us</h1></center>
-                        <h2 class="f16 text-center" style="    font-family: pt !important;">For a quick response please provide your name & email - we'll get straight back to you!</h2><br>
-                    	<div class="col-md-12 det text-center"><?php echo '---'.$_REQUEST['view'];?>
-                        	<?php /*?>One of our villa specialists will attend to your inquiry shortly. We value your privacy. <br>We promise to never sell or share your 
-information with a third-party. <br><?php */?>
-For any urgent requests, please call us at <a href="tel:+85281986765" style=" color:#4b565b;">+852 8198 6765</a><br><br>
+<br><br><br><br><br><br><br><br>
+<?php //echo $_SERVER['REMOTE_ADDR'].'--'.$_SERVER['SERVER_ADDR'].'---'.$_SERVER ["HTTP_USER_AGENT" ];?>
 
-<?php /*?>Tell us exactly what you are looking by completing the form below and submit. One of our villa specialists or team <br>
-members will attend to your queries shortly. We value your privacy. We promise to never sell or share your <br>
-information with a third-party. You can also find answer for common question in our <a href="/faq">FAQ.</a> <br>
-For any urgent requests, please call us at <a href="tel:+66846771551" style=" color:#4b565b;">+66 84 677 1551</a> <br><?php */?>
-                        </div> 
-                        
-                        <!--<br><br><br><br>-->
-                        
-                    	<h2 class="ico" style="text-align: center;">
-                        <a href="https://api.whatsapp.com/send?phone=66846771551" target="_blank" class="alignnone" style="margin: 0px; padding: 0px; display: inline-block; position: relative; overflow: hidden;">
-                        	<img class="lazy" data-src="../../upload/whatsapp.png" alt="Inspiring Villas Whatsapp">
-                        </a>
-                        <a href="http://m.me/inspiringvillas/" class="alignnone"  target="_blank" style="margin: 0px; padding: 0px; display: inline-block; position: relative; overflow: hidden;">
-                        	<img class="lazy" data-src="../../upload/mass.png" alt="Inspiring Villas Messanger">
-                        </a>
-                       
-                        <a href="skype:Inspiringvillas?call" class="alignnone"  target="_blank" style="margin: 0px; padding: 0px; display: inline-block; position: relative; overflow: hidden;">
-                        	<img class="lazy" data-src="../../upload/skpye.png" alt="Inspiring Villas Skpye">
-                        </a>
-                        
-                        <a href="mailto:info@inspiringvillas.com" class="alignnone" target="_blank" style="margin: 0px; padding: 0px; display: inline-block; position: relative; overflow: hidden;">
-                        	<img class="lazy" data-src="../../upload/gmail.png" alt="Inspiring Villas Gmail">
-                        </a>
-                        
-						<a href="tel:0846771551/" class="alignnone" style="margin: 0px; padding: 0px; display: inline-block; position: relative; overflow: hidden;">
-                            <img class="lazy" data-src="../../upload/call.png" alt="Inspiring Villas Call">
-                        </a>
-                        
-						<a href="http://line.me/ti/p/@199bkzqs" target="_blank" class="alignnone" style="margin: 0px; padding: 0px; display: inline-block; position: relative; overflow: hidden;">
-                            <img class="lazy" data-src="../../upload/lineico.png" alt="Inspiring Villas Line">
-                        </a>
-                        </h2><!--<br><br>-->
-                        <br>
+<div class="container-fluid">
+	<div class="row justify-content-center">
+    	<div class="col-11 col-md-11 col-lg-9">
+        	<div class="row">
+            	<div class="col-12 col-md-7">
+                	<div class="cont_tt">Contact Us</div>
+                    <div class="cont_sub">For a quick response please provide your name & email - we'll get straight back to you!</div>
+                    <div class="cont_des">For any urgent requests, please call us at +852 8198 6765</div>
+                    <div class="col-12 col-lg-6">
+                    	<div class="row">
+                        	<div class="col-6 cont_info"><img src="../../upload/new_design/footer/img-footer-sub-icon-cwhatapp.png" class="cont_icon" alt=""><a href="tel:+66846771551 ">+66 84 677 1551 </a></div>
+                            <div class="col-6 cont_info"><img src="../../upload/new_design/footer/img-footer-sub-icon-facebook.png" class="cont_icon" alt=""><a href="http://m.me/inspiringvillas/">InspiringVillas</a></div>
+                            <div class="col-6 cont_info"><img src="../../upload/new_design/footer/line.png" class="cont_icon" alt=""><a href="https://page.line.me/199bkzqs">InspiringVillas</a></div>
+                            <div class="col-6 cont_info"><img src="../../upload/new_design/footer/img-footer-sub-icon-ig.png" class="cont_icon" alt=""><a href="https://www.instagram.com/inspiringvillas/">InspiringVillas</a></div>
+                        </div>
                     </div>
                     
-                   
-                    </div>
-					<div class="col-lg-8 viewform"><br>
-                        <div class="col-md-12 nopad">
-                            <h2 class="mg-sec-left-title">Reach out to us!</h2>
-                            <div class="col-md-12 borr" style="    padding-left: 0px;padding-right: 10px;">
-                            <form id="contactus" class="clearfix">
-                                <!--<div class="mg-contact-form-input col-md-6 nopad">
-                                    <label for="full-name">Check In</label>
-                                    <input type="date" class="form-control" id="checkin" name="checkin">
+                    <div class="col-12 col-md-8 top50">
+                         <form id="contactus" class="clearfix ">
+                            <div class="mg-contact-form-input ff1 animate__delay-05s <?php echo $hid;?> animate__fast">
+                                <!--<label for="full-name">Full Name <span class="cred">*</span></label>-->
+                                <input type="text" class="form-control ip2" id="full-name" name="full-name" placeholder="Full name">
+                            </div>
+                            
+                            <div class="mg-contact-form-input ff2 animate__delay-06s <?php echo $hid;?> animate__fast top40">
+                                <!--<label for="email">E-mail <span class="cred">*</span></label>-->
+                                <input type="text" class="form-control ip2 emailsc2" id="email2" name="email" onKeyUp="lower_text(this)" placeholder="Email">
+                            </div>
+                            <div class="mg-contact-form-input ff3 animate__delay-07s <?php echo $hid;?> animate__fast top40">
+                                <div class="col-xs-12 col-sm-12 col-md-12 nopad">
+                                <!--<label for="subject">Phone - for WhatsApp - it’s quicker! <!--<span class="cred">*</span>--+></label>-->
                                 </div>
-                                <div class="mg-contact-form-input col-md-6 nopad">
-                                    <label for="full-name">Check Out</label>
-                                    <input type="date" class="form-control" id="checkout" name="checkout">
-                                </div>-->
-                                <div class="mg-contact-form-input">
-                                    <label for="full-name">Full Name <span class="cred">*</span></label>
-                                    <input type="text" class="form-control ip" id="full-name" name="full-name">
-                                </div>
-                                <div class="mg-contact-form-input">
-                                    <label for="email">E-mail <span class="cred">*</span></label>
-                                    <input type="text" class="form-control ip emailsc" id="email" name="email" onKeyUp="lower_text(this)">
-                                </div>
-                                <div class="mg-contact-form-input">
-                                	<div class="col-xs-12 col-sm-12 col-md-12 nopad">
-                                	<label for="subject">Phone - for WhatsApp - it’s quicker! <!--<span class="cred">*</span>--></label>
-                                    </div>
-                                    <div class="row">
+                                <div class="row">
                                     <div class="col-4 col-sm-3 col-md-3 ">
                                         <?php /*?><label for="subject">Area code <!--<span class="cred">*</span>--></label><?php */?>
-                                        <select name="countryCode" id="countryCode" class="form-control ip" >
+                                        <select name="countryCode" id="countryCode2" class="form-control ip2" >
                                             <option data-countryCode="GB" value="44" Selected>UK (+44)</option>
                                             <option data-countryCode="US" value="1">USA (+1)</option>
                                             <optgroup label="Other countries">
@@ -358,88 +305,107 @@ For any urgent requests, please call us at <a href="tel:+66846771551" style=" co
                                     </div>
                                     <div class="col-8 col-sm-9 col-md-9 tPhone1">
                                         <?php /*?><label for="subject">Phone - for WhatsApp - it’s quicker! <!--<span class="cred">*</span>--></label><?php */?>
-                                        <input type="text" class="form-control ip" id="subject" name="subject">
+                                        <input type="text" class="form-control ip2" id="subject" name="subject" placeholder="Phone" style="margin-bottom:0px;">
                                     </div>
-								</div>
                                 </div>
-                                <div class="mg-contact-form-input">
-                                    <label for="subject">Message  - Where, What are you looking for?<?php /*?><span class="cred">(optional)</span><?php */?></label>
-                                    <textarea class="form-control ip" id="message" name="message" rows="5"></textarea>
-                                </div>
-                                <input type="button" onClick="send_contact()" class="btn btn-dark-main2 pull-right" value="SEND" style="padding: 10px 0px 10px 0px;">
-                            </form>
-                            <span class="textalert"></span>
                             </div>
-                        </div>
+                            <div class="mg-contact-form-input ff4 animate__delay-08s <?php echo $hid;?> animate__fast top40">
+                                <!--<label for="subject">Message  - Where, What are you looking for?--><?php /*?><span class="cred">(optional)</span><?php */?><!--</label>-->
+                                <textarea class="form-control ip2" id="message" name="message" rows="5" placeholder="Message"></textarea>
+                            </div>
+                            <div class="g-recaptcha ff5 animate__delay-09s <?php echo $hid;?> animate__fast" data-sitekey="6LfbCgMoAAAAAJuvaQcWL7Jea8A_502Gsybir8y9"></div>
+                            <input type="button" onClick="send_contact()" class="btn con_but ff6 animate__delay-1s <?php echo $hid;?> animate__fast  top20" value="SEND" style="padding: 10px 0px 10px 0px;">
+                        </form>
+                        <span class="textalert"></span>
                     </div>
-					<div class="col-lg-4 nopad"><br><br><br>
-                    	<div class="col-md-12 bggray" style="margin-bottom:20px;">
-                            <h2>Telephone Contacts </h2>
-                            <div style="padding-left: 15px;font-size: 14px;">
-                                <?php /*?><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp; Unit 1104, 11/F, Crawford House, 70 Queen's<br>
-                                 &nbsp;&nbsp;&nbsp;Road Central, Central, Hong Kong<br><?php */?>
-                                 <?php /*?><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp; 88/44 Moo4, Koh Khew Sub-District,<br> &nbsp;&nbsp;&nbsp;Maung Phuket District, Phuket 83000<br><?php */?>
-                                <i class="fa fa-mobile" aria-hidden="true"></i>&nbsp; <a href="tel:+66846771551" style=" color:#4b565b;">+66 84 677 1551 (Thailand)</a><br>
-                                <?php /*?><i class="fa fa-mobile" aria-hidden="true"></i>&nbsp; <a href="tel:+66836556452" style=" color:#4b565b;">+66 83 655 6452 (Samui)</a><br><?php */?>
-                                <i class="fa fa-mobile" aria-hidden="true"></i>&nbsp; <a href="tel:+85281986765" style=" color:#4b565b;">+852 8198 6765 (Hongkong)</a><br>
-                                <i class="fa fa-mobile" aria-hidden="true"></i>&nbsp; <a href="tel:+61861027522" style=" color:#4b565b;">+61 8 6102 7522 (Australia)</a><br>
-                                <i class="fa fa-mobile" aria-hidden="true"></i>&nbsp; <a href="tel:+13477964362" style=" color:#4b565b;">+1 347 796 4362 (USA)</a><br>
-                                <i class="fa fa-mobile" aria-hidden="true"></i>&nbsp; <a href="tel:+442032875367" style=" color:#4b565b;">+44 20 3287 5367 (UK)</a><br>
-                                <i class="fa fa-mobile" aria-hidden="true"></i>&nbsp; <a href="tel:+6531581223" style=" color:#4b565b;">+65 3158 1223 (Singapore)</a><br>
-                                <br>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-12 bggray" style="margin-bottom:20px;">
-                            <h2>Email Contacts</h2>
-                            <div  style="padding-left: 15px;font-size: 14px;">
-                            	<a class="links" href="mailto:info@inspiringvillas.com" style=" color:#4b565b;"><i class="fa fa-envelope" aria-hidden="true" style="color:#4b565b"></i>&nbsp; info@inspiringvillas.com </a><br>
-                                <a class="links"  href="mailto:rsvn@inspiringvillas.com" style=" color:#4b565b;">&nbsp;&nbsp;&nbsp; rsvn@inspiringvillas.com </a><br>
-                                <a class="links"  href="mailto:billing@inspiringvillas.com" style=" color:#4b565b;">&nbsp;&nbsp;&nbsp; billing@inspiringvillas.com</a>
-                                <br><br>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-12 bggray" style="margin-bottom:20px;">
-                            <h2>Hong Kong Corporate Address</h2>
-                            <div  style="padding-left: 15px;font-size: 14px;">
-                            	<?php /*?><a href="https://goo.gl/maps/jpjruBmcvay" target="_blank"  title="Google map"><?php */?><i class="fa fa-map-marker" aria-hidden="true"></i><?php /*?></a><?php */?>&nbsp; Unit 1104, 11/F, Crawford House, 70 Queen's<br>
-                                 &nbsp;&nbsp;&nbsp;Road Central, Central, Hong Kong<br>
-                                <br><br>
-                            </div>
-                        </div>
-
-                        <div class="col-md-12 bggray" style="margin-bottom:20px;">
-                            <h2>Thailand Concierge Head Office</h2>
-                            <div style="padding-left: 15px;font-size: 14px;">
-                            	-&nbsp;Feel free to visit if you are in Phuket<br>
-                                <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp; 37/10 Sri Sonnthorn Road, <br>
-                                &nbsp;&nbsp;&nbsp;Cherng Thale Sub District, Thalang, Phuket 83110<br>
-                                <br>
-                            </div>
-                        </div>
-					</div>
+                    
+                    <div class="col-12 col-md-5 mob top50">
+                	<div class="cont_right_box">
+                    	<div class="crb_tt">Telephone Contacts</div>
+                        <div class="crb_det">
+                            <i class="fa fa-phone" aria-hidden="true"></i>&nbsp; <a href="tel:+66846771551" style=" color:#4b565b;">+66 84 677 1551 (Thailand)</a><br>
+                            <i class="fa fa-phone" aria-hidden="true"></i>&nbsp; <a href="tel:+85281986765" style=" color:#4b565b;">+852 8198 6765 (Hongkong)</a><br>
+                            <i class="fa fa-phone" aria-hidden="true"></i>&nbsp; <a href="tel:+61861027522" style=" color:#4b565b;">+61 8 6102 7522 (Australia)</a><br>
+                            <i class="fa fa-phone" aria-hidden="true"></i>&nbsp; <a href="tel:+13477964362" style=" color:#4b565b;">+1 347 796 4362 (USA)</a><br>
+                            <i class="fa fa-phone" aria-hidden="true"></i>&nbsp; <a href="tel:+442032875367" style=" color:#4b565b;">+44 20 3287 5367 (UK)</a><br>
+                            <i class="fa fa-phone" aria-hidden="true"></i>&nbsp; <a href="tel:+6531581223" style=" color:#4b565b;">+65 3158 1223 (Singapore)</a><br>
+                        </div>	
+                    </div>
+                    <div class="cont_right_box rela">
+                    	<div class="crb_tt">Hong Kong Corporate Address <i class="fa fa-map-marker pinn" aria-hidden="true"></i></div>
+                        <div class="crb_det">
+                            Unit 1104, 11/F, Crawford House, 70 Queen's Road Central, Central, Hong Kong<br>
+                        </div>	
+                    </div>
+                    <div class="cont_right_box">
+                    	<div class="crb_tt">Email Contacts</div>
+                        <div class="crb_det">
+                            <a class="links" href="mailto:info@inspiringvillas.com" style=" color:#4b565b;"><i class="fa fa-envelope-o" aria-hidden="true" style="color:#4b565b"></i>&nbsp; info@inspiringvillas.com </a><br>
+                            <a class="links"  href="mailto:rsvn@inspiringvillas.com" style=" color:#4b565b;"><i class="fa fa-envelope-o" aria-hidden="true" style="color:#4b565b"></i>&nbsp; rsvn@inspiringvillas.com </a><br>
+                            <a class="links"  href="mailto:billing@inspiringvillas.com" style=" color:#4b565b;"><i class="fa fa-envelope-o" aria-hidden="true" style="color:#4b565b"></i>&nbsp; billing@inspiringvillas.com</a>
+                        </div>	
+                    </div>
+                    
+                    <div class="cont_right_box rela">
+                    	<div class="crb_tt">Thailand Concierge Head Office <i class="fa fa-map-marker pinn" aria-hidden="true"></i></div>
+                        <div class="crb_det">
+                            Feel free to visit if you are in Phuket 37/10 Sri Sonnthorn Road, Cherng Thale Sub District, Thalang, Phuket 83110
+                        </div>	
+                    </div>
+                </div>
                 
-				</div>
-			</div>
-		</div>
-        
-        <div class="container-fluid footer_bar" ></div>
-        
-        <div class="container" style="margin-bottom:-40px;">
-        	Inspiring Villas is the premium provider of Thailand luxury villas for vacations and holidays.<br>
-            We specialise in the very best luxury villas in Phuket & Koh Samui villas, in Thailand.<br>
-            Our concierge staff have many years of experience and know all the villas and their attractions.<br>
-            We match the perfect villas to your group requirements.<br>
-            Our sister brand provides all types of concierge services in Thailand.<br>
-            Executive assistants, corporates and family offices use these concierge services.<br>
-            Specialising in transportation, private excursions and vacation villa search & select services.<br>
-            <?php /*?>Inspiring Villas is affiliated with <a href="http://luxesorted.com">LUXESORTED</a>, the luxury concierge service in Thailand.<?php */?>
-            <?php /*?><br><br><?php */?>
+                    <div class="col-12 col-md-10 top80 bottom100">
+                    	Inspiring Villas is the premium provider of Thailand luxury villas for vacations and holidays.<br>
+                        We specialise in the very best luxury villas in Phuket & Koh Samui villas, in Thailand.<br>
+                        Our concierge staff have many years of experience and know all the villas and their attractions.<br>
+                        We match the perfect villas to your group requirements.<br>
+                        Our sister brand provides all types of concierge services in Thailand.<br>
+                        Executive assistants, corporates and family offices use these concierge services.<br>
+                        Specialising in transportation, private excursions and vacation villa search & select services.<br>
+                    </div>
+                </div>
+                <div class="col-12 col-md-5 web">
+                	<div class="cont_right_box">
+                    	<div class="crb_tt">Telephone Contacts</div>
+                        <div class="crb_det">
+                            <i class="fa fa-phone" aria-hidden="true"></i>&nbsp; <a href="tel:+66846771551" style=" color:#4b565b;">+66 84 677 1551 (Thailand)</a><br>
+                            <i class="fa fa-phone" aria-hidden="true"></i>&nbsp; <a href="tel:+85281986765" style=" color:#4b565b;">+852 8198 6765 (Hongkong)</a><br>
+                            <i class="fa fa-phone" aria-hidden="true"></i>&nbsp; <a href="tel:+61861027522" style=" color:#4b565b;">+61 8 6102 7522 (Australia)</a><br>
+                            <i class="fa fa-phone" aria-hidden="true"></i>&nbsp; <a href="tel:+13477964362" style=" color:#4b565b;">+1 347 796 4362 (USA)</a><br>
+                            <i class="fa fa-phone" aria-hidden="true"></i>&nbsp; <a href="tel:+442032875367" style=" color:#4b565b;">+44 20 3287 5367 (UK)</a><br>
+                            <i class="fa fa-phone" aria-hidden="true"></i>&nbsp; <a href="tel:+6531581223" style=" color:#4b565b;">+65 3158 1223 (Singapore)</a><br>
+                        </div>	
+                    </div>
+                    <div class="cont_right_box">
+                    	<div class="crb_tt">Email Contacts</div>
+                        <div class="crb_det">
+                            <a class="links" href="mailto:info@inspiringvillas.com" style=" color:#4b565b;"><i class="fa fa-envelope-o" aria-hidden="true" style="color:#4b565b"></i>&nbsp; info@inspiringvillas.com </a><br>
+                            <a class="links"  href="mailto:rsvn@inspiringvillas.com" style=" color:#4b565b;"><i class="fa fa-envelope-o" aria-hidden="true" style="color:#4b565b"></i>&nbsp; rsvn@inspiringvillas.com </a><br>
+                            <a class="links"  href="mailto:billing@inspiringvillas.com" style=" color:#4b565b;"><i class="fa fa-envelope-o" aria-hidden="true" style="color:#4b565b"></i>&nbsp; billing@inspiringvillas.com</a>
+                        </div>	
+                    </div>
+                    <div class="cont_right_box rela">
+                    	<div class="crb_tt">Hong Kong Corporate Address <i class="fa fa-map-marker pinn" aria-hidden="true"></i></div>
+                        <div class="crb_det">
+                            Unit 1104, 11/F, Crawford House, 70 Queen's Road Central, Central, Hong Kong<br>
+                        </div>	
+                    </div>
+                    <div class="cont_right_box rela">
+                    	<div class="crb_tt">Thailand Concierge Head Office <i class="fa fa-map-marker pinn" aria-hidden="true"></i></div>
+                        <div class="crb_det">
+                            Feel free to visit if you are in Phuket 37/10 Sri Sonnthorn Road, Cherng Thale Sub District, Thalang, Phuket 83110
+                        </div>	
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        
-        
+    </div>
+</div>
+<div class="container-fluid rela web992">
+	<img src="../../upload/new_design/img-contact-us-logo.png" class="logo_cont_bottom" alt="">
+</div>
+
+
 <script>
 function lower_text(str)
 {
@@ -467,10 +433,10 @@ function send_contact()
 		$("#full-name").focus();
 		return false;
 	}
-	else if($("#email").val()=='')
+	else if($("#email2").val()=='')
 	{
 		$(".textalert").text("* Please fill your data");//alert("Please fill your data");
-		$("#email").focus();
+		$("#email2").focus();
 		return false;
 	}
 	/*else if($("#subject").val()=='')
@@ -487,15 +453,15 @@ function send_contact()
 	}*/
 	else
 	{
-		/*var Email=/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/
-		if(!document.getElementById("email").value.match(Email))
+		var Email=/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/
+		if(!document.getElementById("email2").value.match(Email))
 		{
 		   $(".textalert").text("Email format is not valid");//alert('Email format is not valid');
-		   document.getElementById("email").focus();
+		   document.getElementById("email2").focus();
 		   return false;
 		}
 		else
-		{*/
+		{
 			$.ajax({
 				url:"libs/actions/action-send-contact.php",
 				type:"POST",
@@ -517,39 +483,17 @@ function send_contact()
 					}
 				}
 			});
-		/*}*/
+		}
 		
 	}
 }
 </script>
-<script>
-$(document).ready(function(e) {
-    $(".lazy").lazyload();
-});
-</script>
 
-<style>
-.mg-page-title{padding-top:0px;padding-bottom:50px;padding-left:0px;background-image:url(<?php echo $photo_cover;?>);background-repeat:no-repeat;background-position-x:50% !important}.mg-sec-left-title:after,.mg-widget-title:after{content:'';display:block;width:45px;height:2px;background-color:#d3a267;position:absolute;bottom:0;left:0;margin-top:-15px !important;top:43px}.:after,.mg-widget-titless:after{content:'';display:block;width:45px;height:0px;background-color:#d3a267;position:absolute;bottom:0;left:0;margin-top:-15px !important;top:43px}.links{color:#000}.bggray{padding-left:15px !important}@media screen and (max-width:992px){.bggray{background:#eee}}@media screen and (min-width:992px){.bggray{background:#eee;/*padding:0px*/}}.mg-contact-form-input{margin-bottom:-6px;display:block}.emailsc{border-radius:0px;width:100% !important;float:left}input[type=date].form-control,input[type=time].form-control,input[type=datetime-local].form-control,input[type=month].form-control{line-height:normal}
-@media screen and (max-width:540px)
-{
-	h2.ico > a
-	{
-		margin-right:0px !important;
-		background-color:#f4bbbb00;
-	}
-}
-@media screen and (min-width:540px)
-{
-	h2.ico > a
-	{
-		margin-left:10px !important;
-		margin-right:10px !important;
-		background-color:#f4bbbb00;
-	}
-}
-.bggray {
-    background: #eee;
-    padding: 25px 10px 15px 0px;
-    margin-top: 15px;
-}
-</style>
+
+
+
+
+
+
+
+

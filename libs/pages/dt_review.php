@@ -59,8 +59,18 @@ else
 	padding-bottom: 20px;
 }
 </style>
+<div class="row top20 pos_my_reviews_2">
+    <div class="col-12">
+        <div class="box_headline_2">
+            <h3 class="text_cap-"><?php echo $vi_name[0];?> <?php //echo $nu_rate;?> Reviews</h3>
+        </div>
+    </div>
+    <div class="row">
+    </div>
+</div>
+
 <div id="pos_my_reviews" class="col-md-12 mg-room-fecilities pos_my_reviews Reviews my_review">
-    <h6 class="mg-sec-left-title l15" style="margin-top:15px;"><?php echo $vi_name[0];?> <?php //echo $nu_rate;?> Reviews</h6>
+   <!-- <h6 class="mg-sec-left-title l15" style="margin-top:15px;"><?php echo $vi_name[0];?> <?php //echo $nu_rate;?> Reviews</h6>-->
     <div class="row bggray">
     	<div class="cover_all_rv_box">
 		<?php
@@ -103,7 +113,7 @@ else
 								   echo '<div class="tr_star">';
 											for($a=0;$a<$rate['rate'];$a++)
 											{
-												echo '<i class="fa fa-star ffix" aria-hidden="true" style="color: #f05b46;"></i>';
+												echo '<i class="fa fa-star ffix" aria-hidden="true" style="color: #e79424;"></i>';
 											}
 								   echo '</div>';
 								   
@@ -135,7 +145,7 @@ else
 							   echo '<div class="tr_star">';
 										for($a=0;$a<$rate['rate'];$a++)
 										{
-											echo '<i class="fa fa-star ffix" aria-hidden="true" style="color: #f05b46;"></i>';
+											echo '<i class="fa fa-star ffix" aria-hidden="true" style="color: #e79424;"></i>';
 										}
 							   echo '</div>';
 						   echo '</div>';

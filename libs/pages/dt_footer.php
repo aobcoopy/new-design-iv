@@ -157,21 +157,10 @@ $zz++;
 			   $zz++;
 			}
 		}
-	   
-	   /*array_push($array_link,$v_link);
-	   $zz++;*/
 	}
 	/******************************************************used*****************************************************************************************/
 }
 
-/******************************************************used*****************************************************************************************/
-//////////foreach($arr_beach as $beach_namw)
-//////////{
-//////////   $v_link = '<li><a class="tb"  href="/search-rent/'.destination($des).'/'.beach($beach['id']).'/all-price/all-bedrooms/'.collection($beach_namw['id']).'/all-sort.html">'.$beach_namw['name'].' Villas'.' '.$beach_fulname.' </a></li>';
-//////////   array_push($array_link,$v_link);
-//////////   $zz++;
-//////////}
-/******************************************************used*****************************************************************************************/
 
 foreach($arr_room as $arroom)
 {
@@ -191,17 +180,6 @@ foreach($arr_room as $arroom)
        break;*/
    }
 
-  /* foreach($colle as $colla)
-   {
-       $v_link = '<li class=" diy"><a class="tb '.$under.'"  href="/search-rent/'.destination($des).'/'.beach($beach['id']).'/under-usd-1000/'.bed($arroom['id']).'/'.collection($colla['id']).'/all-sort.html">'.$colla['name'].' '.$broom.' Villas'.' < 1000 '.$beach_fulname.' </a></li>';
-       array_push($array_link,$v_link);
-       $zz++;
-       
-       $v_link = '<li class=" diy"><a class="tb '.$over.'"  href="/search-rent/'.destination($des).'/'.beach($beach['id']).'/over-usd-1000/'.bed($arroom['id']).'/'.collection($colla['id']).'/all-sort.html">'.$colla['name'].' '.$broom.' Villas'.' > 1000 '.$beach_fulname.' </a></li>';
-       array_push($array_link,$v_link);
-       $zz++;
-   }*/
-   
 }
 
 
@@ -222,21 +200,7 @@ foreach($arr_room as $arroom)
             $broom = "> 10";
        break;*/
    }
-/******************************************************used*****************************************************************************************/
- //  $v_link = '<li><a class="tb"  href="/search-rent/'.destination($des).'/'.beach($beach['id']).'/all-price/'.bed($arroom['id']).'/all-collections/all-sort.html">'.$broom.' Villas'.' '.$beach_fulname.' </a></li>';
-//   array_push($array_link,$v_link);
-//   $zz++;
-/******************************************************used*****************************************************************************************/
 }
-
-
-/*$v_link = '<li class=""><a class="tb '.$under.'" href="/search-rent/'.destination($des).'/'.beach($beach['id']).'/under-usd-1000/all-bedrooms/all-collections/all-sort.html" >< 1000 '.$beach_fulname.' Villas</a></li>';
-array_push($array_link,$v_link);
-$zz++;
-
-$v_link = '<li class=""><a class="tb '.$over.'" href="/search-rent/'.destination($des).'/'.beach($beach['id']).'/over-usd-1000/all-bedrooms/all-collections/all-sort.html" >> 1000 '.$beach_fulname.' Villas</a></li>';
-array_push($array_link,$v_link);
-$zz++;*/
 
                   
 foreach($arr_room as $arroom)
@@ -257,12 +221,6 @@ foreach($arr_room as $arroom)
        break;*/
     }
     
-    /*foreach($colle as $colla)
-    {
-       $v_link = '<li class="diy"><a class="tb"  href="/search-rent/'.destination($des).'/'.beach($beach['id']).'/all-price/'.bed($arroom['id']).'/'.collection($colla['id']).'/all-sort.html">'.$broom.' '.$colla['name'].' Villas'.' '.$beach_fulname.' </a></li>';
-       array_push($array_link,$v_link);
-       $zz++;
-    }*/
 }
 
 //echo '-----------';
@@ -376,7 +334,10 @@ function check_links_footer_inside($c_des,$c_beach,$c_room,$c_collection)
 
 function destination($option)
 {
-    switch($option)
+	global $dbc;
+	$data = $dbc->GetRecord("destinations","*","id = '".$option."'");
+	return $data['slug'];
+    /*switch($option)
     {
         case "38" :
             return "thailand-phuket";//"phuket";
@@ -386,11 +347,15 @@ function destination($option)
         break;
         default:
             return "thailand";
-    }
+    }*/
 }
     
 function beach($option)
 {
+	global $dbc;
+	$data = $dbc->GetRecord("destinations","*","id = '".$option."'");
+	return $data['slug'];
+	/*
     switch($option)
     {
         case "54" :
@@ -500,12 +465,16 @@ function beach($option)
         break;
         default:
             return "all-beach";
-    }
+    }*/
 }
 
 function collection($option)
 {
-    switch($option)
+	global $dbc;
+	$data = $dbc->GetRecord("categories","*","id = '".$option."'");
+	return $data['slug'];
+	
+    /*switch($option)
     {
         
         case "2" :
@@ -528,7 +497,7 @@ function collection($option)
         break;
         default:
             return "all-collections";
-    }
+    }*/
 }
 
 function bed($option)

@@ -1,3 +1,4 @@
+<div class="row">
 <?php 
 	$bed = json_decode($room['plan'],true);
 	if($bed!='')
@@ -9,7 +10,22 @@
 			 if($flp_photo[0]!='')
 			 {
 				 ?><?php //echo '>>'.$flp_photo[0];//imagePath();?>
-                 <div class="col-md-12 top20 mg-room-fecilities bedrooms" style="margin-top: 12px;">
+                 
+                    <div class="col-12">
+                        <div class="box_headline flplan">
+                            <h3 class="">Floor Plan</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                    	<div class="padding-">
+                        <img data-src="<?php echo $flp_photo[0];//imagePath();?>" alt="<?php echo $vi_name[0];?>Floor Plan" width="100%" data-bs-toggle="modal" data-bs-target="#myModal_floor" onClick="vire_floor()" class="pointer lazy">
+                        </div>
+                    </div>
+                    
+                    
+            
+            <!--<div class="col-md-12 top20 mg-room-fecilities bedrooms" style="margin-top: 12px;">
             
                     <h5 class="mg-sec-left-title l15">Floor Plan</h5>
                     <div class="row ">
@@ -17,7 +33,7 @@
                             <img data-src="<?php echo $flp_photo[0];//imagePath();?>" alt="<?php echo $vi_name[0];?>Floor Plan" width="100%" data-bs-toggle="modal" data-bs-target="#myModal_floor" onClick="vire_floor()" class="pointer lazy">
                         </div>
                     </div>
-                </div>
+                </div>-->
 			 <?php
 			 }
 			 else
@@ -29,7 +45,20 @@
 		 else
 		 {
 			 ?>
-             <div class="col-md-12 top20 mg-room-fecilities bedrooms" style="margin-top: 12px;">
+             <div class="col-12">
+                <div class="box_headline">
+                    <h3 class="">Floor Plan</h3>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="padding-">
+                <img data-src="<?php echo $flp_photo[0];//imagePath();?>" alt="<?php echo $vi_name[0];?>Floor Plan" width="100%" data-bs-toggle="modal" data-bs-target="#myModal_floor" onClick="vire_floor()" class="pointer lazy">
+                </div>
+            </div>
+                    
+                    
+             <!--<div class="col-md-12 top20 mg-room-fecilities bedrooms" style="margin-top: 12px;">
     	
                 <h5 class="mg-sec-left-title l15">Floor Plan</h5>
                 <div class="row ">
@@ -37,7 +66,7 @@
                          <img data-src="<?php echo imagePath($flp_photo);?>" alt="<?php echo $vi_name[0];?>Floor Plan" width="100%" data-bs-toggle="modal" data-bs-target="#myModal_floor" onClick="vire_floor()" class="pointer lazy">
                     </div>
                 </div>
-            </div>
+            </div>-->
 			 <?php
 		 }
 	?>
@@ -46,6 +75,9 @@
 	<?php
 	}
 ?>
+</div>
+
+
 <script>
 function vire_floor(img)
 {

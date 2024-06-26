@@ -3,16 +3,27 @@
 $(document).ready(function(e) {
     var sidebar = document.getElementById('enbox');
 	Stickyfill.add(sidebar);
+	//setTimeout(function(){
+	//	var eb = $(".enboxx").height();
+//		$(".cenb").css({"height":eb+"px"});
+//		//alert(eb+'---'+$(".cenb").height());
+//	},5000);
+	
+	
 	setTimeout(function(){
 		var eb = $(".enboxx").height();
-		$(".cenb").css({"height":eb+"px"});
+		var v_rec = 0;//$(".v_rec").height();
+		var pos_my_reviews  = $(".pos_my_reviews ").height();
+		var tt = (parseInt(eb)+parseInt(pos_my_reviews )-100)-parseInt(v_rec);
+		$(".cenb").css({"height":tt+"px"});
 		//alert(eb+'---'+$(".cenb").height());
-	},2000);
-	setTimeout(function(){
+	},1000);
+	
+	/*setTimeout(function(){
 		$(".top_mores").slideUp(500);
 		$(".top_en_box ").animate({height:"40px"});
 		$(".show_buton_more").fadeIn(500);
-	},5000);
+	},5000);*/
 	
 	var id=0;
 	$(".show_buton_more").click(function(e) {
@@ -31,17 +42,15 @@ $(document).ready(function(e) {
 			id=0;
 		}
     });
-	
-	
 });
 
 </script>
 <style>
-.enbox_xy {
+/*.enbox_xy {
   position: -webkit-sticky;
   position: sticky;
   top: 150px;
-}
+}*/
 
 .btn-dark-main:hover {
     background-color: #efb76d;
@@ -104,10 +113,10 @@ select#countryCode_en_d {
     background: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDI1NSAyNTUiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDI1NSAyNTU7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGc+Cgk8ZyBpZD0iYXJyb3ctZHJvcC1kb3duIj4KCQk8cG9seWdvbiBwb2ludHM9IjAsNjMuNzUgMTI3LjUsMTkxLjI1IDI1NSw2My43NSAgICIgZmlsbD0iIzAwMDAwMCIvPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=) 96% / 10px no-repeat #fff;
     border: 2px solid #eeeeee;
 }
-.top_en_box
+/*.top_en_box
 {
 	color:#000 !important;
-}
+}*/
 
 .s_price
 {
@@ -136,6 +145,7 @@ select#countryCode_en_d {
 	font-size:20px;
 	cursor:pointer;
 	display:none;
+	color:#fff;
 }
 .show__more
 {
@@ -190,50 +200,67 @@ foreach($data as $d_price)
 $ss = json_decode($room['photo'],true);?>
 <br><br><br>
 <div class=" mg-room-fecilities padl50 ">
-    <div class="mg-single-room-txt  cenb  web992" id="style-3" style="margin-top:-30px; ">
+    <div class="mg-single-room-txt  cenb  web992" id="style-3" style="margin-top:-120px; ">
         <div id="enbox"  class="enbox_xy">
         	
-            <div class="top_en_box">
+            <div class="top_en_box" style="background:#183251 !important;">
             	<div class="col-md-12 nopad" style="position:relative;"><div class="t_top_enbox">Contact our villa expert</div><button type="button" class="show_buton_more"><i class="fa fa-angle-down" aria-hidden="true"></i></button></div>
                 <div class="row nopad top_mores">
-                	<div class="col-md-6 nopad-"><button class="bt_top_enbox"><a href="/contact#viewform" style="color:#000;"><i class="fa fa-envelope"></i>&nbsp;&nbsp; Email Us</a></button></div>
-                    <div class="col-md-6 nopad-"><button class="bt_top_enbox" onClick="open_phone();"><i class="fa fa-phone"></i>&nbsp;&nbsp; Call Us</button></div>
+                	<div class="col-md-6 nopad- rela">
+                        <button class="bt_top_enbox_2">
+                            <a href="/contact#viewform" style="color:#000;">
+                                <img data-src="<?php echo $url_link;?>upload/new_design/v_details/mail_blu.png" class="lazy">&nbsp;&nbsp; Email Us
+                            </a>
+                        </button>
+                        <div class="tri_mini-"></div>
+                    </div>
+                    <div class="col-md-6 nopad- rela">
+                        <button class="bt_top_enbox_2" onClick="open_phone();">
+                            <img data-src="<?php echo $url_link;?>upload/new_design/v_details/phone_blu.png" class="lazy">&nbsp;&nbsp; Call Us
+                        </button>
+                        <div class="tri_mini-"></div>
+                    </div>
                 </div>
             </div>
         	
             <div id="enbox2"  class="col12 enbox box row-  ">
-                <h2 class="mg-sec-left-titles enti"><center><strong>Enquire Now</strong></center></h2>
+                <h2 class="mg-sec-left-titles enti_2_new"><center><strong>Enquire Now</strong></center></h2>
                 <form id="form_contact_website" class="clearfix">
                     <input type="hidden" name="txtID" value="<?php echo $room['id'];?>">
                     <div class="row paddingLR rela">
                         <div class="mg-contact-form-input col-md-6 nopad rela" style="padding-right:2px;">
                             <label for="full-name"><!--Check In--></label>
-                            <input type="text" class="form-control ip" id="checkin" name="checkin" placeholder="Check In*">
+                            <input type="text" class="form-control ip bottom_only" id="checkin" name="checkin" placeholder="Check In*" min="<?php echo date("Y-m-d");?>">
                             <button type="button" class="butides calenin" ><i class="fa fa-calendar" aria-hidden="true"></i></button>
+                            <div class="tri_mini-"></div>
                         </div>
                         <div class="mg-contact-form-input col-md-6 nopad rela" style="padding-left:2px;"><!-- -->
                             <label for="full-name"><!--Check Out--></label>
-                            <input type="text" class="form-control ip required" id="checkout" name="checkout" placeholder="Check Out*" onBlur="check_price();">
+                            <input type="text" class="form-control ip required bottom_only" id="checkout" name="checkout" placeholder="Check Out*" onBlur="check_price(),check_date('checkin','checkout');" min="<?php echo date("Y-m-d");?>">
                             <button  type="button" class="butides r calenout"><i class="fa fa-calendar" aria-hidden="true"></i></button>
+                            <span class="notis"></span>
+                            <div class="tri_mini-"></div>
                         </div>
                     </div>
                     
                     <div class="row paddingLR rela">
-                        <div class="mg-contact-form-input col6 nopad" style="padding-right:2px;"> 
+                        <div class="mg-contact-form-input col6 nopad rela" style="padding-right:2px;"> 
                             <!--<label for="full-name">Full Name</label>-->
-                            <input type="text" class="form-control ip" name="cbbGuest" id="cbbGuest" placeholder="No. Adults">
+                            <input type="text" class="form-control ip bottom_only" name="cbbGuest" id="cbbGuest" placeholder="No. Adults">
+                            <div class="tri_mini-"></div>
                         </div>
-                        <div class="mg-contact-form-input col6 nopad" style="padding-left:2px;"><!--col-md-6 nopad-->
+                        <div class="mg-contact-form-input col6 nopad rela" style="padding-left:2px;"><!--col-md-6 nopad-->
                             <!--<label for="full-name">Full Name</label>-->
-                            <input type="text" class="form-control ip f14-" name="cbbChildren" id="cbbChildren" placeholder="No. Children (3-12 yrs)">
+                            <input type="text" class="form-control ip bottom_only f14-" name="cbbChildren" id="cbbChildren" placeholder="No. Children (3-12 yrs)">
+                            <div class="tri_mini-"></div>
                         </div>
                     </div>
                     
                     <div class="row paddingLR rela">
                         <div class="mg-contact-form-input col-md-12 nopad">
-                            <div class="ipsc2">	
+                            <div class="ipsc2 rela">	
                             <!--<label for="full-name">Full Name</label>-->
-                            <select class="form-control ips f15t" id="no_bed" name="no_bed"  placeholder="No. Bedroom*" onChange="check_price();">
+                            <select class="form-control ips f15t bottom_only" id="no_bed" name="no_bed"  placeholder="No. Bedroom*" onChange="check_price();">
                                 <option class="cbb_0" value="0">No. Bedroom*</option>
                                 <?php 
                                 foreach($ar_bedroom as $nobed)
@@ -242,22 +269,25 @@ $ss = json_decode($room['photo'],true);?>
                                 }
                                 ?>
                             </select>
+                            <div class="tri_mini-"></div>
                             </div>
                         </div>
                     </div>
                     
                     <div class="row paddingLR rela">
                         <div class="mg-contact-form-input col-md-12 nopad">
-                            <div class="ipsc2">	
-                            <input type="text" class="form-control ip" id="full_name" name="full_name" placeholder="Full Name*">
+                            <div class="ipsc2 rela">	
+                            <input type="text" class="form-control ip bottom_only" id="full_name" name="full_name" placeholder="Full Name*">
+                            <div class="tri_mini-"></div>
                             </div>
                         </div>
                     </div>
                     
                     <div class="row paddingLR rela">
                         <div class="mg-contact-form-input col-md-12 nopad">
-                            <div class="ipsc2">	
-                            <input type="text" class="form-control ip" id="txemail" name="txemail" onBlur="lower_text(this)"  placeholder="E-mail*">
+                            <div class="ipsc2 rela">	
+                            <input type="text" class="form-control ip bottom_only" id="txemail" name="txemail" onBlur="lower_text(this)"  placeholder="E-mail*">
+                            <div class="tri_mini-"></div>
                             </div>
                         </div>
                     </div>
@@ -268,8 +298,8 @@ $ss = json_decode($room['photo'],true);?>
                     
                    <div class="mg-contact-form-input">
                         <div class="row paddingLR rela">
-                            <div class="col-md-4 nopad">
-                                <select name="countryCode_en_d" id="countryCode_en_d" class="form-control ips" >
+                            <div class="col-md-4 nopad rela">
+                                <select name="countryCode_en_d " id="countryCode_en_d" class="form-control ips bottom_only" >
                                     <option data-countryCode="GB" value="44" Selected>UK (+44)</option>
                                     <option data-countryCode="US" value="1">USA (+1)</option>
                                     <optgroup label="Other countries">
@@ -489,41 +519,47 @@ $ss = json_decode($room['photo'],true);?>
                                         <option data-countryCode="ZW" value="263">Zimbabwe (+263)</option>
                                     </optgroup>
                                 </select>
+                                <div class="tri_mini-"></div>
                             </div>
-                            <div class="col-md-8 nopad txx_phone">
+                            <div class="col-md-8 nopad txx_phone rela">
                                 <!--<label for="subject">Phone</label>-->
-                                <input type="text" class="form-control ip f14" id="txsubject" name="txsubject" placeholder="Phone-WhatsApp-it’s quicker!">
+                                <input type="text" class="form-control ip f14 bottom_only" id="txsubject" name="txsubject" placeholder="Phone-WhatsApp-it’s quicker!">
+                                <div class="tri_mini-"></div>
                             </div>
                         </div>
                     </div>
                     
                     <div class="row paddingLR rela" style="margin-top:-1px;">
                         <div class="mg-contact-form-input col-md-12 nopad">
-                            <div class="ipsc2">	
-                            <textarea class="form-control ip" id="txmessage" name="txmessage" rows="2.5" placeholder="Message "></textarea>
+                            <div class="ipsc2 rela">	
+                            <textarea class="form-control ip bottom_only" id="txmessage" name="txmessage" rows="2.5" placeholder="Message "></textarea>
+                            <div class="tri_mini-"></div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="g-recaptcha" data-sitekey="6LfbCgMoAAAAAJuvaQcWL7Jea8A_502Gsybir8y9" style="    text-align: center;
-    left: 50%;
-    position: relative;
-    transform: translateX(-41%);
-    width: 370px;"></div>
+                   
                     
                     <div id="ajaxLoader1" style="display: none;"><img src="<?php echo $url_link;?>libs/images/AjaxLoader.gif" style="width: 32px; height: 32px; display: block; margin: 0 auto;"></div>
-                    <button type="button" onClick="prop_contact();" class="btn btn-dark-main baa " style="font-family:pr;" >SEND</button>
+                    <div class="row"><button type="button" onClick="prop_contact();" class="btn btn-dark-main- baa- btn__send" style="font-family:pr;" >SEND</button></div>
+                    
+                     <div class="g-recaptcha" data-sitekey="6LfbCgMoAAAAAJuvaQcWL7Jea8A_502Gsybir8y9" style="    text-align: center;
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);
+    width: 370px;"></div>
+    
                     <div class="show_price"></div>
                 </form>
 
                 <span class="textalert"></span>
                 <div class="footbox"></div>
                 
-                <div class="adsv top10">
+                <div class="adsv- top10">
                     <div class="col-md-12 nopad">
-                        <ul class="check_enq">
-                            <li><img data-src="<?php echo $url_link;?>upload/fa-check.png" class="lazy"> No Booking fees</li>
-                            <li><img data-src="<?php echo $url_link;?>upload/fa-check.png" class="lazy"> Best Price Guaranteed</li>
+                        <ul class="check_enq_2">
+                            <li><img data-src="<?php echo $url_link;?>upload/new_design/v_details/check.png" class="lazy"> No Booking fees</li>
+                            <li><img data-src="<?php echo $url_link;?>upload/new_design/v_details/check.png" class="lazy"> Best Price Guaranteed</li>
                         </ul>
                     </div>
                     <?php /*?><div class="col-md-6 nopad">
@@ -557,7 +593,9 @@ $ss = json_decode($room['photo'],true);?>
                 </ul>
             </div><?php */?>
             
-            <?php //include 'libs/pages/dt_recently.php';?>
+            <?php //include 'libs/pages/dt_recently.php';
+			include 'libs/pages/dt_villa_recommend.php';
+			?>
         
         </div>
         <!--enbox-->
@@ -716,6 +754,54 @@ function string_len_2($text,$amount)
 <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
 <!--<script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>-->
 <script language="JavaScript">
+function check_date(start,end)
+{
+	setTimeout(function(){
+	var start_date = $('#'+start).val();
+	var end_date = $('#'+end).val();
+	
+	var date_s = start_date.split("/");
+	var date_e = end_date.split("/");
+	
+	//alert('Please check your checkout date!');
+	$(".notis").text('Please check your checkout date!');
+	if(date_e[1]<date_s[1])
+	{
+		//alert('noooooooooooo');
+		$('#'+end).val(start_date);
+		$('#'+end).css({'border':'2px solid red'});
+		$(".btn__send").attr('disabled',true);
+		
+		/*if(date_s[1]>=31)
+		{
+			$('#'+end).val(start_date);
+		}
+		else
+		{
+			var new_date = (parseInt(date_s[1])+parseInt(1));
+			if(new_date<10)
+			{
+				var new_date_2 = '0'+new_date;
+			}
+			else
+			{
+				var new_date_2 = new_date;
+			}
+			$('#'+end).val(date_s[0]+'/'+new_date_2+'/'+date_s[2]);
+		}*/
+		
+	}
+	else
+	{
+		//alert('yes');
+		$('#'+end).css({'border':'2px solid #eeeeee'});
+		$(".notis").hide();
+		$(".btn__send").attr('disabled',false);
+	}
+	//alert(end_date);	
+	},1000);
+}
+
 function get_price()
 {
 	setTimeout(function(){

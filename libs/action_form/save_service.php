@@ -13,6 +13,7 @@
 	
 	$ar_data = array(
 		'Tours' => $_REQUEST['tx_tour'],
+		'Yacht' => $_REQUEST['tx_Yacht'],
 		'Restaurant' => $_REQUEST['tx_Restaurant'],
 		'Massage' => $_REQUEST['tx_Massage'],
 		'Occasion' => $_REQUEST['tx_Occasion'],
@@ -26,7 +27,7 @@
 		//'#user' => $_SESSION['auth']['user_id']
 	);
 	
-	if($dbc->Update("villa_form",$data,"id = '".$_REQUEST['txtID']."' "))
+	if($dbc->Update("villa_form",$data,"id = '".$_REQUEST['txtID']."' "))//villa_form_mapping
 	{
 		echo json_encode(array(
 			'status' => true,

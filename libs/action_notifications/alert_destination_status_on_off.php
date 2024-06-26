@@ -151,8 +151,8 @@
         $strTo = $email_to;//"aobcoopy@gmail.com";
 		newSendMail($strTo,$strSubject,$strMessage,$strHeader);
 		
-		$strTo_2 = "aobcoopy@gmail.com";
-		newSendMail($strTo_2,$strSubject,$strMessage,$strHeader);
+		/*$strTo_2 = "aobcoopy@gmail.com";
+		newSendMail($strTo_2,$strSubject,$strMessage,$strHeader);*/
 		//mail($strTo,$strSubject,$strMessage,$strHeader);
 		
 		

@@ -1,179 +1,106 @@
 <?php 
-$cover = $dbc->GetRecord("cover","*","page='about' AND status > 0");
+/*$cover = $dbc->GetRecord("cover","*","page='about' AND status > 0");
 $photo_cover = json_decode($cover['photo'],true);
-$photo_cover = imagePath($photo_cover);
+$photo_cover = imagePath($photo_cover);*/
 ?>
-<style>
-.mg-page-title {
-    padding-top: 0px;
-    padding-bottom: 50px;
-    padding-left: 0px;
-    background-image: url(<?php echo $photo_cover;?>);
-    background-repeat: no-repeat;
-	background-position-x: 50% !important;
-     background-position: 50% !important; 
-    color: #fff;
-/*//    text-align: center;
-//    height: 600px;
-//     background: red; */
-}
-.mg-available-rooms {
-     padding: 0px 0; 
-}
-p {
-     margin-bottom: 10px; 
-}
-@media screen and (max-width:992px)
-{
-	.mg-sec-left-title:after, .mg-widget-title:after {
-		content: '';
-		display: block;
-		width: 100%;
-		height: 0px;
-		background-color: #d3a267;
-		position: absolute;
-		bottom: 0;
-		left: 0 !important;
-		top: 4px;
-	}
-}
-@media screen and (min-width:992px)
-{
-	.mg-sec-left-title:after, .mg-widget-title:after {
-		content: '';
-		display: block;
-		width: 70%;
-		height: 0px;
-		background-color: #d3a267;
-		position: absolute;
-		bottom: 0;
-		left: 0 !important;
-		top: 4px;
-	}
-}
-
-</style>
 <script>
 $(document).ready(function(e) {
     $(".lazy").lazyload();
 });
 </script>
-<div class="mg-page-titles webss top68"><!--parallax-->
+
+
+<div class="container-fluid ">
+	<div class="row justify-content-center">
+    	<div class="col-12 col-md-11  web">
+        	<img src="../../upload/new_design/aboutus/about_head.png" width="100%" alt="">
+        </div>
+    	<div class="col-12 col-md-11 box_about_head mob">
+        	
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid ">
+	<div class="row justify-content-center">
+    	<div class="col-11 col-md-8 ">
+        	<div class="ab_tt">Inspiring Villas in Thailand</div>
+            <div class="ab_sub">Koh Samui & Phuket</div>
+            <div class="ab_detail">
+            	Inspiring Villas are a highly motivated team of skilled professionals who understand how the accommodation plays a big part in the villa holiday experience. Every member of our team has had the opportunity to stay in our luxury villa rentals in Thailand to experience each villa service that our guests will receive. This provides firsthand knowledge and unique insight into which villas match the needs of our guests. Put another way, each member of our staff have been inspired to pass the best experience onto you. Just let us know what you’re looking for, not only for accommodation, but in the overall experience you want your vacation to be. We’re here to help you choose the perfect villa holiday in Thailand and to facilitate the best, most stress-free holiday you could dream of. Begin your path to Inspiration by booking our 5-star villa holidays in Thailand today.
+            </div>
+        </div>
+        
+        <div class="col-11 col-md-8 top80">
+        	<div class="row justify-content-center">
+            	<div class="col-6 col-md-4 text-center">
+                	<img src="../../upload/new_design/aboutus/PICKED.png" class="ab_icon" alt="">
+                    <div class="ab_icon_tt">PICKED BY PROFESSIONAL</div>
+                    <div class="ab_icon_sub">Carefully Hand-Picked & Inspected</div>
+                </div>
+                <div class="col-6 col-md-4 text-center">
+                	<img src="../../upload/new_design/aboutus/FULL.png" class="ab_icon" alt="">
+                    <div class="ab_icon_tt">FULL SERVICED VILLAS</div>
+                    <div class="ab_icon_sub">Dedicated with Chef, Staff, Manager</div>
+                </div>
+                <div class="col-6 col-md-4 text-center">
+                	<img src="../../upload/new_design/aboutus/PRICE.png" class="ab_icon" alt="">
+                    <div class="ab_icon_tt">PRICE GUARANTEED</div>
+                    <div class="ab_icon_sub">Best Valued Price</div>
+                </div>
+                <div class="col-6 col-md-4 text-center">
+                	<img src="../../upload/new_design/aboutus/SERVICED.png" class="ab_icon" alt="">
+                    <div class="ab_icon_tt">SERVICED WITH LOVE</div>
+                    <div class="ab_icon_sub">24/7 Experienced Customer Service</div>
+                </div>
+                <div class="col-6 col-md-4 text-center">
+                	<img src="../../upload/new_design/aboutus/PERSONAL.png" class="ab_icon" alt="">
+                    <div class="ab_icon_tt">PERSONAL CONCIERGE SERVICE</div>
+                    <div class="ab_icon_sub">Tailor Made Personalized Activities</div>
+                </div>
+                <div class="col-6 col-md-4 text-center">
+                	<img src="../../upload/new_design/aboutus/SECURED.png" class="ab_icon" alt="">
+                    <div class="ab_icon_tt">SECURED PAYMENT</div>
+                    <div class="ab_icon_sub">Electronic & Remittance Accepted</div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<?php include "libs/pages/section_contact_us_footer.php";?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php /*?><div class="mg-page-titles webss top68"><!--parallax-->
     <div class="container-fluid nopad">
             <img data-src="<?php echo $photo_cover;?>" class="lazy" alt="inspiringvillas cover" width="100%">
         <div class="row" >
         </div>
     </div>
-</div>
+</div><?php */?>
 <!--<div class="mg-page-title mobi"></div>-->
-<?php include "libs/pages/search.php";?>
-
-<br>
-<div class="mg-best-rooms">
-    <div class="container">
-        <div class="row  justify-content-center">
-        
-        	<div class="col-md-12 nopad conbox ">
-                <center><h1 class=" contitle abw">Inspiring Villas in Thailand - Koh Samui & Phuket</h1>
-                <h2 class="f16" style="    font-family: pt !important;    margin-bottom: 28px;">About Us</h2>
-                </center>
-                
-                <div class="row  justify-content-center">
-                <div class="col-md-10  det text-center" style="padding-bottom:30px;">
-                    <center>
-                    Inspiring Villas are a highly motivated team of skilled professionals who understand how the accommodation plays a big part in the villa holiday experience. Every member of our team has had the opportunity to stay in our luxury villa rentals in Thailand  to experience each villa service that our guests will receive.  This provides firsthand knowledge and unique insight into which villas match the needs of our guests. Put another way, each member of our staff have been inspired to pass the best experience onto you.  Just let us know what you’re looking for, not only for accommodation, but in the overall experience you want your vacation to be.  We’re here to help you choose the perfect villa holiday in Thailand and to facilitate the best, most stress-free holiday you could dream of. Begin your path to Inspiration by booking our 5-star villa holidays in Thailand today.
-
-                </center>
-                </div> 
-                
-                </div>
-            </div>
-            
-            
-        	<center><!--<h2 style="margin-top: -25px;">About Us</h2>-->
-            <div class="col-md-10 col-md-offset-1">
-                <!--<div class="mg-sec-title">
-                    <h2>About Us</h2>
-                </div>-->
-                <div class="row ">
-               <!-- <center>
-                    Inspiring Villas are a highly motivated team of skilled professionals who understand how accommodation plays a big part during
-                    holidays. That is why we are here for you. Every member of our team has had the opportunity to stay in our world class villas to
-                    experience each villa service that our guests will have.<br><br>
-                    This allows them firsthand knowledge and unique insight into which villas are perfect for the varying needs and desires of our
-                    customers. Put another way, each member of our sta have been Inspired to pass the best experience onto you.<br><br>
-                    Just let us know what you're looking for, not only for accommodation, but in the overall experience you want your vacation to be.
-                    We're here to help you pick the perfect villa and facilitate the best, most stress-free holiday you could ever dream of.<br>
-                    Begin your path to Inspiration by booking our 5-star villas today.
-                </center>-->
-                <br><br>
-                
-                    <div class="row  text-center top70">
-                    	<div class="col-xs-12  col-sm-6  col-md-4">
-                        	<img data-src="libs/images/about/1.png" width="80" class="center-block lazy">
-                            <div class="athead"><strong>PICKED BY PROFESSIONAL</strong></div>
-							<div class="sub">Carefully Hand-Picked & Inspected</div>
-                        </div>
-                        <div class="col-xs-12  col-sm-6  col-md-4">
-                        	<img data-src="libs/images/about/5.png" width="80" class="center-block lazy">
-                            <div class="athead"><strong>FULL SERVICED VILLAS</strong></div>
-							<div class="sub">Dedicated with Chef, Staff, Manager</div>
-                        </div>
-                        <div class="col-xs-12  col-sm-6  col-md-4">
-                        	<img data-src="libs/images/about/2.png" width="80" class="center-block lazy">
-                            <div class="athead"><strong>PRICE GUARANTEED</strong></div>
-							<div class="sub">Best Valued Price</div>
-                        </div>
-                        <div class="w-100 d-none d-md-block top30"></div>
-                        <div class="col-xs-12  col-sm-6  col-md-4">
-                        	<img data-src="libs/images/about/3.png" width="80" class="center-block lazy">
-                            <div class="athead"><strong>SERVICED WITH LOVE</strong></div>
-							<div class="sub">24/7 Experienced Customer Service</div>
-                        </div>
-                        <div class="col-xs-12  col-sm-6  col-md-4">
-                        	<img data-src="libs/images/about/6.png" width="80" class="center-block lazy">
-                            <div class="athead"><strong>PERSONAL CONCIERGE SERVICE</strong></div>
-							<div class="sub">Tailor Made Personalized Activities </div>
-                        </div>
-                    	<div class="col-xs-12  col-sm-6  col-md-4">
-                        	<img data-src="libs/images/about/4.png" width="80" class="center-block lazy">
-                            <div class="athead"><strong>SECURED PAYMENT</strong></div>
-							<div class="sub">Electronic & Remittance Accepted </div>
-                        </div>
-                        
-                    </div>
-                    <!--<div class="row nopad top30">
-                    	<div class="col-xs-12  col-sm-6  col-md-4">
-                        	<img data-src="libs/images/about/3.png" width="80" class="center-block lazy">
-                            <div class="athead"><strong>SERVICED WITH LOVE</strong></div>
-							<div class="sub">24/7 Experienced Customer Service</div>
-                        </div>
-                        <div class="col-xs-12  col-sm-6  col-md-4">
-                        	<img data-src="libs/images/about/6.png" width="80" class="center-block lazy">
-                            <div class="athead"><strong>PERSONAL CONCIERGE SERVICE</strong></div>
-							<div class="sub">Tailor Made Personalized Activities </div>
-                        </div>
-                    	<div class="col-xs-12  col-sm-6  col-md-4">
-                        	<img data-src="libs/images/about/4.png" width="80" class="center-block lazy">
-                            <div class="athead"><strong>SECURED PAYMENT</strong></div>
-							<div class="sub">Electronic & Remittance Accepted </div>
-                        </div>
-                        
-                        
-                    </div>-->
-                </div><br><br>
-                
-                
-                <div class="row mobi">
-              
-                </div>
-                
-            </div>
-            
-            
-        </div>
-    </div>
-</div>
+<?php //include "libs/pages/search.php";?>
 
 
 

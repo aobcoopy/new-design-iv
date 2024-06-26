@@ -3,7 +3,7 @@
 	[].slice.call(document.querySelectorAll('select.cs-select')).forEach(function (el) {
 		new SelectFx(el);
 	});
-	$('.parallax').parallax("50%", 0.2);
+	//$('.parallax').parallax("50%", 0.2);
 	$('.beactive').addClass('active');
 	$('.beactive').removeClass('beactive');
 	$('.mg-booking-form > ul > li:nth-child(1)').click(function () {

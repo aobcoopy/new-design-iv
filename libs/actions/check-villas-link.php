@@ -54,6 +54,42 @@
 		$data = $dbc->GetRecord("properties","*","name LIKE '".$tags."%'  and status > 0");
 		//echo 'NOOOOOOOOOOOOOOOOOOOOOOOOO'.'<br>';
 	}
+	elseif($tags=='Villa Serenity  5+1,  Phuket')
+	{
+		//'Villa Serenity | 5+1';
+		$name_0 = explode(" ",$tags);
+		//print_r($name_0);
+		$new_name = $name_0[0].' '.$name_0[1].' | '.str_replace(",","",$name_0[3]);
+		//echo $new_name.'<br>';
+		$data = $dbc->GetRecord("properties","*","name LIKE '".$new_name."%'  and status > 0");
+	}
+	elseif($tags=='Villa Serenity  8+2,  Phuket')
+	{
+		//'Villa Serenity | 5+1';
+		$name_0 = explode(" ",$tags);
+		//print_r($name_0);
+		$new_name = $name_0[0].' '.$name_0[1].' | '.str_replace(",","",$name_0[3]);
+		//echo $new_name.'<br>';
+		$data = $dbc->GetRecord("properties","*","name LIKE '".$new_name."%'  and status > 0");
+	}
+	elseif($tags=='Villa Serenity  4,  Koh Phangan')
+	{
+		//'Villa Serenity | 5+1';
+		$name_0 = explode(" ",$tags);
+		//print_r($name_0);
+		$new_name = $name_0[0].' '.$name_0[1].' | '.str_replace(",","",$name_0[3]);
+		//echo $new_name.'<br>';
+		$data = $dbc->GetRecord("properties","*","name LIKE '".$new_name."%'  and status > 0");
+	}
+	elseif($tags=='Villa Aqua  8,  Phuket')
+	{
+		//'Villa Serenity | 5+1';
+		$name_0 = explode(" ",$tags);
+		//print_r($name_0);
+		$new_name = $name_0[0].' '.$name_0[1].' | '.str_replace(",","",$name_0[3]);
+		//echo $new_name.'<br>';
+		$data = $dbc->GetRecord("properties","*","name LIKE '".$new_name."%'  and status > 0");
+	}
 	else
 	{
 		//$dbc->Query("select SUBSTRING_INDEX(name,'|',1) as name from properties");

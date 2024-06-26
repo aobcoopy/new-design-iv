@@ -22,42 +22,6 @@ else
 $pa = $_REQUEST['page'];
 ?>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!--<nav class="navbar fixed-top navbar-expand-lg bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Navbar</a>
@@ -109,7 +73,7 @@ $pa = $_REQUEST['page'];
 </style>
 <div class="preloader"></div>
 <?php 
-if($pa=="propertydetail" || $pa=="forrent" || $page=='villa_private')
+if($pa=="propertydetailssss"  || $page=='villa_private')//|| $pa=="forrent"
 {
     ?>
     <header class="header transp stickys  sticky-on mob992"> <?php /*?> available class for header: .sticky .center-content .transp <?php */?>
@@ -188,7 +152,7 @@ if($pa=="propertydetail" || $pa=="forrent" || $page=='villa_private')
 elseif($pa =='villaform'  || $pa =='viewvillaform')
 {
 }
-elseif($pa=="home" || $pa=="")//------
+elseif($pa=="home" || $pa=="propertydetail" || $pa=="")//------
 {
 }
 else

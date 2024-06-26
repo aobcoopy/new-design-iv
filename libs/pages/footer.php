@@ -314,56 +314,14 @@ else
 }
 </style>
 
-<?php 
-//-- dselete cookie
-/*$cookie_time = time() - 3600;
-$cookie_name = ['iv_usdv','iv_usip','iv_usurl','iv_svip','iv_usssid','iv_usmb'];//"";
 
-for($xx=0;$xx<=count($cookie_name);$xx++)
-{
-	setcookie($cookie_name[$xx], '',$cookie_time , "/");
-}*/
-//-- dselete cookie
-	
-if(isset($_COOKIE['iv_usip']))
-{
-}
-else
-{
-	?>
-	<div class="pdpa_area">
-        <div class="papd_text">This site uses cookies in order to improve your user experience and to provide content tailored specifically to your interests. By continuing to browse our site you agree to our use of cookies, <a href="/privacy">Data Privacy Policy</a> and <a href="/terms">Terms & Conditions</a>. 
-        <button class="btn_pdpa" onClick="agree_pdpa();">Agree</button></div>
-    </div>
+
 <?php
-}
 $actual_link = $_SERVER['REQUEST_URI'];//(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 ?>
+<?php include "libs/pages/consent.php";?>
+
 <?php $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]".$_SERVER['REQUEST_URI'];?>
 
 <a target="_blank" href="https://api.whatsapp.com/send?phone=66846771551&text=I want more information about => <?php echo $actual_link;?>"><button class="box_whatsapp" type="button"><img class="share_icon center-block" src="../../upload/whatsapp11.png" width="30"></button></a>
 
-<script>
-function agree_pdpa()
-{
-	$.ajax({
-		url:"<?php echo $url_link;?>/libs/actions/set_cookie_data.php",
-		type:"POST",
-		dataType:"json"	,
-		data:{actual_link : '<?php echo $actual_link;?>'},
-		success: function(res){
-			if(res.status==true)
-			{
-				$(".pdpa_area").fadeOut(300);
-				/*alert(res.msg);
-				window.location.reload();*/
-			}
-			else
-			{
-				alert(res.msg);
-				return false;
-			}
-		}
-	});
-}
-</script>

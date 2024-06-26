@@ -1242,7 +1242,8 @@ if($_REQUEST['cate']=='0')
             </div>
             
             <div class="col-md-12 nopad top41">
-                <h4 class=" mb f22 top tg"><strong><?php /*?><a class="tg cdf" ><?php */?>2. <?php /*?></a><?php */?><a class="blu" href="/luxury-villas/villa-baan-amandeha/ao-yon-bay-phuket-thailand.html"><span itemprop="name">Villa Baan Amandeha </span></a></strong></h4>
+                <h4 class=" mb f22 top tg"><strong><?php /*?><a class="tg cdf" ><?php */?>2. <?php /*?></a><?php */?><span class="blu" ><span itemprop="name">Villa Baan Amandeha </span></span></strong></h4>
+                <!--/luxury-villas/villa-baan-amandeha/ao-yon-bay-phuket-thailand.html-->
                 <div  class="col-md-12 nopad top21 f18">
                     This huge beachfront villa is made for a large group to spend time together.<br>
     Right on the beach with a sunken outdoor lounge area beside the pool, outdoor bar, jacuzzi, sauna and steam room.<br>

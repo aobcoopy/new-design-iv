@@ -45,6 +45,26 @@
 		return  $month;
 	}
 
+	function get_client_ip() 
+	{
+		$ipaddress = '';
+		if (getenv('HTTP_CLIENT_IP'))
+			$ipaddress = getenv('HTTP_CLIENT_IP');
+		else if(getenv('HTTP_X_FORWARDED_FOR'))
+			$ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+		else if(getenv('HTTP_X_FORWARDED'))
+			$ipaddress = getenv('HTTP_X_FORWARDED');
+		else if(getenv('HTTP_FORWARDED_FOR'))
+			$ipaddress = getenv('HTTP_FORWARDED_FOR');
+		else if(getenv('HTTP_FORWARDED'))
+		   $ipaddress = getenv('HTTP_FORWARDED');
+		else if(getenv('REMOTE_ADDR'))
+			$ipaddress = getenv('REMOTE_ADDR');
+		else
+			$ipaddress = 'UNKNOWN';
+		return $ipaddress;
+	}
+	
 	$data = array(
 		'#id' => 'DEFAULT',
 		'#type' => '2',
@@ -61,6 +81,7 @@
 		'guest' => $_REQUEST['cbbGuest'],
 		'children' => $_REQUEST['cbbChildren'],
 		'bedroom' => $_REQUEST['no_bed'],
+		'cipadd' => $_REQUEST['txtIP'].' / '.get_client_ip(),
 	);
 	
 	$fullname = $_REQUEST['full_name'];
@@ -69,7 +90,7 @@
 	$phone_no = $_REQUEST['countryCode_en_d'].'-'.$_REQUEST['txsubject'];
 	
 	
-	$secret = "6LfbCgMoAAAAACNdyVkKNrHdFFsZr3-GF2HxSp9l";
+	/*$secret = "6LfbCgMoAAAAACNdyVkKNrHdFFsZr3-GF2HxSp9l";
 	if(isset($_POST['g-recaptcha-response']))
 	{
 		$captcha = $_POST['g-recaptcha-response'];
@@ -88,7 +109,7 @@
 		else
 		{
 			if($responseData->success)
-			{
+			{*/
 				if($dbc->Insert("contact_us",$data))
 				{
 					$id_co = $dbc->GetID();
@@ -481,7 +502,7 @@
 					);
 				}
 				
-			}
+			/*}
 		}
 	}
 	else
@@ -492,7 +513,7 @@
 				'msg' => 'Please try again'
 			)
 		);
-	}
+	}*/
 	
 	
 	

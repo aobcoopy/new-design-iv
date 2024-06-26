@@ -1,8 +1,55 @@
-<div class="container-fluid footer_box">
-	<div class="row justify-content-center">
+<?php //echo '>>>>'.$_SERVER['REQUEST_URI'];
+$sh_footer = '';
+$sh_footer_2 = '';
+//$page=isset($_REQUEST['page'])?$_REQUEST['page']:'home';
+//echo $paa;
+if($paa=='home')
+{
+	$sh_footer = 'hid';
+	$sh_footer_2 = '';
+}
+else
+{
+	$sh_footer = '';
+	$sh_footer_2 = 'd-none';
+}
+
+/*if(strpos($_SERVER['REQUEST_URI'],'search-rent')==1)
+{
+	$sh_footer = '';
+	$sh_footer_2 = 'd-none';
+}
+elseif(strpos($_SERVER['REQUEST_URI'],'luxury-villas')==1)
+{
+	$sh_footer = '';
+	$sh_footer_2 = 'd-none';
+}
+elseif(strpos($_SERVER['REQUEST_URI'],'recently')==1)
+{
+	$sh_footer = '';
+	$sh_footer_2 = 'd-none';
+}
+elseif(strpos($_SERVER['REQUEST_URI'],'contact')==1)
+{
+	$sh_footer = '';
+	$sh_footer_2 = 'd-none';
+}
+elseif(strpos($_SERVER['REQUEST_URI'],'')==1)
+{
+	$sh_footer = '';
+	$sh_footer_2 = 'd-none';
+}
+else
+{
+	
+}*/
+
+?><div class="topf col-12"></div>
+<div class="container-fluid footer_box ffooootteerr animate__delay-05s  animate__fast <?php echo $sh_footer;?>">
+	<div class="row justify-content-center ">
     	<div class="col-12 col-md-12">
         	<div class="row">
-            	<div class="col-5 col-sm-6 col-lg-3 t_t1- text-center"><a href="/"><img src="../../upload/new_design/img-top-Logo.png" class="footer_logo" alt=""></a></div>
+            	<div class="col-5 col-sm-6 col-lg-3 t_t1- text-center"><a href="/"><img src="<?php echo $url_link;?>upload/new_design/img-top-Logo.png" class="footer_logo" alt=""></a></div>
                 <div class="col-7 col-sm-6 col-lg-3 t_t2-">
                 	<ul class="ft_menu">
                     	<li><a href="/our-service">our services</a></li>
@@ -22,22 +69,22 @@
                             
                             <input type="email" value="" name="EMAIL" class="email emailsub" id="mce-EMAIL" placeholder="Enter Your Email Address" required>
                             <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_8799b771b290a84cd6090d2c1_5298a5b57a" tabindex="-1" value=""></div>
-                            <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn_subscribe" style="font-family: pt !important;"></div><!--btn btn-main btnn2-->
+                            <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn_subscribe_2" style="font-family: pt !important;"></div><!--btn btn-main btnn2-->
                             </div>
                         </form>
                     </div>
                     
                     <div class="tx_footer2 web">Let's socialize</div>
                     <ul class="footer_icon web ">
-                        <li><a href="#"><img src="../../upload/new_design/footer/img-footer-sub-icon-map.png" alt=""></a></li>
-                        <li><a href="#"><img src="../../upload/new_design/footer/img-footer-sub-icon-call.png" alt=""></a></li>
-                        <li><a href="#"><img src="../../upload/new_design/footer/img-footer-sub-icon-cwhatapp.png" alt=""></a></li>
-                        <li><a href="#"><img src="../../upload/new_design/footer/img-footer-sub-icon-web.png" alt=""></a></li>
-                        <li><a href="#"><img src="../../upload/new_design/footer/img-footer-sub-icon-mail.png" alt=""></a></li>
-                        <li><a href="https://www.facebook.com/inspiringvillas"><img src="../../upload/new_design/footer/img-footer-sub-icon-facebook.png" alt=""></a></li>
-                        <li><a href="https://www.instagram.com/inspiringvillas/"><img src="../../upload/new_design/footer/img-footer-sub-icon-ig.png" alt=""></i></a></li>
-                        <li><a href="#"><img src="../../upload/new_design/footer/img-footer-sub-icon-twister.png" alt=""></a></li>
-                        <li><a href="#"><img src="../../upload/new_design/footer/img-footer-sub-icon-skype.png" alt=""></a></li>
+                        <li><a href="#"><img src="<?php echo $url_link;?>upload/new_design/footer/img-footer-sub-icon-map.png" alt=""></a></li>
+                        <li><a href="#"><img src="<?php echo $url_link;?>upload/new_design/footer/img-footer-sub-icon-call.png" alt=""></a></li>
+                        <li><a href="#"><img src="<?php echo $url_link;?>upload/new_design/footer/img-footer-sub-icon-cwhatapp.png" alt=""></a></li>
+                        <li><a href="#"><img src="<?php echo $url_link;?>upload/new_design/footer/img-footer-sub-icon-web.png" alt=""></a></li>
+                        <li><a href="#"><img src="<?php echo $url_link;?>upload/new_design/footer/img-footer-sub-icon-mail.png" alt=""></a></li>
+                        <li><a href="https://www.facebook.com/inspiringvillas"><img src="<?php echo $url_link;?>upload/new_design/footer/img-footer-sub-icon-facebook.png" alt=""></a></li>
+                        <li><a href="https://www.instagram.com/inspiringvillas/"><img src="<?php echo $url_link;?>upload/new_design/footer/img-footer-sub-icon-ig.png" alt=""></i></a></li>
+                        <li><a href="#"><img src="<?php echo $url_link;?>upload/new_design/footer/img-footer-sub-icon-twister.png" alt=""></a></li>
+                        <li><a href="#"><img src="<?php echo $url_link;?>upload/new_design/footer/img-footer-sub-icon-skype.png" alt=""></a></li>
 
                         <?php /*?><li><a href="https://twitter.com/inspiringvillas/"><i class="fa fa-twitter"></i></a></li><?php */?>
                         <!--<li><a href="https://plus.google.com/112701507552163060701"><i class="fa fa-google-plus"></i></a></li>-->
@@ -49,15 +96,15 @@
                 <div class="col-12 mob text-center">
                 	<div class="tx_footer2">Let's socialize</div>
                         <ul class="footer_icon text-center">
-                        <li><a href="#"><img src="../../upload/new_design/footer/img-footer-sub-icon-map.png" alt=""></a></li>
-                        <li><a href="#"><img src="../../upload/new_design/footer/img-footer-sub-icon-call.png" alt=""></a></li>
-                        <li><a href="#"><img src="../../upload/new_design/footer/img-footer-sub-icon-cwhatapp.png" alt=""></a></li>
-                        <li><a href="#"><img src="../../upload/new_design/footer/img-footer-sub-icon-web.png" alt=""></a></li>
-                        <li><a href="#"><img src="../../upload/new_design/footer/img-footer-sub-icon-mail.png" alt=""></a></li>
-                        <li><a href="https://www.facebook.com/inspiringvillas"><img src="../../upload/new_design/footer/img-footer-sub-icon-facebook.png" alt=""></a></li>
-                        <li><a href="https://www.instagram.com/inspiringvillas/"><img src="../../upload/new_design/footer/img-footer-sub-icon-ig.png" alt=""></i></a></li>
-                        <li><a href="#"><img src="../../upload/new_design/footer/img-footer-sub-icon-twister.png" alt=""></a></li>
-                        <li><a href="#"><img src="../../upload/new_design/footer/img-footer-sub-icon-skype.png" alt=""></a></li>
+                        <li><a href="#"><img src="<?php echo $url_link;?>upload/new_design/footer/img-footer-sub-icon-map.png" alt=""></a></li>
+                        <li><a href="#"><img src="<?php echo $url_link;?>upload/new_design/footer/img-footer-sub-icon-call.png" alt=""></a></li>
+                        <li><a href="#"><img src="<?php echo $url_link;?>upload/new_design/footer/img-footer-sub-icon-cwhatapp.png" alt=""></a></li>
+                        <li><a href="#"><img src="<?php echo $url_link;?>upload/new_design/footer/img-footer-sub-icon-web.png" alt=""></a></li>
+                        <li><a href="#"><img src="<?php echo $url_link;?>upload/new_design/footer/img-footer-sub-icon-mail.png" alt=""></a></li>
+                        <li><a href="https://www.facebook.com/inspiringvillas"><img src="<?php echo $url_link;?>upload/new_design/footer/img-footer-sub-icon-facebook.png" alt=""></a></li>
+                        <li><a href="https://www.instagram.com/inspiringvillas/"><img src="<?php echo $url_link;?>upload/new_design/footer/img-footer-sub-icon-ig.png" alt=""></i></a></li>
+                        <li><a href="#"><img src="<?php echo $url_link;?>upload/new_design/footer/img-footer-sub-icon-twister.png" alt=""></a></li>
+                        <li><a href="#"><img src="<?php echo $url_link;?>upload/new_design/footer/img-footer-sub-icon-skype.png" alt=""></a></li>
                     </ul>
                 </div>
                 
@@ -66,9 +113,15 @@
     </div>
 </div>
 
+
+
+
 <?php 
-include "page_messenger_chat.php";?>
- 
+//$actual_link = $_SERVER['REQUEST_URI'];
+$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]".$_SERVER['REQUEST_URI'];
+include "page_messenger_chat.php";
+include "libs/pages/consent.php";
+?>
 <?php
 //-- dselete cookie
 /*$cookie_time = time() - 3600;
@@ -86,14 +139,14 @@ if(isset($_COOKIE['iv_usip']))
 else
 {
 	?>
-    <div class="pdpa_area text-center animate__animated animate__fadeInUp animate__fast">
+    <!--<div class="pdpa_area text-center animate__animated animate__fadeInUp animate__fast">
         <div class="papd_text">This site uses cookies in order to improve your browsing experience. GDPR
-        <!--and to provide content tailored specifically to your interests. By continuing to browse our site you agree to our use of cookies, <a href="/privacy">Data Privacy Policy</a> and <a href="/terms">Terms & Conditions</a>. -->
+        and to provide content tailored specifically to your interests. By continuing to browse our site you agree to our use of cookies, <a href="/privacy">Data Privacy Policy</a> and <a href="/terms">Terms & Conditions</a>. 
         <br>
-        <button class="btn_pdpa" onClick="agree_pdpa2();">decline</button>
-        <button class="btn_pdpa allo" onClick="agree_pdpa2();">allow</button>
+        <button class="btn_pdpa" onClick="agree_pdpa();">decline</button>
+        <button class="btn_pdpa allo" onClick="agree_pdpa();">allow</button>
         </div>
-    </div>
+    </div>-->
 	<?php /*?><div class="pdpa_area">
         <div class="papd_text">This site uses cookies in order to improve your user experience and to provide content tailored specifically to your interests. By continuing to browse our site you agree to our use of cookies, <a href="/privacy">Data Privacy Policy</a> and <a href="/terms">Terms & Conditions</a>. 
         <button class="btn_pdpa" onClick="agree_pdpa();">Agree</button></div>
@@ -101,11 +154,11 @@ else
    
 <?php
 }
-$actual_link = $_SERVER['REQUEST_URI'];//(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+//(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 ?>
-<?php $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]".$_SERVER['REQUEST_URI'];?>
+<?php ?>
 
-<a target="_blank" href="https://api.whatsapp.com/send?phone=66846771551&text=I want more information about => <?php echo $actual_link;?>"><button class="box_whatsapp" type="button"><img class="share_icon center-block" src="../../upload/whatsapp_new.png" width="30"></button></a>
+<a target="_blank" href="https://api.whatsapp.com/send?phone=66846771551&text=I want more information about => <?php echo $actual_link;?>"><button class="box_whatsapp" type="button"><img class="share_icon center-block" src="<?php echo $url_link;?>upload/whatsapp_new.png" width="30"></button></a>
 
 <script>
 function agree_pdpa2()
@@ -152,10 +205,10 @@ function agree_pdpa()
 	margin-right:95px;
 	margin-bottom:24px;
 }*/
-.up {
+/*.up {
     margin-right: 23px;
     margin-bottom: 95px;
-}
+}*/
 /*.pdpa_area
 {
 	background:#061120;
@@ -175,3 +228,6 @@ function agree_pdpa()
 }*/
 
 </style>
+<div class="ove col-12 <?php echo $sh_footer_2;?>">
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>

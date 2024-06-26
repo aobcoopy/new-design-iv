@@ -1,13 +1,52 @@
+<?php $pag=isset($_REQUEST['page'])?$_REQUEST['page']:'home'; //echo '--'.$pag;?>
 <?php /*?><script src="<?php echo $url_link;?>libs/js/jquery-3.1.1.min.js"></script><?php */?>
+<?php
+/*$ip = $_SERVER['REMOTE_ADDR']; //get supposed IP
+$query = @unserialize(file_get_contents('http://ip-api.com/php/'.$ip));
+$hh = $query['country'].', '.$query['city'].'!';*/
 
+/*$handle = fopen("data.txt", "a"); //open log file
+fwrite($handle, "IP: $ip \r\n");
+if($query && $query['status'] == 'success') {
+$hh = $query['country'].', '.$query['city'].'!';
+fwrite($handle, "Location: $hh \r\n \r\n");
+
+} else {
+  fwrite($handle, "Location: Unavailable \r\n \r\n");
+}
+fclose($handle);*/
+
+//exit;
+/*function get_client_ip() 
+	{
+		$ipaddress = '';
+		if (getenv('HTTP_CLIENT_IP'))
+			$ipaddress = getenv('HTTP_CLIENT_IP');
+		else if(getenv('HTTP_X_FORWARDED_FOR'))
+			$ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+		else if(getenv('HTTP_X_FORWARDED'))
+			$ipaddress = getenv('HTTP_X_FORWARDED');
+		else if(getenv('HTTP_FORWARDED_FOR'))
+			$ipaddress = getenv('HTTP_FORWARDED_FOR');
+		else if(getenv('HTTP_FORWARDED'))
+		   $ipaddress = getenv('HTTP_FORWARDED');
+		else if(getenv('REMOTE_ADDR'))
+			$ipaddress = getenv('REMOTE_ADDR');
+		else
+			$ipaddress = 'UNKNOWN';
+		return $ipaddress;
+	}*/
+	//echo get_client_ip();
+?>
 <div class="container-fluid box_searching animate__animated animate__fadeInUp animate__fast">
 	<div class="row justify-content-center">
-    	<div class="col-12 col-md-11 row in_box_search">
+    	<div class="col-12 col-md-11 row in_box_search ">
+        	<button class="btn__close_box_search mob <?php echo ($pag=='home')?'':'d-none';?>" type="button" onClick="close_button_search();"><i class="fa fa-chevron-down " aria-hidden="true"></i></button>
             <div class="col-12 col-md-3">
                 <div class="tt_1">For rates & availability</div>
-                <div class="tt_2">Search Villas</div>
+                <div class="tt_2">Search Villas<br><?php //echo get_client_ip().'<br>'.$ip.'---'.$_SERVER['SERVER_ADDR'].'---'.$hh;?></div>
             </div>
-            <div class="col">
+            <div class="col inside_box_search_mo">
                 <form id="forn_search">
                     <div class="row justify-content-center">
                         <div class="col-10 col-md-3 bot20">
@@ -67,6 +106,7 @@
         </div>
     </div>
 </div>
+<div class="container-fluid sub_Search"></div>
 
 <?php /*?><div class="mg-book-now ">
     <div class="container">
@@ -144,7 +184,96 @@
 	height: 38px;
 }
 </style>
+
 <script>
+var box_status = 0;
+var page = '<?php echo $pag;?>';
+function close_button_search()
+{
+	if(page=='' || page=='home')
+	{
+		if(box_status==0)
+		{
+			$(".inside_box_search_mo").slideToggle();
+			$(".btn__close_box_search .fa").removeClass('fa-chevron-down');
+			$(".btn__close_box_search .fa").addClass('fa-chevron-up');
+			box_status = 1;
+		}
+		else
+		{
+			$(".inside_box_search_mo").slideToggle();
+			$(".btn__close_box_search .fa").removeClass('fa-chevron-up');
+			$(".btn__close_box_search .fa").addClass('fa-chevron-down');
+			box_status = 0;
+		}
+	}
+}
+
+$(document).ready(function(e) {
+	var sa = 0;
+	$(window).scroll(function () {
+		var mybar2 = $(".sub_Search").offset().top;
+		if ($(this).scrollTop() > mybar2) 
+		{
+			if($(window).width()<976)
+			{
+				if(sa==0)
+				{
+					setTimeout(function(){
+						$(".btn__close_box_search").click();
+					},1500);
+					sa = 1;
+				}
+			}
+			else
+			{
+				$(".btn__close_box_search").hide();
+			}
+		}
+		else
+		{
+			sa=0;
+		}
+	});
+});
+
+$(window).scroll(function () {
+	if(page=='' || page=='home')
+	{
+		var mybar2 = $(".sub_Search").offset().top;
+		var contact_box  = $(".follow_box").offset().top;
+		if ($(this).scrollTop() > mybar2) 
+		{
+			//$(".mybar").css({"top":"0","position":"fixed"});
+			$(".box_searching").addClass('box_search_2_fixed animate__fadeInUp');
+			$(".btn__close_box_search").show();
+			$(".in_box_search").addClass('in_box_search_2');
+			//$(".box_searching").removeClass('box_searching ');
+		}
+		else
+		{
+			//$(".mybar").css({"top":"","position":"relative"});
+			$(".box_searching").removeClass('box_search_2_fixed animate__fadeInUp');
+			$(".btn__close_box_search").hide();
+			$(".inside_box_search_mo").slideDown();
+			$(".btn__close_box_search .fa").removeClass('fa-chevron-up');
+			$(".btn__close_box_search .fa").addClass('fa-chevron-down');
+			box_status = 0;
+			$(".in_box_search").removeClass('in_box_search_2');
+			//$(".box_searching").addClass('animate__fadeInDown');
+		}
+		
+		if($(this).scrollTop() > contact_box)
+		{
+			$(".box_search_2_fixed").hide();
+		}
+		else
+		{
+			$(".box_search_2_fixed").show();
+		}
+	}
+});
+	
 function searching1() {
 	$.ajax({
 		url: "<?php echo $url_link;?>libs/actions/check-link.php",

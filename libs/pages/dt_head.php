@@ -74,12 +74,23 @@ input[type=date].form-control,input[type=time].form-control,input[type=datetime-
 </style>
 
 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css" />
+<link rel="stylesheet" href="<?php echo $url_link;?>libs/css/v5/datepicker.min.css" />
+<link rel="stylesheet" href="<?php echo $url_link;?>libs/css/v5/datepicker3.min.css" />
+<link rel="stylesheet" href="<?php echo $url_link;?>libs/css/swiper.css">
+
+<script src="<?php echo $url_link;?>libs/js/star-rating.js"></script>
+<script src="<?php echo $url_link;?>libs/js/v5/bootstrap-datepicker.min.js"></script>
+<script src="<?php echo $url_link;?>libs/js/input_nark.js"></script>
+
+<?php /*?><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css" />
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
 <link rel="stylesheet" href="<?php echo $url_link;?>libs/css/swiper.css">
 
 <script src="<?php echo $url_link;?>libs/js/star-rating.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script><?php */?>
+
+
+
 <?php /*?><script src="<?php echo $url_link;?>libs/js/jquery-3.1.1.min.js"></script><?php */?>
 
 <!-- Google Code for Inquirer Conversion Page -->
@@ -210,18 +221,18 @@ if($exp_date>=$D_today || $exp_date=='0000-00-00' || $exp_date=='')
 }
 ?>
 
-<div class="conrainer-fluid mosaic_cover" onClick="open_pop();">
+<div class="conrainer-fluid mosaic_cover2" onClick="open_pop();">
 	<div class="row col-12" style="--bs-gutter-x: 0px;">
-		<div class="col-md-6 col-12 nopad">
+		<div class="col-md-6 col-8 nopad">
         	<img itemprop="image photo" class="cover_mosa lazy" src="<?php echo imagePath($mosaic[0]['img']) ?>" width="100%" alt="<?php echo $vi_name_1[0].' '.$mosaic[0]['name'];?>">
             <?php echo $button;?>
         </div>
-        <div class="col-md-6  col-12 nopad-1">
+        <div class="col-md-6  col-4 nopad-1">
         	<div class="row" style="--bs-gutter-x: -1px;">
-        	<div class="col-md-6 col-3 nopad"><img itemprop=" photo" class="cover_mosa lazy" src="<?php echo imagePath($mosaic[1]['img']) ?>" width="100%" alt="<?php echo $vi_name_1[0].' '.$mosaic[1]['name'];?>"></div>
-            <div class="col-md-6 col-3 nopad"><img itemprop=" photo" class="cover_mosa lazy" src="<?php echo imagePath($mosaic[2]['img']) ?>" width="100%" alt="<?php echo $vi_name_1[0].' '.$mosaic[2]['name'];?>"></div>
-            <div class="col-md-6 col-3 nopad"><img itemprop=" photo" class="cover_mosa lazy" src="<?php echo imagePath($mosaic[3]['img']) ?>" width="100%" alt="<?php echo $vi_name_1[0].' '.$mosaic[3]['name'];?>"></div>
-            <div class="col-md-6 col-3 nopad"><img itemprop=" photo" class="cover_mosa lazy" src="<?php echo imagePath($mosaic[4]['img']) ?>" width="100%" alt="<?php echo $vi_name_1[0].' '.$mosaic[4]['name'];?>"></div>
+        	<div class="col-md-6 col-12 nopad"><img itemprop=" photo" class="cover_mosa lazy" src="<?php echo imagePath($mosaic[1]['img']) ?>" width="100%" alt="<?php echo $vi_name_1[0].' '.$mosaic[1]['name'];?>"></div>
+            <div class="col-md-6 col-12 nopad"><img itemprop=" photo" class="cover_mosa lazy" src="<?php echo imagePath($mosaic[2]['img']) ?>" width="100%" alt="<?php echo $vi_name_1[0].' '.$mosaic[2]['name'];?>"></div>
+            <div class="col-md-6 col-3 d-none d-md-block nopad"><img itemprop=" photo" class="cover_mosa lazy" src="<?php echo imagePath($mosaic[3]['img']) ?>" width="100%" alt="<?php echo $vi_name_1[0].' '.$mosaic[3]['name'];?>"></div>
+            <div class="col-md-6 col-3 d-none d-md-block nopad"><img itemprop=" photo" class="cover_mosa lazy" src="<?php echo imagePath($mosaic[4]['img']) ?>" width="100%" alt="<?php echo $vi_name_1[0].' '.$mosaic[4]['name'];?>"></div>
             </div>
         </div>    
     </div>

@@ -67,9 +67,9 @@ pristine luxury A private beach villa is the true definition</div>
 </div>
 
 
-<link rel="stylesheet" href="libs/css/owl/owl.carousel.min.css">
-<link rel="stylesheet" href="libs/css/owl/owl.theme.default.min.css">
-<script src="libs/js/owl/owl.carousel.min.js"></script>
+<link rel="stylesheet" href="<?php echo $url_link;?>libs/css/owl/owl.carousel.min.css">
+<link rel="stylesheet" href="<?php echo $url_link;?>libs/css/owl/owl.theme.default.min.css">
+<script src="<?php echo $url_link;?>libs/js/owl/owl.carousel.min.js"></script>
 <script>
 $(document).ready(function(e) {
     $('.owl-next').click();
@@ -653,7 +653,7 @@ main {
 
 
 
-<script src="libs/js/jquery-3.1.1.min.js"></script>
+<script src="<?php echo $url_link;?>libs/js/jquery-3.1.1.min.js"></script>
 <script>
 
 function sendemail()

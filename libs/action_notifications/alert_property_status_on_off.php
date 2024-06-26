@@ -13,7 +13,7 @@
 	//$os = new minerva($dbc);
 	//echo '------hello world';
 	
-	$email_to = "jao@inspiringvillas.com,rsvn@inspiringvillas.com";//"myself.graphic@gmail.com";//
+	$email_to = "jao@inspiringvillas.com,rsvn@inspiringvillas.com,support@inspiringgroup.sg";//"myself.graphic@gmail.com";//
 	$vname = $_REQUEST['vname'];
 	$vstatus = $_REQUEST['vstatus'];
 	$vuser = $_REQUEST['vuser'];
@@ -149,8 +149,8 @@
         $strTo = $email_to;//"aobcoopy@gmail.com";
 		newSendMail($strTo,$strSubject,$strMessage,$strHeader);
 		
-		$strTo_2 = "aobcoopy@gmail.com";
-		newSendMail($strTo_2,$strSubject,$strMessage,$strHeader);
+		/*$strTo_2 = "aobcoopy@gmail.com";
+		newSendMail($strTo_2,$strSubject,$strMessage,$strHeader);*/
 		//mail($strTo,$strSubject,$strMessage,$strHeader);
 		
 		
