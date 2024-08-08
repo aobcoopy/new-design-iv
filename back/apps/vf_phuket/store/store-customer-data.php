@@ -23,6 +23,7 @@
 		'vfm.status',
 		'vfm.id',
 		'p.name',
+		'vfm.id',
 	);
 	$sIndexColumn = "vfm.id";
 	
@@ -152,6 +153,12 @@
 			{
 				$ex = explode("|",$aRow[$i]);
 				$row[] = str_replace(" ","",$ex[0]);
+			}
+			elseif($i==10)
+			{
+				$total_section = $dbc->GetCount("villa_form_status","vfm = '".$aRow[$i]."'");
+				$percent = ($total_section*100)/5;
+				$row[] = $percent;
 			}
 			else
 			{

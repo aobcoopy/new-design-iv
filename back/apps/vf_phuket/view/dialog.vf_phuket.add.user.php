@@ -52,7 +52,7 @@
                             <div class="form-group">
                                 <label for="txtName" class="col-sm-2 control-label">Customer Name</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="txCustomer" name="txCustomer"  >
+                                    <input type="text" class="form-control" id="txCustomer" name="txCustomer" onKeyUp="setValue(this)" >
                                 </div>
                             </div>
                             <div class="form-group">
@@ -111,8 +111,14 @@ $(function(){
 function setValue(me)
 {
 	var tname = $("#txCustomer").val();
-	$("#txLink").val(tname+'-'+$(me).val());
-	$(".t_link").text($(me).val());
+	var tiv = $("#txInvoice").val();
+	var t_name_1 = tname.replaceAll("-","_");
+	var tiv_1 = tiv.replaceAll("-","_");
+	var final_text = t_name_1.replaceAll(" ","_")+'-'+tiv_1.replaceAll(" ","_");
+	//final_text.replaceAll("","_");
+	$("#txLink").val(final_text);
+	//$("#txLink").val(tname+'-'+$(me).val());
+	//$(".t_link").text($(me).val());
 }
 function setValue_inv(me)
 {

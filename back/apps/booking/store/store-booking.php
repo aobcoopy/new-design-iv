@@ -19,6 +19,7 @@
 		'c.created',
 		'c.checkin',
 		'c.checkout',
+		'c.cipadd',
 		'u.name',
 		'c.status',
 		'c.id',
@@ -119,7 +120,7 @@
 		$row = array();
 		for ( $i=0 ; $i<count($aColumns) ; $i++ ){
 			
-			if($i==11)
+			/*if($i==11)
 			{
 				if($aRow[$i]=='1')
 				{
@@ -130,7 +131,7 @@
 					$row[] = 'Property';
 				}
 			}
-			elseif($i==1)
+			else*/if($i==1)
 			{
 				if($aRow[$i]!=NULL)
 				{

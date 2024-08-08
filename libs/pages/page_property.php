@@ -345,255 +345,210 @@ while($l_tag = $dbc->Fetch($sql_tags))
 </div>
 
 
+<div class="container-fluid">
+	<div class="row justify-content-center">
+    	<div class="col-11 col-md-9">
+		
+        <?php 
+		while($row =  $dbc->Fetch($sql))
+		{
+			$url_link_2 = $url_link;
+			if($row['tag']!=0)
+			{
+				$tag = $dbc->GetRecord("tags","*","id = '".$row['tag']."' ");
+				$tag_name = $tag['name'];
+			}
+			
+			$name = explode("|",$row['name']);
+			$photo = json_decode($row['photo'],true);
+			$row['ht_link'] = str_replace(" ", "", $row['ht_link']);
+			
+			//$icon_cate = array('beach','team','sea','wedding');
+			
+			$catename = explode("-",$row['cname']);
+			switch($row['cate_icon'])
+			{
+				case"4":
+					$icon_cate = "beach";
+					$icon_name = "Seaview Villa";
+				break;
+				case"5":
+					$icon_cate = "largegroup";
+					$icon_name = "Large Group Villa";
+				break;
+				case"6":
+					$icon_cate = "seas";
+					$icon_name = "Beachfront Villa";
+				break;
+				case"8":
+					$icon_cate = "wedding";
+					$icon_name = "Wedding Villa";
+				break;
+				case"9":
+					$icon_cate = "house";
+					$icon_name = "Garden Villa";
+				break;
+				case"10":
+					$icon_cate = "house";
+					$icon_name = "Tropical Villa";
+				break;
+				default:
+					$icon_cate = "";
+					$icon_name = "";
+			}
+			
+			if(strstr($row['dname'],'Beach'))
+			{
+				$split = explode(",",$row['dname']);// แบ่งข้อความโดชใช้ ,
+				$locations = str_ireplace('Beach','',$split[0]);// แทนที่ข้อความ
+				
+				$nost = strrpos($locations," ")."<br>";// หาตำแหน่งสุดท้าย
+				//echo $row['dname']."<br>";// แสดงข้อความเต็ม
+				//echo substr_replace($locations,",",$nost);// แสดงข้อความที่ถูกตัดออก
+				$full_location = substr_replace($locations,",",$nost).$split[1];
+			}
+			elseif(strstr($row['dname'],'Bay'))
+			{
+				$split = explode(",",$row['dname']);// แบ่งข้อความโดชใช้ ,
+				$locations = str_ireplace('Bay','',$split[0]);// แทนที่ข้อความ
+				
+				$nost = strrpos($locations," ")."<br>";// หาตำแหน่งสุดท้าย
+				//echo $row['dname']."<br>";// แสดงข้อความเต็ม
+				//echo substr_replace($locations,",",$nost);// แสดงข้อความที่ถูกตัดออก
+				$full_location = substr_replace($locations,",",$nost).$split[1];
+			}
+			elseif(strstr($row['dname'],'Bophut'))
+			{
+				//echo $row['dname']."<br>";// แสดงข้อความเต็ม
+				$full_location = $row['dname'];
+			}
+			else
+			{
+				//echo $row['dname']."<br>";// แสดงข้อความเต็ม
+				$full_location = $row['dname'];
+			}
+			
+			$destina = explode(",",$row['dname']);
 
-
-     
-
-<div class="mg-page">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 nopad">
-                <div class="mg-booking-form">
-                    <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane fade-1 in active" id="select-room">
-                           
-                            <div class="mg-available-rooms">
-                                <div class="container">
-                                <div class="row">
-                                <div class="mg-avl-rooms col-md-12 col-sm-12 col-xs-12 mt101 top20">
-                                     <div class="roomold">   
-                                     <?php 
-                                         
-
-                                        while($row =  $dbc->Fetch($sql))
-                                        {
-											$url_link_2 = $url_link;
-                                            if($row['tag']!=0)
-                                            {
-                                                $tag = $dbc->GetRecord("tags","*","id = '".$row['tag']."' ");
-                                                $tag_name = $tag['name'];
-                                            }
-                                            
-                                            $name = explode("|",$row['name']);
-                                            $photo = json_decode($row['photo'],true);
-                                            $row['ht_link'] = str_replace(" ", "", $row['ht_link']);
-                                            
-                                            //$icon_cate = array('beach','team','sea','wedding');
-                                            
-                                            $catename = explode("-",$row['cname']);
-                                            switch($row['cate_icon'])
-                                            {
-                                                case"4":
-                                                    $icon_cate = "beach";
-                                                    $icon_name = "Seaview Villa";
-                                                break;
-                                                case"5":
-                                                    $icon_cate = "largegroup";
-                                                    $icon_name = "Large Group Villa";
-                                                break;
-                                                case"6":
-                                                    $icon_cate = "seas";
-                                                    $icon_name = "Beachfront Villa";
-                                                break;
-                                                case"8":
-                                                    $icon_cate = "wedding";
-                                                    $icon_name = "Wedding Villa";
-                                                break;
-                                                case"9":
-                                                    $icon_cate = "house";
-                                                    $icon_name = "Garden Villa";
-                                                break;
-                                                case"10":
-                                                    $icon_cate = "house";
-                                                    $icon_name = "Tropical Villa";
-                                                break;
-                                                default:
-                                                    $icon_cate = "";
-                                                    $icon_name = "";
-                                            }
-                                            
-                                            if(strstr($row['dname'],'Beach'))
-                                            {
-                                                $split = explode(",",$row['dname']);// แบ่งข้อความโดชใช้ ,
-                                                $locations = str_ireplace('Beach','',$split[0]);// แทนที่ข้อความ
-                                                
-                                                $nost = strrpos($locations," ")."<br>";// หาตำแหน่งสุดท้าย
-                                                //echo $row['dname']."<br>";// แสดงข้อความเต็ม
-                                                //echo substr_replace($locations,",",$nost);// แสดงข้อความที่ถูกตัดออก
-                                                $full_location = substr_replace($locations,",",$nost).$split[1];
-                                            }
-                                            elseif(strstr($row['dname'],'Bay'))
-                                            {
-                                                $split = explode(",",$row['dname']);// แบ่งข้อความโดชใช้ ,
-                                                $locations = str_ireplace('Bay','',$split[0]);// แทนที่ข้อความ
-                                                
-                                                $nost = strrpos($locations," ")."<br>";// หาตำแหน่งสุดท้าย
-                                                //echo $row['dname']."<br>";// แสดงข้อความเต็ม
-                                                //echo substr_replace($locations,",",$nost);// แสดงข้อความที่ถูกตัดออก
-                                                $full_location = substr_replace($locations,",",$nost).$split[1];
-                                            }
-                                            elseif(strstr($row['dname'],'Bophut'))
-                                            {
-                                                //echo $row['dname']."<br>";// แสดงข้อความเต็ม
-                                                $full_location = $row['dname'];
-                                            }
-                                            else
-                                            {
-                                                //echo $row['dname']."<br>";// แสดงข้อความเต็ม
-                                                $full_location = $row['dname'];
-                                            }
-                                            
-											$destina = explode(",",$row['dname']);
-
-											$villa_location = $full_location;//$locations.','.$destina[1];
-											
-											
-                                                if($zz_2=='1' || $zz_2=='6' || $zz_2=='8' || $zz_2=='10' || $zz_2=='12')
-                                                {
-                                                    $padd_1 = "padmob";//style='padding-bottom: 30px;'
-                                                    $cate_bot = "padmob";
-                                                }
-                                                elseif($zz_2=='3')
-                                                {
-                                                    $padd = "style='padding-bottom: 36px;'";
-                                                    $padd_1 = "padmob";
-                                                }
-                                                elseif($zz_2=='5')
-                                                {
-                                                    $paddbutt = "padbutt";
-                                                }
-                                                else
-                                                {
-                                                    $padd = "";
-                                                    $padd_1 = "";
-                                                }
-                                            
-                                            
-                                            
-                                            $zz_2++;
-                                            
-                                            if($view=='grid')
-                                            {
-												include "page_property_grid.php";
-                                            }
-                                            else
-                                            {
-												include "page_property_list.php";
-                                            }
+			$villa_location = $full_location;//$locations.','.$destina[1];
+			
+			
+				if($zz_2=='1' || $zz_2=='6' || $zz_2=='8' || $zz_2=='10' || $zz_2=='12')
+				{
+					$padd_1 = "padmob";//style='padding-bottom: 30px;'
+					$cate_bot = "padmob";
+				}
+				elseif($zz_2=='3')
+				{
+					$padd = "style='padding-bottom: 36px;'";
+					$padd_1 = "padmob";
+				}
+				elseif($zz_2=='5')
+				{
+					$paddbutt = "padbutt";
+				}
+				else
+				{
+					$padd = "";
+					$padd_1 = "";
+				}
+			
+			
+			
+			$zz_2++;
+			
+			if($view=='grid')
+			{
+				include "page_property_grid.php";
+			}
+			else
+			{
+				include "page_property_list.php";
+			}
+		
+		
+		if($zz==3)
+		{
+		}
+		
+		if($view=='grid')
+		{
+			/*if($zz=='3' || $zz=='6' || $zz=='10')
+			{
+				echo '<div class="col-md-12 nopad"><div class="villa_boxs_mini- photo_banner web"><a href="/contact" ><img src="'.$url_link.'upload/search/1111.jpg" width="100%" alt="CONCIERGE OFFER"> </a></div></div>';
+				echo '<div class="villa_boxs_mini photo_banner mob"><a href="/contact" ><img src="'.$url_link.'upload/search/mm111.jpg" width="100%" alt="CONCIERGE OFFER"> </a></div>';
+			}
+			if($zz=='6' || $zz=='8' || $zz=='12')
+			{
+				echo '<div class="col-md-12 nopad"><div class="villa_boxs_mini- photo_banner web"><img src="'.$url_link.'upload/search/2222.jpg" width="100%" alt="EXCURISON PROMOTION"></div></div>';
+				echo '<div class="villa_boxs_mini photo_banner mob "><img src="'.$url_link.'upload/search/mm22.jpg" width="100%" alt="EXCURISON PROMOTION"></div>';
+			}*/
+		}
+		else
+		{
+			if($zz=='5' )
+			{
+				//echo '<div class="villa_boxs_mini col-12 nopad web"><button class="bad clicking tupper"><strong>receive $150 off any excursion booking during your villa stay with us*</strong></button></div>';	
+				echo '<button class="bad clicking tupper"><strong>receive $150 off any excursion booking during your villa stay with us*</strong></button>';
+				echo '<div class="villa_boxs_mini col-12 nopad photo_banner mob"><img src="'.$url_link.'upload/search/mm111.jpg" width="100%" alt="CONCIERGE OFFER"></div>';
+			}
+			if($zz=='6' || $zz=='12' || $zz=='18')
+			{
+				echo '<div class="villa_boxs_mini col-12 nopad photo_banner web "><img src="'.$url_link.'upload/search/22222.jpg" width="100%" alt="EXCURISON PROMOTION"></div>';
+				echo '<div class="villa_boxs_mini col-12 nopad photo_banner mob "><img src="'.$url_link.'upload/search/mm22.jpg" width="100%" alt="EXCURISON PROMOTION"></div>';
+			}
+		}
+		
+		
+		$zz++;    
+	   }
+	   
+	   $all_photo = json_encode($ar_photo);
+	   $all_urls = json_encode($ar_url);//$ar_url;//
+	
+		if($view=='grid')
+		{
+			?>
+            <!--<div class="col-xs-12 col-sm-6 col-md-4 web box_loadmore ">
+                <div class="col-md-12 gr_load text-center">
+                    <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDIxNC4zNjcgMjE0LjM2NyIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjE0LjM2NyAyMTQuMzY3OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjUxMnB4IiBoZWlnaHQ9IjUxMnB4Ij4KPHBhdGggZD0iTTIwMi40MDMsOTUuMjJjMCw0Ni4zMTItMzMuMjM3LDg1LjAwMi03Ny4xMDksOTMuNDg0djI1LjY2M2wtNjkuNzYtNDBsNjkuNzYtNDB2MjMuNDk0ICBjMjcuMTc2LTcuODcsNDcuMTA5LTMyLjk2NCw0Ny4xMDktNjIuNjQyYzAtMzUuOTYyLTI5LjI1OC02NS4yMi02NS4yMi02NS4yMnMtNjUuMjIsMjkuMjU4LTY1LjIyLDY1LjIyICBjMCw5LjY4NiwyLjA2OCwxOS4wMDEsNi4xNDgsMjcuNjg4bC0yNy4xNTQsMTIuNzU0Yy01Ljk2OC0xMi43MDctOC45OTQtMjYuMzEzLTguOTk0LTQwLjQ0MUMxMS45NjQsNDIuNzE2LDU0LjY4LDAsMTA3LjE4NCwwICBTMjAyLjQwMyw0Mi43MTYsMjAyLjQwMyw5NS4yMnoiIGZpbGw9IiMwMDAwMDAiLz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" alt="load more" width="50" style="    margin-bottom: 10px;" alt="Load More inspiring villa" />
+                    <br>
+                    Load More...
+                </div>
+            </div>-->
+		<?php
+		}?>
+			
+			<div class="col-xs-12 col-sm-6 col-md-4 mob box_loadmore">
+				<div class="col-md-12 gr_load_mob text-center">
+					<i class="fa fa-arrow-down f30"></i>
+					<br>
+					LOAD MORE...
+				</div>
+			</div>  
+                                   
+			<div class="rooms " style="padding-top: 0px;"></div><!--ใช้งาน--> <!--col-md-12 col-sm-12 col-xs-12 padtop400 mtop01-->
                                         
-                                        
-                                        if($zz==3)
-                                        {
-                                        }
-										
-										if($view=='grid')
-										{
-											if($zz=='3' || $zz=='6' || $zz=='10')
-											{
-												echo '<div class="col-md-12 nopad"><div class="villa_boxs_mini- photo_banner web"><a href="/contact" ><img src="'.$url_link.'upload/search/1111.jpg" width="100%" alt="CONCIERGE OFFER"> </a></div></div>';
-												echo '<div class="villa_boxs_mini photo_banner mob"><a href="/contact" ><img src="'.$url_link.'upload/search/mm111.jpg" width="100%" alt="CONCIERGE OFFER"> </a></div>';
-											}
-											if($zz=='6' || $zz=='8' || $zz=='12')
-											{
-												echo '<div class="col-md-12 nopad"><div class="villa_boxs_mini- photo_banner web"><img src="'.$url_link.'upload/search/2222.jpg" width="100%" alt="EXCURISON PROMOTION"></div></div>';
-												echo '<div class="villa_boxs_mini photo_banner mob "><img src="'.$url_link.'upload/search/mm22.jpg" width="100%" alt="EXCURISON PROMOTION"></div>';
-											}
-										}
-										else
-										{
-											if($zz=='5' )
-											{
-												/*echo '<div class="villa_boxs_mini photo_banner web"><a href="/contact#viewform" ><img src="/upload/search/11111.jpg" width="100%" alt="CONCIERGE OFFER"></a></div>';
-												echo '<div class="villa_boxs_mini photo_banner mob"><a href="/contact#viewform" ><img src="/upload/search/mm111.jpg" width="100%" alt="CONCIERGE OFFER"></a></div>';*/
-												echo '<div class="villa_boxs_mini col-12 nopad web"><button class="bad clicking tupper"><strong>receive $150 off any excursion booking during your villa stay with us*</strong></button></div>';	
-												echo '<div class="villa_boxs_mini col-12 nopad photo_banner mob"><img src="'.$url_link.'upload/search/mm111.jpg" width="100%" alt="CONCIERGE OFFER"></div>';
-												//echo '<div class="villa_boxs_mini photo_banner mob"><a href="/contact#viewform" ><img src="/upload/search/mm111.jpg" width="100%" alt="CONCIERGE OFFER"></a></div>'; เอาลิงค์ออก
-												//echo '<div class="villa_boxs_mini"><a href="/contact" ><button class="bad clicking tupper"><strong>receive $150 off any excursion booking during your villa stay with us*</strong></button></a></div>';
-											}
-											if($zz=='6' || $zz=='12' || $zz=='18')
-											{
-												echo '<div class="villa_boxs_mini col-12 nopad photo_banner web "><img src="'.$url_link.'upload/search/22222.jpg" width="100%" alt="EXCURISON PROMOTION"></div>';
-												echo '<div class="villa_boxs_mini col-12 nopad photo_banner mob "><img src="'.$url_link.'upload/search/mm22.jpg" width="100%" alt="EXCURISON PROMOTION"></div>';
-												
-												//echo '<div class="villa_boxs_mini"><a href="/contact"><button class="bad adblu clicking"><strong>LET US FIND THE VILLA OPTIONS FOR YOU  - CONCIERGE SERVICE AVAILABLE</strong> <strong class="tred">- Click Here!</strong></button></a></div>';
-											}
-										}
-										
-										
-                                        $zz++;    
-                                       }
-                                       
-                                       $all_photo = json_encode($ar_photo);
-                                       $all_urls = json_encode($ar_url);//$ar_url;//
-                                       //echo '<pre>';
-//                                       print_r($ar_photo);
-//                                       echo '</pre>';
-//                                       echo $all_photo; 
-
-                                       //echo '<pre>';
-//                                       print_r($ar_url);
-//                                       echo '</pre>';
-//                                       echo $all_urls;
-                                    ?>
-                                    
-                                    <?php
-                                        if($view=='grid')
-                                            {
-												?><div class="col-xs-12 col-sm-6 col-md-4 web box_loadmore ">
-                                        	<div class="col-md-12 gr_load text-center">
-                                                <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDIxNC4zNjcgMjE0LjM2NyIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjE0LjM2NyAyMTQuMzY3OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjUxMnB4IiBoZWlnaHQ9IjUxMnB4Ij4KPHBhdGggZD0iTTIwMi40MDMsOTUuMjJjMCw0Ni4zMTItMzMuMjM3LDg1LjAwMi03Ny4xMDksOTMuNDg0djI1LjY2M2wtNjkuNzYtNDBsNjkuNzYtNDB2MjMuNDk0ICBjMjcuMTc2LTcuODcsNDcuMTA5LTMyLjk2NCw0Ny4xMDktNjIuNjQyYzAtMzUuOTYyLTI5LjI1OC02NS4yMi02NS4yMi02NS4yMnMtNjUuMjIsMjkuMjU4LTY1LjIyLDY1LjIyICBjMCw5LjY4NiwyLjA2OCwxOS4wMDEsNi4xNDgsMjcuNjg4bC0yNy4xNTQsMTIuNzU0Yy01Ljk2OC0xMi43MDctOC45OTQtMjYuMzEzLTguOTk0LTQwLjQ0MUMxMS45NjQsNDIuNzE2LDU0LjY4LDAsMTA3LjE4NCwwICBTMjAyLjQwMyw0Mi43MTYsMjAyLjQwMyw5NS4yMnoiIGZpbGw9IiMwMDAwMDAiLz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" alt="load more" width="50" style="    margin-bottom: 10px;" alt="Load More inspiring villa" />
-                                                <br>
-                                                Load More...
-                                            </div>
-                                        </div>
-                                        <?php
-											}?>
-                                            
-                                            <div class="col-xs-12 col-sm-6 col-md-4 mob box_loadmore">
-                                                <div class="col-md-12 gr_load_mob text-center">
-                                                	<i class="fa fa-arrow-down f30"></i>
-                                                    <br>
-                                                    LOAD MORE...
-                                                </div>
-                                            </div>
-                                    </div>
-                                    
-                                    	<div class="rooms " style="padding-top: 0px;"></div><!--ใช้งาน--> <!--col-md-12 col-sm-12 col-xs-12 padtop400 mtop01-->
-                                        
-                                        <div class="loadeds" style="display:none;">
-                                        <div class="d-flex justify-content-center  text-center top70" >
-                                            <div class="spinner-border text-warning" role="status">
-                                            </div>
-                                            <span class="visually-hiddens" style="margin-top:5px; margin-left:10px; text-transform:uppercase; font-weight:bold;">Loading...</span>
-                                        </div>
-                                        </div>
-                                </div>
-                                
-                                <?php include "libs/pages/button_search_bottom.php";?>
-                                
-                               
-                                </div><!--row-->
-                                </div><!--container-->
-
-                                <div class="container">
-                                    <div class="row">
-                                       
-                                    </div>
-                                </div>
-                                
-                                
-                            </div>
-                        </div>
+            <div class="loadeds bottom50" style="display:none;">
+                <div class="d-flex justify-content-center  text-center top70" >
+                    <div class="spinner-border text-warning" role="status">
                     </div>
+                    <span class="visually-hiddens" style="margin-top:5px; margin-left:10px; text-transform:uppercase; font-weight:bold;">Loading...</span>
                 </div>
             </div>
+            
+            <?php include "libs/pages/button_search_bottom.php";?>                            
+                                        
         </div>
-    </div><br><br>
+    </div>
 </div>
+
+<div class="position_load_villas"></div>     
 
 
 <?php 
-	include "libs/pages/button_search_newdesign.php";
+	include "libs/pages/bottom_search_newdesign.php";
+	
 	
 	/*include "footer_all_collection.php";
     include "footer_koh_samui.php"; 
@@ -648,7 +603,7 @@ function popu(id)
     $.ajax({
         url:"<?php echo $url_link;?>libs/pages/youtube.php",
         type:"POST",
-        dataType:"html"    ,
+        dataType:"html",
         data:{id:id},
         success: function(res){
             $(".youtube").html(res);
@@ -718,11 +673,11 @@ $(document).ready(function(e) {
     $(window).scroll(function () {
         if($(window).width()<976)
         {
-            my_footers = $(".footer_box").offset().top-550;
+            my_footers = $(".position_load_villas").offset().top-550;
         }
         else
         {
-            my_footers = $(".footer_box").offset().top-850;
+            my_footers = $(".position_load_villas").offset().top-550;
         }
         
         if ($(this).scrollTop() > my_footers) 

@@ -1,4 +1,18 @@
 <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('consent', 'default', {
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'ad_storage': 'denied',
+    'analytics_storage': 'denied',
+    'wait_for_update': 500,
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-9MDN99P4YS');
+</script>
+
+<script>
 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -23,23 +37,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <!--consent-->
 
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() { dataLayer.push(arguments); }
-  gtag('consent', 'default', {
-    'ad_user_data': 'denied',
-    'ad_personalization': 'denied',
-    'ad_storage': 'denied',
-    'analytics_storage': 'denied',
-    'wait_for_update': 500,
-  });
-  gtag('js', new Date());
-  gtag('config', 'GTM-5TDJV4Z3');
-</script>
 
 
 <script>
-  /*grantButton.addEventListener("click", function() {
+ /* var grantButton = document.getElementById("btn__consent");
+  
+  grantButton.addEventListener("click", function() {
     localStorage.setItem("consentGranted", "true");
     function gtag() { dataLayer.push(arguments); }
 
@@ -72,7 +75,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   firstScript.parentNode.insertBefore(gtagScript,firstScript);
   
   
-  function allConsentGranted() {
+function allConsentGranted() {
   gtag('consent', 'update', {
     'ad_user_data': 'granted',
     'ad_personalization': 'granted',
@@ -89,6 +92,28 @@ function allConsentDenied() {
     'analytics_storage': 'denied'
   });
 }
+
+$(document).ready(function(e) {
+	var cookiess = '<?php echo (isset($_COOKIE['iv_usip']))?1:0;?>';
+	var google_consent_status = '<?php echo (isset($_COOKIE['google_consent_status']))?1:0;?>';
+	
+	setTimeout(function(){
+	//alert(cookiess);
+	
+		if(cookiess==1)
+		{
+			if(google_consent_status=='Agree')
+			{
+				allConsentGranted();
+			}
+			else
+			{
+				allConsentDenied();
+			}
+			
+		}
+	},3000);
+});
 </script>
 
 <!--consent-->

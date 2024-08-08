@@ -18,6 +18,7 @@
 	}
 	
 	$ar_data = array(
+		'note' => $_REQUEST['tx_note_provisioning'],
 		'provisioning' => $_REQUEST['tx_Provisioning'],
 		'wine' => $_REQUEST['tx_Wine'],
 		'file_path' => $_REQUEST['tx_file_path'],

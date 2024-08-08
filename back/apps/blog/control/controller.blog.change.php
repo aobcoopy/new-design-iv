@@ -138,7 +138,17 @@
 				} 
 		});
 	};
-
+	fn.app.blog.blog.youtube = function(id) {
+		$.ajax({
+			url: "apps/blog/view/dialog.blog.youtube.php",
+			data: {id:id},
+			type: "POST",
+			dataType: "html",
+			success: function(html){
+				$("body").append(html);
+			}	
+		});
+	};
 	fn.app.blog.blog.change = function(id) {
 		$.ajax({
 			url: "apps/blog/view/dialog.blog.edit.php",
@@ -172,6 +182,28 @@
 				$("body").append(html);
 			}	
 		});
+	};
+	
+	fn.app.blog.blog.save_youtube = function(){
+		if(document.getElementById("tx_youtube").value=='')
+		{
+			alert('Please fill ypur data');
+			$("#tx_youtube").focus();
+			return false;
+		}
+		else
+		{ 
+			$.post('apps/blog/xhr/action-edit-youtube.php',$('#form_edit_youtube').serialize(),function(response){
+				if(response.success){
+					$("#tblSlide").DataTable().draw();
+					$("#dialog_edit_group").modal('hide');
+					//$("#thumbnail_edit").attr('src','../../../../upload/blog.jpg');
+				}else{
+					//fn.engine.alert("Alert",response.msg);
+				}
+			},'json');
+			return false;
+		}
 	};
 	
 	fn.app.blog.blog.save_change = function(){

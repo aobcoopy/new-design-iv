@@ -32,7 +32,7 @@ $array_link_3 = array(
 $array_link_4 = array(
 	'/search-rent/thailand-phuket/layan-beach/all-price/all-bedrooms/all-collections/all-sort.html',
 	'/search-rent/thailand-phuket/surin-beach/all-price/all-bedrooms/all-collections/all-sort.html',
-	'/search-rent/thailand-phuket/nai-harn/all-price/all-bedrooms/all-collections/all-sort.html',
+	'/search-rent/thailand-phuket/nai-harn.html?pri=all-price&room=all-bedrooms&cate=all-collections&sort=all-sort',
 	'/search-rent/thailand-phuket/kamala-beach/all-price/all-bedrooms/all-collections/all-sort.html',
 	'/search-rent/thailand-koh-samui/bophut-beach/all-price/all-bedrooms/all-collections/all-sort.html',
 	'/search-rent/thailand-koh-samui/maenam-beach/all-price/all-bedrooms/all-collections/all-sort.html',
@@ -54,8 +54,18 @@ $array_link_8 = array(
 
 if($ppa=='home' || !isset($ppa))
 {
-	$title_tag = "Inspiring Villas - The Leading Luxury Villa Rentals Agency in Thailand";//"Thailand Villas - Luxury Holiday Rentals";//"Luxury Villa Holidays & Private Villa Rentals ";//"Thailand Villas | Unique Luxury Vacations";//"Thailand Villas | Private Vacation Rentals".$iv;//"Thailand Villas Luxury Rentals Phuket & Koh Samui ";//"Luxury Villa Rentals in Phuket & Koh Samui,Thailand";
-	$meta_description = string_len_meta("Thailand Luxury Villa Rentals with beach access, sea views and stunning facilities, fully-staffed & private chef. Book Your Villa Holiday Today with Inspiring Villas.",152);//"Luxury Private Villa Rentals with full service staff and chef, in Thailand, Asia & Beyond. Book Your Villa Holiday Today with Inspiring Villas";//"Luxury Private Pool Villa Rentals with full service staff and chef, in Phuket & Koh Samui,Thailand. Book Your Villa Holiday Today with Inspiring Villas";
+	$title_tag = "Inspiring Villas - The Leading Luxury Villa Thailand Agency";
+	$meta_description = "Find the perfect luxury villa Thailand that fits your beachfront villas, private villas, luxury pool villa with professional hand-picked beach villa rentals.";
+}
+elseif($ppa=='villa-promotions' )
+{
+	$title_tag = "Inspiring Luxury Villa Promotions";
+	$meta_description = "Inspiring Luxury Villa Promotions.";
+}
+elseif($ppa=='request-form' )
+{
+	$title_tag = "Inspiring Luxury Villa Request Form";
+	$meta_description = "Inspiring Luxury Villa Request Form.";
 }
 elseif($ppa=='hubpage')
 {
@@ -102,6 +112,7 @@ elseif($ppa=='Best-Luxury-Villas-in-Thailand')
 	$title_tag = "Best Luxury Villas in Thailand";
 	$meta_description = "Unveiling Thailand's The Best Luxury Villas";
 }
+
 
 
 elseif($ppa=='villas')
@@ -161,6 +172,38 @@ elseif($ppa=='privacy')
 	$title_tag = "Inspiring Villas Privacy";
 	$meta_description = "Luxury Private Pool Villa Rentals with full service staff and chef, in Phuket & Koh Samui,Thailand. Book Your Villa Holiday Today with Inspiring Villas";
 }
+elseif($ppa=='yacht')
+{
+	if(isset($_REQUEST['id']))
+	{
+		$yacht = $dbc->GetRecord("yacht","*","id =".$_REQUEST['id']);
+		
+		$photo = json_decode($yacht['photo'],true);
+		echo '<link href="https://www.inspiringvillas.com/'.$photo.'" rel="me"/>';
+		//echo $ca_prop['ht_link'];
+		$ny_name = str_replace(" ","_",$yacht['name']);
+		$url = 'yacht-'.$yacht['id'].'-'.$ny_name.".html";
+		$photo_web = 'https://www.inspiringvillas.com/'.$photo;
+		$photo_PageMap = 'https://www.inspiringvillas.com/'.$photo;
+		
+		$title_tag = $yacht['name'];
+		$meta_description = $yacht['detail'];
+	}
+	else
+	{
+		$yacht = $dbc->GetRecord("yacth_cover","*","id = 1 ");
+		$photo = json_decode($yacht['photo'],true);
+		echo '<link href="https://www.inspiringvillas.com/'.$photo.'" rel="me"/>';
+		//echo $ca_prop['ht_link'];
+		$ny_name = str_replace(" ","_",$yacht['name']);
+		$url = "yacht";
+		$photo_web = 'https://www.inspiringvillas.com/'.$photo;
+		$photo_PageMap = 'https://www.inspiringvillas.com/'.$photo;
+		
+		$title_tag = "LUXURY PRIVATE YACHT THAILAND";
+		$meta_description = "LUXURY PRIVATE YACHT THAILAND";
+	}
+}
 elseif($ppa=='propertydetail')
 {
 	if(isset($_REQUEST['id']))
@@ -210,6 +253,7 @@ elseif($ppa=='propertydetail')
 						$title_tag_1 = $tex1[0].'-'.$tex3[1];
 						$title_tag = $title_tag_1;
 					}
+					
 					else
 					{
 						$title_tag_1 = $tex1[0].'-'.$tex3[1];

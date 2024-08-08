@@ -426,6 +426,18 @@
 		),*/
 	);
 	
+	if($dbc->HasRecord("users","id = '".$_SESSION['auth']['user_id']."' and super = 1"))
+	{
+		$super = array(
+			'name' => 'Villa Data',
+			'menu-icon' => 'fa-area-chart',
+			'app' => 'villa_data',
+		);
+		
+		array_push($aApplicationMenu,$super);
+		
+	}
+	
 	/*if($dbc->HasRecord("users","id = '".$_SESSION['auth']['user_id']."'"))
 	{
 		$us = $dbc->GetRecord("users","*","id = '".$_SESSION['auth']['user_id']."'");

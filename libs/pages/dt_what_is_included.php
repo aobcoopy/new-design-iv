@@ -50,6 +50,7 @@ $wc6 = (count($what_ic6)!='0')?$wc=1:'';
 $wc7 = (count($what_ic7)!='0')?$wc=1:'';
 //if(count($what_ic1)!='0'){$wc=1;}else{$wc=0;}
 //echo '---'.$wc.'/----/'.$room['wiic'];
+//print_r($cate1);
 if($room['wiic']==1 )
 {//echo '<br>true';
 	if($wc==1)

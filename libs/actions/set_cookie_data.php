@@ -52,14 +52,15 @@
 	//setcookie("iv_svurl", "", time()-3600);
 	$cookie_time = time() + (86400 * 30);
 	//$cookie_time = time() - 3600;
-	$cookie_name = ['iv_usdv','iv_usip','iv_usurl','iv_svip','iv_usssid','iv_usmb'];//"";
+	$cookie_name = ['iv_usdv','iv_usip','iv_usurl','iv_svip','iv_usssid','iv_usmb','google_consent_status'];//"";
 	$cookie_value = [
 		$_SERVER['HTTP_USER_AGENT'],
 		$_SERVER['REMOTE_ADDR'],
 		$_REQUEST['actual_link'],
 		$_SERVER['SERVER_ADDR'],
 		session_id(),
-		$device
+		$device,
+		$_REQUEST['agreement']
 	];//"Alex Porter";
 	
 	for($xx=0;$xx<=count($cookie_name);$xx++)
@@ -86,6 +87,8 @@
 		'link' => $_REQUEST['actual_link'],
 		'agreement' => $_REQUEST['agreement']
 	);
+	
+	//setcookie($cookie_name['google_consent_status'],$_REQUEST['agreement'],$cookie_time , "/");
 	
 	$dbc->Insert("cookies",$data);
 	

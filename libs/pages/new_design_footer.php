@@ -158,7 +158,7 @@ else
 ?>
 <?php ?>
 
-<a target="_blank" href="https://api.whatsapp.com/send?phone=66846771551&text=I want more information about => <?php echo $actual_link;?>"><button class="box_whatsapp" type="button"><img class="share_icon center-block" src="<?php echo $url_link;?>upload/whatsapp_new.png" width="30"></button></a>
+<a target="_blank" href="https://api.whatsapp.com/send?phone=66846771551&text=I want more information about => <?php echo $actual_link;?>"><button class="box_whatsapp" type="button"><img class="share_icon center-block" src="<?php echo $url_link;?>upload/whatsapp11.png" width="30"></button></a>
 
 <script>
 function agree_pdpa2()

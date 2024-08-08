@@ -3,18 +3,82 @@
 $id = $_REQUEST['id'];//base64_decode($_REQUEST['id']);//echo $id;
 $dear_show = 0;
 $bg = '#E5E5E5';
+//echo '<br><br><br><br><br><br><br><br><br>'.$id;
+$visib = '';
+if($dbc->HasRecord("villa_form_mapping","links = '".$id."'"))
+{
+	$form = $dbc->GetRecord("villa_form_mapping","*","links = '".$id."'");
+	$form_id = $form['id'];
+	$form_mapping_id = $form['id'];
+	$villa_form_mapping = $form;
+	
+	$villa_form = $dbc->GetRecord("villa_form","*","id = '".$form['villaform_id']."'");
+		
+	$data = $dbc->GetRecord("properties","*","id='".$villa_form['property']."'");
+	$vil_name = explode("|",$data['name']);
+	
+	$sql_status = $dbc->Query("select * from villa_form_status where vfm = '".$form_mapping_id."'");
+	$airport ='';
+	$guest = '';
+	$food = '';
+	$payment = '';
+	$conceirge = '';
+	while($row = $dbc->Fetch($sql_status))
+	{
+		if($row['sections']=='airport')
+		{
+			$airport = $row['sections'];
+		}
+		elseif($row['sections']=='guest')
+		{
+			$guest = $row['sections'];
+		}
+		elseif($row['sections']=='food')
+		{
+			$food = $row['sections'];
+		}
+		elseif($row['sections']=='payment')
+		{
+			$payment = $row['sections'];
+		}
+		elseif($row['sections']=='conceirge')
+		{
+			$conceirge = $row['sections'];
+		}
+		//echo $row['sections'].'<br>';
+	}
+	
+	
+}
+else
+{
+	$villa_form = '';
+	$data = '';
+	$vil_name = '';
+	$form = '';
+	$form_id = '';
+	fourTen();
+	$visib = 'd-none';
+}
+		
+
+
 if(isset($_SESSION['auth']['user_id']))
 {
 	$bg = '#fff';//'#fff4e4';
 	$dear_show = 1;
 	$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-	$form = $dbc->GetRecord("villa_form_mapping","*","links = '".$id."'");
+	//$form = $dbc->GetRecord("villa_form_mapping","*","links = '".$id."'");
+	
+	$total_section = $dbc->GetCount("villa_form_status","vfm = '".$form['id']."'");
+	$percent = ($total_section*100)/5;
+	
 	?>
     <div class="container-fluid nopad top50" style="position:fixed; width:100%; z-index:10;">
         <div class="col-12 nopad text-center">
             <!--<button type="button" class="btn btn-primary btn_back" onClick="goback()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button>-->
             <?php /*?><div class="col-md-6 nopad"><button type="button" class="btn btn-primary btn_back btn-sm btn-block" onClick="goback()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></div><?php */?>
-            <div class="col-md-12 nopad"><button class="btn btn-warning btn-md btn-block">Edit Form Customer Name <?php echo $form['cus_name'];?></button></div>
+            <div class="col-md-12 nopad <?php echo $visib;?>"><button class="btn btn-warning btn-md btn-block">Edit Form Customer Name <?php echo $form['cus_name'];?></button></div>
             
             
             
@@ -57,6 +121,38 @@ else
 }
 ?>
 
+<script>
+function complete_airport(id,posi)
+{
+	$.ajax({
+		url:"libs/action_form/complete_section.php",
+		type:"POST",
+		dataType:"json",
+		data:{
+			id:id,
+			posi:posi
+			},
+		success: function(res){
+			$(".new_progress_bar").css({"width":res.percent+'%'});
+			$(".pg_percent").animate({"left":res.percent+'%'},300);
+			$(".pg_percent").html(res.percent+'%');
+			if(res.display =='show')
+			{
+				$("."+posi).show();
+			}
+			else
+			{
+				$("."+posi).hide();
+			}
+			
+		}
+	});
+}
+</script>
+<div class="progress new_progress <?php echo $visib; echo isset($_SESSION['auth']['user_id'])?'':'d-none';?>" >
+	<div class="pg_percent jello-horizontal color-change-5x"><?php echo $percent;?>%</div>
+  <div class="progress-bar progress-bar-striped progress-bar-animated new_progress_bar color-change-5x" role="progressbar" aria-label="Example with label" style="width:<?php echo $percent;?>%"  aria-valuenow="<?php echo $percent;?>" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
 
 <ul class="nav navvv justify-content-center">
               <li class="nav-item">
@@ -83,30 +179,53 @@ else
 <br>
 <br>
 <br>
-<?php
-	
-	if($dbc->HasRecord("villa_form_mapping","links = '".$id."'"))
-	{
-		$form = $dbc->GetRecord("villa_form_mapping","*","links = '".$id."'");
-		$form_id = $form['id'];
-		$form_mapping_id = $form['id'];
-		
-		$villa_form = $dbc->GetRecord("villa_form","*","id = '".$form['villaform_id']."'");
-			
-		$data = $dbc->GetRecord("properties","*","id='".$villa_form['property']."'");
-		$vil_name = explode("|",$data['name']);
-	}
-	else
-	{
-		$villa_form = '';
-		$data = '';
-		$vil_name = '';
-		$form = '';
-		$form_id = '';
-	}
-		
-?>
 
+<script>
+$(document).ready(function(e) {
+    var airport = '<?php echo $airport;?>';
+	var guest = '<?php echo $guest;?>';
+	var food = '<?php echo $food;?>';
+	var payment = '<?php echo $payment;?>';
+	var conceirge = '<?php echo $conceirge;?>';
+	var pcent = '<?php echo $percent;?>';
+	$(".pg_percent").animate({"left":pcent+'%'},1000);
+	
+	setTimeout(function(){
+		if(airport != '')
+		{
+			$("."+airport).hide();
+		}
+		
+		if(guest != '')
+		{
+			$("."+guest).hide();
+		}
+		
+		if(food != '')
+		{
+			$("."+food).hide();
+		}
+		
+		if(payment != '')
+		{
+			$("."+payment).hide();
+		}
+		
+		if(conceirge != '')
+		{
+			$("."+conceirge).hide();
+		}
+	},800);
+	//alert(airport+'-'+guest+'-'+food+'-'+payment+'-'+conceirge);
+});
+</script> 
+
+
+<script>
+$(document).ready(function(e) {
+   $( 'textarea.editor' ).ckeditor();
+});
+</script>
 <script>
 function alert_text(inp)
 {
@@ -171,9 +290,13 @@ function save_cus()
 <br><br><br><br><br>
 <div class="container-fluid">
 	<div class="row justify-content-center">
-    	<div class="col-6 align-self-end text-end"><img src="../../upload/new_design/villa_form/Artboard 112.png" class="vf_img" width="150" alt=""></div>
+    	<div class="col-12 align-self-end text-center">
+        	<img src="../../upload/new_design/villa_form/Artboard 112.png" class="vf_img" width="150" alt="">
+            <div class="villa_name_top"><?php echo $vil_name[0];?></div>	
+        </div>
+    	<!--<div class="col-6 align-self-end text-end"><img src="../../upload/new_design/villa_form/Artboard 112.png" class="vf_img" width="150" alt=""></div>
         <div class="col-6 align-self-start text-start">
-        	<div class="villa_name_top"><?php echo $vil_name[0];?></div>	
+        	<div class="villa_name_top"><?php echo $vil_name[0];?></div>	-->
         <?php 
 			/*if($villa_form['logo_part']!='')
 			{
@@ -184,7 +307,8 @@ function save_cus()
 			{
 				echo '<img src="../../upload/new_design/villa_form/logo_right.jpg" class="img_r_logo_tmb" width="150" alt="">';
 			}*/
-		?><!--<img src="../../upload/new_design/villa_form/Artboard 113.png" width="150" alt="">--></div>
+		?><!--<img src="../../upload/new_design/villa_form/Artboard 113.png" width="150" alt="">-->
+        <!--</div>-->
     </div>
     
     <div class="row text-center ">    
@@ -274,17 +398,24 @@ function save_cus()
                     <div class="book_details t_t1-">
                     	<?php 
 						$inf = json_decode($villa_form['informations'],true);
-						$booking = json_decode(base64_decode($inf['booking']),true);
+						$inf_2 = json_decode($villa_form_mapping['informations'],true);
+						$booking = json_decode(base64_decode($inf_2['booking']),true);
 						$bd = ($booking['booking_details']!='')?'block':'none';
 						//$bi = ($booking['booking_inclusions']!='')?'block':'none';
 						$ac = ($booking['additional_charges']!='')?'block':'none';
 						
-						$inc = json_decode(base64_decode($inf['inclusions']),true);
+						$inc = json_decode(base64_decode($inf_2['inclusions']),true);
 						$bi = (count($inc)>0)?'block':'none';
-						$not = json_decode(base64_decode($inf['note']),true);
+						$not = json_decode(base64_decode($inf_2['note']),true);
 						$notess = (count($not)>0)?'block':'none';
 						?>
 						
+                        
+                
+                        
+                        
+                        <form id="v_form_infoma">
+            			<input type="hidden" name="txtID" value="<?php echo $form_id;?>">  
 						<div class="row justify-content-center top70">
 							<div class="col-9 t_t2-">
 								<dl class="row text-start">
@@ -300,6 +431,73 @@ function save_cus()
 								<a href="<?php echo $inf['map'];?>" target="_blank" class=" <?php echo $disp;?>"><div class="btn_google_map"><!--<img src="../../upload/new_design/villa_form/Google-Maps-Logo.jpg" class="googlemap_but" alt="">--></div></a></dt>
 								<br><br> <br><br>
 									
+                                    <?php
+									if(isset($_SESSION['auth']['user_id']))
+									{
+										?>
+                                    <dt class="col-sm-4"><strong>Booking Details</strong></dt>
+									<dd class="col-sm-8"><textarea class="editor" name="tx_bd" id="tx_bd" cols="30" rows="7" style="width:100%"><?php echo json_decode(base64_decode($booking['booking_details'],true));?></textarea></dd>
+									<dt class="col-sm-4 top50">Booking Inclusions</dt>
+									<dd class="col-sm-8 top50" ><!--style="display:<?php echo $bd;?>"-->
+									<button type="button" class="btn btn-primary" onClick="add_inclu();"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                    <div class="box_inclu">
+                                    <?php
+                                    $inc = json_decode(base64_decode($inf_2['inclusions']),true);
+                                    if(count($inc)>0)
+                                    {
+                                        foreach($inc as $inclus)
+                                        {
+                                            echo '<div class="inclu_inp top20 row">';
+                                                echo '<div class="col-md-10 nopad"><input type="text" name="tx_inclusions[]" style="width:100%" value="'.$inclus.'"></div>';
+                                                echo '<div class="col-md-1 text-right"><button type="button" class="btn btn-danger" onClick="$(this).parent().parent().remove();"><i class="fa fa-remove" aria-hidden="true"></i></button></div>';
+                                            echo '</div>';
+                                        }
+                                    }
+                                    ?>
+                                    </div>
+									</dd>
+									
+									<dt class="col-sm-4 top50" >Additional Charges</dt>
+									<dd class="col-sm-8 top50" ><textarea name="tx_ac" id="tx_ac" cols="30" rows="7" style="width:100%"><?php echo $booking['additional_charges'];?></textarea></dd>
+									
+									<dt class="col-sm-4 top50" >Note</dt>
+									<dd class="col-sm-8 top50" >
+                                    	<button type="button" class="btn btn-primary" onClick="add_notes();"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                        <div class="box_notes">
+                                        <?php
+                                        $notes = json_decode(base64_decode($inf_2['note']),true);
+                                        if(count($notes)>0)
+                                        {
+                                            foreach($notes as $notess)
+                                            {
+                                                echo '<div class="inclu_inp top20 row">';
+                                                    echo '<div class="col-md-10 nopad"><input type="text" name="tx_notes[]" style="width:100%" value="'.$notess.'"></div>';
+                                                    echo '<div class="col-md-1 text-right"><button type="button" class="btn btn-danger" onClick="$(this).parent().parent().remove();"><i class="fa fa-remove" aria-hidden="true"></i></button></div>';
+                                                echo '</div>';
+                                            }
+                                        }
+                                        ?>
+                                        </div>
+                                    </dd>
+									
+                                    <div class="col-12">
+                                    	<?php
+										if(isset($_SESSION['auth']['user_id']))
+										{
+										?>
+                                        <button type="button" class="btn btn-primary " onClick="save_information();"> Save</button>
+                                        <?php } ?>
+                                        <span class="icon">
+                                            <i class="fa fa-check cok cok01" aria-hidden="true"></i> <span class="tok tok01"></span>
+                                            <i class="fa fa-check cno cno01" aria-hidden="true"></i> <span class="tno tno01"></span>
+                                        </span>
+									</div>
+                                    <?php
+									}
+									else
+									{
+										?>
+<!--************************************************************************************ admin ******************************************************************-->                                    
 									<dt class="col-sm-4"><strong>Booking Details</strong></dt>
 									<dd class="col-sm-8"><?php echo json_decode(base64_decode($booking['booking_details'],true));//nl2br(json_decode(base64_decode($booking['booking_details'],true)));?></dd>
 									<?php 
@@ -357,7 +555,9 @@ function save_cus()
 										}
 									?>
 									</dt>
-									
+									<?php
+									}
+									?>
 									
 									<div class="book_line"></div>
 									
@@ -385,7 +585,10 @@ function save_cus()
 									</dd>-->
 								</dl>
 							</div>
-						</div>
+						</div><!--row-->
+                        
+                        
+                        </form>
         
 
 
@@ -400,6 +603,93 @@ function save_cus()
     </div>
 </div>
 
+<script>
+function add_notes()
+{
+    var z='';
+    z+= '<div class="inclu_inp top20 row">';
+        z+= '<div class="col-md-10 nopad"><input type="text" name="tx_notes[]" style="width:100%"></div>';
+        z+= '<div class="col-md-1 text-right"><button type="button" class="btn btn-danger" onClick="$(this).parent().parent().remove();"><i class="fa fa-remove" aria-hidden="true"></i></button></div>';
+    z+= '</div>';
+    $(".box_notes").append(z);
+}
+
+function add_inclu()
+{
+    var z='';
+    z+= '<div class="inclu_inp top20 row">';
+        z+= '<div class="col-md-10 nopad"><input type="text" name="tx_inclusions[]" style="width:100%"></div>';
+        z+= '<div class="col-md-1 text-right"><button type="button" class="btn btn-danger" onClick="$(this).parent().parent().remove();"><i class="fa fa-remove" aria-hidden="true"></i></button></div>';
+    z+= '</div>';
+    $(".box_inclu").append(z);
+}
+
+function save_information()
+{
+    /*if($("#tx_in_address").val()=='')
+    {
+        alert_text("#tx_in_address");
+    }
+    else if($("#tx_in_location").val()=='')
+    {
+        alert_text("#tx_in_location");
+    }
+    else if($("#tx_in_phone").val()=='')
+    {
+        alert_text("#tx_in_phone");
+    }
+    else
+    {*/
+        $.ajax({
+            url:"libs/action_form/save_information_mapping.php",
+            type:"POST",
+            dataType:"json",
+            data:$("#v_form_infoma").serialize(),
+            success: function(res){
+                if(res.status==true)
+                {
+                    $(".cok01").fadeIn(300);
+                    $(".cno01,.tno01").hide();
+                }
+                else
+                {
+                    $(".cno01,.tno01").fadeIn(300);
+                    $(".tno01").html(res.msg);
+                    $(".cok01").hide();
+                }
+            }
+        });
+    /*}*/
+}
+
+function set_date_onside(me)
+{
+	var id = $(me).parent().find('#txtIDOS').val();
+	$.ajax({
+		url:"libs/action_form/save_onsite_display.php",
+		type:"POST",
+		dataType:"json",
+		data:{
+			id:id,
+			tx_chkindate:$(me).val()
+		},
+		success: function(res){
+			if(res.status==true)
+			{
+				$(".cok01_os").fadeIn(300);
+				$(".cno01_os,.tno01_os").hide();
+			}
+			else
+			{
+				$(".cno01_os,.tno01_os").fadeIn(300);
+				$(".tno01_os").html(res.msg);
+				$(".cok01_os").hide();
+			}
+		}
+	});
+}
+</script>
+
 <div class="container-fluid box_dear">
 	<div class="row justify-content-center">
     	<div class="col-11 col-md-10 col-xl-8">
@@ -408,14 +698,55 @@ function save_cus()
               <dt class="col-sm-3">SERVICE HOURS</dt>
               <dd class="col-sm-9"><?php echo $villa_form['services'];?></dd>
               
-               <?php 
-					$os_status_vi = ($villa_form['onsite_status']==1)?'block':'none';
+               <?php //$os_status_vi = ($villa_form['onsite_status']==1)?'block':'none';
+			    $os_status_vi = ($villa_form_mapping['onsite_con']<=date('Y-m-d'))?'block':'none';
+			    $os_status = ($villa_form['onsite_status']==1)?$villa_form['onsite_con']:$villa_form['onsite_con'];
+				
+				//echo $os_status_vi .'|----|'. $os_status;
 				?>
-              <dt class="col-sm-3" style="display:<?php echo $os_status_vi;?>">ONSITE CONTACT</dt>
-              <?php 
-					$os_status = ($villa_form['onsite_status']==1)?$villa_form['onsite_con']:'-';
-				?> 
-              <dd class="col-sm-9" style="display:<?php echo $os_status_vi;?>"><?php echo $os_status;?></dd>
+              
+				<?php
+                if(isset($_SESSION['auth']['user_id']))
+                {
+					$onsite_con = $villa_form_mapping['onsite_con'];
+					echo '<dt class="col-sm-3" style="display:">ONSITE CONTACT</dt>';
+              		echo '<dd class="col-sm-3" style="display:">'.$os_status.' </dd>';
+					
+					echo '<dt class="col-sm-2">Display on </dt>';
+					echo '<dd class="col-sm-3" >';
+						echo '<input type="hidden" id="txtIDOS" name="txtID" value="'.$form_id.'">';
+						echo '<input type="date" name="tx_chkindate" id="tx_chkindate" onChange="set_date_onside(this);" value="'.$onsite_con.'">';
+							echo '<span class="icon">';
+								echo '<i class="fa fa-check cok cok01_os" aria-hidden="true"></i> <span class="tok tok01_os"></span>';
+								echo '<i class="fa fa-check cno cno01_os" aria-hidden="true"></i> <span class="tno tno01_os"></span>';
+							echo '</span>';
+					echo '</dd>';
+                }
+				else
+				{
+					if($os_status_vi=='block')
+					{
+						echo '<dt class="col-sm-3" style="display:'.$os_status_vi.'">ONSITE CONTACT</dt>';
+						echo '<dd class="col-sm-3" style="display:'.$os_status_vi.'">'.$os_status.' </dd><!--style="display:<?php echo $os_status_vi;?>"-->';
+					}
+					else
+					{
+						echo '<dt class="col-sm-3" style="display:"></dt>';
+              			echo '<dd class="col-sm-3" style="display:"></dd>';
+					}
+					//echo '<div class="w-100"></div>';
+					echo '<dt class="col-sm-2"></dt>';
+					echo '<dd class="col-sm-3" >';
+						//echo '<input type="hidden" id="txtIDOS" name="txtID" value="'.$form_id.'">';
+						//echo '<input type="date" name="tx_chkindate" id="tx_chkindate" onChange="set_date_onside(this);" value="'.$onsite_con.'">';
+							echo '<span class="icon">';
+								echo '<i class="fa fa-check cok cok01_os" aria-hidden="true"></i> <span class="tok tok01_os"></span>';
+								echo '<i class="fa fa-check cno cno01_os" aria-hidden="true"></i> <span class="tno tno01_os"></span>';
+							echo '</span>';
+					echo '</dd>';
+				}
+                ?> 
+                
               
               <?php $arrival = json_decode($villa_form['arrival'],true);?>
               <dt class="col-sm-3">ARRIVAL AND DEPARTURE TIMES</dt>
@@ -466,7 +797,7 @@ function save_cus()
             <form id="v_form_4_arv">
             <input type="hidden" name="txtID" value="<?php echo $form_id;?>"> 
             <input type="hidden" id="txtIDMapping" name="txtIDMapping" value="<?php echo $form_mapping_id;?>"> 
-            	 <h2> <span class="tb">+</span>
+            	 <h2 style=" font-family:sr;font-family: sr !important;font-weight: bold; letter-spacing:3px; text-transform:uppercase;"> <span class="tb">+</span>
                     <!--<button type="button" class="btn btn-danger " onClick="$(this).parent().parent().remove();"><i class="fa fa-trash" aria-hidden="true"></i></button> -->
                     Transfers Arrival <!--<span class="badge badge-info"><?php echo $xx;?></span>-->
                     </h2>
@@ -474,7 +805,7 @@ function save_cus()
                     <div class="row">
                     <div class="col-12">
                         
-						<div class="arv_display">
+						<div class="arv_display row">
                         	
                         </div>
                         
@@ -482,7 +813,7 @@ function save_cus()
                     </div>
                     </div>
                     
-                    <div class="alert alert-success col-md-12 arrival row" role="alert">
+                    <div class="alert alert-success col-md-12 arrival row airport" role="alert">
                     
                     
                     
@@ -559,7 +890,7 @@ function save_cus()
                     
                     <div class="tricorner bluee"></div>
                 </div>
-                <button type="button" class="btn btn-primary " onClick="save_airport_arv();"> Save</button> 
+                <button type="button" class="btn btn-primary airport" onClick="save_airport_arv();"> Save</button> 
            </form>
            
            <script>
@@ -626,13 +957,177 @@ function save_cus()
            </script>
            <br><br>
            
+           
+           
+           
+           
+            <form id="v_form_4_dpt">
+            <input type="hidden" name="txtID" value="<?php echo $form_id;?>"> 
+            <input type="hidden" id="txtIDMapping" name="txtIDMapping" value="<?php echo $form_mapping_id;?>"> 
+            	 <h2 style="color:#F7941D; font-family:sr;font-family: sr !important;font-weight: bold; letter-spacing:3px;"> <span class="tb">+</span>
+                    TRANSFERS DEPARTURE 
+                    </h2>
+                    
+                    <div class="row">
+                    <div class="col-12">
+                        
+						<div class="dpt_display row">
+                        	
+                        </div>
+                        
+                        <br><br><br>
+                    </div>
+                    </div>
+                    
+                    <div class="alert alert-warning col-md-12 departure row airport" role="alert">
+                                
+                        <?php /*?><h2> <span class="tb">+</span>
+                        <!--<button type="button" class="btn btn-danger " onClick="$(this).parent().parent().remove();"><i class="fa fa-trash" aria-hidden="true"></i></button>--> Transfers Departure <span class="badge badge-warning"><?php echo $yy;?></span></h2><?php */?>
+                        <div class="col-md-4">
+                            <div class="form-group rela">
+                                <label for="Sign Name">Sign Name</label>
+                                <input type="text" class="form-control li_ora" id="tx_sname_d" name="tx_sname_d" >
+                                <div class="tricorner_mini orangee"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group rela">
+                                <label for="Sign Name">Date</label>
+                                <input type="date" class="form-control li_ora" id="tx_date_d" name="tx_date_d" >
+                                <div class="tricorner_mini orangee"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group rela">
+                                <label for="Sign Name">Airport/Hotel</label>
+                                <input type="text" class="form-control li_ora" id="tx_airline_d" name="tx_airline_d" >
+                                <div class="tricorner_mini orangee"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group rela">
+                                <label for="Sign Name">Flight number</label>
+                                <input type="text" class="form-control li_ora" id="tx_flight_d" name="tx_flight_d" >
+                                <div class="tricorner_mini orangee"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group rela">
+                                <label for="Sign Name">Time</label>
+                                <input type="text" class="form-control li_ora" id="tx_time_d" name="tx_time_d" >
+                                <div class="tricorner_mini orangee"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group rela">
+                                <label for="Sign Name">No. of Adults/Kids (Kids age)</label>
+                                <input type="text" class="form-control li_ora" id="tx_pass_d" name="tx_pass_d" >
+                                <div class="tricorner_mini orangee"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group rela">
+                                <label for="Sign Name">Transfer Arrangement Yes or No</label>
+                                <input type="text" class="form-control li_ora" id="tx_transfer_d" name="tx_transfer_d" >
+                                <div class="tricorner_mini orangee"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group rela">
+                                <label for="Sign Name">Contact Number</label>
+                                <input type="text" class="form-control li_ora" id="tx_Contact_Number_d" name="tx_Contact_Number_d" >
+                                <div class="tricorner_mini orangee"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group rela">
+                                <label for="Sign Name">No.of Luggages </label>
+                                <input type="text" class="form-control li_ora " id="tx_luggages_d" name="tx_luggages_d" >
+                                <div class="tricorner_mini orangee"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group rela">
+                                <label for="Sign Name">Special Request</label>
+                                <input type="text" class="form-control li_ora" id="tx_Special_Request_d" name="tx_Special_Request_d" >
+                                <div class="tricorner_mini orangee"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="tricorner orangee"></div>
+                    </div>
+                <button type="button" class="btn btn-primary airport" onClick="save_airport_dpt();"> Save</button> 
+           </form>
+           
+           <script>
+		   $(document).ready(function(e) {
+				load_departure();
+        	});
+			
+			function del_departure(id)
+			{
+				var Delconf = confirm('Are you sure to delete !');
+				if(Delconf==false)
+				{
+					return false;
+				}
+				else
+				{
+					$.ajax({
+						url:"libs/action_form/del_departure_data.php",
+						type:"POST",
+						dataType:"json",
+						data:{id:id},
+						success: function(res){
+							load_departure();
+						}
+					});
+				}
+			}
+			
+			function load_departure()
+			{
+				$.ajax({
+					url:"libs/action_form/load_departure_data.php",
+					type:"POST",
+					dataType:"html",
+					data:{id:$("#txtIDMapping").val()},
+					success: function(res){
+						$(".dpt_display").html(res);
+					}
+				});
+			}
+			
+           function save_airport_dpt()
+		   {
+			   $.ajax({
+					url:"libs/action_form/save_airport_departure.php",
+					type:"POST",
+					dataType:"json",
+					data:$("#v_form_4_dpt").serialize(),
+					success: function(res){
+						if(res.status==true)
+						{
+							load_departure();
+							$(".li_ora").val('');
+						}
+						else
+						{
+							$(".cno4,.tno4").fadeIn(300);
+							$(".tno4").html(res.msg);
+							$(".cok4").hide();
+						}
+					}
+				});
+		   }
+           </script>
            <form id="v_form_4">
             <input type="hidden" name="txtID" value="<?php echo $form_id;?>">             
                        
                        
                        
                             
-                <div class="col-md-12 r_arrival">
+                <?php /*?><div class="col-md-12 r_arrival">
                     <div class=""><button type="button" class="btn btn_addarv " onClick="add_arrival_4();"><i class="fa fa-plus" aria-hidden="true"></i> Arrival</button></div><br>
                      <?php 
                      $air = json_decode($form['airport_transfer'],true);
@@ -727,9 +1222,9 @@ function save_cus()
                          }
                     }
                      ?>
-                </div>
+                </div><?php */?>
                 
-                <div class="col-md-12 r_departure">
+                <?php /*?><div class="col-md-12 r_departure">
                     
                     <div class=""><button type="button" class="btn btn_adddpt " onClick="add_dpt_4();"><i class="fa fa-plus" aria-hidden="true"></i> Departure</button></div><br>
                     <?php
@@ -821,33 +1316,41 @@ function save_cus()
                          }
                      }
                      ?>
-                </div>
+                </div><?php */?>
                 
                 <?php $a_xx = ($xx<=0)?1:$xx; $a_yy = ($yy<=0)?1:$yy;?>
                 <input type="hidden" class="txarv" value="<?php echo $a_xx;?>">
                 <input type="hidden" class="txdpt" value="<?php echo $a_yy;?>">
                 
                 
-                <div class="">
+                <!--<div class="">
                 <button type="button" class="btn btn-primary " onClick="save_airport();"> Save</button> 
                 <span class="icon">
                     <i class="fa fa-check cok cok4" aria-hidden="true"></i> <span class="tok tok4"></span>
                     <i class="fa fa-check cno cno4" aria-hidden="true"></i> <span class="tno tno4"></span>
-                </span>
+                </span>-->
                 <!--<button type="button" class="btn btn-success " onClick="add_table_4();"><i class="fa fa-plus" aria-hidden="true"></i></button>-->
                 <!--<button type="button" class="btn btn-success " onClick="add_arrival_4();"><i class="fa fa-plus" aria-hidden="true"></i></button>-->
-                </div>
+                <!--</div>-->
                 
-    
+    			<br><br>
                 <p><strong>NOTE:</strong> 100% of the service price may be charged for cancellation and adjustment less than 24 hours before the booking.</p>
                 <p >
-                    <strong>Special Request </strong><br>
-                    <div class="rela">
-                        <textarea class="txt_line tx_overlay" name="tx_spcrq" id="tx_spcrq" cols="30" rows="5" placeholder=" " style="width:100%;"><?php echo json_decode($form['special_request']);?></textarea>
+                    <strong>Special Request </strong>
+                    
+                    <div class="col-12 col-md-6"><div class="display_special_request_airport_transfer"></div></div>
+                    
+                    <div class="rela top30 airport">
+                        <textarea class="txt_line tx_overlay" name="tx_spcrq" id="tx_spcrq" cols="30" rows="5" placeholder=" " style="width:100%;"></textarea>
                         <label for="tx_spcrq" class="bedcon">Special Request </label>
                         <div class="tricorner_2 bluee"></div>
                     </div>
-                    <button type="button" class="btn btn-primary " onClick="save_special_request();"> Save</button> 
+                    <?php /*?><div class="rela">
+                        <textarea class="txt_line tx_overlay" name="tx_spcrq" id="tx_spcrq" cols="30" rows="5" placeholder=" " style="width:100%;"><?php echo json_decode($form['special_request']);?></textarea>
+                        <label for="tx_spcrq" class="bedcon">Special Request </label>
+                        <div class="tricorner_2 bluee"></div>
+                    </div><?php */?>
+                    <button type="button" class="btn btn-primary airport" onClick="save_special_request_vfd();"> Save</button> 
                     <span class="icon">
                         <i class="fa fa-check cok cok4_1" aria-hidden="true"></i> <span class="tok tok4_1"></span>
                         <i class="fa fa-check cno cno4_1" aria-hidden="true"></i> <span class="tno tno4_1"></span>
@@ -856,6 +1359,102 @@ function save_cus()
                 
             </form>
         </div>
+        
+        <?php $vf_airport = ($dbc->HasRecord("villa_form_status","vfm = '".$form_mapping_id."' and sections = 'airport'")?'checked':'');?>
+        
+        <div class="row- col-12 rela <?php echo isset($_SESSION['auth']['user_id'])?'':'d-none';?>">
+            <div class="switch">
+                <input id="cmn-toggle-aptf" class="cmn-toggle cmn-toggle-round" <?php echo $vf_airport;?>  type="checkbox" onClick="complete_airport('<?php echo $form_mapping_id;?>','airport')">
+                <label for="cmn-toggle-aptf"></label><span class="tx_sta">Complete</span>
+            </div>
+        </div>
+        
+        
+        
+        <script>
+		$(document).ready(function(e) {
+            load_special_request_airport();
+        });
+		
+		
+		
+		function load_special_request_airport()
+		{
+			var data = {
+				id : $("#txtID").val(),
+				tx_spcrq : $("#tx_spcrq").val(),
+			};
+			
+			$.ajax({
+				url:"libs/action_form/load_special_request_vfd.php",
+				type:"POST",
+				dataType:"html",
+				data:data,
+				success: function(res){
+					$(".display_special_request_airport_transfer").html(res);
+				}
+			});
+		}
+		
+		function del_special_request_airport(id)
+		{
+			var Delconf = confirm('Are you sure to delete it?');
+			if(Delconf==false)
+			{
+				return false;
+				
+			}
+			else
+			{
+				$.ajax({
+					url:"libs/action_form/del_special_request_airport.php",
+					type:"POST",
+					dataType:"html",
+					data:{id:id},
+					success: function(res){
+						load_special_request_airport();
+					}
+				});
+			}
+		}
+		
+        function save_special_request_vfd()
+		{
+			var data = {
+				txtID : $("#txtID").val(),
+				tx_spcrq : $("#tx_spcrq").val(),
+			};
+			
+			if( $("#tx_spcrq").val()=='')
+			{
+				alert_text("#tx_spcrq");
+			}
+			else
+			{
+				$.ajax({
+					url:"libs/action_form/save_special_request_vfd.php",
+					type:"POST",
+					dataType:"json",
+					data:data,
+					success: function(res){
+						if(res.status==true)
+						{
+							load_special_request_airport();
+							$("#tx_spcrq").val('');
+							$(".cok4_1").fadeIn(300);
+							$(".cno4_1,.tno4_1").hide();
+						}
+						else
+						{
+							$(".cno4_1,.tno4_1").fadeIn(300);
+							$(".tno4_1").html(res.msg);
+							$(".cok4_1").hide();
+						}
+					}
+				});
+			}
+		}
+        </script>
         
         <div class="w-100"></div>
         
@@ -870,15 +1469,88 @@ function save_cus()
                     <div class="tx_head">GUEST REGISTRATION</div>	
                     <p class="top15">Pursuant to The Rental Terms & Conditions, there will be a charge of $300 per night for any unregistered guest who stays at the villa. For your room assignment, please have a look at floor plan attached</p>
                 </div>
-                 
+                
+                 <?php $flp_photo = json_decode($data['plan'],true);
+					if($flp_photo!='')
+					{ 
+						 if(is_array($flp_photo))
+						 {
+							 if($flp_photo[0]!='')
+							 {
+								 ?>
+                                <div class="col-md-12 nopad top50">
+                                    <div class="tx_head">FLOOR PLAN</div>	
+                                    
+                                    <!--<p class="top15">
+                                        <img data-src="<?php echo $flp_photo[0];?>" alt="<?php echo $vil_name[0];?>Floor Plan" width="100%" data-bs-toggle="modal" data-bs-target="#myModal_floor" onClick="vire_floor()" class="pointer lazy">
+                                    </p>-->
+                                </div>
+                                
+                                <div id="fl_plan" class="carousel slide" data-bs-ride="carousel">
+                    				<!-- Indicators -->
+									
+                                    <!-- Wrapper for slides -->
+                                    <div class="carousel-inner">
+                                    <?php 
+                                    if(is_array($flp_photo))
+                                    {
+                                        $x=0;
+                                        foreach($flp_photo as $fl_img)
+                                        {
+                                            $selc = ($x==0)?'active':'';
+                                            echo '<div class="carousel-item '.$selc.'">';
+                                                echo '<img src="'.$fl_img.'" class="d-block w-100" width="100%" alt="...">';
+                                            echo '</div>';
+                                            $x++;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        $x=0;
+                                        $selc = ($x==0)?'active':'';
+                                        echo '<div class="carousel-item '.$selc.'">';
+                                            echo '<img src="'.imagePath($flp_photo).'" width="100%" alt="...">';
+                                        echo '</div>';
+                                    }
+                                    ?>
+                                    </div>
+                                    
+                                    <button class="carousel-control-prev caro__but" type="button" data-bs-target="#fl_plan" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next caro__but" type="button" data-bs-target="#fl_plan" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                    </button>
+                      
+                                    <!-- Controls -->
+                                   <!-- <a class="left arrleft carousel-control-prev" data-bs-slide="#carousel-fl-plan" >
+                                        <i class="fa fa-angle-left"></i>         
+                                        <span class="visually-hidden">Previous</span>      
+                                    </a>
+                                    <a class="right carousel-control-next" data-bs-slide="#carousel-fl-plan" >
+                                        <i class="fa fa-angle-right"></i>
+                                        <span class="visually-hidden">Next</span>
+                                    </a>-->
+                                </div>
+                 <?php
+							 }
+						 }
+					}
+					?>
+                
+                    
+                    
 				 <?php $bedroom_config = json_decode($villa_form['bedroom_config'],true);
+				 //echo count($bedroom_config);
 				if(count($bedroom_config)>0)
 				{
 				?>
-                <div class="col-md-12 nopad top15">
+                <div class="col-md-12 nopad top50">
                     <div class="tx_head " style="text-transform:uppercase">Bedroom Configuration</div>	
                     <?php //$bedroom_config = json_decode($villa_form['bedroom_config'],true);
-					echo '<ul class="bedr">';
+					echo '<ul class="bedr top20">';
 					foreach($bedroom_config as $bed)
 					{	
 						echo '<li  class="fo15"><strong>'.$bed.'</strong></li>';
@@ -893,6 +1565,139 @@ function save_cus()
                 <?php
 				}
 				?>
+                
+                
+                
+                
+                <div class="col-md-12 nopad top50 row"> 
+                	<div class="display_guest_list"></div>
+                </div>
+                
+                
+                <div class="col-md-12 nopad top50 row guest">
+                    <div class="col-md-2 text-md-end"><strong>First & Last Name</strong></div>
+                    <div class="col-md-4 "><input class="inp txt_line_2 gl" type="text" name="tx_first" id="tx_first"></div>
+                    
+                    <div class="col-md-2 text-md-end "><strong>Passport No.</strong></div>
+                    <div class="col-md-4 "><input class="inp txt_line_2 gl" type="text" name="tx_passport" id="tx_passport"></div>
+                    
+                    <div class="w-100"></div>
+                    
+                    <div class="col-md-2 text-md-end top20"><strong>City/Country of Residence</strong></div>
+                    <div class="col-md-4 top20"><input class="inp txt_line_2 gl" type="text" name="tx_city" id="tx_city"></div>
+                    
+                    <div class="col-md-2 text-md-end top20"><strong>Date of Birth</strong></div>
+                    <div class="col-md-4 top20"><input class="inp txt_line_2 gl" type="date" name="tx_date" id="tx_date"></div>
+                    
+                    <div class="w-100"></div>
+                    
+                    <div class="col-md-2 text-md-end top20"><strong>Nationality</strong></div>
+                    <div class="col-md-4 top20"><input class="inp txt_line_2 gl" type="text" name="tx_nationality" id="tx_nationality"></div>
+                    
+                    <div class="col-md-2 text-md-end top20"><strong>Room assignment</strong></div>
+                    <div class="col-md-4 top20"><input class="inp txt_line_2 gl" type="text" name="tx_room" id="tx_room"></div>
+                    
+                    <div class="col-md-2 top20  text-md-end"></div>
+                    <div class="col-md-2 top20  "><button type="button" class="btn btn-primary" onClick="save_guest_list();">Save</button></div>
+                </div>
+               
+               <script>
+			    $(document).ready(function(e) {
+					load_guest_list();
+				});
+				
+				function load_guest_list()
+				{
+					$.ajax({
+							url:"libs/action_form/load_guest_list.php",
+							type:"POST",
+							dataType:"html",
+							data:{id:$("#orders_id").val()},
+							success: function(res){
+								$(".display_guest_list").html(res);
+							}
+						});
+				}
+				
+				function del_guest_list(id)
+				{
+					var Delconf = confirm('Are you sure to delete it?');
+					if(Delconf==false)
+					{
+						return false;
+						
+					}
+					else
+					{
+						$.ajax({
+							url:"libs/action_form/del_guest_list.php",
+							type:"POST",
+							dataType:"html",
+							data:{id:id},
+							success: function(res){
+								load_guest_list();
+							}
+						});
+					}
+				}
+			
+               function save_guest_list()
+			   {
+					if($("#tx_first").val()=='')
+					{
+						alert_text("#tx_first");
+					}
+					else if($("#tx_passport").val()=='')
+					{
+						alert_text("#tx_passport");
+					}
+					else if($("#tx_city").val()=='')
+					{
+						alert_text("#tx_city");
+					}
+					else if($("#tx_date").val()=='')
+					{
+						alert_text("#tx_date");
+					}
+					else if($("#tx_nationality").val()=='')
+					{
+						alert_text("#tx_nationality");
+					}
+					else if($("#tx_room").val()=='')
+					{
+						alert_text("#tx_room");
+					}
+					else
+					{
+					   $.ajax({
+							url:"libs/action_form/save_guest_list.php",
+							type:"POST",
+							dataType:"json",
+							data:$("#v_form_6").serialize(),
+							success: function(res){
+								if(res.status==true)
+								{
+									load_guest_list();
+									$(".gl").val('');
+									$(".cok4_1").fadeIn(300);
+									$(".cno4_1,.tno4_1").hide();
+								}
+								else
+								{
+									$(".cno4_1,.tno4_1").fadeIn(300);
+									$(".tno4_1").html(res.msg);
+									$(".cok4_1").hide();
+								}
+							}
+						});
+					}
+			   }
+               </script>
+               
+               
+               
+               
+               
                     
                     <?php 
 						//$bed = json_decode($data['bed'],true);
@@ -926,7 +1731,7 @@ function save_cus()
 					
                 
                 <div class="col-md-12 nopad top15">
-                <div class="">
+                <?php /*?><div class="">
                 <button type="button" class="btn btn-primary " onClick="save_guest();"> Save</button> 
                 <span class="icon">
                     <i class="fa fa-check cok cok6" aria-hidden="true"></i> <span class="tok tok6"></span>
@@ -987,7 +1792,8 @@ function save_cus()
                         
                       </tbody>
                     </table>
-                    </div>
+                    </div><?php */?>
+                    
                     <p>
                         <!--<strong>Bed Configurations </strong><br>-->
                         <div class="rela">
@@ -995,7 +1801,7 @@ function save_cus()
                             <label for="tx_bconf" class="bedcon">Bed Configurations</label>
                             <div class="tricorner_2 bluee"></div>
                         </div>
-                        <button type="button" class="btn btn-primary " onClick="save_tx_bconf();"> Save</button> 
+                        <button type="button" class="btn btn-primary guest" onClick="save_tx_bconf();"> Save</button> 
                         <span class="icon">
                             <i class="fa fa-check cok cok6_1" aria-hidden="true"></i> <span class="tok tok6_1"></span>
                             <i class="fa fa-check cno cno6_1" aria-hidden="true"></i> <span class="tno tno6_1"></span>
@@ -1009,6 +1815,19 @@ function save_cus()
     <input class="inp1" type="hidden" value="<?php echo $aaa;?>">
         </div>
         
+        
+        
+        <?php $vf_guest = ($dbc->HasRecord("villa_form_status","vfm = '".$form_mapping_id."' and sections = 'guest'")?'checked':'');?>
+        <div class="row- col-12 rela <?php echo isset($_SESSION['auth']['user_id'])?'':'d-none';?>">
+            <div class="switch">
+                <input id="cmn-toggle-guest" class="cmn-toggle cmn-toggle-round" <?php echo $vf_guest;?>  type="checkbox" onClick="complete_airport('<?php echo $form_mapping_id;?>','guest')">
+                <label for="cmn-toggle-guest"></label><span class="tx_sta">Complete</span>
+            </div>
+        </div>
+        
+        
+        
+        
         <div class="w-100"></div>
         
         <div id="FOOD" class=" bg_food rela"><div class="ovl"></div>
@@ -1016,7 +1835,7 @@ function save_cus()
         </div>
         
         
-        <div class="col-11 col-md-10 col-xl-8 top50">
+        <div class="col-11 col-md-10 col-xl-10 top50">
         <?php $dis_pl = ($villa_form['tx_food_link']!='')?'':'disabled';?>
         	<div class="tx_head">FOOD AND BEVERAGES</div>		
             <div class="tx_head top50">
@@ -1027,7 +1846,7 @@ function save_cus()
             </div>	
             <?php $dinner_amt = json_decode($villa_form['first_dinner_amt'],true); //print_r($dinner_amt);?>
             <div class="col-12 top20">
-            Please select from the <strong>villa menu</strong> the dinner dishes which are served family style rather than ala carte from the attached villa menu. That means that you cannot order individual servings, but the cook will prepare enough of each dish to serve your entire party. The recommended maximum number of items served for more than <?php echo $dinner_amt['guest'];?> guests are <?php echo $dinner_amt['dishes'];?> dishes including appetizers and desserts. 
+            Please select from the <strong>villa menu</strong> the dinner dishes which are served family style rather than ala carte from the attached villa menu. That means that you cannot order individual servings, but the cook will prepare enough of each dish to serve your entire party. The recommended maximum number of items served for each meal are <?php /*?><?php echo $dinner_amt['guest'];?> guests are <?php */?> <?php echo $dinner_amt['dishes'];?> dishes including appetizers and desserts. 
             </div>
             <div class="col-md-12 nopad ">
                 <div class="nopad vf_title_sub col-md-12 dinn">
@@ -1055,6 +1874,101 @@ function save_cus()
             <div class="col-md-12 nopad top15 <?php echo ($a_comp['display']=='on')?'':'d-none';?>">
                 <div class="">Complimentary Food & Beverages: <?php echo $a_comp['complimentary'];?></div>
             </div>
+            
+            <form id="v_form_orders">
+    		<input type="hidden" name="txtID" id="orders_id" value="<?php echo $form_id;?>">
+            <div class="col-md-12 nopad top15 ">
+                <div class=""><strong>Please place an order</strong> <!--<button type="button" class="btn btn-success " ><i class="fa fa-plus" aria-hidden="true"></i></button>--></div>
+                
+                <div class="orders_list top20"></div>
+                
+                <div class="orders top20">
+                	<div class="row">
+                    	<div class="col"><input type="text" name="tx_orders" id="tx_orders" class="tx_orders w-100 food"></div>
+                    	<div class="col-2"><button type="button" class="btn btn-primary food" onClick="add_orders();">Save</button></div>
+                    </div>
+                </div>
+            </div>
+            </form>
+            
+            
+            <script>
+			$(document).ready(function(e) {
+                load_orders();
+            });
+			function load_orders()
+			{
+				$.ajax({
+						url:"libs/action_form/load_orders.php",
+						type:"POST",
+						dataType:"html",
+						data:{id:$("#orders_id").val()},
+						success: function(res){
+							$(".orders_list").html(res);
+						}
+					});
+			}
+			
+			function del_orders(id)
+			{
+				var Delconf = confirm('Are you sure to delete it?');
+				if(Delconf==false)
+				{
+					return false;
+					
+				}
+				else
+				{
+					$.ajax({
+						url:"libs/action_form/del_orders.php",
+						type:"POST",
+						dataType:"html",
+						data:{id:id},
+						success: function(res){
+							load_orders();
+						}
+					});
+				}
+			}
+			
+            function add_orders()
+			{
+				if($("#tx_orders").val()=='')
+				{
+					alert_text("#tx_orders");
+				}
+				else
+				{
+					$.ajax({
+						url:"libs/action_form/save_orders.php",
+						type:"POST",
+						dataType:"json",
+						data:$("#v_form_orders").serialize(),
+						success: function(res){
+							if(res.status==true)
+							{
+								load_orders();
+								$("#tx_orders").val('');
+								$(".cok4_1").fadeIn(300);
+								$(".cno4_1,.tno4_1").hide();
+							}
+							else
+							{
+								$(".cno4_1,.tno4_1").fadeIn(300);
+								$(".tno4_1").html(res.msg);
+								$(".cok4_1").hide();
+							}
+						}
+					});
+				}
+				/*var z='';
+					z+='<div class="row top15">';
+                    	z+='<div class="col"><input type="text" name="tx_orders" class="tx_orders w-100"></div>';
+                    	z+='<div class="col-2"><button type="button" class="btn btn-danger " onClick="$(this).parent().parent().remove();"><i class="fa fa-trash" aria-hidden="true"></i></button></div>';
+                    z+='</div>';
+					$(".orders").append(z);*/
+			}
+            </script>
             
             
             <?php 
@@ -1094,7 +2008,7 @@ function save_cus()
                                 ?>
                                 <div class="col-md-12 top20">
                                     <div class="col-md-6 b_food_list">
-                                        <input type="checkbox" class="chk_b_food" name="chk_b_food" checked onClick="choose_b_food(this);" value="<?php echo $b_food;?>"> <?php echo $b_food;?> &nbsp;&nbsp;&nbsp;
+                                        <input type="checkbox" class="chk_b_food food" name="chk_b_food" checked onClick="choose_b_food(this);" value="<?php echo $b_food;?>"> <?php echo $b_food;?> &nbsp;&nbsp;&nbsp;
                                     </div>
                                 </div>
                                 <?php
@@ -1104,7 +2018,7 @@ function save_cus()
                                 ?>
                                 <div class="col-md-12 top20">
                                     <div class="col-md-6 b_food_list">
-                                        <input type="checkbox" class="chk_b_food" name="chk_b_food"  onClick="choose_b_food(this);" value="<?php echo $b_food;?>"> <?php echo $b_food;?> &nbsp;&nbsp;&nbsp;
+                                        <input type="checkbox" class="chk_b_food food" name="chk_b_food"  onClick="choose_b_food(this);" value="<?php echo $b_food;?>"> <?php echo $b_food;?> &nbsp;&nbsp;&nbsp;
                                     </div>
                                 </div>
                                 <?php
@@ -1140,14 +2054,15 @@ function save_cus()
                 </div>
             </div>
             
-            <div class="col-md-12 nopad top20 rela">
+            <div class="col-md-12 nopad top20 rela d-none">
                 
-                <textarea name="tx_BREAKFAST" id="tx_BREAKFAST" cols="30" rows="5" class="txt_line tx_overlay" placeholder=" " style="width:100%"><?php echo ($sprq!='')?$sprq:'-';?></textarea>
-                <label for="tx_BREAKFAST" class="bedcon">Special Request</label>
+                <textarea name="tx_BREAKFAST" id="tx_BREAKFAST" cols="30" rows="5" class="txt_line tx_overlay" placeholder=" " style="width:100%; display:none;"><?php echo ($sprq!='')?$sprq:'-';?></textarea>
+                <label for="tx_BREAKFAST" class="bedcon d-none">Special Request</label>
                 <div class="tricorner_2 bluee"></div>
             </div>
             <p>
-            <div class="col-md-12 nopad top20">
+            <div class="col-md-12 nopad top20 food">
+            	<input type="hidden" name="txtID" id="tx_breakf" value="<?php echo $form_id;?>">
             	<button type="button" class="btn btn-primary " onClick="save_first_breakfast();" >Save</button>
             	<span class="icon">
                     <i class="fa fa-check cok cok7b_food" aria-hidden="true"></i> <span class="tok tok7b_food"></span>
@@ -1156,14 +2071,248 @@ function save_cus()
             </div>
             
             
+            <br><br>
+            <form id="v_form_orders_b">
+    		<input type="hidden" name="txtID" id="orders_id_b" value="<?php echo $form_id;?>">
+            <div class="col-md-12 nopad top15 ">
+                <div class=""><strong>Please place an order</strong> <!--<button type="button" class="btn btn-success " ><i class="fa fa-plus" aria-hidden="true"></i></button>--></div>
+                
+                <div class="orders_list_b top20"></div>
+                
+                <div class="orders top20">
+                	<div class="row">
+                    	<div class="col"><input type="text" name="tx_orders_b" id="tx_orders_b " class="tx_orders_b w-100 food"></div>
+                    	<div class="col-2"><button type="button" class="btn btn-primary food" onClick="add_orders_b();">Save</button></div>
+                    </div>
+                </div>
+            </div>
+            </form>
+            
+            
+            <script>
+			$(document).ready(function(e) {
+                load_orders_b();
+            });
+			function load_orders_b()
+			{
+				$.ajax({
+						url:"libs/action_form/load_orders_b.php",
+						type:"POST",
+						dataType:"html",
+						data:{id:$("#orders_id_b").val()},
+						success: function(res){
+							$(".orders_list_b").html(res);
+						}
+					});
+			}
+			
+			function del_orders_b(id)
+			{
+				var Delconf = confirm('Are you sure to delete it?');
+				if(Delconf==false)
+				{
+					return false;
+					
+				}
+				else
+				{
+					$.ajax({
+						url:"libs/action_form/del_orders_b.php",
+						type:"POST",
+						dataType:"html",
+						data:{id:id},
+						success: function(res){
+							load_orders_b();
+						}
+					});
+				}
+			}
+			
+            function add_orders_b()
+			{
+				if($("#tx_orders_b").val()=='')
+				{
+					alert_text("#tx_orders_b");
+				}
+				else
+				{
+					$.ajax({
+						url:"libs/action_form/save_orders_b.php",
+						type:"POST",
+						dataType:"json",
+						data:$("#v_form_orders_b").serialize(),
+						success: function(res){
+							if(res.status==true)
+							{
+								load_orders_b();
+								$(".tx_orders_b").val('');
+								$(".cok4_1").fadeIn(300);
+								$(".cno4_1,.tno4_1").hide();
+							}
+							else
+							{
+								$(".cno4_1,.tno4_1").fadeIn(300);
+								$(".tno4_1").html(res.msg);
+								$(".cok4_1").hide();
+							}
+						}
+					});
+				}
+			}
+            </script>
+            
+            
+            
+            
+            
+            
+<form id="form_CONCEIRGE_provisioning" class="form-horizontal d-none" role="form" enctype="multipart/form-data" onsubmit="upload_file_provisioning(this);return false;">
+	<input type="hidden" name="txtID" value="<?php echo $form_id;?>">
+   <button type="submit" id="but_save_provisioning" class="btn btn-primary pull-right">Save</button>
+   <input type="file" class="custom-file-input validate " id="file_provisioning" name="file_provisioning" placeholder="img" onchange="read_file_name(this);">         
+   <input type="text" name="txt_provisioning" id="txt_provisioning" >         
+</form>
+<script>
+function choose_file_provisioning()
+{
+	$("#file_provisioning").click();
+}
+
+function read_file_name(input)
+{
+	let fileName = input.files[0].name;
+    if ($.trim(fileName)) {
+        //$('label[for="img"]').text(fileName);
+        if (input.files && input.files[0]) {
+            let reader = new FileReader();
+            reader.onload = function (e) {
+                var img = '<img src="' + e.target.result + '" width="100%" />';
+                
+                //$('#preview-img').html(img);
+				$('.text_provisioning').html(fileName);
+				$("#txt_provisioning").val(fileName);
+				$("#but_save_provisioning").click();
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    } else {
+        //$('label[for="img"]').text('Choose file');
+    }
+
+}
+function save_file_provisioning()
+{
+	$("#but_save_provisioning").click();
+}
+
+function save_provisioning_data()
+{
+	$.ajax({
+		url:"libs/action_form/save_provisioning_data.php",
+		type:"POST",
+		dataType:"json",
+		data:{
+			txtID_provisioning:$("#txtID").val(),
+			//tx_provisioning_link:$("#tx_provisioning_link").val(),
+			tx_provisioning_file:$("#tx_provisioning_file").val()
+		},
+		success: function(res){
+			if(res.status==true)
+			{
+				$(".cok_provisioning").fadeIn(300);
+				$(".cno_provisioning,.tno_provisioning").hide();
+			}
+			else
+			{
+				$(".cno_provisioning,.tno_provisioning").fadeIn(300);
+				$(".tno_provisioning").html(res.msg);
+				$(".cok_provisioning").hide();
+			}
+		}
+	});
+}
+
+function remove_provisioning_file()
+{
+	$("#tx_provisioning_file").val('');
+	$(".text_provisioning").html('');
+	$(".btn__provisioning_del").hide();
+	$.ajax({
+		url:"libs/action_form/remove_provisioning_data.php",
+		type:"POST",
+		dataType:"json",
+		data:{
+			txtID_provisioning:$("#txtID_provisioning").val()
+			//tx_provisioning_link:$("#tx_provisioning_link").val(),
+			//tx_provisioning_file:$("#tx_provisioning_file").val()
+		},
+		success: function(res){
+			save_provisioning_data();
+		}
+	});
+}
+
+function upload_file_provisioning(form)
+{
+	var formData = new FormData($(form)[0]);
+	$.ajax({
+		url: "libs/action_form/upload_file_provisioning.php",
+		cache: false,
+		contentType: false,
+		processData: false,
+		type: 'POST',
+		dataType: 'json',
+		data: formData,
+		beforeSend: function () {
+		},
+		success: function (response) {
+				//window.location.reload();
+			$("#tx_provisioning_file").val(response.file_path);
+			$("#txt_provisioning").val('');
+			$('.text_provisioning').html(response.file_name);
+			$(".btn__provisioning_del").removeClass('d-none');
+			save_provisioning_data();
+		} 
+	});
+
+}
+
+</script>
+            
             <?php $f7c = json_decode($villa_form['provisioning'],true);
 			$f7c_vfm = json_decode($form['provisioning'],true); ?>
     		<form id="v_form_7c">
     		<input type="hidden" name="txtID" value="<?php echo $form_id;?>">
+            <input type="hidden" id="txtID_provisioning" name="txtID_provisioning" value="<?php echo $form_id;?>">
             <div class="col-md-12 nopad top15">
                 <div class="tx_head top50">C. INITIAL PROVISIONING</div>
             </div>
             <div class="col-12 top20">Please select from the <strong>provisional list</strong> attached the ingredients and groceries pre-stocked for your arrival.</div>
+           
+           <?php $provisioning_datas =  json_decode($form['datas'],true);
+		   $pro_ex = explode("/",$provisioning_datas['provisioning']['file']);?>
+            <input class="inp" type="hidden" name="tx_provisioning_file" id="tx_provisioning_file" value="<?php echo $provisioning_datas['provisioning']['file'];?>" style="margin-top:8px;">
+            <button type="button" class="btn btn-primary food" onClick="choose_file_provisioning();" style="margin-top:8px;">Upload</button>	
+            <a href="<?php echo $provisioning_datas['provisioning']['file'];?>" target="_blank"><span class="text_provisioning"><?php echo $pro_ex[2];?></span></a>
+            <button type="button" class="btn btn-danger btn__provisioning_del food <?php echo ($provisioning_datas['provisioning']['file']!='')?'':'d-none';?>" onClick="remove_provisioning_file();" style="margin-top:8px; "><i class="fa fa-trash" aria-hidden="true"></i></button>	
+            <button type="button" class="btn btn-primary btn__save__provisioning d-none" onClick="save_provisioning_data();" style="margin-top:8px;">Save</button>	
+            
+            <span class="icon">
+                <i class="fa fa-check cok cok_provisioning" aria-hidden="true"></i> <span class="tok tok_provisioning"></span>
+                <i class="fa fa-check cno cno_provisioning" aria-hidden="true"></i> <span class="tno tno_provisioning"></span>
+            </span>
+            
+            <?php 
+			if($f7c['note']!='')
+			{
+				?>
+                <div class="col-md-12 nopad top15">
+                <strong>Note :</strong> <?php echo $f7c['note'];?>
+                </div>                
+                
+                <?php
+			}
+			?>
             
             <div class="row">
             	<div class="col-12"> 
@@ -1202,7 +2351,7 @@ function save_cus()
 									else
 									{
 										?>
-									<div class="checkbox">
+									<div class="checkbox food">
 										<label>
 											<input type="checkbox" name="chk_wine[]" value="<?php echo $wl['id'];?>"> &nbsp;<?php echo $wl['name'];?>
 										</label>
@@ -1220,12 +2369,12 @@ function save_cus()
                 <div class="col-6"></div>
                 
                 <div class="col-12 top50 ">
-                	 <div class="col-md-12 nopad rela">
+                	 <!--<div class="col-md-12 nopad rela">
                     	
                     	<textarea name="tx_c_conf" id="tx_c_conf" cols="30" class="txt_line tx_overlay" placeholder=" " rows="5" style="width:100%;"><?php echo $f7c_vfm['complimentary'];?></textarea>
                         <label for="tx_c_conf" class="bedcon">Complimentary Food & Beverages</label>
                         <div class="tricorner_2 bluee"></div>
-                    </div>
+                    </div>-->
                     <div class="col-md-12 nopad top30 rela">
                     	
                     	<textarea name="tx_c_Special" id="tx_c_Special" cols="30"  class="txt_line tx_overlay"  placeholder=" " rows="5" style="width:100%;"><?php echo $f7c_vfm['special'];?></textarea>
@@ -1235,13 +2384,17 @@ function save_cus()
                 </div>
                 
                 <p>
-                <button type="button" class="btn btn-primary " onClick="save_wine_list();" >Save</button>
+                <button type="button" class="btn btn-primary food" onClick="save_wine_list();" >Save</button>
                 <span class="icon">
                     <i class="fa fa-check cok cok7c" aria-hidden="true"></i> <span class="tok tok7c"></span>
                     <i class="fa fa-check cno cno7c" aria-hidden="true"></i> <span class="tno tno7c"></span>
                 </span>
                 </p>
-                <div class="col-md-12">File Wine List : <a href="<?php echo ($f7c['file_path']!='')?$f7c['file_path']:'#';?>" target="_blank"> <?php echo ($f7c['filename']!='')?$f7c['filename']:'';?></a></div>
+                <div class="col-md-12">File Wine List : 
+                <a href="<?php echo ($f7c['file_path']!='')?$f7c['file_path']:'#';?>" target="_blank"> 
+                <button type="button" class="btn btn-primary "><i class="fa fa-picture-o" aria-hidden="true"></i> File/Photo</button> <?php //echo ($f7c['filename']!='')?$f7c['filename']:'';?>
+                </a>
+                </div>
             </div>
             </form>
             
@@ -1257,7 +2410,7 @@ function save_cus()
                 <?php $d_dietary = base64_decode($form['dietary']);?>
                     
                     
-                    <div class="col-md-12 nopad rela">
+                   <!-- <div class="col-md-12 nopad rela">
                     <textarea name="tx_special" id="tx_special" cols="30" rows="5" class="txt_line tx_overlay" placeholder=" " style="width:100%" ><?php echo ($d_dietary!='')?$d_dietary:'';?></textarea>
                     <label for="tx_special" class="bedcon">SPECIAL DIETARY</label>
                     <div class="tricorner_2 bluee"></div>
@@ -1269,12 +2422,112 @@ function save_cus()
                             <i class="fa fa-check cok cok7d" aria-hidden="true"></i> <span class="tok tok7d"></span>
                             <i class="fa fa-check cno cno7d" aria-hidden="true"></i> <span class="tno tno7d"></span>
                         </span>
-                    </p>
+                    </p>-->
                     
                 </div>
             </form>
-        
+        	
+            <form id="v_form_dietary">
+    		<input type="hidden" name="txtID" id="dietary_id" value="<?php echo $form_id;?>">
+            <div class="col-md-12 nopad top15 ">
+                <div class=""><strong>SPECIAL DIETARY</strong> <!--<button type="button" class="btn btn-success " ><i class="fa fa-plus" aria-hidden="true"></i></button>--></div>
+                
+                <div class="special_dietary top20"></div>
+                
+                <div class="orders top20">
+                	<div class="row">
+                    	<div class="col"><input type="text" name="tx_dietary" id="tx_dietary" class="tx_dietary w-100 food"></div>
+                    	<div class="col-2"><button type="button" class="btn btn-primary food" onClick="add_dietary();">Save</button></div>
+                    </div>
+                </div>
+            </div>
+            </form>
+            
+            
+            <script>
+			$(document).ready(function(e) {
+                load_dietary();
+            });
+			function load_dietary()
+			{
+				$.ajax({
+						url:"libs/action_form/load_dietary.php",
+						type:"POST",
+						dataType:"html",
+						data:{id:$("#dietary_id").val()},
+						success: function(res){
+							$(".special_dietary").html(res);
+						}
+					});
+			}
+			
+			function del_dietary(id)
+			{
+				var Delconf = confirm('Are you sure to delete it?');
+				if(Delconf==false)
+				{
+					return false;
+					
+				}
+				else
+				{
+					$.ajax({
+						url:"libs/action_form/del_dietary.php",
+						type:"POST",
+						dataType:"html",
+						data:{id:id},
+						success: function(res){
+							load_dietary();
+						}
+					});
+				}
+			}
+			
+            function add_dietary()
+			{
+				if($("#tx_dietary").val()=='')
+				{
+					alert_text("#tx_dietary");
+				}
+				else
+				{
+					$.ajax({
+						url:"libs/action_form/save_dietary.php",
+						type:"POST",
+						dataType:"json",
+						data:$("#v_form_dietary").serialize(),
+						success: function(res){
+							if(res.status==true)
+							{
+								load_dietary();
+								$("#tx_dietary").val('');
+								$(".cok4_1").fadeIn(300);
+								$(".cno4_1,.tno4_1").hide();
+							}
+							else
+							{
+								$(".cno4_1,.tno4_1").fadeIn(300);
+								$(".tno4_1").html(res.msg);
+								$(".cok4_1").hide();
+							}
+						}
+					});
+				}
+			}
+            </script>
+            
         </div>
+        
+        
+        
+        <?php $vf_food = ($dbc->HasRecord("villa_form_status","vfm = '".$form_mapping_id."' and sections = 'food'")?'checked':'');?>
+        <div class="row- col-12 rela top50 <?php echo isset($_SESSION['auth']['user_id'])?'':'d-none';?>">
+            <div class="switch">
+                <input id="cmn-toggle-food" class="cmn-toggle cmn-toggle-round" <?php echo $vf_food;?>  type="checkbox" onClick="complete_airport('<?php echo $form_mapping_id;?>','food')">
+                <label for="cmn-toggle-food"></label><span class="tx_sta">Complete</span>
+            </div>
+        </div>
+        
         
         
         <div class="col-12 w-100"></div>
@@ -1283,17 +2536,61 @@ function save_cus()
         	<div class="tx_ap2">payment on arrival</div>
         </div>
         
+       
         
-        <?php $deposit =  json_decode($villa_form['deposit'],true);?>
+        
+        
+        
+        <?php 
+		$deposit =  json_decode($villa_form['deposit'],true);
+		$payment_oarv =  json_decode($villa_form['datas'],true);
+		$paym_show = 0;
+		if($payment_oarv['chk_payment']['chk_1']==1 || $payment_oarv['chk_payment']['chk_2']==1)
+		{
+			$paym_show = 1;
+		}
+				
+		?>
         <div class="col-11 col-md-10 col-xl-8 top50 ">
             <form id="v_form_8">
             <input type="hidden" name="txtID" value="<?php echo $form_id;?>">
-                <div class="tx_head ">PAYMENT ON ARRIVAL</div>
-                <p class="top15">Any expense made at the villa is only payable in cash</p>
+                <div class="tx_head " style="display:<?php echo ($paym_show==1)?'block':'none';?>">PAYMENT ON ARRIVAL</div>
+                <p class="top15">
+                <?php 
+				
+				if($payment_oarv['chk_payment']['chk_1']==1)
+				{
+					echo 'Any expense made at the villa is only payable in cash.<br>';
+				}
+				
+				if($payment_oarv['chk_payment']['chk_2']==1)
+				{
+					echo 'Any expense made at the villa is payable in cash or credit card with bank fee.';
+				}
+				?>
+                
+                </p>
                 
                 <div class="tx_head top50">A. SECURITY DEPOSIT</div>
-                <p class="top15">The refundable security deposit <?php echo ($deposit['deposit']!='')?$deposit['deposit']:'-';?> in any major currency will be collected cash upon arrival or credit card authorization.<br>
-                Damage security deposit <?php echo $deposit['damage_deposit'];?></p>
+                <p class="top15">
+                <?php
+				if($deposit['deposit']!='')
+				{
+					echo 'The refundable security deposit '.$deposit['deposit'].' in any major currency will be collected cash upon arrival or credit card authorization. <br>';
+				}
+				
+				if($deposit['damage_deposit']!='')
+				{
+					echo 'The refundable security deposit '.$deposit['damage_deposit'].' in any major currency will be collected cash upon arrival, no credit card facilities available at the villa.';
+				}
+				?>
+                
+
+
+<?php /*?>The refundable security deposit <?php echo ($deposit['deposit']!='')?$deposit['deposit']:'-';?> in any major currency will be collected cash upon arrival or credit card authorization.<br>
+                Damage security deposit <?php echo $deposit['damage_deposit'];?><?php */?>
+                
+                </p>
                 
                 <div class="tx_head top50">B. PAYMENT ON ARRIVAL</div>
                 <p class="top15"><?php echo ($villa_form['payment_on_arrival']!='')?$villa_form['payment_on_arrival']:'-';?></p>
@@ -1303,6 +2600,17 @@ function save_cus()
             
             </form>
         </div>
+        
+         <?php $vf_payment = ($dbc->HasRecord("villa_form_status","vfm = '".$form_mapping_id."' and sections = 'payment'")?'checked':'');?>
+        <div class="row- col-12 rela top20 <?php echo isset($_SESSION['auth']['user_id'])?'':'d-none';?>">
+            <div class="switch">
+                <input id="cmn-toggle-payment" class="cmn-toggle cmn-toggle-round" <?php echo $vf_payment;?>  type="checkbox" onClick="complete_airport('<?php echo $form_mapping_id;?>','payment')">
+                <label for="cmn-toggle-payment"></label><span class="tx_sta">Complete</span>
+            </div>
+        </div>
+        
+        
+        
         
         
          <div class="col-12 w-100"></div>
@@ -1330,8 +2638,13 @@ function save_cus()
                       <dt class="col-sm-3">Restaurant Reservation</dt>
                       <dd class="col-sm-9"><?php echo $f9['Restaurant'];?></dd>
                       
+                      <?php $spa_datas =  json_decode($villa_form['datas'],true);?>
                       <dt class="col-sm-3">Massage & Spa</dt>
-                      <dd class="col-sm-9"><?php echo $f9['Massage'];?></dd>
+                      <dd class="col-sm-9"><?php echo $f9['Massage'];?> 
+                      <a href="<?php echo $spa_datas['spa']['link'];?>" target="_blank"><button type="button" class="btn btn-primary"><i class="fa fa-external-link" aria-hidden="true"></i></button></a>
+                      <a href="<?php echo $spa_datas['spa']['file'];?>" target="_blank"><button type="button" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i></button></a>
+                      </dd>
+                      
                       
                       <dt class="col-sm-3">Special Occasion</dt>
                       <dd class="col-sm-9"><?php echo ($f9['Occasion']=='')?'Birthday, Anniversary, Wedding, Proposal, Honeymoon, others…':$f9['Occasion'];?></dd>
@@ -1354,7 +2667,7 @@ function save_cus()
             <div class="tricorner_2 bluee"></div>
             </div>
             
-            <p><button type="button" class="btn btn-primary " onClick="save_service();"> Save</button>	
+            <p><button type="button" class="btn btn-primary conceirge" onClick="save_service();"> Save</button>	
                 <span class="icon">
                     <i class="fa fa-check cok cok9" aria-hidden="true"></i> <span class="tok tok9"></span>
                     <i class="fa fa-check cno cno9" aria-hidden="true"></i> <span class="tno tno9"></span>
@@ -1363,6 +2676,18 @@ function save_cus()
         
             </form>
         </div>
+        
+        
+        
+        <?php $vf_conceirge = ($dbc->HasRecord("villa_form_status","vfm = '".$form_mapping_id."' and sections = 'conceirge'")?'checked':'');?>
+        <div class="row- col-12 rela top20 <?php echo isset($_SESSION['auth']['user_id'])?'':'d-none';?>">
+            <div class="switch">
+                <input id="cmn-toggle-conceirge" class="cmn-toggle cmn-toggle-round" <?php echo $vf_conceirge;?>  type="checkbox" onClick="complete_airport('<?php echo $form_mapping_id;?>','conceirge')">
+                <label for="cmn-toggle-conceirge"></label><span class="tx_sta">Complete</span>
+            </div>
+        </div>
+        
+        
         
         <div class="col-11 col-md-10 col-xl-8 top50  text-center">
         	<div class="tx_big">GRATUITIES</div>
@@ -1876,7 +3201,7 @@ function delme(me)
 	{
 		var sele = 0;
 		var datas = {
-			txtID : $("#tx_b_food_id").val(),
+			txtID : $("#tx_breakf").val(),
 			tx_BREAKFAST : $("#tx_BREAKFAST").val(),
 			b_food : []
 		};

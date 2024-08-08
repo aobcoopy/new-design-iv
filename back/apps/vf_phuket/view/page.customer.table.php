@@ -158,6 +158,17 @@ $(function(){
 			
 			s += ' ';
 			s += fn.engine.datatable.button('btn-danger',' fa-trash','fn.app.vf_phuket.remove_customer('+data[0]+')','Remove',' Remove');
+			
+			s += ' ';
+			if(data[10]==100)
+			{
+				s += fn.engine.datatable.button('color-change-4x tw-',' fa-pie-chart ','','',' '+data[10]+'%');
+			}
+			else
+			{
+				s += fn.engine.datatable.button('',' fa-pie-chart ','','',' '+data[10]+'%');
+			}
+			
 			/*
 			s += fn.engine.datatable.button('btn-default','fa-pencil','fn.app.vf_phuket.edit_customer_form(this)','Edit Form',' ');
 			s += ' ';

@@ -73,11 +73,23 @@ p {
                 <p class="tt3">one of our villa specialists is now working on your request</p>
                 <p class="tt4">for any urgent requests, please call us at </p>
                 <p class="tt4">TH +66 84 677 1551  HK +852 8198 6765 AUS +028 005 7651</p>
+                <p> Go to the homepage will begin in <span id="countdowntimer">10 </span> Seconds</p>
             </div>
             
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+	var times = 10000;
+    var timeleft = 10;
+    var downloadTimer = setInterval(function(){
+    timeleft--;
+    document.getElementById("countdowntimer").textContent = timeleft;
+    if(timeleft <= 0)
+        clearInterval(downloadTimer);
+    },1000);
+</script>
 
 <?php
 $destinations = $dbc->GetRecord("destinations","*","id = '".$_REQUEST['desti']."'");
@@ -101,7 +113,7 @@ $(document).ready(function(e) {
 		var links = '<?php echo $url_link;?>search-rent/thailand-<?php echo $destinations['slug'];?>/all-beach/all-price/all-bedrooms/all-collections/all-sort.html';
 		window.location = links;
 		//history.go(-1);
-	},2000);
+	},times);
 });
 </script>
 

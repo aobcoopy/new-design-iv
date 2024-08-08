@@ -505,7 +505,7 @@ else
 					<div class="ttsub text-center"></div>
 					<i class="fa fa-play-circle" onClick="popu('<?php echo $_REQUEST['des'];?>')"></i>
 					<div class="imggs">
-						<img class="lazy" data-src="<?php echo $url_link;?>upload/<?php echo $img_vdo;?>2.jpg" alt="<?php echo $img_vdo;?>" width="100%" class="vdo_cov">
+						<img  data-src="<?php echo $url_link;?>upload/<?php echo $img_vdo;?>2.jpg" alt="<?php echo $img_vdo;?>" width="100%" class="vdo_cov lazy">
 					</div>
 				</div>
 			</div>

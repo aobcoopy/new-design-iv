@@ -55,13 +55,13 @@
                             <div class="form-group">
                                 <label for="txtName" class="col-sm-2 control-label">Customer Name</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="txCustomer_ed" name="txCustomer_ed"  value="<?php echo $form['cus_name'];?>" >
+                                    <input type="text" class="form-control" id="txCustomer_ed" name="txCustomer_ed" onKeyUp="setValue_new(this)"  value="<?php echo $form['cus_name'];?>" >
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="txtName" class="col-sm-2 control-label">Invoice</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="txInvoice" name="txInvoice_ed"   value="<?php echo $form['invoice'];?>"><!--onKeyUp="setValue(this)" -->
+                                    <input type="text" class="form-control" id="txInvoice_ed" name="txInvoice_ed"  onKeyUp="setValue_new(this)"  value="<?php echo $form['invoice'];?>"><!--onKeyUp="setValue(this)" -->
                                 </div>
                             </div>
                             <?php 
@@ -73,7 +73,7 @@
                                 <div class="col-sm-10">
                                     <!--Ex1. <?php echo $f_link;?>name-123.html <br> -->
 									Ex. <?php echo $f_link;?><span class="t_link"><?php echo $form['links'];?></span>.html
-                                    <input type="text" class="form-control" id="txLink" name="txLink_ed"  onKeyUp="setValue_inv(this)"  value="<?php echo $form['links'];?>">
+                                    <input type="text" class="form-control" id="txLink_ed" name="txLink_ed"  onKeyUp="setValue_inv(this)"  value="<?php echo $form['links'];?>">
                                     <span style="color:#FF0004">remark : one (-) only </span>
                                 </div>
                             </div>
@@ -133,11 +133,21 @@ $(function(){
 	$("#dialog_edit_group").modal('show');
 });	
 
-function setValue(me)
+function setValue_new(me)
+{
+	var tname_ed = $("#txCustomer_ed").val();
+	var tiv_ed = $("#txInvoice_ed").val();
+	var t_name_2 = tname_ed.replaceAll("-","_");
+	var tiv_2 = tiv_ed.replaceAll("-","_");
+	var final_text_ed = t_name_2.replaceAll(" ","_")+'-'+tiv_2.replaceAll(" ","_");
+	$("#txLink_ed").val(final_text_ed);
+	setValue_inv($("#txLink_ed"));
+}
+/*function setValue(me)
 {
 		$("#txLink").val($(me).val());
 		$(".t_link").text($(me).val());
-}
+}*/
 function setValue_inv(me)
 {
 		$(".t_link").text($(me).val());

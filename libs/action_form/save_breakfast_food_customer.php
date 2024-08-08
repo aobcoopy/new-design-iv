@@ -39,7 +39,7 @@
 	
 	$ar_data = array(
 		'food' => $ar_food,
-		'spacial_request' =>  base64_encode($_REQUEST['tx_BREAKFAST'])
+		//'spacial_request' =>  base64_encode($_REQUEST['tx_BREAKFAST'])
 	);
 	
 	$data = array(

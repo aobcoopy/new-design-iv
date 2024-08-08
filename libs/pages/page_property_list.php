@@ -112,7 +112,7 @@ if($exp_date>=$D_today || $exp_date=='0000-00-00' || $exp_date=='')
 	}
 }
 //echo '---->'.$url_link.'<---';
-echo '<div class="row bottom40">';
+echo '<div class="row bottom40 pad10">';
 	echo '<div class="col-12 col-lg-4 col-xl-4 nopad new_img web992" style="background-image:url('.imagePath($photo[0]['img']).'); ">';
 		//echo '<img src="'.$url_link.'upload/new_design/search/Artboard 134.png" width="100%" alt="" class="mob992">';
 		echo $p_tag;

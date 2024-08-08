@@ -12,6 +12,9 @@ font-family: "srl";
 src: url('../../fonts/new_fonts/seravek-extralight.ttf');
 }
 
+.nopad {
+    padding: 0px;
+}
 .bg_gray
 {
 	background:#A1A1A1 !important;
@@ -61,9 +64,22 @@ src: url('../../fonts/new_fonts/seravek-extralight.ttf');
 	font-size:40px !important;
 }
 
+.t_sr
+{
+	font-family:sr !important;
+}
+.tblk
+{
+	font-family:sr !important;
+	color: #4b565b !important;
+}
 .tblue
 {
 	color:#183251;
+}
+.tor
+{
+	color: #e89623 !important;
 }
 .tw
 {
@@ -660,6 +676,8 @@ label.optin, span.optin {
  margin-top:-25px;
  letter-spacing:10px;
  top:50%;
+
+
  position:relative;
  transform:translateY(-50%);
 }
@@ -2580,6 +2598,31 @@ del:before {
 	top:50%;
 	position:relative;
 	transform:translateY(-50%);
+}
+.ttsub {
+    color: #fff;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    font-size: 2em;
+    position: absolute;
+    z-index: 10;
+}
+.vdo_cov {
+    width: 100%;
+}
+.bgu {
+    position: fixed;
+    background-color: #000000d1;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1250;
+    display: none;
+}
+ .show_u 
+{
+	z-index:1300;
 }
 /************************** search villa ****************************/
 @font-face {
@@ -5042,6 +5085,15 @@ del:before {
 {
 	margin-top:65px;
 }
+.filters {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(141, 142, 142, .41);
+    z-index: 5;
+}
 /************************** search villa ****************************/
 @font-face {
 font-family: "ny";
@@ -5415,6 +5467,7 @@ li.ui-menu-item:hover
  left: 0;
  width: 100%;
  height: 100%;
+
  background-size: cover;
  background-position: center;
  animation: slider 19.5s infinite;
@@ -8509,6 +8562,11 @@ border-bottom-right-radius: 250px;
 }
 .our_box_1
 {
+
+
+
+
+
  margin-bottom: 450px;
 }
 .our_box_2_tt
@@ -9368,6 +9426,7 @@ select.ip2 {
 }
 .lsarti_share
 {
+
  display:inline-block;
  margin-bottom:20px;
 }
@@ -9608,6 +9667,7 @@ select.ip2 {
  left:0;
  transform:translate(-50%,-50%);
 }
+
 .face_b 
 {
  border-color:#2b74ba;
@@ -10544,6 +10604,7 @@ del:before {
 }
 .table_new > tbody > tr > td
 {
+
     border-right: 1px solid #183251 !important;
 	border-left: 1px solid #183251 !important;
 }
@@ -11906,6 +11967,7 @@ label.optin, span.optin {
  z-index:100;
 }
 .about_box
+
 {
  background-image:url('../../../upload/new_design/img-about-us-bg.png');
  background-repeat:no-repeat;
@@ -12594,6 +12656,7 @@ select.ip2 {
  transform: translateY(-60%);
  padding:100px 30px;
  margin-left:200px;
+
  height:auto;
  width:40%;
  color:#fff;
@@ -13237,6 +13300,7 @@ select.ip2 {
  color:#fff;
   background-position: left bottom;
 }
+
 .ig:hover
 {
  /*background:#2b74ba;*/
@@ -13727,6 +13791,7 @@ li.ui-menu-item:hover
  transform:translate(-50% ,-130%);
  background-image:url('../../../upload/new_design/img-top-img-icon.png');
  background-repeat: no-repeat;
+
  background-position: center;
  padding: 50px 0px;
  letter-spacing: 4px;
@@ -15051,6 +15116,7 @@ select.ip2 {
  position:absolute;
  left:0;
  top:0;
+
  bottom:0;
  width: 70%;
  z-index: 1;
@@ -15222,6 +15288,7 @@ select.ip2 {
 .hlotm_cate
 {
  text-align:center;
+
  position:relative;
  /* left:50%; */
  /* transform:translateX(-50%); */
@@ -15953,6 +16020,7 @@ del:before {
 }
 .mynav_2_mob
 {
+
 	float:right;
 	font-size:13px;
 	margin-top:15px;
@@ -16191,6 +16259,7 @@ li.ui-menu-item:hover
  background-position: center;
  padding: 50px 0px;
  letter-spacing: 4px;
+
  width:100%;
  text-shadow: 0px 0px 13px #000;
  /* mix-blend-mode: plus-lighter; */
@@ -17941,6 +18010,7 @@ select.ip2 {
 {
  display:inline-block;
  float:right;
+
  margin-bottom:20px;
 }
 .ls_l_box_des
@@ -17986,6 +18056,7 @@ select.ip2 {
  height:100vh;
  /*transform:translateY(-50%);
  top:50%;*/
+
 }
 #mob_top_lift_style
 {
@@ -18438,6 +18509,7 @@ del:before {
 {
 	float:right;
 	font-size:13px;
+
 	margin-top:15px;
 }
 .mynav_2_mob > li > a 
@@ -18658,6 +18730,7 @@ li.ui-menu-item:hover
 {
  /mix-blend-mode: difference;
  color:#fff;
+
 }*/
 .logoiv
 {
@@ -19964,6 +20037,7 @@ select.ip2 {
 {
  color:#F7941D;
 
+
 }
 .allo:hover
 {
@@ -20747,7 +20821,7 @@ div:hover {
 	background: #ffffff;
 	border-radius: 0px;
 	padding: 10px 20px;
-	width: 72%;
+	width: 76%;
 	left:50%;
 	transform:translateX(-50%);
 	box-shadow: none;
@@ -20766,6 +20840,7 @@ div:hover {
     text-transform: uppercase;
     letter-spacing: 1.2px;
     font-size: 14px;
+    border-radius: 0px;
 }
 .cbbox > option
 {
@@ -20861,6 +20936,7 @@ ol.breadcrumb > li > a > :last-child {
 	text-transform:uppercase;
 	font-weight:bold;
 	letter-spacing: 1px;
+
 	display: inline-block;
 	width: 34%;
 	text-align: right;
@@ -21084,6 +21160,7 @@ del:before {
 	width:90%
 }
 .nct_t_r > .nct_detail
+
 {
 	margin-top:65px;
 }
@@ -21123,6 +21200,7 @@ del:before {
 {
 
 	clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+
 	background:#183251;
 	height:20px;
 	width:20px;
@@ -21240,9 +21318,70 @@ del:before {
 	width:100%;
 	height: 95px;
 }
-/************************** search villa ****************************/
+.s_uniq_tt
+{
+	font-family:ny !important;
+	font-size:60px;
+	line-height:1.0;
+	letter-spacing:5px;
+	margin-bottom:30px;
+}
+.s_uniq_sub
+{
+	font-family:ny !important;
+	font-size:30px;
+	line-height:1.0;
+	letter-spacing:3px;
+}
+ul.s_uniq
+{
+	padding:0;
+	margin:0;
+	text-align:center;
+	/*margin-top:60px;*/
+}
+ul.s_uniq > li 
+{
+	list-style:none;
+	display:inline-block;
+	color:#4b565b;
+	/* padding:0px 15px; */
+	/* border-right:1px solid #4b565b; */
+	text-align:center;
+	vertical-align:middle;
+	font-family: sr !important;
+}
+ul.s_uniq > li:last-child > a
+{
+	border:none;
+}
+ul.s_uniq > li  > a
+{
+	color:#4b565b;
+	text-align:center;
+	font-family: sr !important;
+	font-weight: bold;
+	border-right: 1px solid #4b565b;
+	padding: 0px 15px;
+}
+ul.s_uniq > li:hover  > a
+{
+	color:#e89623;
+}
+.ft_subject
+{
+	font-size:20px;
+	font-family:sr !important;
+	font-weight:bold;
+	color:#e89623;
+}
+.ft_subject:hover
+{
+	color:#f6b963;
+}
+/********************************************************* search villa *********************************************************/
 
-/************************** villa detail ****************************/
+/********************************************************* villa detail **********************************************************/
 .mosaic_cover2
 {
 	margin-top:70px;

@@ -30,7 +30,7 @@
 	);
 	$sIndexColumn = "id";
 	
-	$sTable = "blogs ORDER BY sort ASC";
+	$sTable = "blogs";
 	$sLimit = "";
 	
 	if ( isset( $_REQUEST['start'] ) && $_REQUEST['length'] != '-1' ){
@@ -53,7 +53,11 @@
 			$sOrder = "";
 		}
 	}
-	
+	else
+	{
+		
+	}
+	$sOrder = "ORDER BY sort ASC";
 
 	$sWhere = "";
 	if ( $_REQUEST['search']['value'] != "" ){

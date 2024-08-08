@@ -425,11 +425,15 @@ function save_logo_file(form,inp_1,inp_2,inp_3){
 <br><br><br><br><br>
 <div class="container-fluid">
 	<div class="row justify-content-center">
-    	<div class="col-6 align-self-end text-end"><img src="../../upload/new_design/villa_form/Artboard 112.png" class="vf_img" width="150" alt=""></div>
+    	<div class="col-12 align-self-end text-center">
+        	<img src="../../upload/new_design/villa_form/Artboard 112.png" class="vf_img" width="150" alt="">
+            <div class="villa_name_top"><?php echo $vil_name[0];?></div>	
+        </div>
+    	<!--<div class="col-6 align-self-end text-end"><img src="../../upload/new_design/villa_form/Artboard 112.png" class="vf_img" width="150" alt=""></div>
         <div class="col-6 align-self-start text-start">
         
             <div class="img_r_logo"></div>
-            <div class="villa_name_top"><?php echo $vil_name[0];?></div>	
+            <div class="villa_name_top"><?php echo $vil_name[0];?></div>	-->
             <?php 
 			/*if($villa_form['logo_part']!='')
 			{
@@ -454,7 +458,7 @@ function save_logo_file(form,inp_1,inp_2,inp_3){
             <?php 
 			} 
 			?>
-            <span class="icon">
+            <?php /*?><span class="icon">
                 <i class="fa fa-check cok cok001" aria-hidden="true"></i> <span class="tok tok001"></span>
                 <i class="fa fa-check cno cno001" aria-hidden="true"></i> <span class="tno tno001"></span>
             </span>
@@ -463,7 +467,7 @@ function save_logo_file(form,inp_1,inp_2,inp_3){
             <input type="hidden" class="paths" id="path_photo_logo" name="path_photo_logo" value="<?php echo $logo_r;?>">
             <input type="hidden" class="paths2" id="path_photo_logo_2" name="path_photo_logo_2" value="<?php echo $logo_r;?>">
             <input type="hidden" class="paths3" id="path_photo_logo_3" name="path_photo_logo_3" >
-        </div>
+        </div><?php */?>
         
         <form id="logo_r" class="form-horizontal" role="form" enctype="multipart/form-data" onsubmit="save_logo(this,'path_photo_logo','path_photo_logo_2','path_photo_logo_3','cok001','cno001','tno001','logo_part','loaded_1');return false;">
             <div class="form-group">
@@ -632,7 +636,7 @@ function save_logo_file(form,inp_1,inp_2,inp_3){
                 
                 <div class="img_side"></div>-->
                 
-                <img src="../../upload/new_design/villa_form/side_main.jpg" class="img_side_tmb" width="100%" alt="">
+                <!--<img src="../../upload/new_design/villa_form/side_main.jpg" class="img_side_tmb" width="100%" alt="">        photo side -->   
 				<?php
                /* if($villa_form['side_photo']!='')
                     {
@@ -651,7 +655,7 @@ function save_logo_file(form,inp_1,inp_2,inp_3){
                 <!--<img src="../../upload/new_design/villa_form/side.jpg" width="100%" alt="">-->
                 
                 </div>
-                <div id="booking_detail" class="col-12 col-lg-7 text-center">
+                <div id="booking_detail" class="col-12 col-lg-12 text-center">
                 	<img src="../../upload/new_design/villa_form/Artboard 177.png" width="100%" class="side_mob" alt="">
                 	<div class="book_title">booking</div>
                     <div class="subtt">details</div>
@@ -695,9 +699,13 @@ function save_logo_file(form,inp_1,inp_2,inp_3){
 									<input type="text" name="tx_in_map" id="tx_in_map" placeholder="Link"  style="width:100%;" value="<?php echo $inf['map'];?>">
                                     </dd>
                                     
-									
+									<?php
+									$a=0;
+									if($a==10)
+									{
+										?>
 									<dt class="col-sm-4"><strong>Booking Details</strong></dt>
-									<dd class="col-sm-8"><textarea class="editor" name="tx_bd" id="tx_bd" cols="30" rows="7" style="width:100%"><?php echo $booking['booking_details'];?></textarea></dd>
+									<dd class="col-sm-8"><textarea class="editor" name="tx_bd" id="tx_bd" cols="30" rows="7" style="width:100%"><?php echo json_decode(base64_decode($booking['booking_details'],true));?></textarea></dd>
 									<dt class="col-sm-4 top50">Booking Inclusions</dt>
 									<dd class="col-sm-8 top50" ><!--style="display:<?php echo $bd;?>"-->
 									<button type="button" class="btn btn-primary" onClick="add_inclu();"><i class="fa fa-plus" aria-hidden="true"></i></button>
@@ -753,6 +761,9 @@ function save_logo_file(form,inp_1,inp_2,inp_3){
                                             <i class="fa fa-check cno cno01" aria-hidden="true"></i> <span class="tno tno01"></span>
                                         </span>
 									</div>
+                                    <?php
+									}
+									?>
 									
 									<div class="book_line"></div>
 								</dl>
@@ -802,9 +813,9 @@ function save_logo_file(form,inp_1,inp_2,inp_3){
             $os_status_2 = ($villa_form['onsite_status']==1)?'':'checked';
         ?> 
         	<dl class="row">
-            	<dt class="col-sm-3">ONSITE CONTACT <button class="btn_status btn btn-info btn-xs" type="button"><?php echo $os_status;?></button></dt>
-                <dd class="col-sm-9"><input type="checkbox" class="custom-control-input" id="chk_nsct" name="chk_nsct" <?php echo $os_status_2;?> onClick="change_os_status(this)">
-              <label class="custom-control-label" for="customCheck1">Hide</label></dd>
+            	<dt class="col-sm-3">ONSITE CONTACT <!--<button class="btn_status btn btn-info btn-xs" type="button"><?php echo $os_status;?></button>--></dt>
+                <dd class="col-sm-9"><!--<input type="checkbox" class=" form-check-input" id="chk_nsct" name="chk_nsct" <?php echo $os_status_2;?> onClick="change_os_status(this)">
+              <label class="custom-control-label" for="customCheck1">Hide</label>--></dd><!--เอาออก เพราะมีระบบให้ที่หน้าของลูกค้าแล้ว-->
             </dl>
             
             <p class="top15"><input type="text" name="tx_onsite" id="tx_onsite" placeholder="Villa Manager:	Ms. Kaew +66 97 002 9208"  style="width:100%;" value="<?php echo $villa_form['onsite_con'];?>"></p>
@@ -1085,7 +1096,7 @@ function save_logo_file(form,inp_1,inp_2,inp_3){
            
             <div class="w-100"></div>
 
-            <div class="col-11 col-md-10 col-xl-8 top50">
+            <div class="col-11 col-md-10 col-xl-10 top50">
             <form id="v_form_7a">
             <input type="hidden" class="tt7" name="txtID" id="txtIDAMT" value="<?php echo $form_id;?>">
             	<div class="tx_head">FOOD AND BEVERAGES</div>		
@@ -1114,8 +1125,8 @@ function save_logo_file(form,inp_1,inp_2,inp_3){
                 </div>
                 <?php $dinner_amt = json_decode($villa_form['first_dinner_amt'],true); //print_r($dinner_amt);?>
                 <div class="top15">
-                	Please select from the <strong>villa menu</strong> the dinner dishes which are served family style rather than ala carte from the attached villa menu. That means that you cannot order individual servings, but the cook will prepare enough of each dish to serve your entire party. The recommended maximum number of items served for more than 
-                    <input type="text"  id="tx_guest_amt" name="tx_guest_amt" value="<?php echo $dinner_amt['guest'];?>"> guests are 
+                	Please select from the <strong>villa menu</strong> the dinner dishes which are served family style rather than ala carte from the attached villa menu. That means that you cannot order individual servings, but the cook will prepare enough of each dish to serve your entire party. The recommended maximum number of items served for each meal are 
+                    <!--<input type="text"  id="tx_guest_amt" name="tx_guest_amt" value="<?php echo $dinner_amt['guest'];?>"> guests are -->
                     <input type="text"  id="tx_dishes_amt" name="tx_dishes_amt" value="<?php echo $dinner_amt['dishes'];?>"> dishes including appetizers and desserts.
                      <?php
 					if(isset($_SESSION['auth']['user_id']))
@@ -1200,14 +1211,14 @@ function save_first_dinner()
             </form>    
             </div>
         	
-            <div class="col-11 col-md-10 col-xl-8 top50">
+            <div class="col-11 col-md-10 col-xl-10 top50">
             <?php $a_comp =  json_decode($villa_form['complimentary'],true);?>
             <form id="v_form_7a_11">
     		<input type="hidden" class="tt7" name="txtID" value="<?php echo $form_id;?>">
             	<div class="tx_head top50">
                 	Complimentary Food & Beverages 
                 </div>
-                <div class="top15"><input type="checkbox" id="chk_a_comp" name="chk_a_comp" <?php echo ($a_comp['display']=='on')?'checked':'';?>> Show</div>
+                <div class="top15"><input type="checkbox" class="form-check-input" id="chk_a_comp" name="chk_a_comp" <?php echo ($a_comp['display']=='on')?'checked':'';?>> Show</div>
                 <div class="rela">
                 	<textarea name="tx_Complimentary" id="tx_Complimentary" cols="30" rows="5" style="width:100%"><?php echo $a_comp['complimentary'];?></textarea>
                 </div>
@@ -1228,7 +1239,7 @@ function save_first_dinner()
             </div>
             
             
-            <div class="col-11 col-md-10 col-xl-8 top50">
+            <div class="col-11 col-md-10 col-xl-10 top50">
             <?php $breakfast = json_decode($villa_form['breakfast'],true);?>
             <form id="v_form_7b">
             <input type="hidden" name="txtID" value="<?php echo $form_id;?>">
@@ -1251,7 +1262,6 @@ function save_first_dinner()
                         ?>
                     </div>
                 </div>
-                
                 <div class="row">
                     <div class="col-md-12  top15">
                         <div class="col-md-2 nopad">Breakfast Link</div>
@@ -1259,11 +1269,11 @@ function save_first_dinner()
                     </div>
                     <div class="col-md-12  top15">    
                         <div class="col-md-2 nopad">Breakfast File</div>
-                        <div class="col-md-2"><button type="button" class="btn btn-info pull-left" onClick="choose_file('b_file');">Upload</button></div>
+                        <div class="col-md-2"><button type="button" class="btn btn-info pull-left <?php echo isset($_SESSION['auth']['user_id'])?'':'d-none';?>" onClick="choose_file('b_file');">Upload</button></div>
                         <div class="col-md-8">
                         	<div class="col-md-12">
                                 <p><span class="tx_b_filename" color="#ff0000" style="display:inline-block;"> <?php echo ($breakfast['filename']!='')?$breakfast['filename']:'Choose File';?></span>
-                                <button class="btn btn-danger"  type="button"><i class="fa fa-times b_trem" aria-hidden="true" onClick="remove_file_upload('b_trem','tx_b_path','tx_b_filename');" style="float: left;color:#fff; cursor:pointer;<?php echo ($breakfast['filename']!='')?'display:block;':'display:none;';?>"></i></button></p>
+                                <button class="btn btn-danger <?php echo isset($_SESSION['auth']['user_id'])?'':'d-none';?>"  type="button"><i class="fa fa-times b_trem" aria-hidden="true" onClick="remove_file_upload('b_trem','tx_b_path','tx_b_filename');" style="float: left;color:#fff; cursor:pointer;<?php echo ($breakfast['filename']!='')?'display:block;':'display:none;';?>"></i></button></p>
                                 <?php $file_status = ($breakfast['filename']!='')?1:0;?>
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input validate hidden d-none"  id="b_file" name="b_file" placeholder="img" onchange="showFile(this,'tx_b_path','tx_b_filename');">
@@ -1298,13 +1308,17 @@ function save_first_dinner()
             </form>
             </div>
             
-            <div class="col-11 col-md-10 col-xl-8 top50">
+            <div class="col-11 col-md-10 col-xl-10 top50">
             <?php $f7c = json_decode($villa_form['provisioning'],true); ?>
             <form id="v_form_7c" role="form" enctype="multipart/form-data">
             <input type="hidden" name="txtID" value="<?php echo $form_id;?>">
             	<div class="col-md-12 nopad top15">
                     <div class="tx_head top50">C. INITIAL PROVISIONING</div>
                     <div class="top15">Please select from the <strong>provisional list</strong> attached the ingredients and groceries pre-stocked for your arrival. </div>
+                    <dl class="row top20">
+                    	<dt class="col-sm-3">Note</dt>
+                        <dd><textarea name="tx_note_provisioning" id="tx_note_provisioning" class="inp" cols="30" rows="5"><?php echo ($f7c['note']=='')?'':$f7c['note'];?></textarea></dd>
+                    </dl>
                 </div>
                 
                 <div class="tx_head"></div>		
@@ -1322,7 +1336,7 @@ function save_first_dinner()
 									?>
 								<div class="checkbox">
 									<label>
-										<input type="checkbox" checked name="chk_wine[]" value="<?php echo $wl['id'];?>"> &nbsp;<?php echo $wl['name'];?>
+										<input type="checkbox" class="form-check-input" checked name="chk_wine[]" value="<?php echo $wl['id'];?>"> &nbsp;<?php echo $wl['name'];?>
 									</label>
 								</div>
 								
@@ -1334,7 +1348,7 @@ function save_first_dinner()
 									?>
 								<div class="checkbox">
 									<label>
-										<input type="checkbox" name="chk_wine[]" value="<?php echo $wl['id'];?>"> &nbsp;<?php echo $wl['name'];?>
+										<input type="checkbox" class="form-check-input" name="chk_wine[]" value="<?php echo $wl['id'];?>"> &nbsp;<?php echo $wl['name'];?>
 									</label>
 								</div>
 								
@@ -1350,9 +1364,9 @@ function save_first_dinner()
                     <?php $file_status = ($f7c['filename']!='')?1:0;?>
                     <dt class="col-sm-3">Wine List File 	</dt>
                     <dd class="col-sm-9">
-                    	<p><button type="button" class="btn btn-info pull-left" onClick="choose_photo();">Upload</button> &nbsp;
+                    	<p><button type="button" class="btn btn-info pull-left <?php echo isset($_SESSION['auth']['user_id'])?'':'d-none';?>" onClick="choose_photo();">Upload</button> &nbsp;
                         <span class="tx_filename" color="#ff0000" style="display:inline-block;"> <?php echo ($f7c['filename']!='')?$f7c['filename']:'Choose File';?></span>
-                        <button class="btn btn-danger"  type="button"><i class="fa fa-times btrem" aria-hidden="true" onClick="remove_file();" style="float: left;color:#fff; cursor:pointer;<?php echo ($f7c['filename']!='')?'display:block;':'display:none;';?>"></i></button>
+                        <button class="btn btn-danger <?php echo isset($_SESSION['auth']['user_id'])?'':'d-none';?>"  type="button"><i class="fa fa-times btrem" aria-hidden="true" onClick="remove_file();" style="float: left;color:#fff; cursor:pointer;<?php echo ($f7c['filename']!='')?'display:block;':'display:none;';?>"></i></button>
                         </p>
                         
                         <div class="custom-file">
@@ -1394,38 +1408,115 @@ function save_first_dinner()
                 <div class="tx_ap2">payment on arrival</div>
             </div>
             
-            <div class="col-11 col-md-10 col-xl-8 top50">
+            <div class="col-11 col-md-10 col-xl-10 top50">
             <form id="v_form_8">
     		<input type="hidden" name="txtID" value="<?php echo $form_id;?>">
-            <?php $deposit =  json_decode($villa_form['deposit'],true);?>
+            <?php 
+			$deposit =  json_decode($villa_form['deposit'],true);
+			$payment_oarv =  json_decode($villa_form['datas'],true);
+			
+			//print_r($payment_oarv);
+			//echo '<br>---'.$payment_oarv['chk_payment']['chk_1'];
+			?>
             	<dl class="row">
-                	<dt class="col-sm-3">A. SECURITY DEPOSIT</dt>
+                	<dt class="col-sm-3">PAYMENT ON ARRIVAL</dt>
                 	<dd class="col-sm-9">
-                    The refundable security deposit <input class="" type="text" name="tx_deposit" id="tx_deposit" placeholder="of US$1500 " value="<?php echo $deposit['deposit'];?>"> in any major currency will be collected cash upon arrival or credit card authorization.<br> Damage security deposit 
-                    <input class="" type="text" name="tx_damage_deposit" id="tx_damage_deposit" style="width:100%;" placeholder="USD 1,000 or THB 30,000 upon check in via cash or bank transfer." value="<?php echo $deposit['damage_deposit'];?>">
+                    
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="1" id="chk_1" name="chk_1" <?php echo ($payment_oarv['chk_payment']['chk_1']==1)?'checked':'';?> onChange="save_payment_on_arrival();">
+                      <label class="form-check-label" for="defaultCheck1">
+                        Any expense made at the villa is only payable in cash
+                      </label>
+                    </div>
+                    
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="1" id="chk_2" name="chk_2" <?php echo ($payment_oarv['chk_payment']['chk_2']==1)?'checked':'';?> onChange="save_payment_on_arrival();">
+                      <label class="form-check-label" for="defaultCheck1">
+                        Any expense made at the villa is payable in cash or credit card with bank fee.
+                      </label>
+                    </div>
+					<span class="icon">
+                            <i class="fa fa-check cok cok_pm" aria-hidden="true"></i> <span class="tok tok_pm"></span>
+                            <i class="fa fa-check cno cno8_pm" aria-hidden="true"></i> <span class="tno tno_pm"></span>
+                    </span>
+                    <script>
+                    function save_payment_on_arrival()
+					{
+						$.ajax({
+							url:"libs/action_form/save_payment_on_arrival_pay_option.php",
+							type:"POST",
+							dataType:"json"	,
+							data:$("#v_form_8").serialize(),
+							success: function(res){
+								if(res.status==true)
+								{
+									$(".cok_pm").fadeIn(300);
+									$(".cno_pm,.tno_pm").hide();
+								}
+								else
+								{
+									$(".cno_pm,.tno_pm").fadeIn(300);
+									$(".tno_pm").html(res.msg);
+									$(".cok_pm").hide();
+								}
+							}
+						});
+					}
+                    </script>
+                    <br>
+
+                   
                     
                     <?php
-			if(isset($_SESSION['auth']['user_id']))
-			{
-			?>
-			<button type="button" class="btn btn-primary top15" onClick="save_deposit();"> Save</button>
-			<?php } ?>
+					if(isset($_SESSION['auth']['user_id']))
+					{
+					?>
+					<!--<button type="button" class="btn btn-primary top15" onClick="save_deposit();"> Save</button>-->
+					<?php } ?>
+            
+                    <!--<span class="icon">
+                            <i class="fa fa-check cok cok8" aria-hidden="true"></i> <span class="tok tok8"></span>
+                            <i class="fa fa-check cno cno8" aria-hidden="true"></i> <span class="tno tno8"></span>
+                    </span>-->
+                    </dd>
+                    
+                    
+                	<dt class="col-sm-3">A. SECURITY DEPOSIT</dt>
+                	<dd class="col-sm-9">
+                    The refundable security deposit <input class="" type="text" name="tx_deposit" id="tx_deposit" placeholder="of US$1500 " value="<?php echo $deposit['deposit'];?>"> in any major currency will be collected cash upon arrival or credit card authorization.<br>
+                    
+					The refundable security deposit <input class="" type="text" name="tx_damage_deposit" id="tx_damage_deposit"  placeholder="USD 1,000 or THB 30,000 upon check in via cash or bank transfer." value="<?php echo $deposit['damage_deposit'];?>"> in any major currency will be collected cash upon arrival, no credit card facilities available at the villa.
+                    <br>
+
+
+
+                    <!--The refundable security deposit  in any major currency will be collected cash upon arrival or credit card authorization.<br> Damage security deposit -->
+                    
+                    
+                    <?php
+					if(isset($_SESSION['auth']['user_id']))
+					{
+					?>
+					<button type="button" class="btn btn-primary top15" onClick="save_deposit();"> Save</button>
+					<?php } ?>
             
                     <span class="icon">
                             <i class="fa fa-check cok cok8" aria-hidden="true"></i> <span class="tok tok8"></span>
                             <i class="fa fa-check cno cno8" aria-hidden="true"></i> <span class="tno tno8"></span>
                     </span>
+                    <br><br>
                     </dd>
+                    
                     
                     <dt class="col-sm-3">B. PAYMENT ON ARRIVAL</dt>
                     <dd class="col-sm-9">
                     	<input class="" type="text" name="tx_payment_on_arrival" id="tx_payment_on_arrival" placeholder="of US$1500 " value="<?php echo $villa_form['payment_on_arrival'];?>"> 
                         <?php
-			if(isset($_SESSION['auth']['user_id']))
-			{
-			?>
-			<button type="button" class="btn btn-primary " onClick="save_pmoarv();"> Save</button>
-			<?php } ?>
+						if(isset($_SESSION['auth']['user_id']))
+						{
+						?>
+						<button type="button" class="btn btn-primary " onClick="save_pmoarv();"> Save</button>
+						<?php } ?>
             
                         <span class="icon">
                                 <i class="fa fa-check cok cok8_payment_on_arrival" aria-hidden="true"></i> <span class="tok tok8_payment_on_arrival"></span>
@@ -1447,10 +1538,10 @@ function save_first_dinner()
                 <div class="tx_ap2">conceirge services</div>
             </div>
             
-            <div class="col-11 col-md-10 col-xl-8 top50 ">
+            <div class="col-11 col-md-10 col-xl-10 top50 ">
             	<?php $f9 = json_decode($villa_form['service'],true);?>
                 <form id="v_form_9">
-                <input type="hidden" name="txtID" value="<?php echo $form_id;?>">
+                <input type="hidden" name="txtID" id="txtID_spa" value="<?php echo $form_id;?>">
                 	<div class="tx_head ">CONCEIRGE SERVICES</div>
                     <div class="col top15">Any expense made at the villa is only payable in cash</div>
                     
@@ -1461,40 +1552,190 @@ function save_first_dinner()
                         <dd class="col-sm-9"><input class="inp" type="text" name="tx_Yacht" id="tx_Yacht" value="<?php echo ($f9['Yacht']=='')?'Yacht, speedboat, snorkeling, diving, Phuket island, Golf, cooking classes, others…':$f9['Yacht'];?>"></dd>
                         <dt class="col-sm-3">Restaurant Reservation	</dt>
                         <dd class="col-sm-9"><input class="inp" type="text" name="tx_Restaurant" id="tx_Restaurant" value="<?php echo $f9['Restaurant'];?>"></dd>
-                        <dt class="col-sm-3">Massage & Spa</dt>
-                        <dd class="col-sm-9"><input class="inp" type="text" name="tx_Massage" id="tx_Massage" value="<?php echo $f9['Massage'];?>"></dd>
+                        
+                        <?php $spa_datas =  json_decode($villa_form['datas'],true);?>
+						<dt class="col-sm-3">Massage & Spa</dt>
+                        <dd class="col-sm-9">
+                        	<input class="inp" type="text" name="tx_Massage" id="tx_Massage" value="<?php echo $f9['Massage'];?>">
+                            <input class="inp " type="text" name="tx_spa_link" id="tx_spa_link" value="<?php echo $spa_datas['spa']['link'];?>" placeholder="Link" style="margin-top:8px;">
+                            <input class="inp" type="hidden" name="tx_spa_file" id="tx_spa_file" value="<?php echo $spa_datas['spa']['file'];?>" style="margin-top:8px;">
+                            
+                            <?php
+                            if(isset($_SESSION['auth']['user_id']))
+                            {
+                            ?>
+                            <button type="button" class="btn btn-primary " onClick="choose_file_spa();" style="margin-top:8px;">Upload</button>	
+                            <span class="text_spa"><?php echo $spa_datas['spa']['file'];?></span>
+                            <button type="button" class="btn btn-danger btn__spa_del <?php echo ($spa_datas['spa']['file']!='')?'':'d-none';?>" onClick="remove_spa_file();" style="margin-top:8px; "><i class="fa fa-trash" aria-hidden="true"></i></button>	
+                            <button type="button" class="btn btn-primary btn__save__spa " onClick="save_spa_data();" style="margin-top:8px;">Save</button>	
+                            
+                            <span class="icon">
+                                <i class="fa fa-check cok cok_spa" aria-hidden="true"></i> <span class="tok tok_spa"></span>
+                                <i class="fa fa-check cno cno_spa" aria-hidden="true"></i> <span class="tno tno_spa"></span>
+                            </span>
+                            
+                            <?php } ?>
+                            
+                        </dd>
                         <dt class="col-sm-3">Special Occasion</dt>
                         <dd class="col-sm-9"><input class="inp" type="text" name="tx_Occasion" id="tx_Occasion" value="<?php echo ($f9['Occasion']=='')?'Birthday, Anniversary, Wedding, Proposal, Honeymoon, others…':$f9['Occasion'];?>"></dd>
                         <dt class="col-sm-3">Other Arrangements</dt>
                         <dd class="col-sm-9"><input class="inp" type="text" name="tx_Arrangements" id="tx_Arrangements" value="<?php echo($f9['Arrangements']=='')?'Baby equipment required, extra bed, ':$f9['Arrangements'];?>"></dd>
                         <dt class="col-sm-3">Dietary</dt>
                         <dd class="col-sm-9"><input class="inp" type="text" name="tx_Dietary" id="tx_Dietary" value="<?php echo ($f9['Dietary']=='')?'Vegan, vegetarian, gluten free, kosher, Muslim, allergies:':$f9['Dietary'];?>"></dd>
-                    </dl>
-                    <p>
-                    <?php
-			if(isset($_SESSION['auth']['user_id']))
-			{
-			?>
-			<button type="button" class="btn btn-primary " onClick="save_service();"> Save</button>	
-			<?php } ?>
-            
-                    <span class="icon">
+                        <dt class="col-sm-3"></dt>
+                        <dd class="col-sm-9">
+                        	<p>
+							<?php
+                            if(isset($_SESSION['auth']['user_id']))
+                            {
+                            ?>
+                            <button type="button" class="btn btn-primary " onClick="save_service();"> Save</button>	
+                            <?php } ?>
+                    
+                            <span class="icon">
                                 <i class="fa fa-check cok cok9" aria-hidden="true"></i> <span class="tok tok9"></span>
                                 <i class="fa fa-check cno cno9" aria-hidden="true"></i> <span class="tno tno9"></span>
                             </span>
-                    </p>
+                            
+                            </p>
+                        </dd>
+                    </dl>
+                    
                 </form>
         	</div>
     </div>
 </div>
 
 
-
+<form id="form_CONCEIRGE_spa" class="form-horizontal d-none" role="form" enctype="multipart/form-data" onsubmit="upload_file_spa(this);return false;">
+	<input type="hidden" name="txtID" value="<?php echo $form_id;?>">
+   <button type="submit" id="but_save_spa" class="btn btn-primary pull-right">Save</button>
+   <input type="file" class="custom-file-input validate " id="file_spa" name="file_spa" placeholder="img" onchange="read_file_name(this);">         
+   <input type="text" name="txt_spa" id="txt_spa" >         
+</form>
 				
 <!-- new -->  
     
     
 <script>
+function choose_file_spa()
+{
+	$("#file_spa").click();
+}
+
+function read_file_name(input)
+{
+	let fileName = input.files[0].name;
+    if ($.trim(fileName)) {
+        //$('label[for="img"]').text(fileName);
+        if (input.files && input.files[0]) {
+            let reader = new FileReader();
+            reader.onload = function (e) {
+                var img = '<img src="' + e.target.result + '" width="100%" />';
+                
+                //$('#preview-img').html(img);
+				$('.text_spa').html(fileName);
+				$("#txt_spa").val(fileName);
+				$("#but_save_spa").click();
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    } else {
+        //$('label[for="img"]').text('Choose file');
+    }
+
+}
+function save_file_spa()
+{
+	$("#but_save_spa").click();
+}
+
+function save_spa_data()
+{
+	$.ajax({
+		url:"libs/action_form/save_spa_data.php",
+		type:"POST",
+		dataType:"json",
+		data:{
+			txtID_spa:$("#txtID_spa").val(),
+			tx_spa_link:$("#tx_spa_link").val(),
+			tx_spa_file:$("#tx_spa_file").val()
+		},
+		success: function(res){
+			if(res.status==true)
+			{
+				$(".cok_spa").fadeIn(300);
+				$(".cno_spa,.tno_spa").hide();
+			}
+			else
+			{
+				$(".cno_spa,.tno_spa").fadeIn(300);
+				$(".tno_spa").html(res.msg);
+				$(".cok_spa").hide();
+			}
+		}
+	});
+}
+
+function remove_spa_file()
+{
+	$("#tx_spa_file").val('');
+	$(".text_spa").html('');
+	$(".btn__spa_del").hide();
+	$.ajax({
+		url:"libs/action_form/remove_spa_data.php",
+		type:"POST",
+		dataType:"json",
+		data:{
+			txtID_spa:$("#txtID_spa").val()
+			//tx_spa_link:$("#tx_spa_link").val(),
+			//tx_spa_file:$("#tx_spa_file").val()
+		},
+		success: function(res){
+			save_spa_data();
+		}
+	});
+}
+
+function upload_file_spa(form)
+{
+	var formData = new FormData($(form)[0]);
+	$.ajax({
+		url: "libs/action_form/upload_file_spa.php",
+		cache: false,
+		contentType: false,
+		processData: false,
+		type: 'POST',
+		dataType: 'json',
+		data: formData,
+		beforeSend: function () {
+		},
+		success: function (response) {
+				//window.location.reload();
+			$("#tx_spa_file").val(response.file_path);
+			$("#txt_spa").val('');
+			$('.text_spa').html(response.file_path);
+			$(".btn__spa_del").removeClass('d-none');
+			save_spa_data();
+		} 
+	});
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function add_notes()
 {
     var z='';
@@ -2410,7 +2651,19 @@ function showImg(input)
     
      
 
-    
+<style>
+input[type=checkbox]:checked:before {
+    /* content: '\f00d'; */
+    content: unset;
+    margin: 2px 0 0 -1px;
+    color: #ffffff;
+    font-weight:bold;
+    font-size:30px;
+    border:none !important;
+    outline:none;
+    margin-top:-7px;
+}
+</style>  
     
     
     

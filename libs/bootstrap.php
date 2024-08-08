@@ -140,6 +140,8 @@
 		?>
         <!--<script src="<?php echo $url_link;?>libs/js/jquery-3.1.1.min.js"></script>--> 
 <?php }?>
+
+<?php include_once("google_tags.php");?>
 </head>
 <body>
 <?php //$page=isset($_REQUEST['page'])?$_REQUEST['page']:'home';
@@ -259,7 +261,7 @@ if($page !='inspiringgroup')
         ?><script defer src="<?php echo $url_link;?>libs/js/jquery.parallax-1.1.3.js"></script><?php
     }
 	
-	if($page=='villaform-admin')
+	if($page=='villaform-admin' || $page=='villaform-customer')
 	{
 		?>
 		<script type="text/javascript" src="<?php echo $url_link;?>libs/ckeditor/ckeditor.js"></script>

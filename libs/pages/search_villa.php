@@ -4,9 +4,13 @@ $bread_c = 'sub_search';
 $top_bg = 'top_mobile';
 if(isset($_REQUEST['des']) && $_REQUEST['des']==38)
 {
-	$top_bg = 'top_mobile';
+	/*$top_bg = 'top_mobile';
 	$bg_head = 'search_box_photo';
-	$bread_c = 'sub_search';
+	$bread_c = 'sub_search';*/
+	
+	$bg_head = 'search_box_photo_2';
+	$bread_c = 'sub_search_2';
+	$top_bg = 'top_mobile_2';
 }
 else
 {
@@ -35,7 +39,7 @@ else
 
 <?php 
 
-if(isset($_REQUEST['des']) && $_REQUEST['des']==38)
+if(isset($_REQUEST['des']) && $_REQUEST['des']==0.38)
 {
 	?>
 <div class="container-fluid top_photo ">

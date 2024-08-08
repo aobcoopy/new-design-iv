@@ -41,6 +41,7 @@
 	                        <th>Date</th>
                             <th>Checkin</th>
                             <th>Checkout</th>
+                            <th>IP</th>
                             <th>User</th>
                             <th>Status</th>
 							<th>Action</th>
@@ -89,13 +90,13 @@ function load_data()
 			s += fn.engine.datatable.button('btn-default','fa-search','fn.app.booking.booking.view('+data[0]+')');
 			s += ' ';
 			//s += fn.engine.datatable.button('btn-warning','fa-lock','fn.app.booking.group.permission('+data[0]+')');
-			$('td', row).eq(10).html(s);
+			$('td', row).eq(11).html(s);
 			
 			var em = data[4]+'<br> IP: '+data[13];
 			$('td', row).eq(4).html(em);
 			
 			var a = '';
-			if(data[9]==1){
+			if(data[10]==1){
 				/*a +='<div class="switch">';
 				a +='<input id="cmn-toggle-'+data[0]+'" class="cmn-toggle cmn-toggle-round" checked type="checkbox" onClick="fn.app.edit.change_status('+data[0]+',this)">';
 				a += '<label for="cmn-toggle-'+data[0]+'"></label>';
@@ -108,7 +109,7 @@ function load_data()
 				a += '</div>';*/
 				a+='<button class="btn btn-warning"><i class="fa fa-envelope " aria-hidden="true"></i></button>' 
 			}
-			$('td', row).eq(9).html(a);
+			$('td', row).eq(10).html(a);
 		}
 	});
 
@@ -156,6 +157,7 @@ $(function(){
 			{"bSortable": false },
 			{"bSortable": false },
 			{"bSortable": false },
+			{"bSortable": false },
 			{"bSortable": false }
 		],
 		//"order": [[ 0, "desc" ]],
@@ -178,12 +180,12 @@ $(function(){
 			s += fn.engine.datatable.button('btn-default','fa-search','fn.app.booking.booking.view('+data[0]+')');
 			s += ' ';
 			//s += fn.engine.datatable.button('btn-warning','fa-lock','fn.app.booking.group.permission('+data[0]+')');
-			$('td', row).eq(10).html(s);
+			$('td', row).eq(11).html(s);
 			
 			
 			
 			var a = '';
-			if(data[9]==1){
+			if(data[10]==1){
 				/*a +='<div class="switch">';
 				a +='<input id="cmn-toggle-'+data[0]+'" class="cmn-toggle cmn-toggle-round" checked type="checkbox" onClick="fn.app.edit.change_status('+data[0]+',this)">';
 				a += '<label for="cmn-toggle-'+data[0]+'"></label>';
@@ -196,7 +198,7 @@ $(function(){
 				a += '</div>';*/
 				a+='<button class="btn btn-warning"><i class="fa fa-envelope " aria-hidden="true"></i></button>' 
 			}
-			$('td', row).eq(9).html(a);
+			$('td', row).eq(10).html(a);
 		}
 	});
 	fn.engine.datatable.add_selectable('tblGroup','chk_group');
