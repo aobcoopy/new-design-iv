@@ -48,8 +48,45 @@ else
 
 <div class="container-fluid">
 	<div class="row justify-content-center">
+    
     	<div class="col-11 col-md-11 col-lg-9">
         	<div class="row">
+                <div class="col-12 text-center tblk">
+                    <div class="cont_tt ">Contact Us</div>
+                    <div class="cont_sub tblk">For a general question or enquiries please submit the form below by providing your name & email & contact number - we'll get straight back to you!</div>
+                    <div class="cont_des">For any urgent requests, please call us at HongKong Line <a href="tel:+85281986765" class="tw t_link">+852-8198-6765</a> or Thailand Line <a href="tel:+66846771551" class="tw t_link">+66-84-677-1551</a></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-12">    
+            <div class="row ">
+            	<div class="col-12 col-md-4 top_con top_con_1 text-center">
+                	<div class="con_inside">
+                        <img src="../../upload/new_design/contact/Artboard 142.png" class="top_con_icon" alt="">
+                        <div class="top_con_txt">request<br>form</div>
+                        <button class="top_con_btn">Click here</button>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 top_con top_con_2 text-center">
+                	<div class="con_inside">
+                        <div class="top_con_txt">reach us</div>
+                        <img src="../../upload/new_design/contact/Artboard 143.png" class="top_con_icon" alt="">
+                        <img src="../../upload/new_design/contact/Artboard 144.png" class="top_con_icon" alt="">
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 top_con top_con_3 text-center">
+                	<div class="con_inside">
+                    <div class="top_con_txt">email us</div>
+                    <img src="../../upload/new_design/contact/Artboard 145.png" class="top_con_icon" alt="">
+                    </div>
+                </div>	
+            </div>
+        </div>    
+            
+            
+            
+         <div class="col-11 col-md-11 col-lg-9">   
             	<div class="col-12 col-md-7">
                 	<div class="cont_tt">Contact Us</div>
                     <div class="cont_sub">For a quick response please provide your name & email - we'll get straight back to you!</div>
@@ -398,7 +435,8 @@ else
                     </div>
                 </div>
             </div>
-        </div>
+        <!--</div>-->
+        
     </div>
 </div>
 <div class="container-fluid rela web992">
@@ -407,6 +445,19 @@ else
 
 
 <script>
+$(document).ready(function(e) {
+     var top_header = $('.top_con');
+    //top_header.css({'background-position':'center top'}); // better use CSS
+	//top_header.css({'transform':'scale(1)'});
+
+    $(window).scroll(function () {
+    var st = $(this).scrollTop();
+    //top_header.css({'background-position':'center calc(0% + '+(st*.3)+'px)'});
+	//top_header.css({'transform':'scale(calc(0 + '+(st*.3)+'))'});
+    });
+
+});
+
 function lower_text(str)
 {
 	var text = $(str).val();

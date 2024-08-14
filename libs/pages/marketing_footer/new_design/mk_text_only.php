@@ -33,14 +33,11 @@ Private pool villas in Thailand offer an escape into luxury, culture, and relaxa
 elseif($page_link=='beachfront')
 {
 	$tt = 'Explore Best Beachfront Villas Thailand';
-	$detail .= "From the lesser traveled Koh Samui and Phang Nga, to the thriving beaches of Phuket, all of Inspiring Villas’ choices offer a little slice of paradise. Thailand is a very geographically diverse nation, making each Beachfront Villas Thailand unique. Beaches like Yamu, Ao Yon, and Natai provide great locations on the stretch between Phuket and Phang Nga. While the calming shores of Taling Ngam are gorgeous while you’re staying in Thailand. Not only are these villa locations gorgeous, but they are exclusive so that your holiday can be removed from the tourist hotspots if you’d like.
-<br><br>
-Traveling groups come in all sizes, from the romantic holiday for two, to the big corporate retreat of 30+. Beachfront Villas Thailand have space to accommodate all types of groups, whether it be intimate family gatherings or grand wedding celebrations. There are villas with big open lawns, spaces for events, and always gorgeous views of the ocean so you can catch the sunset from the privacy of your accommodations.
-One of the highlights of these Beachfront Villas Thailand are the full-time staff that is available to make your experience smooth and hassle-free. Every villa is well maintained by this exceptional staff, from butlers to room attendants. There are chefs that can specialize in both Thai and international food options. Inspiring Villas ensures that all of our guests can relax with the peace of mind that the villa is always in good hands with our world-class staff.
-<br><br>
-The amenities at each villa are designed with our guest’s enjoyment and relaxation at top of mind. The infinity pools provide amazing ocean views and the outdoor dining and group spaces are lush with local foliage. Some of these beachfront villas Thailand offer fully equipped gyms, private cinemas, and state of the art sound systems. There are even options with in-house spa services, so that all guests can treat themselves to massages and a big dose of self care from the comfort of home.
-<br><br>
-While these villas are often located in private settings, they are never too far away from the local attractions and activities. You can be sure that night markets are only a short drive away, restaurants are right around the corner, and cultural sites a quick jaunt away. Location is key when selecting your beachfront villa in Thailand, and all of our villa options are situated in ideal spots on the beach.
+	$detail .= "From the lesser traveled Koh Samui and Phang Nga, to the thriving beaches of Phuket, all of Inspiring Villas’ choices offer a little slice of paradise. Thailand is a very geographically diverse nation, making each Beachfront Villas Thailand unique. Beaches like Yamu, Ao Yon, and Natai provide great locations on the stretch between Phuket and Phang Nga. While the calming shores of Taling Ngam are gorgeous while you’re staying in Thailand. Not only are these villa locations gorgeous, but they are exclusive so that your holiday can be removed from the tourist hotspots if you’d like.<br><br>
+Traveling groups come in all sizes, from the romantic holiday for two, to the big corporate retreat of 30+. Beachfront Villas Thailand have space to accommodate all types of groups, whether it be intimate family gatherings or grand wedding celebrations. There are villas with big open lawns, spaces for events, and always gorgeous views of the ocean so you can catch the sunset from the privacy of your accommodations.<br>
+One of the highlights of these Beachfront Villas Thailand are the full-time staff that is available to make your experience smooth and hassle-free. Every villa is well maintained by this exceptional staff, from butlers to room attendants. There are chefs that can specialize in both Thai and international food options. Inspiring Villas ensures that all of our guests can relax with the peace of mind that the villa is always in good hands with our world-class staff.<br><br>
+The amenities at each villa are designed with our guest’s enjoyment and relaxation at top of mind. The infinity pools provide amazing ocean views and the outdoor dining and group spaces are lush with local foliage. Some of these beachfront villas Thailand offer fully equipped gyms, private cinemas, and state of the art sound systems. There are even options with in-house spa services, so that all guests can treat themselves to massages and a big dose of self care from the comfort of home.<br><br>
+While these villas are often located in private settings, they are never too far away from the local attractions and activities. You can be sure that night markets are only a short drive away, restaurants are right around the corner, and cultural sites a quick jaunt away. Location is key when selecting your beachfront villa in Thailand, and all of our villa options are situated in ideal spots on the beach.<br>
 Your beachfront villa choice in Thailand makes a massive impact on your trip, so choose from options that provide comfort, privacy, beauty and luxury. These experiences are meant to go beyond the ordinary, so treat yourself to the best that beachfront villas Thailand has to offer. Whether it's waking up to the sound of waves lapping against the shore or watching the sunset from a private pool, a stay at one of these villas is the epitome of a dream vacation in the Land of Smiles.
 <br><br>";
 	$content .='<div class="col-11 text-center top50">';
@@ -901,6 +898,9 @@ There are many large beautiful properties that can be the wedding villa for your
 include "mk_phuket_beach.php";
 include "mk_phuket_category.php";
 include "mk_koh_samui.php";
+include "mk_koh_phangan.php";
+include "mk_karbi.php";
+include "mk_phang_nga.php";
 ?>
 
 

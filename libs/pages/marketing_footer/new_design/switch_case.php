@@ -195,7 +195,7 @@ switch($this_link)
 	//--------------------phuket + beach----------------------------
 	
 	
-	//--------------------koh samui + beach----------------------------
+	//--------------------koh samui + category----------------------------
 	case "/search-rent/thailand-koh-samui/all-beach/all-price/all-bedrooms/beachfront-villas/all-sort.html" :
 		$page_link = 'koh_samui_beachfront';
 		$mk_text_only = '';
@@ -215,7 +215,94 @@ switch($this_link)
 		$page_link = 'koh_samui_larger_group';
 		$mk_text_only = '';
 	break;
+	//--------------------koh samui + category----------------------------
+	
 	//--------------------koh samui + beach----------------------------
+	case "/search-rent/thailand-koh-samui/bangrak-beach/all-price/all-bedrooms/all-collections/all-sort.html" :
+		$page_link = 'thailand-koh-samui/bangrak-beach';
+		$mk_text_only = '';
+	break;
+	case "/search-rent/thailand-koh-samui/bophut-beach/all-price/all-bedrooms/all-collections/all-sort.html" :
+		$page_link = 'thailand-koh-samui/bophut-beach';
+		$mk_text_only = '';
+		$mk_head_photo ='';
+	break;
+	case "/search-rent/thailand-koh-samui/chaweng-beach/all-price/all-bedrooms/all-collections/all-sort.html" :
+		$page_link = 'thailand-koh-samui/chaweng-beach';
+		$mk_text_only = '';
+	break;
+	case "/search-rent/thailand-koh-samui/chaweng-noi/all-price/all-bedrooms/all-collections/all-sort.html" :
+		$page_link = 'thailand-koh-samui/chaweng-noi';
+		$mk_text_only = '';
+	break;
+	case "/search-rent/thailand-koh-samui/choeng-mon-beach/all-price/all-bedrooms/all-collections/all-sort.html" :
+		$page_link = 'thailand-koh-samui/choeng-mon-beach';
+		$mk_text_only = '';
+	break;
+	case "/search-rent/thailand-koh-samui/laem-set-beach/all-price/all-bedrooms/all-collections/all-sort.html" :
+		$page_link = 'thailand-koh-samui/laem-set-beach';
+		$mk_text_only = '';
+	break;
+	case "/search-rent/thailand-koh-samui/laem-sor-beach/all-price/all-bedrooms/all-collections/all-sort.html" :
+		$page_link = 'thailand-koh-samui/laem-sor-beach';
+		$mk_text_only = '';
+	break;
+	case "/search-rent/thailand-koh-samui/lamai-beach/all-price/all-bedrooms/all-collections/all-sort.html" :
+		$page_link = 'thailand-koh-samui/lamai-beach';
+		$mk_text_only = '';
+	break;
+	case "/search-rent/thailand-koh-samui/lipa-noi-beach/all-price/all-bedrooms/all-collections/all-sort.html" :
+		$page_link = 'thailand-koh-samui/lipa-noi-beach';
+		$mk_text_only = '';
+	break;
+	case "/search-rent/thailand-koh-samui/maenam-beach/all-price/all-bedrooms/all-collections/all-sort.html" :
+		$page_link = 'thailand-koh-samui/maenam-beach';
+		$mk_text_only = '';
+	break;
+	case "/search-rent/thailand-koh-samui/taling-ngam-beach/all-price/all-bedrooms/all-collections/all-sort.html" :
+		$page_link = 'thailand-koh-samui/taling-ngam-beach';
+		$mk_text_only = '';
+	break;
+	//--------------------koh samui + beach----------------------------
+	
+	//--------------------koh phangan----------------------------
+	case "/search-rent/thailand-koh-phangan/all-beach/all-price/all-bedrooms/all-collections/all-sort.html" :
+		$page_link = 'koh_phangan';
+		$mk_text_only = '';
+	break;
+	//--------------------koh phangan----------------------------
+	//--------------------koh phangan + cate----------------------------
+	case "/search-rent/thailand-koh-phangan/all-beach/all-price/all-bedrooms/seaview-villas/all-sort.html" :
+		$page_link = 'koh_phangan_seaview';
+		$mk_text_only = '';
+	break;
+	//--------------------koh phangan + cate----------------------------
+	
+	
+	//--------------------krabi----------------------------
+	case "/search-rent/thailand-krabi/all-beach/all-price/all-bedrooms/all-collections/all-sort.html" :
+		$page_link = 'krabi';
+		$mk_text_only = '';
+		$mk_head_photo = '';
+	break;
+	case "/search-rent/thailand-krabi/all-beach/all-price/all-bedrooms/seaview-villas/all-sort.html" :
+		$page_link = 'krabi_seaview';
+		$mk_text_only = '';
+	break;
+	//--------------------krabi----------------------------
+	
+	
+	//--------------------Phang Nga----------------------------
+	case "/search-rent/thailand-phang-nga/all-beach/all-price/all-bedrooms/all-collections/all-sort.html" :
+		$page_link = 'phang_nga';
+		$mk_text_only = '';
+		$mk_head_photo = '';
+	break;
+	case "/search-rent/thailand-phang-nga/all-beach/all-price/all-bedrooms/seaview-villas/all-sort.html" :
+		$page_link = 'phang_nga_seaview';
+		$mk_text_only = '';
+	break;
+	//--------------------Phang Nga----------------------------
 }
 ?>
 <script>

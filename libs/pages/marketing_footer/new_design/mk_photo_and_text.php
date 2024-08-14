@@ -173,9 +173,12 @@ elseif($page_link=='koh_samui_seaview')
     </div>
 	<?php
 }
+
 else
 {
 	//$display = '';
 }
 ?>
+<div class="col-md-12 nopad top21 f18"><br>
 
+</div>

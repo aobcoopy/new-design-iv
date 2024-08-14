@@ -248,15 +248,15 @@ If a Phuket pool villa has been on your bucket list for a while, there is no bet
              <div class="col-md-12 nopad top41 f18">
                   Let’s introduce you to how to find and rent the best villas on the beach in Phuket.<br><br>
                 But first some quick advice about beachfront villas Phuket here.<br><br>
-                Your epic trip to Phuket deserves a hint of luxury, a splash of beauty, and lots of time at the beach. beachfront villas Phuket will deliver all of this and more, including locations that are easy to navigate to and nearby local attractions. Each villa in our collection delivers a unique charm, variety of amenities, and a home for you and your travel companions while exploring the beautiful island culture of Phuket. Whether you’re seeking a one-bedroom hideaway for your honeymoon, or a grand 10 bedroom estate for a gathering of family or friends, there’s a villa from Inspiring Villas to fulfill every dream. 
+                Your epic trip to Phuket deserves a hint of luxury, a splash of beauty, and lots of time at the beach. beachfront villas Phuket will deliver all of this and more, including locations that are easy to navigate to and nearby local attractions. beachfront villas Phuket in our collection delivers a unique charm, variety of amenities, and a home for you and your travel companions while exploring the beautiful island culture of Phuket. Whether you’re seeking a one-bedroom hideaway for your honeymoon, or a grand 10 bedroom estate for a gathering of family or friends, beachfront villas Phuket from Inspiring Villas to fulfill every dream. 
                 <br><br>
-                There is nothing quite as enjoyable as beachfront living, with easy access to the sea, infinity pools that seem to be out of a movie, and beautiful tropical gardens. These villas cater to all experiences, so you can have dinner under the stars, enjoy some rejuvenating in-villa spa treatments, and plenty of entertainment facilities. Our professional staff comes with deep industry experience, always aiming to provide a hassle free holiday to all guests. From the chefs and butlers to the house keepers and concierge, your stay will always be effortless so you can enjoy the Phuket adventure that you deserve!
+                There is nothing quite as enjoyable as beachfront living, with easy access to the sea, infinity pools that seem to be out of a movie, and beautiful tropical gardens. Beachfront villas Phuket cater to all experiences, so you can have dinner under the stars, enjoy some rejuvenating in-villa spa treatments, and plenty of entertainment facilities. Our professional staff comes with deep industry experience, always aiming to provide a hassle free holiday to all guests. From the chefs and butlers to the house keepers and concierge, your stay will always be effortless so you can enjoy the Phuket adventure that you deserve!
                 <br><br>
                 The villa itself is only part of the experience, as the location is a top priority for all travelers. A quick ride from many Phuket hotspots, all of these villas were selected for the nearby activities that they accommodate. The variety of local and international foods is diverse, the beachfront location puts you nearby to a number of water sports activities, and the list of cultural sites is too long to detail. When you’re staying in one of our villas, you can always explore the vibrant community or stay comfortably at home to unplug from the world.<br><br>
                 
                 There are not many beachfront villas in Phuket. Just a few.<br>
                 Some on adorable private coves with clear water just below their pool decks.<br>
-                And if that is what you are looking for then you have come to the right place and we list them all on this page for you. Maybe you haven’t decided where to go yet, if so then it could help to check out the <a href="/search-rent/thailand-koh-samui/all-beach/all-price/all-bedrooms/beachfront-villas/all-sort.html" class="blu">beachfront villas Koh Samui</a>.
+                And if that is what you are looking for then you have come to the right place and we list them all on this page for you. Maybe you haven’t decided where to go yet, if so then it could help to check out the <a href="/search-rent/thailand-koh-samui/all-beach/all-price/all-bedrooms/beachfront-villas/all-sort.html" class="blu">beachfront villas Koh Samui</a> or <a href="/search-rent/thailand/all-beach/all-price/all-bedrooms/beachfront-villas/all-sort.html" class="blu">beachfront villas Thailand</a>.
                 <br><br>
                 
                 However it is possible you mean that you wish to rent a villa on a beach area but not necessarily directly on the beach.<br>
@@ -328,7 +328,7 @@ Choosing a 5 bedroom 6 bedroom or 7 bedroom villas in Phuket should be simple, w
 				  <div class="col-md-12 nopad top41">
                     <div class=" mb f22 top"><strong><h3>How does beachfront villas Phuket rental work</h3></strong></div>
                         <p class="col-md-12 nopad top21 f18 pnone">
-                            There are a large range of Phuket holiday villas for rent. Even if a villa is large with eight bedrooms they will offer you to use less bedrooms and pay less per night. So you can often rent a larger villa with staff and all its amenities but only use a few bedrooms and pay much less per night.
+                            There are a large range of Phuket villas for rent. Even if a villa is large with eight bedrooms they will offer you to use less bedrooms and pay less per night. So you can often rent a larger villa with staff and all its amenities but only use a few bedrooms and pay much less per night.
             Prices vary between seasons and are highest over the peak season of Christmas and New year in Thailand.
                         </p>
                     </div>
@@ -935,8 +935,8 @@ Just a short drive from your villa in Phuket, you’ll find a range of opportuni
 					<div class="col-md-12 nopad top21 f18">
 						Phuket does not offer many villas directly on the beach, those available offer beautiful choices of location and villa.<br>
 						Enjoying a private beach just steps away from your bedroom and pool deck demands higher prices than the average Phuket villa.<br>
-						In <?php echo $last_year;?> the average rental value of one room in a beachfront villa was USD$379++ per night<br>
-						At USD$189.50++ per person per night Phuket Beachfront villas are the most expensive category of luxury villa rental in Thailand.<br>
+						In <?php echo $last_year;?> the average rental value of one room in a beachfront villas Phuket was USD$379++ per night<br>
+						At USD$189.50++ per person per night Beachfront villas Phuket are the most expensive category of luxury villa rental in Thailand.<br>
 						In Australian dollars this equates to AUD$263++ pp each night as of December <?php echo $last_year;?>.<br>
 						This cost greatly increases in high and peak seasons and is dependent on the setting, location and premium of the villa itself.<br>
 						Tax ++ in Thailand is 17.7%   

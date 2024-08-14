@@ -20,7 +20,7 @@
 		{
 			get_vdo($_REQUEST['des'],$url_link);
 		}
-		elseif($_REQUEST['des']==39 && $_REQUEST['cate']!='all')
+		elseif($_REQUEST['des']==39 && $_REQUEST['cate']!='all' && $_REQUEST['sub']=='all')
 		{
 			get_vdo($_REQUEST['des'],$url_link);
 		}
@@ -33,9 +33,21 @@
 		{
 			echo '<img src="'.$url_link.'upload/Patong-villas-for-rent.jpeg" alt="Patong villas for rent" class="img-responsive top50" >';
 		}
+		elseif($page_link=='thailand-koh-samui/bophut-beach')
+		{
+			echo '<img src="'.$url_link.'upload/Bophut-Villas-for-rent.jpeg" alt="Bophut villas for rent" class="img-responsive top50" >';
+		}
+		elseif($page_link=='krabi')
+		{
+			echo '<img src="'.$url_link.'upload/Krabi-villas-for-rent.jpg" alt="Krabi villas for rent" class="img-responsive top50" >';
+		}
+		elseif($page_link == 'phang_nga')
+		{
+			echo '<img src="'.$url_link.'upload/Phang-Nga-Villas-for-rent.jpg" alt="Phang Nga Villas for rent" class="img-responsive top50" >';
+		}
 		else
 		{
-			echo '<img src="'.$url_link.'upload/Artboard 120.png" alt="" width="100%" class="top_search">';
+			//echo '<img src="'.$url_link.'upload/Artboard 120.png" alt="" width="100%" class="top_search">';
 		}
 		
 		

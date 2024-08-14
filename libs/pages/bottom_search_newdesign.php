@@ -1,6 +1,6 @@
 <?php 
 	include "libs/pages/marketing_footer/new_design/switch_case.php";
-	print_r($_REQUEST);
+	//print_r($_REQUEST);
 	include "libs/pages/marketing_footer/new_design/mk_head_photo.php";
 	include "libs/pages/marketing_footer/new_design/mk_photo_and_text.php";
 	include "libs/pages/marketing_footer/new_design/mk_text_only.php";

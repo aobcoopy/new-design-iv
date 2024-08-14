@@ -135,7 +135,7 @@
 		}
 		else
 		{
-			//echo '<script src="'.$url_link.'libs/js/v5/animation_main.js"></script>';
+			/*echo '<script src="'.$url_link.'libs/js/v5/animation_main.js"></script>';*/
 		}
 		?>
         <!--<script src="<?php echo $url_link;?>libs/js/jquery-3.1.1.min.js"></script>--> 
